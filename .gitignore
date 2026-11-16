@@ -5,3 +5,9 @@ dist/
 .env*
 制作记录/
 *.zip
+*.pdf
+*.ppt
+*.pptx
+学习资料/
+课程练习记录*.json
+*_练习记录_*.json
