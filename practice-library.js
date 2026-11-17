@@ -2,6 +2,7 @@ import {getCourse} from './course-banks.js';
 import {practiceExtra} from './practice-extra.js';
 import {expandedPractice} from './expanded-practice.js';
 import {referenceQuestions} from './reference-bank.js';
+import {waveTwoPractice} from './bank-wave-02.js';
 
 const catalog={
  network:[{id:1,name:'第1章 计算机网络概述'},{id:'physical',name:'物理层基础',note:'绪论中物理介质与接入网相关内容，独立学习单元，不改写课件正式章号'},{id:5,name:'第5章 数据链路层'},{id:4,name:'第4章 网络层'},{id:3,name:'第3章 传输层'},{id:2,name:'第2章 应用层'}],
@@ -11,7 +12,7 @@ const catalog={
 const extraChapters={network:[1,3,1,3],structures:[2,6,7,10],programming:[3,6,5,6]};
 export function getPracticeCourse(subject){
  const course=getCourse(subject);
- const qs=[...course.questions,...(practiceExtra[subject]||[]).map((q,i)=>({...q,chapter:extraChapters[subject][i]})),...(expandedPractice[subject]||[]),...(referenceQuestions[subject]||[])];
+ const qs=[...course.questions,...(practiceExtra[subject]||[]).map((q,i)=>({...q,chapter:extraChapters[subject][i]})),...(expandedPractice[subject]||[]),...(referenceQuestions[subject]||[]),...(waveTwoPractice[subject]||[])];
  const chapters=catalog[subject]||course.chapters.map(c=>({id:c.id,name:`第${c.id}章 ${c.name}`}));
  return {questions:qs,chapters:chapters.map(c=>({...c,count:qs.filter(q=>String(q.chapter)===String(c.id)).length,target:100}))};
 }
