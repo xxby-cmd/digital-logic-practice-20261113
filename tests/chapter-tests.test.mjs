@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {getPracticeCourse} from '../practice-library.js';
-import {composeChapterTest,chapterAvailability} from '../chapter-tests.js';
+import {composeChapterTest,chapterAvailability,assertChapterStock} from '../chapter-tests.js';
 import {startChapterTest,saveExamAnswer,submitExam,setMark,settleExam,expireExam,totalPoints} from '../sessions.js';
 import {mergeBackup} from '../room-progress.js';
 import {examPapers,examBlueprints} from '../exam-bank.js';
@@ -26,7 +26,8 @@ test('章节整组严格按本科半卷题型、不跨章、100分；生成下�
  }
  const first=composeChapterTest('network','physical'),a=startChapterTest('network',first);
  const next=composeChapterTest('network','physical',[a]);assert.ok(!next.questions.some(q=>a.questions.some(p=>p.id===q.id)));
- assert.throws(()=>composeChapterTest('structures',1),/暂不能/);
+ assert.throws(()=>assertChapterStock([{name:'选择题',count:8,available:7}]),/暂不能/);
+ assert.doesNotThrow(()=>assertChapterStock([{name:'选择题',count:8,available:8}]));
 });
 test('章节答案可保存刷新恢复，不受考试2小时限制，提交后锁答、自评且不累计积分',()=>{
  const paper=composeChapterTest('network','physical');const a=startChapterTest('network',paper,1,'chapter-test');

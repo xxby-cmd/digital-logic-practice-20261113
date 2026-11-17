@@ -15,13 +15,17 @@ export function chapterAvailability(subject,chapter){
  const qs=getPracticeCourse(subject).questions.filter(q=>String(q.chapter)===String(chapter));
  return (examBlueprints[subject]?.groups||[]).map(g=>({...g,available:qs.filter(q=>chapterCategory(subject,q)===g.name).length}));
 }
+export function assertChapterStock(groups){
+ const missing=groups.filter(g=>g.available<g.count);
+ if(missing.length)throw Error(`本章暂不能按约定组卷：${missing.map(g=>`${g.name}需${g.count}题、现有${g.available}题`).join('；')}`);
+}
 export function composeChapterTest(subject,chapter,previous=[],random=Math.random){
  const {questions,chapters}=getPracticeCourse(subject),c=chapters.find(c=>String(c.id)===String(chapter));if(!c)throw Error('章节不存在');
  const pool=questions.filter(q=>String(q.chapter)===String(chapter));
  const prior=new Set(previous.filter(a=>a.subject===subject&&String(a.chapter)===String(chapter)).flatMap(a=>a.questions.map(q=>q.id)));
- const groups=chapterAvailability(subject,chapter);const missing=groups.filter(g=>g.available<g.count);
+ const groups=chapterAvailability(subject,chapter);
  // 材料不足时不降题量、不跨章借题、不用换数题补齐。
- if(missing.length)throw Error(`本章暂不能按约定组卷：${missing.map(g=>`${g.name}需${g.count}题、现有${g.available}题`).join('；')}`);
+ assertChapterStock(groups);
  const repeated=groups.filter(g=>pool.filter(q=>chapterCategory(subject,q)===g.name&&!prior.has(q.id)).length<g.count);
  if(repeated.length)throw Error('本章未用题不足以组成下一批；可回看已有测验，待补入新题后再生成。');
  const selected=groups.flatMap(g=>shuffle(pool.filter(q=>chapterCategory(subject,q)===g.name&&!prior.has(q.id)),random).slice(0,g.count).map((q,i)=>({...q,section:g.name,points:Math.floor(g.points/g.count)+(i<g.points%g.count?1:0)})));

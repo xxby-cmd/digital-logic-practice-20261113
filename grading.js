@@ -3,8 +3,8 @@ export function grade(question,answer){
  if(question.type==='short') return {status:'review',correct:null};
  if(question.type==='single')return {status:Number(answer)===question.answer?'correct':'wrong',correct:Number(answer)===question.answer};
  const entries=Array.isArray(answer)?answer:[answer];
- const correct=question.answers.every((variants,i)=>variants.some(v=>{const actual=normalize(entries[i]),expected=normalize(v);if(question.formats?.[i]==='number'&&/^-?\d*(\.\d+)?$/.test(actual)&&actual!==''&&Number.isFinite(Number(actual)))return Number(actual)===Number(expected);return expected===actual;}));
- return {status:correct?'correct':'wrong',correct};
+ const results=question.answers.map((variants,i)=>variants.some(v=>{const actual=normalize(entries[i]),expected=normalize(v);if(question.formats?.[i]==='number'&&/^-?\d*(\.\d+)?$/.test(actual)&&actual!==''&&Number.isFinite(Number(actual)))return Number(actual)===Number(expected);return expected===actual;}));
+ const correct=results.every(Boolean);return {status:correct?'correct':'wrong',correct,correctBlanks:results.filter(Boolean).length};
 }
 export function validAnswer(q,answer){if(q.type==='single')return Number.isInteger(answer)&&answer>=0&&answer<q.options.length;if(q.type==='fill')return Array.isArray(answer)&&answer.length===q.answers.length&&answer.every(a=>String(a).trim().length>0);return typeof answer==='string'&&answer.trim().length>0;}
 export function activeRecord(record){return record&&record.status!=='draft';}

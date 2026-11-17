@@ -52,7 +52,7 @@ test('课程入口启动考试后保存快照，刷新不新开试卷',async()=>
  const view=await render('#/subjects/structures');
  view.node('[data-exam]').click();
  const room=JSON.parse(view.storage.get('course-practice-room-v2'));assert.equal(room.attempts.length,1);
- assert.equal(room.attempts[0].questions.length,17);
+ assert.equal(room.attempts[0].questions.length,32);
  const next=await render('#/subjects/structures',room);next.node('[data-exam]').click();
  assert.equal(JSON.parse(next.storage.get('course-practice-room-v2')).attempts.length,1);
 });

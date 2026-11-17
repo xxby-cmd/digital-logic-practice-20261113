@@ -1,0 +1,10 @@
+{
+  "targetPerChapter": 100,
+  "subjects": ["network", "structures", "programming", "digital"],
+  "waitingSubjects": ["physics"],
+  "scopePending": [
+    "计算机网络完整教材无线/移动、安全及控制平面章序映射",
+    "C教材第三版第10章和综合实验目录对应",
+    "大学物理等待用户补教材，用户明确继续另外四科"
+  ]
+}
