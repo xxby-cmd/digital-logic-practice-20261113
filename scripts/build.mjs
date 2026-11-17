@@ -1,6 +1,6 @@
 import {mkdir,copyFile,readFile,writeFile} from 'node:fs/promises';
 await mkdir('dist',{recursive:true});
-const modules=['bank-revisions.js','bank.js','course-banks.js','subjects.js','grading.js','progress.js','diagrams.js','sessions.js','exam-bank.js','coding-catalog.js','full-exams.js','practice-extra.js','expanded-practice.js','reference-bank.js','bank-wave-02.js','question-factory.js','bank-wave-03.js','bank-wave-04.js','study-priorities.js','question-language.js','practice-library.js','chapter-tests.js','practice-types.js','room-progress.js','coding-task-guides.js','code-editor.js','app.js'];
+const modules=['bank-revisions.js','bank.js','course-banks.js','subjects.js','grading.js','progress.js','diagrams.js','sessions.js','exam-bank.js','coding-catalog.js','full-exams.js','practice-extra.js','expanded-practice.js','reference-bank.js','bank-wave-02.js','question-factory.js','bank-wave-03.js','bank-wave-04.js','bank-wave-05.js','study-priorities.js','question-language.js','practice-library.js','chapter-tests.js','practice-types.js','room-progress.js','coding-task-guides.js','ds-coding-task-guides.js','code-editor.js','app.js'];
 const overrides={};
 if(process.argv.includes('--local')){
  const input=JSON.parse(await readFile('../学习资料/外校题库参考/已核验题目.json','utf8'));

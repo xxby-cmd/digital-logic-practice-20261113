@@ -1,5 +1,9 @@
 // 已逐题核对的题干修订：不改题意，旧作答按revision归档。
 const revisedStems={
+ 'P3-structures-3-92':'数组栈用top记录当前元素个数，也指向下一可写位置。编写int pop(int a[],int *top,int *out)：栈空时返回0且不改变*out；否则弹出栈顶元素，写入*out，更新*top并返回1。参数均有效。',
+ 'P3-structures-3-94':'链栈结点定义为typedef struct Node{int v;struct Node *next;}Node;，*top指向栈顶，空栈时为NULL。编写int popL(Node **top,int *out)：栈空时返回0；否则把栈顶值写入*out，更新栈顶指针并释放被弹出的结点，返回1。top和out均为有效指针。',
+ 'P3-structures-3-96':'数组循环队列容量为m，牺牲一个单元区分空、满，front指向队首元素，rear指向下一可写位置。编写int deq(int a[],int m,int *front,int rear,int *out)：空队列返回0且不改变*out；否则输出队首值、更新*front并返回1。m≥2，指针有效，下标均在[0,m)内。',
+ 'P3-programming-6-60':'实现long long rangeSum(const long long s[],int l,int r)。s是一个数组的前缀和：s[0]=0，s[i]表示原数组前i项元素之和。求原数组闭区间[l,r]的元素和。已知0≤l≤r，s[r+1]存在，结果可由long long表示。',
  'P4-digital-1-R-001':'将二进制数(10.01)₂转换为十进制数，写出按位权展开的过程。',
  'P4-digital-1-R-002':'将二进制小数(0.1011)₂转换为八进制数，写出分组过程，并用十进制值核对。',
  'P4-digital-1-R-003':'将十进制数0.375转换为二进制小数。用乘2取整法求解，再按位权验证，并说明它能精确表示的原因。',
@@ -16,4 +20,10 @@ const revisedStems={
  'P4-digital-3-R-003':'某开漏总线的电阻需同时满足：灌电流约束R≥2kΩ、漏电约束R≤10kΩ、上升时间约束R≤4kΩ。求可行范围，并判断3kΩ和6kΩ是否可用。',
  'P4-digital-3-R-008':'两个三态驱动器交接时，旧驱动最晚在10ns关断，新驱动最早在3ns导通。求可能的最大重叠时间，并说明如何避免总线争用。'
 };
-export function reviseQuestionLanguage(q){const stem=revisedStems[q.id];return stem?{...q,stem,revision:Math.max(2,q.revision||1)}:q;}
+const revisedModels={
+ 'P3-structures-3-99':'int queueLen(int m,int front,int rear){return rear>=front?rear-front:m-(front-rear);}\nrear≥front时直接相减；发生回绕时，用数组长度减去front到rear的反向距离。也可写return (int)(((long long)rear-front+m)%m);，先转为long long再相加。不能直接用int计算rear-front+m：m很大时，中间结果可能溢出，即使最终队列长度仍能用int表示。'
+};
+export function reviseQuestionLanguage(q){
+ const stem=revisedStems[q.id],model=revisedModels[q.id];
+ return stem||model?{...q,...(stem?{stem}:{}),...(model?{model}:{}),revision:Math.max(2,q.revision||1)}:q;
+}

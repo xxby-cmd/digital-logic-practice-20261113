@@ -6,9 +6,10 @@ import {hasJudgeContract} from '../coding-catalog.js';
 import {getPracticeCourse} from '../practice-library.js';
 import {examContractIds} from '../scripts/judge-exam-contracts.mjs';
 import {fullExamPapers} from '../full-exams.js';
+import {dsStackContractIds} from '../scripts/judge-ds-stack-contracts.mjs';
 test('已开放判题题号必须有真实题目和服务端测试，不把客户端结果当答案',()=>{
- const bank=[...getPracticeCourse('programming').questions,...Object.values(fullExamPapers).flatMap(ps=>ps.flatMap(p=>p.questions))];
- for(const id of [...arrayContractIds,...examContractIds]){
+ const bank=[...getPracticeCourse('programming').questions,...getPracticeCourse('structures').questions,...Object.values(fullExamPapers).flatMap(ps=>ps.flatMap(p=>p.questions))];
+ for(const id of [...arrayContractIds,...examContractIds,...dsStackContractIds]){
   assert.ok(bank.some(q=>q.id===id),id);assert.ok(hasJudgeContract(id),id);
   const c=judgeContract(id);assert.ok(c.harness.includes('int main(void)'));assert.ok(c.expected.length>=9);
   const output=c.groups.map(g=>g.join(' ')).join('\n')+'\n';

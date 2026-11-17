@@ -1,5 +1,6 @@
 import {spawn} from 'node:child_process';
 import path from 'node:path';
+import {StringDecoder} from 'node:string_decoder';
 import {judgeContract,evaluateContract} from './judge-contracts.mjs';
 let running=false;
 export async function handleRun(req,res,port){
@@ -27,12 +28,12 @@ export async function handleRun(req,res,port){
  if(running)return reply(429,{message:'上一份程序正在运行，请稍后重试。'});
  running=true;
  const child=spawn(process.env.JUDGE_PYTHON,[path.resolve('scripts/judge-worker.py')],{windowsHide:true,env:{...process.env,PYTHONIOENCODING:'utf-8'},stdio:['pipe','pipe','pipe']});
- let output='',size=0,finished=false;
+ let output='',size=0,finished=false;const decoder=new StringDecoder('utf8');
  const done=(status,data)=>{if(finished)return;finished=true;clearTimeout(timer);running=false;reply(status,data);};
  const timer=setTimeout(()=>{child.kill();done(200,{status:'time_limit',message:'编译或运行超时。'});},22000);
- child.stdout.on('data',b=>{size+=b.length;if(size>200000){child.kill();done(200,{status:'output_limit',message:'程序输出过多。'});}else output+=b;});
+ child.stdout.on('data',b=>{size+=b.length;if(size>200000){child.kill();done(200,{status:'output_limit',message:'程序输出过多。'});}else output+=decoder.write(b);});
  child.stderr.resume();
  child.on('error',()=>done(503,{message:'运行环境暂不可用。'}));
- child.on('close',()=>{try{const result=JSON.parse(output);done(200,contract?evaluateContract(result,contract):result);}catch{done(503,{message:'运行服务未返回完整结果。'});}});
+ child.on('close',()=>{try{output+=decoder.end();const result=JSON.parse(output);done(200,contract?evaluateContract(result,contract):result);}catch{done(503,{message:'运行服务未返回完整结果。'});}});
  child.stdin.on('error',()=>{});child.stdin.end(body);
 }

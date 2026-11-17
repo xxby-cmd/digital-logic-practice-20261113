@@ -22,8 +22,9 @@ test('并发请求只启动一个程序，输入按UTF8恢复且自测不能注�
  try{
   assert.equal(children.length,1);assert.equal(b.status,429);assert.equal(children[0].body.source,code);
   assert.equal(children[0].body.prelude,undefined);assert.equal(children[0].body.harness,undefined);
- }finally{children[0]?.stdout.emit('data',Buffer.from('{"status":"ran","stdout":""}'));children[0]?.emit('close');}
+ }finally{const bytes=Buffer.from('{"status":"ran","stdout":"中文"}'),i=bytes.indexOf(Buffer.from('中'))+1;children[0]?.stdout.emit('data',bytes.subarray(0,i));children[0]?.stdout.emit('data',bytes.subarray(i));children[0]?.emit('close');}
  assert.equal(a.status,200);
+ assert.equal(JSON.parse(a.data).stdout,'中文');
  const bad=res();await handleRun(req(null,'/api/run',Promise.resolve()),bad,4174);assert.equal(bad.status,400);
  delete globalThis.__practiceTestSpawn;
 });

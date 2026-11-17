@@ -2,6 +2,7 @@
 import {arrayContract} from './judge-array-contracts.mjs';
 import {examContract} from './judge-exam-contracts.mjs';
 import {extraCContract} from './judge-c-practice-extra.mjs';
+import {dsStackContract} from './judge-ds-stack-contracts.mjs';
 const ints=a=>`(int[]){${a.length?a.join(','):0}}`;
 const arrays=[[],[1],[1,3,1],[1,2,3],[3,2,1],[2,2,2],[1,4,4,1],[0,-2,0,5,0],[3,1,3,2,1]];
 const peak=a=>{for(let i=1;i<a.length-1;i++)if(a[i]>a[i-1]&&a[i]>a[i+1])return i;return-1;};
@@ -13,7 +14,7 @@ const specs={
  'P3-programming-6-57':{fn:'lastMin',result:a=>a.length?a.lastIndexOf(Math.min(...a)):-1}
 };
 export function judgeContract(id){
- const s=Object.hasOwn(specs,id)?specs[id]:null;if(!s)return arrayContract(id)||examContract(id)||extraCContract(id);
+ const s=Object.hasOwn(specs,id)?specs[id]:null;if(!s)return arrayContract(id)||examContract(id)||extraCContract(id)||dsStackContract(id);
  const tests=arrays.map(a=>({call:`${s.fn}(${ints(a)},${a.length})`,expected:String(s.result(a))}));
  return {harness:`\n#include <stdio.h>\nint main(void){\n${tests.map(t=>`printf("%d\\n",${t.call});`).join('\n')}\nreturn 0;}`,expected:tests.map(t=>t.expected),groups:tests.map(t=>[t.expected])};
 }
