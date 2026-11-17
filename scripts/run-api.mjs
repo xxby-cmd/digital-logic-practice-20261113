@@ -18,7 +18,7 @@ export async function handleRun(req,res,port){
  if(Buffer.byteLength(payload.source,'utf8')>32768)return reply(200,{status:'invalid',message:'代码不能超过32KB。'});
  if(new URL(req.url,'http://localhost').pathname==='/api/judge'){
   contract=judgeContract(payload.questionId);if(!contract)return reply(400,{message:'本题的自动测试尚未开放。'});
-  payload={source:payload.source,prelude:contract.prelude||'',harness:contract.harness,stdin:''};
+  payload=contract.variants?{source:payload.source,variants:contract.variants}:{source:payload.source,prelude:contract.prelude||'',harness:contract.harness,stdin:contract.stdin||''};
  }else{
   payload={source:payload.source,stdin:payload.stdin??''};
  }

@@ -3,7 +3,7 @@ import {grade,validAnswer} from './grading.js';
 export const EXAM_DURATION=2*60*60*1000;
 function startSession(subject,paper,kind,now,id){
  if(!paper?.questions?.length)throw new Error('试卷尚未准备好');
- return {id,kind,subject,paperId:paper.id,title:paper.title,chapter:paper.chapter,questions:JSON.parse(JSON.stringify(paper.questions)),startedAt:now,deadline:kind==='exam'?now+EXAM_DURATION:null,status:'active',answers:{},marks:{},result:null};
+ return {id,kind,subject,paperId:paper.id,title:paper.title,chapter:paper.chapter,...(paper.practicePlan?{practicePlan:JSON.parse(JSON.stringify(paper.practicePlan))}:{}),questions:JSON.parse(JSON.stringify(paper.questions)),startedAt:now,deadline:kind==='exam'?now+EXAM_DURATION:null,status:'active',answers:{},marks:{},result:null};
 }
 export function startExam(subject,paper,now=Date.now(),id=`${subject}-${now}-${Math.random().toString(36).slice(2)}`){return startSession(subject,paper,'exam',now,id);}
 export function startChapterTest(subject,paper,now=Date.now(),id=`test-${subject}-${now}-${Math.random().toString(36).slice(2)}`){return startSession(subject,paper,'chapter',now,id);}

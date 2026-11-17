@@ -9,6 +9,10 @@ import {waveTwoPractice} from './bank-wave-02.js';
 import {waveThreePractice} from './bank-wave-03.js';
 import {waveFourPractice} from './bank-wave-04.js';
 import {waveFivePractice} from './bank-wave-05.js';
+import {waveSixPractice} from './bank-wave-06.js';
+import {cExpressionsPractice} from './bank-c-expressions.js';
+import {cControlPractice} from './bank-c-control.js';
+import {cFunctionsPractice} from './bank-c-functions.js';
 
 const catalog={
  network:[{id:1,name:'第1章 计算机网络概述'},{id:'physical',name:'物理层基础',note:'绪论中物理介质与接入网相关内容，独立学习单元，不改写课件正式章号'},{id:5,name:'第5章 数据链路层'},{id:4,name:'第4章 网络层'},{id:3,name:'第3章 传输层'},{id:2,name:'第2章 应用层'}],
@@ -19,7 +23,7 @@ const catalog={
 const extraChapters={network:[1,3,1,3],structures:[2,6,7,10],programming:[3,6,5,6]};
 export function getPracticeCourse(subject){
  const course=getCourse(subject);
- const qs=[...course.questions,...(practiceExtra[subject]||[]).map((q,i)=>({...q,chapter:extraChapters[subject][i]})),...(expandedPractice[subject]||[]),...(referenceQuestions[subject]||[]),...(waveTwoPractice[subject]||[]),...(waveThreePractice[subject]||[]),...(waveFourPractice[subject]||[]),...(waveFivePractice[subject]||[])];
+ const qs=[...course.questions,...(practiceExtra[subject]||[]).map((q,i)=>({...q,chapter:extraChapters[subject][i]})),...(expandedPractice[subject]||[]),...(referenceQuestions[subject]||[]),...(waveTwoPractice[subject]||[]),...(waveThreePractice[subject]||[]),...(waveFourPractice[subject]||[]),...(waveFivePractice[subject]||[]),...(waveSixPractice[subject]||[]),...(cExpressionsPractice[subject]||[]),...(cControlPractice[subject]||[]),...(cFunctionsPractice[subject]||[])];
  const chapters=catalog[subject]||course.chapters.map(c=>({id:c.id,name:`第${c.id}章 ${c.name}`}));
  return {questions:qs.map(q=>({...reviseQuestionLanguage(q),...(hasJudgeContract(q.id)?{judge:true}:{}),coding:q.coding===true||(q.type==='short'&&subject==='programming'&&/编写|实现|补全|补齐|代码|程序|函数/.test(q.stem)),practiceWeight:practiceWeight(subject,q)})),chapters:chapters.map(c=>({...c,count:qs.filter(q=>String(q.chapter)===String(c.id)).length,target:100}))};
 }

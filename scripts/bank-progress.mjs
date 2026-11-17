@@ -1,7 +1,7 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {getPracticeCourse} from '../practice-library.js';
 const local=process.argv.includes('--local');
-const refs=local?JSON.parse(await readFile('../学习资料/外校题库参考/已核验题目.json','utf8')):{};
+const refs=local?JSON.parse(await readFile('../学习资料/外校题库参考/已接入题目.json','utf8')):{};
 const goal=JSON.parse(await readFile('bank-goal.json','utf8'));
 const subjects=goal.subjects;
 const rows=subjects.flatMap(subject=>getPracticeCourse(subject).chapters.map(c=>{

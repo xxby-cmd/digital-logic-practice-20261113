@@ -8,25 +8,55 @@ def check_source(source, max_bytes=32768):
         raise ValueError('请提交不超过32KB的C语言代码。')
     # Only literal standard headers. Never let a submission read arbitrary host headers.
     trigraphs = {'=':'#', '/':'\\', "'":'^', '(':'[', ')':']', '!':'|', '<':'{', '>':'}', '-':'~'}
-    phase_one = re.sub(r"\?\?([=/'()!<>-])", lambda m: trigraphs[m[1]], source.removeprefix('\ufeff'))
+    normalized = source.removeprefix('\ufeff').replace('\r\n', '\n').replace('\r', '\n')
+    phase_one = re.sub(r"\?\?([=/'()!<>-])", lambda m: trigraphs[m[1]], normalized)
     joined = re.sub(r'\\\r?\n', '', phase_one)
     # A # in a character, string or comment is not a directive. Preserve lines
     # while masking those tokens, following the compiler's preprocessing phases.
     tokens = r'''/\*.*?\*/|//[^\n]*|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*' '''.rstrip()
-    cleaned = re.sub(tokens, lambda m: re.sub(r'[^\n]', ' ', m[0]), joined, flags=re.S)
-    cleaned = cleaned.replace('%:', '#')
-    if re.search(r'\b(?:_Pragma|__asm(?:__)?|__has_include)\b', cleaned):
-        raise ValueError('当前练习环境不支持内联汇编、动态头文件或编译器扩展指令。')
-    for line in cleaned.splitlines():
-        if not re.match(r'\s*#', line):
-            continue
-        include = re.fullmatch(r'\s*#\s*include\s*<([a-z0-9_.]+)>\s*', line)
-        define = re.fullmatch(r'\s*#\s*define\s+[A-Za-z_]\w*(?:\([^#]*?\))?\s+[^#]*', line)
-        if include and include[1] in HEADERS:
-            continue
-        if define:
-            continue
-        raise ValueError('仅支持常用C标准头文件和普通宏定义，请移除其他预处理指令。')
+    # Check both physical-line and folded block-comment views. A multiline
+    # comment must not hide a directive after a harmless-looking null '#'.
+    folded = re.sub(tokens, lambda m: ' ' if m[0].startswith('/*') else m[0], joined, flags=re.S)
+    for view in dict.fromkeys((joined, folded)):
+        mask = lambda text: re.sub(r'[^\n]', ' ', text)
+        cleaned = re.sub(tokens, lambda m: mask(m[0]), view, flags=re.S)
+        comments_only = re.sub(tokens, lambda m: mask(m[0]) if m[0].startswith(('/*', '//')) else m[0], view, flags=re.S)
+        cleaned = cleaned.replace('%:', '#')
+        if '\ufeff' in cleaned:
+            raise ValueError('请移除代码中间的BOM标记，仅允许文件开头的UTF-8标记。')
+        # Invalid ASCII UCN spellings must not hide a reserved operation from this
+        # check, even if a compiler continues preprocessing after diagnosing them.
+        if any(int(m[0][2:], 16) < 128 for m in re.finditer(r'\\(?:u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})', cleaned)):
+            raise ValueError('基本字符请直接书写，不支持以通用字符名隐藏预处理指令。')
+        reserved = ('_Pragma', '__asm', '__asm__', '__has_include', '__has_include_next', '__has_embed')
+        if any(re.search(r'\b' + re.escape(name) + r'\b', cleaned) for name in reserved):
+            raise ValueError('当前练习环境不支持内联汇编、动态头文件或编译器扩展指令。')
+        if '##' in cleaned:
+            identifiers = re.findall(r'\b[A-Za-z_]\w*\b', cleaned)
+            if any(word.startswith('_') and any(name.startswith(word) for name in reserved) for word in identifiers):
+                raise ValueError('宏拼接请使用普通标识符，当前环境不支持拼接实现保留指令。')
+        original_lines = comments_only.split('\n')
+        for index, line in enumerate(cleaned.split('\n')):
+            if not re.match(r'\s*#', line):
+                continue
+            # The directive name itself is not macro expanded. Includes remain
+            # literal and whitelisted, including inside inactive conditional arms.
+            original = original_lines[index].replace('%:', '#')
+            include = re.fullmatch(r'\s*#\s*include\s*(?:<([a-z0-9_.]+)>|"([a-z0-9_.]+)")\s*', original)
+            define = re.fullmatch(r'\s*#\s*define\s+[A-Za-z_]\w*(?:(?:\([^)]*\).*)|(?:\s+.*))?', line)
+            if include and (include[1] or include[2]) in HEADERS:
+                continue
+            if define:
+                continue
+            if re.fullmatch(r'\s*#\s*(?:undef|ifdef|ifndef)\s+[A-Za-z_]\w*\s*', line):
+                continue
+            if re.fullmatch(r'\s*#\s*(?:if|elif|line)\s+.+', line):
+                continue
+            if re.fullmatch(r'\s*#\s*(?:else|endif)\s*', line):
+                continue
+            if re.fullmatch(r'\s*#(?:\s*error\b.*|\s*)', line):
+                continue
+            raise ValueError('仅支持白名单C标准头文件、宏和标准条件编译，请移除动态包含或扩展指令。')
 
 def execute_wasm(wasm, stdin_path):
     import wasmtime
@@ -66,18 +96,7 @@ def execute_wasm(wasm, stdin_path):
         return {'status':'time_limit' if exhausted else 'runtime_error','message':'运行超出计算量限制。' if exhausted else '程序运行异常，请检查数组边界、指针或计算。','stdout':output.decode(errors='replace'),'stderr':errors.decode(errors='replace')}
     return {'status':'output_limit' if overflow[0] else 'ran','message':'程序输出过多。' if overflow[0] else '自测运行完成。','stdout':output.decode(errors='replace'),'stderr':errors.decode(errors='replace')}
 
-def main():
-    if len(sys.argv) > 1 and sys.argv[1] == '--execute':
-        print(json.dumps(execute_wasm(pathlib.Path(sys.argv[2]), pathlib.Path(sys.argv[3])), ensure_ascii=False))
-        return
-    request = json.load(sys.stdin)
-    source = request.get('source')
-    check_source(source)
-    source = request.get('prelude', '') + source + request.get('harness', '')
-    check_source(source, max_bytes=262144)
-    data = request.get('stdin', '')
-    if not isinstance(data,str) or len(data.encode()) > 32768:
-        raise ValueError('自定义输入不能超过32KB。')
+def compile_and_run(source, data):
     sdk = pathlib.Path(os.environ.get('JUDGE_SDK',''))
     with tempfile.TemporaryDirectory(prefix='practice-c-') as folder:
         work = pathlib.Path(folder)
@@ -90,16 +109,56 @@ def main():
         compiled = subprocess.run(command, capture_output=True, timeout=15, creationflags=creation)
         if compiled.returncode:
             diagnostic = compiled.stderr.decode(errors='replace').replace(str(work), '')[:12000]
-            print(json.dumps({'status':'compile_error','message':'编译未通过。','stderr':diagnostic}, ensure_ascii=False))
-            return
+            return {'status':'compile_error','message':'编译未通过。','stderr':diagnostic}
         child = subprocess.run([sys.executable,__file__,'--execute',str(wasm),str(input_file)],capture_output=True,timeout=4,creationflags=creation,encoding='utf-8',env={**os.environ,'PYTHONIOENCODING':'utf-8'})
         if child.returncode:
-            print(json.dumps({'status':'runtime_error','message':'程序运行未完成，请检查代码。'},ensure_ascii=False))
+            return {'status':'runtime_error','message':'程序运行未完成，请检查代码。'}
         else:
             result=json.loads(child.stdout)
             if compiled.stderr:
                 result['stderr']=(compiled.stderr.decode(errors='replace').replace(str(work),'')+'\n'+result.get('stderr',''))[:12000]
-            print(json.dumps(result,ensure_ascii=False))
+            return result
+
+def main():
+    if len(sys.argv) > 1 and sys.argv[1] == '--execute':
+        print(json.dumps(execute_wasm(pathlib.Path(sys.argv[2]), pathlib.Path(sys.argv[3])), ensure_ascii=False))
+        return
+    request = json.load(sys.stdin)
+    source = request.get('source')
+    check_source(source)
+    source = source.removeprefix('\ufeff')
+    variants = request.get('variants')
+    if variants is not None and (not isinstance(variants, list) or not 1 <= len(variants) <= 4):
+        raise RuntimeError('invalid server configurations')
+    configurations = variants if variants is not None else [request]
+    inputs = []
+    for config in configurations:
+        if not isinstance(config, dict):
+            raise RuntimeError('invalid server configuration')
+        prelude, harness, data = config.get('prelude', ''), config.get('harness', ''), config.get('stdin', '')
+        if not isinstance(prelude, str) or not isinstance(harness, str):
+            raise RuntimeError('invalid trusted driver')
+        if not isinstance(data, str) or len(data.encode()) > 32768:
+            raise ValueError('自定义输入不能超过32KB。')
+        combined = prelude + source + harness
+        check_source(combined, max_bytes=262144)
+        inputs.append((combined, data))
+    results, output_bytes = [], 0
+    for combined, data in inputs:
+        result = compile_and_run(combined, data)
+        if variants is not None:
+            for key in ('stdout', 'stderr'):
+                encoded = result.get(key, '').encode()
+                remaining = max(0, 65536 - output_bytes)
+                if len(encoded) > remaining:
+                    result[key] = encoded[:remaining].decode(errors='replace')
+                    result.update(status='output_limit', message='程序输出过多。')
+                output_bytes += min(len(encoded), remaining)
+        results.append(result)
+        if result.get('status') != 'ran':
+            break
+    response = {'status':'variants', 'results':results} if variants is not None else results[0]
+    print(json.dumps(response, ensure_ascii=False))
 
 if __name__ == '__main__':
     sys.stdout.reconfigure(encoding='utf-8')

@@ -6,4 +6,9 @@ const chapterWeights={
  digital:{1:1.2,2:3,3:0.5,4:3,5:2.5,6:3,7:1,8:0.6},
  network:{1:1,physical:1,2:2,3:3,4:3,5:2}
 };
-export function practiceWeight(subject,q){return chapterWeights[subject]?.[q.chapter]??1;}
+export function practiceWeight(subject,q){
+ const chapter=chapterWeights[subject]?.[q.chapter]??1;
+ // 新题按实际讲授证据标记；没有逐题证据的旧题维持原章权重。
+ const relative=[1,2,3].includes(q.studyWeight)?q.studyWeight/2:1;
+ return chapter*relative;
+}

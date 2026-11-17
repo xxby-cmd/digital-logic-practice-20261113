@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "支持章节自选组题、分类练习与限时考试的本地课程练习网站",
+  "engines": {"node": ">=20"},
   "scripts": {
-    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/start.mjs",
+    "start:local": "node scripts/start.mjs --local",
+    "dev": "node scripts/start.mjs --rebuild",
     "build": "node scripts/build.mjs",
     "build:local": "node scripts/build.mjs --local",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs"
   }
 }

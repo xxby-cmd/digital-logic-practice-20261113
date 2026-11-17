@@ -1,6 +1,9 @@
 import {hasJudgeContract} from './coding-catalog.js';
 import {codingTaskGuides} from './coding-task-guides.js';
 import {dsCodingTaskGuides} from './ds-coding-task-guides.js';
+import {cExpressionsGuides} from './c-expressions-guides.js';
+import {cControlGuides} from './c-control-guides.js';
+import {cFunctionsGuides} from './c-functions-guides.js';
 const escapeCode=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function isProgrammingQuestion(q){return ['编程题','程序填空','算法设计'].includes(q.section)||q.coding===true;}
 export async function requestCodeJudge(questionId,source){
@@ -12,7 +15,7 @@ export async function requestCodeJudge(questionId,source){
  return result;
 }
 export function codeEditor(q,answer,prefix,disabled=false,allowRun=false){
- const guide=codingTaskGuides[q.id]||dsCodingTaskGuides[q.id],code=typeof answer==='string'?answer:guide?.starter||'';
+ const guide=codingTaskGuides[q.id]||dsCodingTaskGuides[q.id]||cExpressionsGuides[q.id]||cControlGuides[q.id]||cFunctionsGuides[q.id],code=typeof answer==='string'?answer:guide?.starter||'';
  return `<section class="code-workspace" data-code-workspace data-code-question="${escapeCode(q.id)}"><div class="code-toolbar"><strong>C语言 · C17</strong><span>代码自动保存 · 最多32KB</span></div>${hasJudgeContract(q.id)&&!guide?`<p class="muted-note">提交题目指定的完整函数，无需编写 main。${q.id.startsWith('FULL-structures')?'结构体定义由系统提供，不要重复定义。':'程序填空题请提交补全后的函数。'}</p>`:''}${guide?`<p class="muted-note">${escapeCode(guide.instruction)}</p>`:''}<div class="code-input"><pre class="code-lines" aria-hidden="true">${code.split('\n').map((_,i)=>i+1).join('\n')}</pre><textarea class="code-source" id="${escapeCode(prefix)}-text" data-answer="${escapeCode(q.id)}" data-code-source aria-label="C语言代码" spellcheck="false" autocapitalize="off" autocomplete="off" ${disabled?'disabled':''} placeholder="在这里编写代码；程序填空题请填写补全后的代码。">${escapeCode(code)}</textarea></div>${allowRun?`<details class="code-test"><summary>自定义输入</summary><label>标准输入<textarea data-code-stdin aria-label="程序标准输入" spellcheck="false"></textarea></label></details><div class="code-actions"><button class="btn" type="button" data-code-run>运行自测</button>${hasJudgeContract(q.id)?'<button class="btn primary" type="button" data-code-judge>提交判题</button>':''}<span>自测请包含 main 函数；自测结果不等于通过全部测试。</span></div><pre class="code-result" data-code-result role="status" hidden></pre>`:''}</section>`;
 }
 export function bindCodeEditors(root=document,onJudge=()=>{}){

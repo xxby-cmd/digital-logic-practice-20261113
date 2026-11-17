@@ -6,6 +6,7 @@ import {grade,validAnswer} from './grading.js';
 import {EXAM_DURATION} from './sessions.js';
 import {getPracticeCourse} from './practice-library.js';
 import {chapterCategory} from './chapter-tests.js';
+import {validateChapterPracticeSnapshot} from './chapter-practice.js';
 function sameQuestionSnapshot(actual,expected){
  const compatible={...expected};
  for(const field of ['judge','coding','practiceWeight'])if(!Object.hasOwn(actual,field))delete compatible[field];
@@ -55,6 +56,7 @@ export function mergeBackup(current,input,subject){
  room.tests=room.tests||[];
  for(const a of input.tests||[]){
   if(a.kind!=='chapter'||a.deadline!==null||typeof a.id!=='string'||!Number.isFinite(a.startedAt)||!['active','marking','settled'].includes(a.status)||!a.answers||!a.marks||!Array.isArray(a.questions))throw Error('章节记录不完整');
+  if(a.practicePlan){validateChapterPracticeSnapshot(a);}else{
   const pool=getPracticeCourse(a.subject).questions.filter(q=>String(q.chapter)===String(a.chapter));
   const groups=examPapers[a.subject]?.[0]?.questions.reduce((m,q)=>{const g=m[q.section]||(m[q.section]={count:0,points:0});g.count++;g.points+=q.points;return m;},{});
   if(!groups)throw Error('章节科目不存在');
@@ -66,6 +68,7 @@ export function mergeBackup(current,input,subject){
    if(!sameQuestionSnapshot(q,expected))throw Error('章节题目内容或分值不匹配');
   }
   for(const [name,g]of Object.entries(groups))if(a.questions.filter(q=>q.section===name).length!==g.count)throw Error('章节题型数量不匹配');
+  }
   if(a.status==='settled'){
    let total=0;for(const q of a.questions){const score=a.result?.scores?.[q.id];if(!Number.isInteger(score)||score<0||score>q.points)throw Error('章节成绩不完整');if(q.type!=='short'&&score!==(validAnswer(q,a.answers[q.id])&&grade(q,a.answers[q.id]).correct?q.points:0))throw Error('章节客观成绩不一致');total+=score;}
    if(total!==a.result.total)throw Error('章节总分不一致');

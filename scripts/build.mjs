@@ -1,12 +1,12 @@
 import {mkdir,copyFile,readFile,writeFile} from 'node:fs/promises';
 await mkdir('dist',{recursive:true});
-const modules=['bank-revisions.js','bank.js','course-banks.js','subjects.js','grading.js','progress.js','diagrams.js','sessions.js','exam-bank.js','coding-catalog.js','full-exams.js','practice-extra.js','expanded-practice.js','reference-bank.js','bank-wave-02.js','question-factory.js','bank-wave-03.js','bank-wave-04.js','bank-wave-05.js','study-priorities.js','question-language.js','practice-library.js','chapter-tests.js','practice-types.js','room-progress.js','coding-task-guides.js','ds-coding-task-guides.js','code-editor.js','app.js'];
+const modules=["bank-revisions.js","bank.js","course-banks.js","subjects.js","grading.js","progress.js","diagrams.js","sessions.js","exam-bank.js","question-factory.js","bank-c-expressions.js","c-expressions-guides.js","bank-c-control.js","c-control-guides.js","bank-c-functions.js","c-functions-guides.js","coding-catalog.js","full-exams.js","practice-extra.js","expanded-practice.js","reference-bank.js","bank-wave-02.js","bank-wave-03.js","bank-wave-04.js","bank-wave-05.js","bank-wave-06.js","study-priorities.js","question-language.js","practice-library.js","chapter-tests.js","practice-types.js","chapter-practice.js","room-progress.js","coding-task-guides.js","ds-coding-task-guides.js","code-editor.js","app.js"];
 const overrides={};
 if(process.argv.includes('--local')){
- const input=JSON.parse(await readFile('../学习资料/外校题库参考/已核验题目.json','utf8'));
+ const input=JSON.parse(await readFile('../学习资料/外校题库参考/已接入题目.json','utf8'));
  overrides['reference-bank.js']=`export const referenceQuestions=${JSON.stringify(input)};`;
 }
-for(const file of ['index.html','styles.css',...modules]) await copyFile(file,`dist/${file}`);
+for(const file of ['index.html','styles.css','favicon.svg',...modules]) await copyFile(file,`dist/${file}`);
 for(const [file,source]of Object.entries(overrides))await writeFile(`dist/${file}`,source);
 // 同一份实现打包为独立HTML，网络受限时也可双击打开，无需服务器。
 const css=await readFile('styles.css','utf8');
@@ -18,6 +18,7 @@ for(const file of modules){
  bundle+=`bundledModules[${JSON.stringify(file)}]=(()=>{\n${source}\nreturn {${exported.join(',')}};\n})();\n`;
 }
 let html=await readFile('index.html','utf8');
+html=html.replace('href="./favicon.svg"',`href="data:image/svg+xml,${encodeURIComponent(await readFile('favicon.svg','utf8'))}"`);
 html=html.replace('<link rel="stylesheet" href="./styles.css">',()=>`<style>${css}</style>`).replace('<script type="module" src="./app.js"></script>',()=>`<script>(()=>{\n${bundle}\n})();</script>`);
 await writeFile('dist/index.html',html);
 console.log('网站已构建到 dist');

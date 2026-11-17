@@ -1,3 +1,3 @@
 @echo off
-powershell -NoProfile -File "%~dp0scripts\start-judge.ps1"
+node "%~dp0scripts\start.mjs"
 pause

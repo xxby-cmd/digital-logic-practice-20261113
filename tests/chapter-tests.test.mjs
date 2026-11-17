@@ -19,7 +19,7 @@ test('物理基础和链路层已达100题，所有新增题独立编号且不�
  }
 });
 test('章节整组严格按本科半卷题型、不跨章、100分；生成下一批不重复',()=>{
- for(const [subject,chapter] of [['network','physical'],['network',5],['structures',2],['programming',6],['digital',1],['digital',2],['digital',3],['digital',4],['digital',5]]){
+ for(const [subject,chapter] of [['network','physical'],['network',5],['structures',2],['programming',6],['digital',1],['digital',2],['digital',3],['digital',4],['digital',5],['digital',6]]){
   const paper=composeChapterTest(subject,chapter,[],()=>0.5);assert.equal(paper.questions.reduce((n,q)=>n+q.points,0),100);
   assert.ok(paper.questions.every(q=>String(q.chapter)===String(chapter)));
   for(const g of examBlueprints[subject].groups)assert.equal(paper.questions.filter(q=>q.section===g.name).length,g.count);
