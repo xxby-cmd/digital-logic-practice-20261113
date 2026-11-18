@@ -1,0 +1,307 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "dedup-before-digital",
+      "kind": "chapter",
+      "subject": "digital",
+      "paperId": "chapter-practice-digital-3-1794939737287-qgd8zb",
+      "title": "第3章 逻辑门电路 · 章节练习",
+      "chapter": 3,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 2,
+          "code": 0,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P2-digital-3-3",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "驱动门VOH(min)=2.8V，接收门VIH(min)=2.0V，高电平直流噪声容限为____V。",
+          "type": "fill",
+          "answers": [
+            [
+              "0.8"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "输出最差高电平减接收最低保证高阈值：2.8−2.0=0.8V。",
+          "coding": false,
+          "practiceWeight": 0.5,
+          "points": 50
+        },
+        {
+          "id": "P4-digital-3-F-001",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "tPLH=7ns、tPHL=13ns，平均延迟为____ns。",
+          "type": "fill",
+          "answers": [
+            [
+              "10"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "平均(7+13)/2=10。",
+          "coding": false,
+          "practiceWeight": 0.5,
+          "points": 50
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P2-digital-3-3": [
+          "0.8"
+        ],
+        "P4-digital-3-F-001": [
+          "10"
+        ]
+      },
+      "marks": {
+        "P2-digital-3-3": 50,
+        "P4-digital-3-F-001": 50
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P2-digital-3-3": 50,
+          "P4-digital-3-F-001": 50
+        },
+        "settledAt": 1794939737301
+      },
+      "submittedAt": 2,
+      "expired": false
+    },
+    {
+      "id": "dedup-before-network",
+      "kind": "chapter",
+      "subject": "network",
+      "paperId": "chapter-practice-network-physical-1794939737292-6m1tcl",
+      "title": "物理层基础 · 章节练习",
+      "chapter": "physical",
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 4,
+          "code": 0,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P2-network-physical-78",
+          "chapter": "physical",
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "16种不同信号状态采用固定长度二进制映射，每码元表示____bit。",
+          "type": "fill",
+          "answers": [
+            [
+              "4"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "log2 16=4。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P2-network-physical-82",
+          "chapter": "physical",
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一根光纤传播速度2×10^8m/s，测得单向传播1.5ms，长度为____km。",
+          "type": "fill",
+          "answers": [
+            [
+              "300"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "v×t=300000m。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P2-network-physical-79",
+          "chapter": "physical",
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "30Mb/s链路在8ms单向传播区间内的在途信息量为____bit。",
+          "type": "fill",
+          "answers": [
+            [
+              "240000"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "30×10^6×0.008。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P2-network-physical-80",
+          "chapter": "physical",
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "传输3000B需要1.2ms，发送速率为____Mb/s。",
+          "type": "fill",
+          "answers": [
+            [
+              "20"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "24000bit/0.0012s。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P2-network-physical-78": [
+          "4"
+        ],
+        "P2-network-physical-82": [
+          "300"
+        ],
+        "P2-network-physical-79": [
+          "240000"
+        ],
+        "P2-network-physical-80": [
+          "20"
+        ]
+      },
+      "marks": {
+        "P2-network-physical-78": 25,
+        "P2-network-physical-82": 25,
+        "P2-network-physical-79": 25,
+        "P2-network-physical-80": 25
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P2-network-physical-78": 25,
+          "P2-network-physical-82": 25,
+          "P2-network-physical-79": 25,
+          "P2-network-physical-80": 25
+        },
+        "settledAt": 1794939737301
+      },
+      "submittedAt": 2,
+      "expired": false
+    },
+    {
+      "id": "dedup-before-structures",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-8-1794939737296-1pptqk",
+      "title": "第8章 动态存储管理 · 章节练习",
+      "chapter": 8,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 1,
+          "code": 0,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-8-F-007",
+          "chapter": 8,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "基址0，起址96、大小32的块，其伙伴起址____。",
+          "type": "fill",
+          "answers": [
+            [
+              "64"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "96 XOR32=64。",
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 100
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P4-structures-8-F-007": [
+          "64"
+        ]
+      },
+      "marks": {
+        "P4-structures-8-F-007": 100
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P4-structures-8-F-007": 100
+        },
+        "settledAt": 1794939737301
+      },
+      "submittedAt": 2,
+      "expired": false
+    }
+  ]
+}

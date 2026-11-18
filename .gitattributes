@@ -1,0 +1,2 @@
+# Preserve the verified fingerprint of the transport-layer review fixture.
+tests/fixtures/network-transport-quality-20261118.json text eol=lf

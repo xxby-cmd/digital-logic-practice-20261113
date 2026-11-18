@@ -1,0 +1,246 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-analysis-ch4-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-4-1794928556220-iij2zl",
+      "title": "第4章 串 · 章节练习",
+      "chapter": 4,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 10,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-4-D-001",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "显式长度字节串s有n项，0≤n≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int isPalindrome(const unsigned char s[], int n)，是回文返回1，否则0，不修改输入。空串与单字节串均为回文。要求O(n)时间、O(1)辅助空间，并说明双端比较和空串边界。",
+          "type": "short",
+          "model": "左右下标l=0、r=n-1，while(l<r)比较s[l]和s[r]，不等立即返回假，相等则l++、r--；结束为真。应安全处理n=0以免无符号n-1下溢。空串和单字节串均为真。\n\n参考实现：\n```c\nint isPalindrome(const unsigned char s[],int n){for(int l=0,r=n-1;l<r;l++,r--)if(s[l]!=s[r])return 0;return 1;}\n```",
+          "rubric": [
+            "双端比较",
+            "空输入下标",
+            "成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-010",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "可写字节串s逻辑长度为n，字节集合由d的前m项给出，0≤n,m≤1024；d中允许重复。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int removeBytes(unsigned char s[], int n, const unsigned char d[], int m)，稳定删除s中所有属于调用前集合d的字节，返回新长度。d可引用s中的重叠片段，仍按调用前的集合解释；除此种重叠随s写回变化外，不修改d。新长度至原逻辑长度n之间的尾部不作要求，n之后的存储不得改写，不必补终止字节。要求O(n+m+256)时间、O(256)辅助空间，并说明稳定压缩。",
+          "type": "short",
+          "model": "先用256项布尔表标记D，读r写w从0开始，若!drop[a[r]]则a[w++]=a[r]，结束把长度设w。保留原相对次序，全部被删得到空串，零字节也按集合规则处理。时间O(n+|D|+256)，额外O(256)。\n\n参考实现：\n```c\nint removeBytes(unsigned char s[],int n,const unsigned char d[],int m){unsigned char drop[256]={0};for(int i=0;i<m;i++)drop[d[i]]=1;int w=0;for(int i=0;i<n;i++)if(!drop[s[i]])s[w++]=s[i];return w;}\n```",
+          "rubric": [
+            "集合表",
+            "稳定压缩",
+            "显式长度边界"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-002",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串a、b的逻辑长度分别为n、m，0≤n,m≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int commonPrefix(const unsigned char a[], int n, const unsigned char b[], int m)，返回最长公共前缀的字节数。不得分配子串。要求O(min(n,m)+1)时间、O(1)辅助空间，说明任一串为空或先结束的情况。",
+          "type": "short",
+          "model": "i=0；当i<min(m,n)且两串第i字节相等时i++；返回i。到首个差异或短串结束为止，最坏O(min(m,n)+1)，空间O(1)，无需创建子串。\n\n参考实现：\n```c\nint commonPrefix(const unsigned char a[],int n,const unsigned char b[],int m){int i=0;while(i<n&&i<m&&a[i]==b[i])i++;return i;}\n```",
+          "rubric": [
+            "双界限",
+            "返回长度",
+            "空串与成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-008",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个等长字节串s、t各有n项，0≤n≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int isRotation(const unsigned char s[], const unsigned char t[], int n, unsigned char work[], int next[])，互为循环移位返回1，否则0，两个空串返回1。系统另提供与两个输入及彼此均不重叠的工作区：work至少2n字节，next至少n+1个int；返回后的工作区内容不评分。可用next、nextval或前缀函数等表示，不固定某一种表值/编号约定。设计借助一次模式匹配的算法并证明，要求O(n)时间、O(n)辅助空间。",
+          "type": "short",
+          "model": "长度不等返回假；两个空串约定为真。非空时令U=S+S，查找T的完整出现，其起点限制为0..n-1。循环移位的每个长度n窗口都位于该区域，反之任一这样的窗口正是某个循环移位。KMP总O(n)时间，U及失配表O(n)空间；先检查2n长度溢出。\n\n参考实现：\n```c\nint isRotation(const unsigned char s[],const unsigned char t[],int n,unsigned char work[],int next[]){if(!n)return 1;for(int i=0;i<2*n;i++)work[i]=s[i%n];next[0]=0;for(int i=1,j=0;i<n;i++){while(j&&t[i]!=t[j])j=next[j-1];if(t[i]==t[j])j++;next[i]=j;}for(int i=0,j=0;i<2*n-1;i++){while(j&&work[i]!=t[j])j=next[j-1];if(work[i]==t[j])j++;if(j==n)return 1;}return 0;}\n```",
+          "rubric": [
+            "等长空串",
+            "窗口等价",
+            "时间空间"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-003",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串s、t的逻辑长度分别为n、m，0≤n,m≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int isSubsequence(const unsigned char s[], int n, const unsigned char t[], int m)，当t是s的子序列时返回1，否则0；不要求所取位置连续，空t总为子序列。要求O(n+m)时间、O(1)辅助空间，说明与子串的区别。",
+          "type": "short",
+          "model": "i=j=0，扫描S，若S[i]==T[j]则j++，无论如何i++，但j==m时即可成功。结束返回j==m。空T直接成功。时间O(n+m)上界，辅助O(1)；无需连续相邻匹配。\n\n参考实现：\n```c\nint isSubsequence(const unsigned char s[],int n,const unsigned char t[],int m){int j=0;for(int i=0;i<n&&j<m;i++)if(s[i]==t[j])j++;return j==m;}\n```",
+          "rubric": [
+            "贪心匹配",
+            "空T",
+            "与子串区分"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-007",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串s的逻辑长度n为0至1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int firstUnique(const unsigned char s[], int n)，返回第一个只出现一次的字节的0起始下标，没有则返回-1；不修改输入。要求O(n+256)时间、O(256)辅助空间，说明为何不能在尚未读完输入时就把当前只出现一次的字节判为答案。",
+          "type": "short",
+          "model": "第一遍用256项频次数组计数；第二遍按原顺序找freq[s[i]]==1的首项，返回i；没有返回-1。索引用unsigned char，计数类型足够。O(n+256)时间、O(256)空间。单次找到当前频次1就返回会忽略后续重复。\n\n参考实现：\n```c\nint firstUnique(const unsigned char s[],int n){int count[256]={0};for(int i=0;i<n;i++)count[s[i]]++;for(int i=0;i<n;i++)if(count[s[i]]==1)return i;return -1;}\n```",
+          "rubric": [
+            "两遍必要性",
+            "首个位置",
+            "字节边界"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-004",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串s的前n项仅含小写英文字母a至z，0≤n≤1024，按显式长度给出，不要求终止零字节。实现 int canRearrangePalindrome(const unsigned char s[], int n)，判断其字母能否重新排列成回文，能则返回1，否则0。空串可行，不修改输入，也不要求生成排列。要求O(n+26)时间、O(26)辅助空间，并说明判据的必要性与充分性。",
+          "type": "short",
+          "model": "统计26项频次，数奇数频次项个数。至多1项为奇数时可行，否则不可行：回文除中间一项外成对出现，反之各对分列两侧即可构造。空串可行。\n\n参考实现：\n```c\nint canRearrangePalindrome(const unsigned char s[],int n){int count[26]={0},odd=0;for(int i=0;i<n;i++)count[s[i]-'a']++;for(int i=0;i<26;i++)odd+=count[i]%2;return odd<=1;}\n```",
+          "rubric": [
+            "奇偶判据",
+            "必要充分性",
+            "成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-009",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "可写字节串s的逻辑长度n为0至1024，k为任意unsigned int值。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 void rotateLeft(unsigned char s[], int n, unsigned int k)，原地向左循环移动k项，n=0时不作任何操作。只改变前n项，不添加终止字节。要求O(n)时间、O(1)辅助空间，说明归一化k与空串处理；不限定必须采用三次逆置。",
+          "type": "short",
+          "model": "n=0直接返回；k%=n。先逆置前k项，再逆置剩余n-k项，再逆置整体，AB经A逆B逆再整体逆得到BA。k=0时两次整段逆置仍正确，可直接返回。O(n)时间，O(1)辅助空间。\n\n参考实现：\n```c\nstatic void reversePart(unsigned char s[],int l,int r){while(l<r){unsigned char x=s[l];s[l++]=s[r];s[r--]=x;}}\nvoid rotateLeft(unsigned char s[],int n,unsigned int k){if(!n)return;k%=(unsigned)n;int p=(int)k;reversePart(s,0,p-1);reversePart(s,p,n-1);reversePart(s,0,n-1);}\n```",
+          "rubric": [
+            "三段逆置",
+            "取模与空表",
+            "正确性"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-005",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "可写字节串s的逻辑长度为n，0≤n≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int compressSpaces(unsigned char s[], int n)，原地把每段连续普通空格（字节32）压缩为一个，返回新长度；原来存在的首、尾空格段也各保留一个。其他字节按原次序保留，制表符不当作空格。新长度至原逻辑长度n之间的尾部不作要求，n之后的存储不得改写，不必添加终止零字节。要求O(n)时间、O(1)辅助空间，说明读写位置的覆盖安全性。",
+          "type": "short",
+          "model": "读r、写w从0开始；每项若不是空格，或w==0，或输出前一项不是空格，则写a[w++]=a[r]；结束n=w。写下标不超过读下标，覆盖安全。仅普通空格参与，不擅自处理制表符。O(n)时间、O(1)空间。\n\n参考实现：\n```c\nint compressSpaces(unsigned char s[],int n){int w=0;for(int r=0;r<n;r++)if(s[r]!=32||w==0||s[w-1]!=32)s[w++]=s[r];return w;}\n```",
+          "rubric": [
+            "连续判定",
+            "首尾规则",
+            "覆盖安全"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-006",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串s逻辑长度n为0至1024，非空模式t逻辑长度m为1至1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int countPattern(const unsigned char s[], int n, const unsigned char t[], int m)，返回t在s中的出现次数，允许不同出现位置重叠。模式长于主串时为0。给出朴素匹配算法，并说明候选起点、边界与最坏复杂度；不得把空模式另行约定混入本题。",
+          "type": "short",
+          "model": "若m>n返回0；否则对i从0到n-m逐字符比较m项，全部匹配计数加1；无论是否命中下一候选均i+1，故保留重叠。最坏O((n-m+1)m)，辅助O(1)。空模式按接口拒绝，避免混用n+1的另一约定。\n\n参考实现：\n```c\nint countPattern(const unsigned char s[],int n,const unsigned char t[],int m){int count=0;for(int i=0;i<=n-m;i++){int j=0;while(j<m&&s[i+j]==t[j])j++;if(j==m)count++;}return count;}\n```",
+          "rubric": [
+            "所有起点",
+            "重叠",
+            "边界与成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 10
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-4-D-001": "saved prior code P4-structures-4-D-001",
+        "P4-structures-4-D-010": "saved prior code P4-structures-4-D-010",
+        "P4-structures-4-D-002": "saved prior code P4-structures-4-D-002",
+        "P4-structures-4-D-008": "saved prior code P4-structures-4-D-008",
+        "P4-structures-4-D-003": "saved prior code P4-structures-4-D-003",
+        "P4-structures-4-D-007": "saved prior code P4-structures-4-D-007",
+        "P4-structures-4-D-004": "saved prior code P4-structures-4-D-004",
+        "P4-structures-4-D-009": "saved prior code P4-structures-4-D-009",
+        "P4-structures-4-D-005": "saved prior code P4-structures-4-D-005",
+        "P4-structures-4-D-006": "saved prior code P4-structures-4-D-006"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

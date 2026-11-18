@@ -1,0 +1,243 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "before-typed-tolerated",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-2-1794953099802-cp75kj",
+      "title": "第2章 线性表 · 章节练习",
+      "chapter": 2,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 3,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 3,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 3,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 3,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-2-F-002",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用不含重复值的线性表A=(4,1,7)、B=(1,2,4,9)表示两个集合。依次扫描B；只有当前值不在A中时才追加到A末尾，不排序。完成后A为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "4,1,7,2,9"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "1和4已在A中，不再追加；2和9按B中的顺序追加，A成为4,1,7,2,9。集合并去除重复，但不要求把原有次序变成升序。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 34
+        },
+        {
+          "id": "P4-structures-2-F-005",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点的非循环单链表，首数据结点由head->____取得。",
+          "type": "fill",
+          "answers": [
+            [
+              "next"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "head本身是辅助结点，next才是第一项或NULL。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 33
+        },
+        {
+          "id": "P2-structures-2-9",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点空单链表，head非空，常用的判空条件为____（填写C表达式）。",
+          "type": "fill",
+          "answers": [
+            [
+              "head->next==NULL",
+              "head->next==0",
+              "!head->next",
+              "(head->next==NULL)",
+              "(head->next)==NULL",
+              "NULL==head->next",
+              "0==head->next",
+              "!(head->next)"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "头结点存在不表示有数据结点，应检查其next。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 33
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P4-structures-2-F-002": [
+          "41,7,2,9"
+        ],
+        "P4-structures-2-F-005": [
+          "NEXT"
+        ],
+        "P2-structures-2-9": [
+          "HEAD->NEXT==NULL"
+        ]
+      },
+      "marks": {
+        "P4-structures-2-F-002": 34,
+        "P4-structures-2-F-005": 33,
+        "P2-structures-2-9": 33
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P4-structures-2-F-002": 34,
+          "P4-structures-2-F-005": 33,
+          "P2-structures-2-9": 33
+        },
+        "settledAt": 1794953099802
+      },
+      "submittedAt": 2,
+      "expired": false
+    },
+    {
+      "id": "before-typed-first-zero",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-2-1794953099806-c30u6z",
+      "title": "第2章 线性表 · 章节练习",
+      "chapter": 2,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 1,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 1,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 1,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 1,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P2-structures-2-9",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点空单链表，head非空，常用的判空条件为____（填写C表达式）。",
+          "type": "fill",
+          "answers": [
+            [
+              "head->next==NULL",
+              "head->next==0",
+              "!head->next",
+              "(head->next==NULL)",
+              "(head->next)==NULL",
+              "NULL==head->next",
+              "0==head->next",
+              "!(head->next)"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "头结点存在不表示有数据结点，应检查其next。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 100
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P2-structures-2-9": [
+          "1"
+        ]
+      },
+      "marks": {
+        "P2-structures-2-9": 0
+      },
+      "result": {
+        "total": 0,
+        "scores": {
+          "P2-structures-2-9": 0
+        },
+        "settledAt": 1794953099806
+      },
+      "submittedAt": 2,
+      "expired": false
+    }
+  ]
+}

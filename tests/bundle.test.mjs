@@ -7,7 +7,7 @@ test('构建后的独立HTML在首页、三科题目与第六章直达页完成�
  const html=await readFile(new URL('../dist/index.html',import.meta.url),'utf8');
  const script=new Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
  for(const [hash,expected]of [
-  ['','今天，练哪一科？'],
+  ['','我的课程'],
   ['#/subjects/network/chapter/1/question/1-01','一条点到点链路'],
   ['#/subjects/structures/chapter/6/question/6-01','先序'],
   ['#/subjects/programming/chapter/6/question/6-01','a[5]'],

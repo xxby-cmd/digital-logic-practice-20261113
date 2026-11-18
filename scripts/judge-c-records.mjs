@@ -33,6 +33,7 @@ function add(tag,n,source,build){const key=id(tag,n);registry.set(key,build);sou
 const students=[S(0,'',0),S(1,'a',60),S(-1,'li',100),S(1000000,'abcdefghijklmno',1),S(-1000000,'z',99),S(2,'li',60)];
 const rosters=[[],[students[0]],[students[1]],[S(3,'c',90),S(1,'a',60),S(2,'b',90)],
  [S(2,'first',80),S(2,'second',80),S(1,'third',80)],
+ [S(2,'first',80),S(2,'second',80),S(3,'third',70)],
  [S(-1,'li',0),S(9,'li',100),S(-1,'',80),S(4,'z',59)],
  Array.from({length:20},(_,i)=>S(i%5,`n${'a'.repeat(i%4)}`,i*11%101))];
 // All generated names obey the published lowercase-only contract.
@@ -68,8 +69,9 @@ add('B',10,'long long stockValue(Stock s){return (long long)s.quantity*s.price;}
 add('B',11,'int takeStock(Stock*s,int amount){if(amount>s->quantity)return 0;s->quantity-=amount;return 1;}',()=>stocks.flatMap(s=>[0,1,s.quantity,1000000].map(amount=>item(
  `Stock a=${stock(s)};int r=takeStock(&a,${amount});printf("%d ",r);${out('Stock','a')}puts("");`,[Number(amount<=s.quantity),...kv({...s,quantity:amount<=s.quantity?s.quantity-amount:s.quantity})]))));
 
-const chains=[[],[0],[2,0,3,1],[4,1,3],[0,2,1,4,3]];
-const poolBase=[{id:1,score:10},{id:2,score:80},{id:1,score:90},{id:-3,score:0},{id:7,score:60},{id:8,score:100}];
+const chains=[[],[0],[2,0,3,1],[4,1,3],[0,2,1,4,3],[6,0,7,2,1,4,3,5]];
+const poolBase=[{id:1,score:10},{id:2,score:80},{id:1,score:90},{id:-3,score:0},{id:7,score:60},{id:8,score:100},{id:2,score:60},{id:-1,score:20},{id:99,score:33}];
+const detached=poolBase.length-1;
 function nodeInit(order,extraOrder=[]){const a=poolBase.map(p=>({...p,next:-1}));for(const seq of [order,extraOrder])seq.forEach((index,i)=>a[index].next=seq[i+1]??-1);return a;}
 function nodeBody(a){return `Node a[${a.length}]={${a.map(s=>`{${s.id},${s.score},NULL}`).join(',')}};`+a.map((s,i)=>`a[${i}].next=${s.next<0?'NULL':`a+${s.next}`};`).join('');}
 const ptr=i=>i<0?'NULL':`a+${i}`;
@@ -138,6 +140,8 @@ add('P',15,'int receiveStock(Stock*s,Stock d){if(s->code!=d.code||s->price!=d.pr
  `Stock a=${stock(a)},b=${stock(b)};int ok=receiveStock(&a,b);printf("%d ",ok);${out('Stock','a')}${out('Stock','b')}puts("");`,[Number(ok),...kv({...a,quantity:a.quantity+(ok?b.quantity:0)}),...kv(b)]);
 }));
 const lineArrays=[[],[{code:1,units:0,unitCents:100,waived:0}],
+ [{code:1,units:1,unitCents:100,waived:0},{code:2,units:2,unitCents:200,waived:1}],
+ [{code:1,units:1,unitCents:100,waived:0},{code:1,units:0,unitCents:99,waived:1}],
  [{code:1,units:2,unitCents:100,waived:0},{code:2,units:3,unitCents:200,waived:1},{code:1,units:1,unitCents:99,waived:0}],
  [{code:0,units:1000,unitCents:1000000,waived:0},{code:0,units:1,unitCents:1000000,waived:1}],
  Array.from({length:20},(_,i)=>({code:i%3,units:1000,unitCents:1000000,waived:0}))];
@@ -148,7 +152,9 @@ add('P',17,'int applyCoupon(Line*a,int n,int code,int discount){int count=0;for(
  const b=clone(a);let count=0;for(const x of b.slice(0,n))if(x.code===code&&!x.waived){x.unitCents=Math.max(0,x.unitCents-d);count++;}
  return item(`${array('Line','a',a,line)}int k=applyCoupon(a,${n},${code},${d});printf("%d ",k);${outputArray('Line','a',a.length)}puts("");`,[count,...b.flatMap(lv)]);
 }))));
-add('P',18,'int consistentInvoice(const Line*a,int n){for(int i=0;i<n;i++)for(int j=i+1;j<n;j++)if(a[i].code==a[j].code&&a[i].unitCents!=a[j].unitCents)return 0;return 1;}',()=>linePrefix.map(({a,n})=>{
+const consistencyPrefix=[...linePrefix,
+ ...[0,1].map(n=>({a:[{code:7,units:1,unitCents:100,waived:0},{code:7,units:1,unitCents:200,waived:1}],n}))];
+add('P',18,'int consistentInvoice(const Line*a,int n){for(int i=0;i<n;i++)for(int j=i+1;j<n;j++)if(a[i].code==a[j].code&&a[i].unitCents!=a[j].unitCents)return 0;return 1;}',()=>consistencyPrefix.map(({a,n})=>{
  const map=new Map();let ok=true;for(const x of a.slice(0,n)){if(map.has(x.code)&&map.get(x.code)!==x.unitCents)ok=false;map.set(x.code,x.unitCents);}
  return item(`${array('Line','a',a,line)}printf("%d ",consistentInvoice(a,${n}));${outputArray('Line','a',a.length)}puts("");`,[Number(ok),...a.flatMap(lv)]);
 }));
@@ -176,22 +182,22 @@ add('P',24,'int nodeCountPassing(const Node*h,int min){int count=0;for(;h;h=h->n
  `${nodeBody(a)}printf("%d ",nodeCountPassing(${ptr(order[0]??-1)},${min}));${nodePrint}puts("");`,[order.filter(i=>a[i].score>=min).length,...nodeOut(a)]);
 })));
 add('P',25,'Node*appendDetached(Node*h,Node*item){if(!h)return item;Node*p=h;while(p->next)p=p->next;p->next=item;return h;}',()=>chains.map(order=>{
- const a=nodeInit(order),nextOrder=[...order,5],b=nodeInit(nextOrder);return item(`${nodeBody(a)}Node*r=appendDetached(${ptr(order[0]??-1)},a+5);printf("%d ",${pointerIndex('r')});${nodePrint}puts("");`,[nextOrder[0],...nodeOut(b)]);
+ const a=nodeInit(order),nextOrder=[...order,detached],b=nodeInit(nextOrder);return item(`${nodeBody(a)}Node*r=appendDetached(${ptr(order[0]??-1)},a+${detached});printf("%d ",${pointerIndex('r')});${nodePrint}puts("");`,[nextOrder[0],...nodeOut(b)]);
 }));
-add('P',26,'Node*unlinkFirstId(Node*h,int id,Node**removed){Node*prev=NULL,*p=h;while(p&&p->id!=id){prev=p;p=p->next;}*removed=p;if(!p)return h;if(prev)prev->next=p->next;else h=p->next;p->next=NULL;return h;}',()=>chains.flatMap(order=>[1,7,99].map(key=>{
+add('P',26,'Node*unlinkFirstId(Node*h,int id,Node**removed){Node*prev=NULL,*p=h;while(p&&p->id!=id){prev=p;p=p->next;}*removed=p;if(!p)return h;if(prev)prev->next=p->next;else h=p->next;p->next=NULL;return h;}',()=>chains.flatMap(order=>[...new Set([1,7,99,...order.map(i=>poolBase[i].id)])].map(key=>{
  const a=nodeInit(order),at=order.findIndex(i=>a[i].id===key),removed=at<0?-1:order[at],seq=order.filter((_,j)=>j!==at),b=nodeInit(seq);
- return item(`${nodeBody(a)}Node*removed=a+5;Node*r=unlinkFirstId(${ptr(order[0]??-1)},${key},&removed);printf("%d %d ",${pointerIndex('r')},${pointerIndex('removed')});${nodePrint}puts("");`,[seq[0]??-1,removed,...nodeOut(b)]);
+ return item(`${nodeBody(a)}Node*removed=a+${detached};Node*r=unlinkFirstId(${ptr(order[0]??-1)},${key},&removed);printf("%d %d ",${pointerIndex('r')},${pointerIndex('removed')});${nodePrint}puts("");`,[seq[0]??-1,removed,...nodeOut(b)]);
 })));
 add('P',27,'void swapPayload(Node*a,Node*b){int id=a->id,score=a->score;a->id=b->id;a->score=b->score;b->id=id;b->score=score;}',()=>[[0,0],[0,1],[1,3],[3,4],[4,2]].map(([u,v])=>{
  const a=nodeInit([2,0,3,1,4]),b=clone(a);[b[u].id,b[v].id]=[b[v].id,b[u].id];[b[u].score,b[v].score]=[b[v].score,b[u].score];
  return item(`${nodeBody(a)}swapPayload(a+${u},a+${v});${nodePrint}puts("");`,nodeOut(b));
 }));
 add('P',28,'int appendUniqueId(Node**h,Node*item){Node*p=*h,*last=NULL;for(;p;p=p->next){if(p->id==item->id)return 0;last=p;}if(last)last->next=item;else *h=item;return 1;}',()=>chains.flatMap(order=>[1,7,999].map(key=>{
- const a=nodeInit(order);a[5].id=key;const ok=!order.some(i=>a[i].id===key),seq=ok?[...order,5]:order,b=clone(a);
- if(ok&&order.length)b[order.at(-1)].next=5;
- return item(`${nodeBody(a)}Node*head=${ptr(order[0]??-1)};int ok=appendUniqueId(&head,a+5);printf("%d %d ",ok,${pointerIndex('head')});${nodePrint}puts("");`,[Number(ok),seq[0]??-1,...nodeOut(b)]);
+ const a=nodeInit(order);a[detached].id=key;const ok=!order.some(i=>a[i].id===key),seq=ok?[...order,detached]:order,b=clone(a);
+ if(ok&&order.length)b[order.at(-1)].next=detached;
+ return item(`${nodeBody(a)}Node*head=${ptr(order[0]??-1)};int ok=appendUniqueId(&head,a+${detached});printf("%d %d ",ok,${pointerIndex('head')});${nodePrint}puts("");`,[Number(ok),seq[0]??-1,...nodeOut(b)]);
 })));
-add('P',29,'int moveFirstId(Node**from,Node**to,int id){Node*prev=NULL,*p=*from;while(p&&p->id!=id){prev=p;p=p->next;}if(!p)return 0;if(prev)prev->next=p->next;else *from=p->next;p->next=*to;*to=p;return 1;}',()=>[[[],[]],[[2,0,3],[1,4]],[[1,3],[]],[[],[0,2]],[[0],[1]]].flatMap(([from,to])=>[1,2,7,99].map(key=>{
+add('P',29,'int moveFirstId(Node**from,Node**to,int id){Node*prev=NULL,*p=*from;while(p&&p->id!=id){prev=p;p=p->next;}if(!p)return 0;if(prev)prev->next=p->next;else *from=p->next;p->next=*to;*to=p;return 1;}',()=>[[[],[]],[[2,0,3],[1,4]],[[1,3],[]],[[],[0,2]],[[0],[1]],[[6,0,7,2,1,4,3,5],[]],[[0],[1,2,3,4,5,6,7]]].flatMap(([from,to])=>[...new Set([1,2,7,99,...from.map(i=>poolBase[i].id)])].map(key=>{
  const a=nodeInit(from,to),at=from.findIndex(i=>a[i].id===key),selected=at<0?-1:from[at],f=from.filter((_,i)=>i!==at),t=at<0?to:[selected,...to],b=nodeInit(f,t);
  return item(`${nodeBody(a)}Node*f=${ptr(from[0]??-1)},*t=${ptr(to[0]??-1)};int ok=moveFirstId(&f,&t,${key});printf("%d %d %d ",ok,${pointerIndex('f')},${pointerIndex('t')});${nodePrint}puts("");`,[Number(at>=0),f[0]??-1,t[0]??-1,...nodeOut(b)]);
 })));

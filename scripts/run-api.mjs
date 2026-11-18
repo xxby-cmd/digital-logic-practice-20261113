@@ -15,25 +15,34 @@ export async function handleRun(req,res,port){
  let body='',payload,contract;
  try{const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>100000)throw Error('size');chunks.push(chunk);}body=Buffer.concat(chunks).toString('utf8');payload=JSON.parse(body);if(!payload||typeof payload!=='object'||Array.isArray(payload))throw Error('format');}catch{return reply(400,{message:'代码或输入格式不正确。'});}
  if(typeof payload.source!=='string')return reply(400,{message:'代码格式不正确。'});
+ const language=payload.language??'c';
+ if(!['c','java'].includes(language))return reply(400,{message:'请选择受支持的编程语言。'});
  if(Buffer.byteLength(payload.source,'utf8')>32768)return reply(200,{status:'invalid',message:'代码不能超过32KB。'});
  if(new URL(req.url,'http://localhost').pathname==='/api/judge'){
-  contract=judgeContract(payload.questionId);if(!contract)return reply(400,{message:'本题的自动测试尚未开放。'});
-  payload=contract.variants?{source:payload.source,variants:contract.variants}:{source:payload.source,prelude:contract.prelude||'',harness:contract.harness,stdin:contract.stdin||''};
+  contract=judgeContract(payload.questionId,language);if(!contract)return reply(400,{message:'本题尚未开放所选语言的自动测试。'});
+  const executionConfig=c=>({prelude:c.prelude||'',harness:c.harness,stdin:c.stdin||'',...(language==='java'?{interfaceSpec:c.interfaceSpec}:{})});
+  payload=contract.variants?{source:payload.source,variants:language==='java'?contract.variants.map(executionConfig):contract.variants,trusted_driver:true}:{source:payload.source,...executionConfig(contract),trusted_driver:true,...(contract.file_policy?{file_policy:contract.file_policy}:{})};
  }else{
   payload={source:payload.source,stdin:payload.stdin??''};
  }
+ payload.language=language;
  body=JSON.stringify(payload);
- if(!process.env.JUDGE_PYTHON||(!process.env.JUDGE_SDK&&!process.env.JUDGE_ZIG))return reply(503,{message:'运行环境尚未准备好。'});
+ if(!process.env.JUDGE_PYTHON||(language==='c'&&!process.env.JUDGE_SDK&&!process.env.JUDGE_ZIG))return reply(503,{message:'运行环境尚未准备好。'});
  // Body reads yield; claim the worker slot only after the final await above.
  if(running)return reply(429,{message:'上一份程序正在运行，请稍后重试。'});
  running=true;
- const child=spawn(process.env.JUDGE_PYTHON,[path.resolve('scripts/judge-worker.py')],{windowsHide:true,env:{...process.env,PYTHONIOENCODING:'utf-8'},stdio:['pipe','pipe','pipe']});
+ const child=spawn(process.env.JUDGE_PYTHON,[path.resolve(language==='java'?'scripts/judge-java-worker.py':'scripts/judge-worker.py')],{windowsHide:true,env:{...process.env,PYTHONIOENCODING:'utf-8'},stdio:['pipe','pipe','pipe']});
+ const responseLimit=language==='java'?524288:contract&&(contract.file_policy||contract.variants?.some(c=>c.file_policy))?1048576:200000;
  let output='',size=0,finished=false;const decoder=new StringDecoder('utf8');
  const done=(status,data)=>{if(finished)return;finished=true;clearTimeout(timer);running=false;reply(status,data);};
- const timer=setTimeout(()=>{child.kill();done(200,{status:'time_limit',message:'编译或运行超时。'});},22000);
- child.stdout.on('data',b=>{size+=b.length;if(size>200000){child.kill();done(200,{status:'output_limit',message:'程序输出过多。'});}else output+=decoder.write(b);});
+ const timer=setTimeout(()=>{child.kill();done(503,{status:'unavailable',message:'运行服务处理超时，代码与答卷已保留，请稍后重试。'});},language==='java'?150000:22000);
+ child.stdout.on('data',b=>{size+=b.length;if(size>responseLimit){child.kill();done(503,{status:'unavailable',message:'运行服务未返回可处理的完整结果，代码与答卷已保留。'});}else output+=decoder.write(b);});
  child.stderr.resume();
  child.on('error',()=>done(503,{message:'运行环境暂不可用。'}));
- child.on('close',()=>{try{output+=decoder.end();const result=JSON.parse(output);done(200,contract?evaluateContract(result,contract):result);}catch{done(503,{message:'运行服务未返回完整结果。'});}});
+ child.on('close',(code,signal)=>{
+  if(finished)return;
+  if(code!==0||signal)return done(503,{message:'运行环境暂不可用，代码与答卷已保留。'});
+  try{output+=decoder.end();const result=JSON.parse(output);done(200,contract?evaluateContract(result,contract):result);}catch{done(503,{message:'运行服务未返回完整结果。'});}
+ });
  child.stdin.on('error',()=>{});child.stdin.end(body);
 }

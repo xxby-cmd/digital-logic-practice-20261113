@@ -666,6 +666,7 @@ const choiceMechanisms=[
 ];
 const choiceLevels=["basic","basic","core","basic","basic","core","core","core","basic","basic","core","core","basic","basic","core","core","core","supplement","basic","core","core","core","core","supplement","supplement","supplement","basic","core","core","core","supplement","core","core","core","supplement","basic","core","core","core","core","basic","core","basic","core","core","supplement","core","core","core","core","basic","core","core","supplement","basic"];
 const nodeDefinition='系统提供typedef struct Node{int data;struct Node *next;}Node;，不要重复定义。';
+const prependHeadConstraint='head所指的指针槽不能与node->next重叠；允许head指向其他独立结点的next成员。';
 const tasks=[
  ['B','void addTo(int *target, int delta)','把delta加到target所指整数上。target有效，原值和delta均在[-1000000,1000000]内。',
   'void addTo(int *target, int delta) {\n    /* 空1 */ += /* 空2 */;\n}',
@@ -753,8 +754,8 @@ const tasks=[
   '命中i时返回&slots[i]，类型为int**；返回slots[i]会丢掉“是哪一个槽位”的信息。重复地址要选第一次，查找NULL也应正常比较。','查找并返回指针变量的地址'],
  ['P','int moveReference(int **from, int **to)','from、to指向不同的有效指针变量，二者保存NULL或有效int地址。若*to非NULL则返回0且两变量不变；否则把*from交给*to，再将*from设为NULL并返回1。不修改整数对象。','',
   '先检查接收槽是否空，再保存和移动地址。来源本来为NULL也允许成功，两个槽最终都为空。移动的是引用，不是整数值，也不释放目标对象。','指针槽之间的引用转移'],
- ['P','void prependGiven(Node **head, Node *node)','head有效，*head为无环链的首结点或NULL；node是链外给定的独立有效结点，原next值不作要求。将node变为新首结点，其余结点数据、身份和次序保持；不分配或释放结点。','',
-  '先把原*head接到node->next，再通过*head写回新首地址。只改变局部head不能改变调用者；先覆盖*head再读旧首会丢失原链或形成自环。','二级指针写回给定链首'],
+ ['P','void prependGiven(Node **head, Node *node)',`head有效，*head为无环链的首结点或NULL；node是链外给定的独立有效结点，原next值不作要求。${prependHeadConstraint}将node变为新首结点，其余结点数据、身份和次序保持；不分配或释放结点。`,'',
+  '先把原*head接到node->next，再通过*head写回新首地址。只改变局部head不能改变调用者；先覆盖*head再读旧首会丢失原链或形成自环。head若是独立anchor的next成员地址，这两步仍成立；若head就是&node->next，新首写回和新结点后继会争用同一对象，因此题目排除了这种输入。','二级指针写回给定链首'],
  ['P','Node *detachFirst(Node **head)','head有效，*head是无环链首或NULL。空链返回NULL；否则摘下首结点，将*head更新为后继，并将摘下结点next设为NULL后返回其原地址。不释放结点，其余结点数据、身份与次序不变。','',
   '保存原首，先用其后继更新链首，再把摘下结点next清空。调用者接收的是原结点本身，不能返回局部副本地址，也不能先清next再取后继。','摘取结点并分离引用'],
  ['P','int compareBy(int a, int b, int (*comparison)(int, int))','comparison为有效函数指针，恰好用(a,b)调用一次。将回调结果归一化：负数返回-1、零返回0、正数返回1。a、b及回调结果均可由int表示。','',
@@ -786,6 +787,7 @@ const coding=tasks.map(([tag,signature,description,shell,model,mechanism])=>{
  const basic=tag==='B'&&[1,2,4,7,10,12,14].includes(number)||tag==='P'&&[7,8,23,28].includes(number);
  const studyLevel=supplement?'supplement':basic?'basic':'core';
  return {...q,coding:true,signature,starter,mechanism,systemTypes:node?nodeDefinition:'',
+  ...(tag==='P'&&number===21?{revision:2,submissionConstraint:prependHeadConstraint}:{}),
   studyLevel,studyWeight:{core:3,basic:2,supplement:1}[studyLevel],priority:{core:'重点',basic:'基础',supplement:'补充'}[studyLevel],
   studyEvidence:node?'简单结构仅提供类型练习引用修改，作为补充，不代替数据结构算法训练。':'当届《8 指针.pdf》8.1—8.5；C08课堂讨论的对象、步长、地址表、二级指针及回调机制；层级为编排判断。',
   source:{book:'独立编写；《程序设计导引及在线实践》1.14仅作补充参照',ppt:'当届8 指针.pdf；马虹CYY7-23实际第7章指针；C08-01/C08-02课堂讨论'}};

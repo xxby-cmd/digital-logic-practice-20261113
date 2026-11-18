@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-pending-9-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-9-1794928861384-47d8w8",
+      "title": "第9章 查找 · 章节练习",
+      "chapter": 9,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 10,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-9-D-001",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计升序数组lower_bound：返回第一个≥K的0起始位置，无则n，允许空数组。",
+          "type": "short",
+          "model": "l=0,r=n；while(l<r){m=l+(r-l)/2;if(a[m]<K)l=m+1;else r=m;} return l。保持左侧都<K、右侧都≥K，半开区间严格收缩。O(log(n+1))时间O(1)空间。",
+          "rubric": [
+            "不变量",
+            "边界",
+            "复杂度"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-010",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "Trie支持小写字母键且空串合法，设计算法判断键是否完整存在，区分前缀存在。",
+          "type": "short",
+          "model": "从根逐字符取孩子，缺边立即假；所有字符消费完后只按terminal标志返回，不因路径存在即真。空串直接检查根terminal。孩子数组26项时O(L+1)时间O(1)查询辅助；插入其他长词不自动把所有前缀登记为词。",
+          "rubric": [
+            "终止标志",
+            "空串",
+            "复杂度"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-002",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有序数组求闭值域[L,R]内元素个数，L>R返回0，允许重复。",
+          "type": "short",
+          "model": "L>R直接0；否则用lower_bound(L)得首≥L位置p，upper_bound(R)得首>R位置q，返回q-p。避免用R+1实现上界，以免最大值溢出。两次二分O(log(n+1))时间O(1)空间。",
+          "rubric": [
+            "两个边界",
+            "重复",
+            "极值"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-008",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "三状态线性探测插入集合键，允许复用墓碑，必须避免重复键。",
+          "type": "short",
+          "model": "记firstDeleted未设，最多探m槽：已占且相等返已存在；遇墓碑且首次则记录；遇EMPTY时在firstDeleted或本槽插并成功。若全圈结束，若有墓碑则复用，否则报告满。不得遇首墓碑就立即插而漏后方重复键。O(m)最坏。",
+          "rubric": [
+            "延迟复用",
+            "全周期",
+            "满表"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-003",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两升序数组分别不含重复，设计一次线性扫描判断是否存在公共键，并返回一个。",
+          "type": "short",
+          "model": "双指针i,j。相等返回键，小者前进；任一到尾返回未找到。小者不可能在另一当前值之后匹配，故可舍弃。O(n+m)时间O(1)空间；返回状态和值分开支持0等合法键。",
+          "rubric": [
+            "双指针",
+            "舍弃理由",
+            "未找到语义"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-007",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "线性探测开放定址表实现查找，三状态EMPTY/OCCUPIED/DELETED，容量m>0。保证即使没有EMPTY也能终止。",
+          "type": "short",
+          "model": "从h(key)起按模m探测最多m槽；OCCUPIED且键相同返回；EMPTY立即未找到；DELETED继续。整圈无命中返回未找到。不能只while非EMPTY而无计数导致全墓碑/全占用死循环。O(m)最坏O(1)辅助。",
+          "rubric": [
+            "状态规则",
+            "全圈界",
+            "最坏"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-004",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "BST中求最小键，空树返回失败。给迭代算法并分析，不假定平衡。",
+          "type": "short",
+          "model": "先判root为空则失败；p=root，while(p.left!=NULL)p=p.left；返回成功与p.key。O(h)时间O(1)辅助，链状可O(n)，键为负或0均合法，不能拿某固定键作失败哨兵。",
+          "rubric": [
+            "空树",
+            "最左",
+            "高度"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-009",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "链地址表删除指定键，键唯一，释放结点并正确处理桶头。",
+          "type": "short",
+          "model": "算桶号，用Node**slot指向桶头；循环检查*slot，命中则q=*slot，*slot=q->next，释放q返回成功；否则slot=&(*slot)->next。到空返不存在。O(桶长)时间O(1)辅助，头结点与内部删除统一，不在free后读q->next。",
+          "rubric": [
+            "可写前驱链接",
+            "释放顺序",
+            "未找到"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-005",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "BST中按升序输出闭区间[L,R]的全部键，允许剪枝，L>R为空结果。",
+          "type": "short",
+          "model": "visit(u)：空返；若key>L递归左；若L≤key≤R输出；若key<R递归右。互异键BST下时间O(h+k)上界，k输出数，栈O(h)；L>R先返回。两侧条件可按键范围剪掉，不能先访问全部再称输出敏感。",
+          "rubric": [
+            "剪枝",
+            "顺序",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-9-D-006",
+          "chapter": 9,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "普通BST插入互异新键，若已存在则不新增。用可更新根的接口给迭代思路，分配失败不破坏树。",
+          "type": "short",
+          "model": "沿可写链接slot=&root，比较后走&node.left或&node.right，相等返已存在；遇空链接先申请并初始化新结点，成功才*slot=new。失败返回状态。O(h)时间O(1)搜索辅助；空树自然接根，是否维持AVL是另一职责。",
+          "rubric": [
+            "链接引用",
+            "重复失败",
+            "空树"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-9-D-001": "saved revision1 code P4-structures-9-D-001",
+        "P4-structures-9-D-010": "saved revision1 code P4-structures-9-D-010",
+        "P4-structures-9-D-002": "saved revision1 code P4-structures-9-D-002",
+        "P4-structures-9-D-008": "saved revision1 code P4-structures-9-D-008",
+        "P4-structures-9-D-003": "saved revision1 code P4-structures-9-D-003",
+        "P4-structures-9-D-007": "saved revision1 code P4-structures-9-D-007",
+        "P4-structures-9-D-004": "saved revision1 code P4-structures-9-D-004",
+        "P4-structures-9-D-009": "saved revision1 code P4-structures-9-D-009",
+        "P4-structures-9-D-005": "saved revision1 code P4-structures-9-D-005",
+        "P4-structures-9-D-006": "saved revision1 code P4-structures-9-D-006"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-analysis-ch2-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-2-1794928556214-4letjo",
+      "title": "第2章 线性表 · 章节练习",
+      "chapter": 2,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 5,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "2-02",
+          "chapter": 2,
+          "type": "short",
+          "title": "链表删除的边界",
+          "topic": "链表删除的边界",
+          "stem": "一个带头结点的单链表使用如下代码删除所有值为x的结点：\n\n```c\nNode *p = head;\nwhile (p->next != NULL) {\n    Node *q = p->next;\n    if (q->data == x) {\n        p->next = q->next;\n        free(q);\n    }\n    p = p->next;\n}\n```\n\n假设结点由malloc分配，链表无环。请指出代码在什么情况下出错，并给出保持带头结点结构的修改。至少说明连续命中和末结点命中两种情况。",
+          "priority": "重点",
+          "difficulty": "进阶",
+          "points": 20,
+          "revision": 1,
+          "explanation": "删除后应让p仍指向保留下来的前驱；只有未删除时才执行p=p->next。连续命中会因前驱提前前移漏删；删除末结点后，原代码令p=NULL，下一轮求p->next产生非法访问。修改为把p=p->next放在else分支，删除分支不移动p。\n评分建议6分：连续命中分析2，尾删空指针分析2，正确修改及前驱不变量2。不是只要求“把某一行移走”而不解释理由。",
+          "source": {
+            "book": "当前课程知识体系 · 独立编写",
+            "ppt": "数据结构课程课件"
+          },
+          "model": "删除后应让p仍指向保留下来的前驱；只有未删除时才执行p=p->next。连续命中会因前驱提前前移漏删；删除末结点后，原代码令p=NULL，下一轮求p->next产生非法访问。修改为把p=p->next放在else分支，删除分支不移动p。\n评分建议6分：连续命中分析2，尾删空指针分析2，正确修改及前驱不变量2。不是只要求“把某一行移走”而不解释理由。",
+          "rubric": [
+            "指出连续命中时漏删（2分）",
+            "指出删除尾结点后p=NULL，下一轮非法访问（2分）",
+            "仅在未删除分支移动p，并说明前驱不变量（2分）"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "section": "编程题"
+        },
+        {
+          "id": "P4-structures-2-D-005",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "整数数组a、b的有效前缀长度分别为n、m，0≤n,m≤256；各自严格递增，元素可为任意int值。实现 int intersection(const int a[], int n, const int b[], int m, int c[])，把交集中的每个值恰好一次写入c，返回结果长度。c与两个输入不重叠，容量至少为min(n,m)；a、b可以是同一数组或重叠片段。不得修改输入。结果次序不限制，返回长度以外的c尾区不作要求。要求O(n+m)时间，除输出外O(1)辅助空间，并说明为何可舍弃较小项。",
+          "type": "short",
+          "model": "i=j=k=0；两边均未结束时比较A[i]和B[j]：小者下标前进；相等则C[k++]=A[i]，i、j均前进。任一结束即结束，返回长度k。小者不可能在另一表剩余部分命中，故可舍弃。时间O(m+n)，除输出外空间O(1)，空输入交集为空。\n\n参考实现：\n```c\nint intersection(const int a[],int n,const int b[],int m,int c[]){int i=0,j=0,k=0;while(i<n&&j<m){if(a[i]<b[j])i++;else if(a[i]>b[j])j++;else{c[k++]=a[i];i++;j++;}}return k;}\n```",
+          "rubric": [
+            "双指针分支",
+            "正确性依据",
+            "输出长度与成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 3,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-2-D-001",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "整数顺序表存放在有效数组a的前n项，0≤n≤256，元素可为任意int值。实现 int removeNegatives(int a[], int n)，原地删除所有负数，保持其余元素的相对次序，返回新长度。只有返回长度内的前缀属于结果，尾部存储内容不作要求。不得另开与n同规模的数组，要求O(n)时间、O(1)辅助空间。说明全负与无负的情形。",
+          "type": "short",
+          "model": "用读指针r遍历0..n-1，写指针w初值0。若a[r]>=0，执行a[w++]=a[r]；扫描后n=w。保留项按读取顺序写回，因此稳定。全负得空表，无负长度不变。时间O(n)，辅助O(1)。\n\n参考实现：\n```c\nint removeNegatives(int a[],int n){int w=0;for(int r=0;r<n;r++)if(a[r]>=0)a[w++]=a[r];return w;}\n```",
+          "rubric": [
+            "读写位置分开",
+            "稳定性",
+            "边界与复杂度"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 3,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-2-D-004",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "系统提供 typedef struct Node { int data; struct Node *next; } Node;。first指向无头结点非空单链表的首个数据结点，表无环，长度1至256，data可为任意int值。k为正int整数。实现 const Node *kthFromEnd(const Node *first, int k)：返回原链倒数第k个结点的地址，不足k项时返回NULL。不得修改或释放结点，不得用同值的新结点代替原结点。设计一次扫描算法，要求O(n)时间、O(1)辅助空间，并说明两个游标的关系。",
+          "type": "short",
+          "model": "先令fast与slow均为首数据结点，让fast走k步，每步前若fast为空则失败。之后两指针同步前进直到fast为空，此时slow为倒数第k项。k<=0先拒绝。fast与slow间距k，对空表或k超长可检测。O(n)时间、O(1)辅助空间。\n\n参考实现：\n```c\nconst Node*kthFromEnd(const Node*first,int k){const Node*fast=first,*slow=first;for(int i=0;i<k;i++){if(!fast)return NULL;fast=fast->next;}while(fast){fast=fast->next;slow=slow->next;}return slow;}\n```",
+          "rubric": [
+            "先拉开间距",
+            "不足k检测",
+            "同步不变量"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 3,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-2-D-002",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "系统提供 typedef struct Node { int data; struct Node *next; } Node;。两条无头结点的单链表各有0至256个数据结点，NULL表示空表，两表均无环，可能共享同一后缀。实现 int sharesNode(const Node *a, const Node *b)：存在共同结点对象返回1，否则0。数据相等不代表结点共享；两条空表不算共享。不得修改或释放任何结点，要求O(m+n)时间、O(1)辅助空间，并说明判定理由。",
+          "type": "short",
+          "model": "分别遍历到两表末尾。若任一表为空则不相交；两个非空表共享结点当且仅当尾结点地址相同。无环单链表共享后会共用整个后缀，所以尾相同；比较地址不是数据。各遍历一次O(m+n)，额外O(1)。\n\n参考实现：\n```c\nint sharesNode(const Node*a,const Node*b){if(!a||!b)return 0;while(a->next)a=a->next;while(b->next)b=b->next;return a==b;}\n```",
+          "rubric": [
+            "地址身份",
+            "尾结点判据证明",
+            "空表与无环前提"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 3,
+          "points": 20
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "2-02": "saved prior code 2-02",
+        "P4-structures-2-D-005": "saved prior code P4-structures-2-D-005",
+        "P4-structures-2-D-001": "saved prior code P4-structures-2-D-001",
+        "P4-structures-2-D-004": "saved prior code P4-structures-2-D-004",
+        "P4-structures-2-D-002": "saved prior code P4-structures-2-D-002"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

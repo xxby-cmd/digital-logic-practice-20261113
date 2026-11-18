@@ -1,0 +1,130 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "fixture-ds-before-contract",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "ds-linear-before-contract",
+      "title": "线性表 · 历史合成草稿",
+      "chapter": 2,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 5,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-2-D-001",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序表存有整数。设计保持原相对次序的算法，删除所有负数；不另开同规模数组。说明全负与无负的情形。",
+          "type": "short",
+          "model": "用读指针r遍历0..n-1，写指针w初值0。若a[r]>=0，执行a[w++]=a[r]；扫描后n=w。保留项按读取顺序写回，因此稳定。全负得空表，无负长度不变。时间O(n)，辅助O(1)。",
+          "rubric": [
+            "读写位置分开",
+            "稳定性",
+            "边界与复杂度"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-2-D-002",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计判断两个无环单链表是否共享某个结点的算法。结点数据可能相等，不能把数据相等视为共享。允许O(m+n)时间、O(1)额外空间。",
+          "type": "short",
+          "model": "分别遍历到两表末尾。若任一表为空则不相交；两个非空表共享结点当且仅当尾结点地址相同。无环单链表共享后会共用整个后缀，所以尾相同；比较地址不是数据。各遍历一次O(m+n)，额外O(1)。",
+          "rubric": [
+            "地址身份",
+            "尾结点判据证明",
+            "空表与无环前提"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-2-D-003",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点的非循环单链表，设计删除所有值等于x的结点的算法，必须释放被删结点并处理连续命中。",
+          "type": "short",
+          "model": "pre=head；while(pre->next!=NULL){q=pre->next;if(q->data==x){pre->next=q->next;free(q);}else pre=q;} 命中时pre不前进，故连续项不会遗漏；空表安全。O(n)时间、O(1)辅助空间。",
+          "rubric": [
+            "前驱保留",
+            "连续删除",
+            "释放与边界"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-2-D-004",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "非空单链表无环且没有尾指针，设计一次扫描找倒数第k个结点；k为正整数，不足k项应报告失败。禁止修改原链。",
+          "type": "short",
+          "model": "先令fast与slow均为首数据结点，让fast走k步，每步前若fast为空则失败。之后两指针同步前进直到fast为空，此时slow为倒数第k项。k<=0先拒绝。fast与slow间距k，对空表或k超长可检测。O(n)时间、O(1)辅助空间。",
+          "rubric": [
+            "先拉开间距",
+            "不足k检测",
+            "同步不变量"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-2-D-005",
+          "chapter": 2,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有两个各自无重复的递增整数数组A、B。设计求交集并写入独立结果数组C的算法，不修改A、B；结果容量已足够。",
+          "type": "short",
+          "model": "i=j=k=0；两边均未结束时比较A[i]和B[j]：小者下标前进；相等则C[k++]=A[i]，i、j均前进。任一结束即结束，返回长度k。小者不可能在另一表剩余部分命中，故可舍弃。时间O(m+n)，除输出外空间O(1)，空输入交集为空。",
+          "rubric": [
+            "双指针分支",
+            "正确性依据",
+            "输出长度与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 20
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {},
+      "marks": {},
+      "result": null
+    }
+  ]
+}

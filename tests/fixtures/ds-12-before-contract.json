@@ -1,0 +1,316 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-pending-12-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-12-1794928861392-fj4lz1",
+      "title": "第12章 文件 · 章节练习",
+      "chapter": 12,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 14,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-12-D-001",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个ID列表各自严格升序，设计集合并集算法，结果有序无重复。",
+          "type": "short",
+          "model": "双指针比较，小者输出并前进，相等输出一次双方前进；任一结束复制另一剩余。各输入无重复前提下无需再去重。O(m+n)时间，除输出O(1)空间，空列表正常。",
+          "rubric": [
+            "相等一次",
+            "剩余",
+            "边界成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 8
+        },
+        {
+          "id": "P4-structures-12-D-010",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有序主文件与有序事务文件合并，主账号唯一，只更新已存在账号。给算法处理事务结束、主文件结束两种尾部情况。",
+          "type": "short",
+          "model": "主结束后全部剩余事务均未知账号，逐条报错不新建；事务结束后复制所有剩余主记录不变。正常相等组处理后每账号只输出一次。输出顺序沿主文件推进保持账号升序；空主/空事务同样按此规则。",
+          "rubric": [
+            "两尾部",
+            "只输出一次",
+            "空流"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 8
+        },
+        {
+          "id": "P4-structures-12-D-002",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计有序ID集合A减B，不能把B中独有记录输出。",
+          "type": "short",
+          "model": "双指针：A小于B则输出A并前进；A等B双方前进不输出；A大B仅B前进。B结束输出A剩余，A结束即停。O(m+n)时间，输入需同一比较规则、无内部重复。",
+          "rubric": [
+            "三个分支",
+            "尾部",
+            "集合差"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-014",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "批量更新结果写新文件，设计发布前验收步骤，不覆盖旧主文件，暂不涉及实际执行。",
+          "type": "short",
+          "model": "核所有主账号恰一次且升序、记录数与无开户销户契约一致；对每账号根据原余额与成功事务重算结果，错误日志与拒绝笔对应；检查新文件完整写入关闭及必要校验后，才按约定替换。失败保留旧文件可恢复。验证不只看文件存在或字节长度。",
+          "rubric": [
+            "数据验收",
+            "错误对应",
+            "保护旧版"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-003",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有序ID列表可重复，设计输出其去重副本，不改源。",
+          "type": "short",
+          "model": "逐项扫描，首项或当前ID不等于上一个已输出ID时追加；重复项跳过。空输入结果空。O(n)时间，输出O(u)空间，不将合法ID0当“未输出”哨兵，改用布尔标志或输出长度。",
+          "rubric": [
+            "首项标志",
+            "相邻重复",
+            "0合法"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-012",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给已排序且去重的三个倒排ID列表，设计AND结果，允许两两求交，说明中间规模优化。",
+          "type": "short",
+          "model": "先取预估较短两表交集，再与第三表求交；中间结果不超过较短输入，可降低后续处理量。各交集双指针，整体O(n1+n2+n3)上界，另中间与输出空间；若成员测试或I/O模型不同则重新比较，不声称该顺序必全局最快。",
+          "rubric": [
+            "交集链",
+            "中间上界",
+            "模型条件"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-004",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "记录集合每条有唯一ID及单值专业字段，构造专业到升序ID倒排表。输入ID未排序。",
+          "type": "short",
+          "model": "遍历记录按专业分组追加ID，完成后各组按ID排序；若输入ID唯一不需组内去重，但应验证唯一性契约。总追加O(N)，排序上界O(N log N)，存储O(N)，不能不排序就声称列表天然有序。",
+          "rubric": [
+            "分组",
+            "后排序",
+            "复杂度"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-009",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计对主文件与单个次索引做离线一致性检查，记录有唯一ID，所有有效记录均应有索引项。",
+          "type": "short",
+          "model": "扫描有效主记录生成(expectedKey,ID)集合，扫描索引取实际项并核ID有效/字段匹配；比较两集合，找缺项、错项、重复项、删记录残留。小规模哈希可期望O(N+I)并O(N+I)空间，或外排序归并精确比对。不能只查索引每项合法而漏主记录未建索引。",
+          "rubric": [
+            "双向覆盖",
+            "错误分类",
+            "规模策略"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-005",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用稀疏块最大键索引查唯一主键K，主文件分块有序。输出完整记录或不存在。",
+          "type": "short",
+          "model": "二分索引找首个max≥K的块，无则不存在；读该块并顺扫或二分实际有效记录，比对K命中返回，否则不存在。空文件直接失败；索引须覆盖末块、块内有效长度明确。O(log b)内存索引比较加一次数据块读（索引驻内存模型）。",
+          "rubric": [
+            "首上界",
+            "实际核键",
+            "缓存模型"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-011",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计按账号检查事务文件是否非降且同账号原序未被打乱，输入每笔有原始序号。",
+          "type": "short",
+          "model": "逐条保存上笔(account,seq)；当前账号不得小于前账号，同账号序号必须严格递增（若唯一序号契约）。首次无前项。检测失败报告行/记录ID，不能继续假装归并前提成立；全局序号跨账号不要求递增，因排序本来可移动不同账号。O(T)时间O(1)状态。",
+          "rubric": [
+            "组内稳定",
+            "跨组区别",
+            "首项与错误"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-006",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "固定记录长R>0、文件头H，文件长度L，记录连续无填充。设计读取0起始第i条前的范围验证。",
+          "type": "short",
+          "model": "检查L≥H、(L-H)%R==0，记录数n=(L-H)/R；检查0≤i<n，安全计算offset=H+iR且offset+R≤L，再按R读并检查完整。可用先验不等式避免乘加溢出。布局含块空隙时不能用本公式。",
+          "rubric": [
+            "完整格式",
+            "下标安全",
+            "读长校验"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-013",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "散列文件桶及溢出链上查询键K，存在唯一键，设计终止与错误检查。",
+          "type": "short",
+          "model": "由H(K)定位主桶，扫描其中有效记录完整键；未命中沿溢出指针读下一桶。NULL才正常不存在；每桶检查合法位置及格式，检测重复桶/异常链防损坏成环无限读。平均I/O依负载与分布，最坏可遍历长链；不能仅首桶未中就失败。",
+          "rubric": [
+            "完整链",
+            "身份比较",
+            "循环与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-007",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "文件由固定大小页组成，每页槽目录存(offset,length,valid)。给页号槽号读取变长记录的安全流程。",
+          "type": "short",
+          "model": "验证页号范围、读足页，核槽号在目录内且valid；检查offset与length位于数据区且长度不溢出，避免侵入页头/目录，再解码记录并核ID。逻辑删除返回不存在，短读/格式错单列错误。页内搬移由槽偏移更新表达。",
+          "rubric": [
+            "多级边界",
+            "有效标志",
+            "错误分类"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        },
+        {
+          "id": "P4-structures-12-D-008",
+          "chapter": 12,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主记录字段从专业A改B，倒排表都按ID有序，设计同步更新步骤，不允许重复ID。",
+          "type": "short",
+          "model": "先验证主记录当前专业及ID存在；准备从A列表删ID、在B列表lower_bound插入（已存在则按契约报不一致），主字段改B。使用可回滚/原子提交策略保证三处要么全部成功要么恢复；A=B直接不变。列表数组最坏搬移线性，不能只报二分O(log n)。",
+          "rubric": [
+            "三处一致",
+            "A=B",
+            "搬移成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 7
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-12-D-001": "saved revision1 code P4-structures-12-D-001",
+        "P4-structures-12-D-010": "saved revision1 code P4-structures-12-D-010",
+        "P4-structures-12-D-002": "saved revision1 code P4-structures-12-D-002",
+        "P4-structures-12-D-014": "saved revision1 code P4-structures-12-D-014",
+        "P4-structures-12-D-003": "saved revision1 code P4-structures-12-D-003",
+        "P4-structures-12-D-012": "saved revision1 code P4-structures-12-D-012",
+        "P4-structures-12-D-004": "saved revision1 code P4-structures-12-D-004",
+        "P4-structures-12-D-009": "saved revision1 code P4-structures-12-D-009",
+        "P4-structures-12-D-005": "saved revision1 code P4-structures-12-D-005",
+        "P4-structures-12-D-011": "saved revision1 code P4-structures-12-D-011",
+        "P4-structures-12-D-006": "saved revision1 code P4-structures-12-D-006",
+        "P4-structures-12-D-013": "saved revision1 code P4-structures-12-D-013",
+        "P4-structures-12-D-007": "saved revision1 code P4-structures-12-D-007",
+        "P4-structures-12-D-008": "saved revision1 code P4-structures-12-D-008"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

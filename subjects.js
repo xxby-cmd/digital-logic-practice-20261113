@@ -1,4 +1,5 @@
 import {getCourse} from './course-banks.js';
+import {getPracticeCourse} from './practice-library.js';
 export const subjects=[
  {id:'network',name:'计算机网络',en:'COMPUTER NETWORKS',icon:'network',description:'从分层体系到协议分析，理解网络如何工作。',topics:['网络体系结构','数据链路层','网络层与传输层'],ready:true,needs:['教材封面与目录','当前授课范围','代表性习题与答案']},
  {id:'structures',name:'数据结构',en:'DATA STRUCTURES',icon:'structure',description:'从数据组织到算法过程，把分析落到每一步。',topics:['线性结构','树与图','查找与排序'],ready:true,needs:['教材封面与目录','使用的编程语言','PTA样题或作业题及答案']},
@@ -18,10 +19,10 @@ export function resolveRoute(hash,bank){
   if(!rest.length)return {subject,view:'practice',chapter:getCourse(subject).chapters[0]?.id||1,question:null};
  }
  if(rest[0]==='chapter'&&rest[2]==='question'){
-  const q=(bank||getCourse(subject).questions).find(q=>(q.id===rest[3]&&q.chapter===Number(rest[1]))||((q.legacyIds||[]).includes(rest[3])&&(q.legacyChapters||[]).includes(Number(rest[1]))));
+  const q=(bank||getPracticeCourse(subject).questions).find(q=>(q.id===rest[3]&&(String(q.chapter)===rest[1]||(q.legacyChapters||[]).some(c=>String(c)===rest[1])))||((q.legacyIds||[]).includes(rest[3])&&(q.legacyChapters||[]).some(c=>String(c)===rest[1])));
   if(q)return {subject,view:'practice',chapter:q.chapter,question:q.id};
  }
- if(['practice','wrong','favorites','records'].includes(rest[0])&&rest[1]==='chapter'&&getCourse(subject).chapters.some(c=>c.id===Number(rest[2])))return {subject,view:rest[0],chapter:Number(rest[2]),question:null};
+ if(['practice','wrong','favorites','records'].includes(rest[0])&&rest[1]==='chapter'){const c=getPracticeCourse(subject).chapters.find(c=>String(c.id)===rest[2]);if(c)return {subject,view:rest[0],chapter:c.id,question:null};}
  return {subject:null,question:null};
 }
 export function routeFor(state){

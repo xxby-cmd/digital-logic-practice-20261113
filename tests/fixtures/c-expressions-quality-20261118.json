@@ -1,0 +1,430 @@
+{
+  "cases": [
+    {
+      "id": "P-C-01",
+      "baseRevision": 1,
+      "baseStemSha256": "d32229e99ed54518d452c7f0734f03a58571fcc2128299dd2bbb1d1d50665890",
+      "expectedText": "5"
+    },
+    {
+      "id": "C6E-programming-3-S-001",
+      "baseRevision": 1,
+      "baseStemSha256": "0c5f12caa5f6cb970439abf5391de7c3a15e5d6a58176d8843372884bfc3d178",
+      "expectedText": "5"
+    },
+    {
+      "id": "C6E-programming-3-S-002",
+      "baseRevision": 1,
+      "baseStemSha256": "c7ee4d35f8946c1a7b7507400dd87443d07cfda85a4c3ea4b53e185c43f6bf19",
+      "expectedText": "6"
+    },
+    {
+      "id": "C6E-programming-3-S-003",
+      "baseRevision": 1,
+      "baseStemSha256": "412f5c6fc55057bbced4028acc43e9f4a3c22fa6506ea1c48983adedbd58c977",
+      "expectedText": "-3、-4"
+    },
+    {
+      "id": "C6E-programming-3-S-004",
+      "baseRevision": 1,
+      "baseStemSha256": "535311780c15bbef5a8748695b6bb80c558bb5fa04db66d86dd817c1cff03d8a",
+      "expectedText": "-3、4"
+    },
+    {
+      "id": "C6E-programming-3-S-005",
+      "baseRevision": 1,
+      "baseStemSha256": "80b977817455c977eb06ae722b3947c1de1910c9972392837326b6d45a61a987",
+      "expectedText": "double、2.0"
+    },
+    {
+      "id": "C6E-programming-3-S-006",
+      "baseRevision": 1,
+      "baseStemSha256": "06e145fa3e043493695d9fc70f911e9087958845cc58c1225930f3d0f497b9cb",
+      "expectedText": "(double)9/4",
+      "revision": 2,
+      "patch": {
+        "stem": "执行int a=20; a/=2+3;后，a的值是：",
+        "options": [
+          "2",
+          "4",
+          "13",
+          "10"
+        ],
+        "answer": 1,
+        "explanation": "复合赋值先把右侧2+3作为整体计算，再用原a除以5，得到4。它相当于a=a/(2+3)，不能展开为a=a/2+3。"
+      }
+    },
+    {
+      "id": "C6E-programming-3-S-007",
+      "baseRevision": 1,
+      "baseStemSha256": "b546ab8998404d4995acc75bdbd05dc2ee274254a67e3af125b241b4e3da04bf",
+      "expectedText": "-3"
+    },
+    {
+      "id": "C6E-programming-3-S-008",
+      "baseRevision": 1,
+      "baseStemSha256": "d08aaf9f0bea922b801ec8dfa2f0e9549f032cde1f3dcd6763d39dd6d3504b36",
+      "expectedText": "6、8"
+    },
+    {
+      "id": "C6E-programming-3-S-009",
+      "baseRevision": 1,
+      "baseStemSha256": "f86c4c2303dfafd0c8621ff60d51bf43a444b3ec1a18a5b5f1d22bb5d8add2a8",
+      "expectedText": "3.0",
+      "revision": 2,
+      "patch": {
+        "stem": "已知unsigned char为8位。表达式(unsigned char)~3U与!3U的值依次是：",
+        "options": [
+          "252、0",
+          "252、1",
+          "0、0",
+          "0、1"
+        ],
+        "answer": 0,
+        "explanation": "3U的低8位是00000011，按位取反后为11111100，转为8位unsigned char得到252。逻辑非只判断是否为0，!3U为0；两种“非”处理的对象不同。",
+        "studyLevel": "supplement",
+        "studyWeight": 1,
+        "studyEvidence": "CYY3-23.pptx运算符总览及优先级；位运算辨析作为补充，课件3.1—3.7常用表达式仍优先。不据此认定本校必考。"
+      }
+    },
+    {
+      "id": "C6E-programming-3-S-010",
+      "baseRevision": 1,
+      "baseStemSha256": "919e16638ae6651a10822e987afec3278c76488c2d4316d1375bd86a429a72bf",
+      "expectedText": "3"
+    },
+    {
+      "id": "C6E-programming-3-S-011",
+      "baseRevision": 1,
+      "baseStemSha256": "e6b9374c9d653c37ee33f5c3444d503af6c3eac6ee972fee79799f09da1732e8",
+      "expectedText": "3.5"
+    },
+    {
+      "id": "C6E-programming-3-S-012",
+      "baseRevision": 1,
+      "baseStemSha256": "67b4fd9a22a572bebca214ec2c87848bf4ee9a94feff2dd1ab28d29194388de4",
+      "expectedText": "double、5.5"
+    },
+    {
+      "id": "C6E-programming-3-S-013",
+      "baseRevision": 1,
+      "baseStemSha256": "52d717c58b5e4f11adcbc704cdda2b53fa67a4123ae49f9e84c3ba5cf8e97422",
+      "expectedText": "3、4"
+    },
+    {
+      "id": "C6E-programming-3-S-014",
+      "baseRevision": 1,
+      "baseStemSha256": "4e52a23a15d16481923c2e3076be0db2227188ea34e9344fb35057e85c0f9e56",
+      "expectedText": "260"
+    },
+    {
+      "id": "C6E-programming-3-S-015",
+      "baseRevision": 1,
+      "baseStemSha256": "f520c22e1b562ec41166eb5fd4d4af1d170ef8212a18941941094143821d8984",
+      "expectedText": "4"
+    },
+    {
+      "id": "C6E-programming-3-S-016",
+      "baseRevision": 1,
+      "baseStemSha256": "34fabefa3d4f7c0bb7bc50d4cebeaa36475ee60ea7bf6c9ba4704715e1649930",
+      "expectedText": "x==UINT_MAX"
+    },
+    {
+      "id": "C6E-programming-3-S-017",
+      "baseRevision": 1,
+      "baseStemSha256": "0f43e50d7f18e3e66afac64733efb4274632f818afc07a90a23588ad62388210",
+      "expectedText": "0"
+    },
+    {
+      "id": "C6E-programming-3-S-018",
+      "baseRevision": 1,
+      "baseStemSha256": "b5dfc91667c80fd3cf6775893083c45f5548730af9ac39f1d34cd6710045308f",
+      "expectedText": "6、6、6"
+    },
+    {
+      "id": "C6E-programming-3-S-019",
+      "baseRevision": 1,
+      "baseStemSha256": "451f422789c1fb5fa89f16e8a69fcd65d9310e41a42a01bf72ce2aeef5926281",
+      "expectedText": "3、7"
+    },
+    {
+      "id": "C6E-programming-3-S-020",
+      "baseRevision": 1,
+      "baseStemSha256": "7bfcd30eb081f6c4901834c961048a79477ea6e46d0b2ec1045894a035a9cda1",
+      "expectedText": "2、8"
+    },
+    {
+      "id": "C6E-programming-3-S-021",
+      "baseRevision": 1,
+      "baseStemSha256": "713a3531c30c6181b7459791e91291d0a9c3719d6203122fecd0c041695152b7",
+      "expectedText": "5、9"
+    },
+    {
+      "id": "C6E-programming-3-S-022",
+      "baseRevision": 1,
+      "baseStemSha256": "b72ac0d248d7c8d2c26ccd2afb290de7535ab39e4e2606a8129669417ac83048",
+      "expectedText": "5、10"
+    },
+    {
+      "id": "C6E-programming-3-S-023",
+      "baseRevision": 1,
+      "baseStemSha256": "0d48d0b9d2b05230fe9f4fbb540cc1dda4ffd47142242627d40b20b0da5c60ff",
+      "expectedText": "2、-3"
+    },
+    {
+      "id": "C6E-programming-3-S-024",
+      "baseRevision": 1,
+      "baseStemSha256": "21916b1cb0d987961269b6f322ead99c90641fdeccb2a1cb4560075213ed0f81",
+      "expectedText": "++(a+b)"
+    },
+    {
+      "id": "C6E-programming-3-S-025",
+      "baseRevision": 1,
+      "baseStemSha256": "987b85f139cb3eb141cc84ee7d3e7e1e23f7b0f6bf6c89a790ec9bdaf6a3294d",
+      "expectedText": "x=3"
+    },
+    {
+      "id": "C6E-programming-3-S-026",
+      "baseRevision": 1,
+      "baseStemSha256": "cf160c7348e56549984d5dca3f486306cef06c57759f1a927932d44d01a30503",
+      "expectedText": "x>1 && x<5"
+    },
+    {
+      "id": "C6E-programming-3-S-027",
+      "baseRevision": 1,
+      "baseStemSha256": "c5d6b1d71447f2816f4076045668043e9f6c3075b9fa6f5031607313e2f39fe1",
+      "expectedText": "0",
+      "revision": 2,
+      "patch": {
+        "stem": "有int a=2,b=3,c=4;，表达式a==b<c的值是：",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": 0,
+        "explanation": "<的优先级高于==，先算b<c，即3<4为1，再算2==1，得到0。如果误写成(a==b)<c，会算成0<4，错误地得到1。"
+      }
+    },
+    {
+      "id": "C6E-programming-3-S-028",
+      "baseRevision": 1,
+      "baseStemSha256": "946e28d644b16a5b76b6c7e8a48710dd7fac65c20b2b0edc569b0c87f7906f1b",
+      "expectedText": "1",
+      "revision": 2,
+      "patch": {
+        "stem": "表达式2+3>4==0的值是：",
+        "options": [
+          "0",
+          "5",
+          "表达式不合法",
+          "1"
+        ],
+        "answer": 0,
+        "explanation": "先相加得5，再算5>4得1，最后1==0为0。若把相等比较错误地放在关系比较前，会得到5>(4==0)，结果为1。"
+      }
+    },
+    {
+      "id": "C6E-programming-3-S-029",
+      "baseRevision": 1,
+      "baseStemSha256": "3c2a7edcae7296147e00b0202b2c6603b0fe92a31e7f4117e63353d6e7d93530",
+      "expectedText": "0"
+    },
+    {
+      "id": "C6E-programming-3-S-030",
+      "baseRevision": 1,
+      "baseStemSha256": "9e5239854e84a334cb4e75b288b5bf227aa274cfe77fc9d2c5324176ab174cae",
+      "expectedText": "1"
+    },
+    {
+      "id": "C6E-programming-3-S-031",
+      "baseRevision": 1,
+      "baseStemSha256": "a07715386796b70d6b7dedc1396bf8de3d91a5e6b29b8e11e7f73f6023d6e878",
+      "expectedText": "2"
+    },
+    {
+      "id": "C6E-programming-3-S-032",
+      "baseRevision": 1,
+      "baseStemSha256": "670d0c66a155e161f8283ec7a8136ef590b8229e285a75e7c96c58c63a8f874b",
+      "expectedText": "3、0"
+    },
+    {
+      "id": "C6E-programming-3-S-033",
+      "baseRevision": 1,
+      "baseStemSha256": "d675eb485f2ad8f172ebfa9fa272596ef55ce6240ab2343ed989215e77260b8f",
+      "expectedText": "3、1"
+    },
+    {
+      "id": "C6E-programming-3-S-034",
+      "baseRevision": 1,
+      "baseStemSha256": "bace2f0eefe7a7ee807fb74b120c412fdc3597d55905f309f5cca836f331564b",
+      "expectedText": "d!=0 && n/d>2"
+    },
+    {
+      "id": "C6E-programming-3-S-035",
+      "baseRevision": 1,
+      "baseStemSha256": "6adbf4dac825b6350f50586c8a43b87af1ee03873d8bf17c3163ee39aef7c308",
+      "expectedText": "5、0、1"
+    },
+    {
+      "id": "C6E-programming-3-S-036",
+      "baseRevision": 1,
+      "baseStemSha256": "3d58061e72a52057026706f68ea48b7f563375225d2731cdf655603845bf5132",
+      "expectedText": "double、4.0"
+    },
+    {
+      "id": "C6E-programming-3-S-037",
+      "baseRevision": 1,
+      "baseStemSha256": "ea54268658dbd25647497cfa809c178c1d12d82d1bd41c518d0f1e257559e17b",
+      "expectedText": "4、8"
+    },
+    {
+      "id": "C6E-programming-3-S-038",
+      "baseRevision": 1,
+      "baseStemSha256": "48321559980195f5d144bf55a967d83c315bd6647c25247a0b10f79e0f4abd73",
+      "expectedText": "7"
+    },
+    {
+      "id": "C6E-programming-3-S-039",
+      "baseRevision": 1,
+      "baseStemSha256": "8711c74cfe677c67734d2f20e978c284c162e917b6d8be404b390fe78951703b",
+      "expectedText": "2"
+    },
+    {
+      "id": "C6E-programming-3-S-040",
+      "baseRevision": 1,
+      "baseStemSha256": "6f7279cd87691d760e16336752234627409ac2573f9ab86e529cd6edde34ea52",
+      "expectedText": "2、1"
+    },
+    {
+      "id": "C6E-programming-3-S-041",
+      "baseRevision": 1,
+      "baseStemSha256": "b806eaf0aaa1d98f0c7d69604438d38fe578239f732222d9f9dc62ed06ece23a",
+      "expectedText": "1"
+    },
+    {
+      "id": "C6E-programming-3-S-042",
+      "baseRevision": 1,
+      "baseStemSha256": "4f22c2990926ca98e5d05138c75443ae8ccc8efa0682dedb0bc928517c62a092",
+      "expectedText": "3"
+    },
+    {
+      "id": "C6E-programming-3-S-043",
+      "baseRevision": 1,
+      "baseStemSha256": "447b0035932da318d86e156c9cdc2932a21b5e1eeaf2fc3e8a2d964f13554301",
+      "expectedText": "8"
+    },
+    {
+      "id": "C6E-programming-3-S-044",
+      "baseRevision": 1,
+      "baseStemSha256": "66400f9e70c709a119f7a40a60c7119b8b6f3bea89d1ef3d40e8e2a323e48b56",
+      "expectedText": "0xA0"
+    },
+    {
+      "id": "C6E-programming-3-S-045",
+      "baseRevision": 1,
+      "baseStemSha256": "7df8ac9d35339948a7fb8c1addeb7cfc4c751044d62847e440621387b09b8f38",
+      "expectedText": "7"
+    },
+    {
+      "id": "C6E-programming-3-S-046",
+      "baseRevision": 1,
+      "baseStemSha256": "f347b99738f6b41b7f01a4860a967eb85f597e6e70aeb683eb60b4b6ebcbf289",
+      "expectedText": "n/k+(n%k!=0)",
+      "revision": 2,
+      "patch": {
+        "stem": "执行unsigned int flags=2U; int r=flags & 1U == 0U;后，r的值是：",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "表达式不合法"
+        ],
+        "answer": 0,
+        "explanation": "相等比较的优先级高于按位与，实际分组为flags & (1U==0U)，即2U & 0U，结果0。若要判断最低位是否为0，应写(flags & 1U)==0U；该正确判断本次会得到1。",
+        "studyLevel": "supplement",
+        "studyWeight": 1,
+        "studyEvidence": "CYY3-23.pptx运算符总览及优先级；位运算辨析作为补充，课件3.1—3.7常用表达式仍优先。不据此认定本校必考。"
+      }
+    },
+    {
+      "id": "C6E-programming-3-S-047",
+      "baseRevision": 1,
+      "baseStemSha256": "936bef68a221f251af258a681d1014c5281e230e888400970087ba8b9ef7ee77",
+      "expectedText": "存在未排序的修改与读取，不能指定唯一数值结果"
+    },
+    {
+      "id": "C6E-programming-3-S-048",
+      "baseRevision": 1,
+      "baseStemSha256": "c30050d97edce6f141f04605b34088b7a5a2f1bc65e84151812f04d4f6ca80b7",
+      "expectedText": "结果属于实现定义，未给实现规则时不指定唯一数值"
+    },
+    {
+      "id": "C6E-programming-3-S-049",
+      "baseRevision": 1,
+      "baseStemSha256": "931ed5716c9c33d36673fd8772043c399f5a291a98f1183ffcd415caefa1e110",
+      "expectedText": "有符号整数溢出，行为未定义"
+    },
+    {
+      "id": "C6E-programming-3-S-050",
+      "baseRevision": 1,
+      "baseStemSha256": "52d8857f7407f33fd0120775b067600d67a80d71d39baa6cbae695baa2619d3b",
+      "expectedText": "-2、-3"
+    },
+    {
+      "id": "C6E-programming-3-S-051",
+      "baseRevision": 1,
+      "baseStemSha256": "e89d2992cd35ad76ae615e5d154e582beee015b9f86c1db271f615f4d0559522",
+      "expectedText": "long long z=(long long)50000*50000;",
+      "revision": 2,
+      "patch": {
+        "stem": "a、b可为任意32位int。下列哪个表达式能准确判断a大于b，且不会发生有符号算术溢出？",
+        "options": [
+          "a-b>0",
+          "a>b",
+          "(a+b)>2*b",
+          "a!=b"
+        ],
+        "answer": 1,
+        "explanation": "a>b直接比较大小，无需计算差或和。a=2147483647、b=-1时，a-b会超出int范围；比较本身不会因此溢出。a!=b还会把a小于b的情况误判为真。"
+      }
+    },
+    {
+      "id": "C6E-programming-3-S-052",
+      "baseRevision": 1,
+      "baseStemSha256": "fd4f47cb43501f306f6c900ce7d2ec63a4939ca06bc25371b161c7c740a9014f",
+      "expectedText": "1U<<32"
+    },
+    {
+      "id": "C6E-programming-3-S-053",
+      "baseRevision": 1,
+      "baseStemSha256": "db817d77a66264ed5656d97373a2a612b80f75d8770ae1f1c550c33cd27ccf32",
+      "expectedText": "5.5%2"
+    },
+    {
+      "id": "C6E-programming-3-S-054",
+      "baseRevision": 1,
+      "baseStemSha256": "2fe68ae6a525f5060e6084e31f5faf0fdae754e8762d9ecc141fa63c72d167e1",
+      "expectedText": "double、-1.5"
+    },
+    {
+      "id": "C6E-programming-3-S-055",
+      "baseRevision": 1,
+      "baseStemSha256": "847aa6c6a0255242226aa8f4030badb91d23b78d5d5bc6b51c2b62626722ac97",
+      "expectedText": "(a==0)!=(b==0)",
+      "revision": 2,
+      "patch": {
+        "stem": "a、b为任意int。下列哪个表达式与!(a && b)的真假结果总是相同？",
+        "options": [
+          "!a || !b",
+          "!a && !b",
+          "a || b",
+          "a && b"
+        ],
+        "answer": 0,
+        "explanation": "!(a&&b)表示“两者都非0”不成立，也就是至少有一个为0，因此等价于!a||!b。例如a=0、b=2时结果为1，!a&&!b却为0。这里按0与非0判断真假，不要求参数只能取0或1。"
+      }
+    }
+  ]
+}

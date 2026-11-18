@@ -1,0 +1,3653 @@
+{
+  "schema": 1,
+  "scope": "80 original delivered questions and 24 original candidates only; no third-party reference payloads",
+  "authorityHtmlSha256": "f4cd9e12ce7679cdb273ab4bfa769004e1ba581bd8034e21c785d75e0d14b29d",
+  "snapshotSha256": "0592dbdd98c3fcb3f51588aa19f01e84932d125b95782638ba657c66a2099a3f",
+  "originalQuestions": [
+    {
+      "id": "2-01",
+      "chapter": 2,
+      "type": "single",
+      "title": "连续插入的位置",
+      "topic": "连续插入的位置",
+      "stem": "顺序表初始为(10,20,30,40)，容量足够。插入位置从1编号，位置i表示在当前第i个元素前插入，位置为当前表长+1表示尾插。依次执行ListInsert(L,2,50)和ListInsert(L,4,60)。只统计为腾出位置而移动已有元素的次数，不计新元素写入。总移动次数为（ ）。",
+      "priority": "重点",
+      "difficulty": "基础",
+      "points": 2,
+      "revision": 1,
+      "explanation": "B。第一次移20、30、40共3次，表变为(10,50,20,30,40)；第二次在当前位置4插入，移30、40共2次。考查操作后状态与位置语义，不把第二次位置解释为原表位置。",
+      "source": {
+        "book": "当前课程知识体系 · 独立编写",
+        "ppt": "数据结构课程课件"
+      },
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": 1,
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "2-02",
+      "chapter": 2,
+      "type": "short",
+      "title": "链表删除的边界",
+      "topic": "链表删除的边界",
+      "stem": "一个带头结点的单链表使用如下代码删除所有值为x的结点：\n\n```c\nNode *p = head;\nwhile (p->next != NULL) {\n    Node *q = p->next;\n    if (q->data == x) {\n        p->next = q->next;\n        free(q);\n    }\n    p = p->next;\n}\n```\n\n假设结点由malloc分配，链表无环。请指出代码在什么情况下出错，并给出保持带头结点结构的修改。至少说明连续命中和末结点命中两种情况。",
+      "priority": "重点",
+      "difficulty": "进阶",
+      "points": 6,
+      "revision": 1,
+      "explanation": "删除后应让p仍指向保留下来的前驱；只有未删除时才执行p=p->next。连续命中会因前驱提前前移漏删；删除末结点后，原代码令p=NULL，下一轮求p->next产生非法访问。修改为把p=p->next放在else分支，删除分支不移动p。\n评分建议6分：连续命中分析2，尾删空指针分析2，正确修改及前驱不变量2。不是只要求“把某一行移走”而不解释理由。",
+      "source": {
+        "book": "当前课程知识体系 · 独立编写",
+        "ppt": "数据结构课程课件"
+      },
+      "model": "删除后应让p仍指向保留下来的前驱；只有未删除时才执行p=p->next。连续命中会因前驱提前前移漏删；删除末结点后，原代码令p=NULL，下一轮求p->next产生非法访问。修改为把p=p->next放在else分支，删除分支不移动p。\n评分建议6分：连续命中分析2，尾删空指针分析2，正确修改及前驱不变量2。不是只要求“把某一行移走”而不解释理由。",
+      "rubric": [
+        "指出连续命中时漏删（2分）",
+        "指出删除尾结点后p=NULL，下一轮非法访问（2分）",
+        "仅在未删除分支移动p，并说明前驱不变量（2分）"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P-S-01",
+      "type": "single",
+      "stem": "双向链表结点p既非首也非尾，删除p并保持前后双向链接，必须修改：",
+      "options": [
+        "仅p->next",
+        "前驱的next及后继的prev",
+        "仅头指针",
+        "所有结点data"
+      ],
+      "answer": 1,
+      "explanation": "p->prev->next=p->next，p->next->prev=p->prev，然后释放p。",
+      "chapter": 2,
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-1",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表删除任意位置的元素都不需要移动其他元素。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "删除末项可不移动，但删除中间项需将后续项前移。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-2",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点单链表的头结点通常不计入数据元素的个数。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "头结点用于统一操作，是辅助结点。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-3",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "已知单链表结点p的地址，就一定能在O(1)时间找到其前驱。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "通常只有next指针，仍需从头寻找前驱。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-4",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "链表插入时分配结点失败，应保留原链表而不是先断开原链接。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "应先成功分配，再接链，维护原结构不被破坏。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-5",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "循环单链表的尾结点next指向头部，因此不能总用p==NULL作为遍历终止条件。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "循环链接不保证遇到NULL，需用回到起点等条件。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-6",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点单链表插入新首数据结点s，正确的链接顺序是：",
+      "type": "single",
+      "options": [
+        "head->next=s; s->next=head->next;",
+        "s->next=head->next; head->next=s;",
+        "s->next=head; head=s;",
+        "free(head); head=s;"
+      ],
+      "answer": 1,
+      "explanation": "先保存原首结点到s->next，再更新头结点链接；逆序会形成s自环。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-7",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表a下标0起、长度n，删除下标k（0≤k<n）需前移多少项？",
+      "type": "single",
+      "options": [
+        "k",
+        "n-k",
+        "n-k-1",
+        "n-1总成立"
+      ],
+      "answer": 2,
+      "explanation": "需移动k+1至n−1，共n−k−1项。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-8",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "在单链表头部反复插入A、B、C，最终数据结点次序为：",
+      "type": "single",
+      "options": [
+        "A B C",
+        "C B A",
+        "B A C",
+        "C A B"
+      ],
+      "answer": 1,
+      "explanation": "每次新结点放到最前，顺序反转。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-9",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点空单链表，head非空，常用的判空条件为____（填写C表达式）。",
+      "type": "fill",
+      "answers": [
+        [
+          "head->next==NULL",
+          "head->next==0",
+          "!head->next"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "头结点存在不表示有数据结点，应检查其next。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-10",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "下标0起的顺序表长度8，删除下标2的元素需移动____个元素。",
+      "type": "fill",
+      "answers": [
+        [
+          "5"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "移动下标3、4、5、6、7。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-11",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "把m个结点的单链表原地逆置，每个结点访问常数次，时间复杂度为____，额外空间复杂度为____。",
+      "type": "fill",
+      "answers": [
+        [
+          "O(m)",
+          "Θ(m)"
+        ],
+        [
+          "O(1)",
+          "Θ(1)"
+        ]
+      ],
+      "formats": [
+        "text",
+        "text"
+      ],
+      "explanation": "依次重接next，使用常数个辅助指针，不需复制结点。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-12",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点链表head→3→6→9→空。p指向3，s指向新结点5，先执行s->next=p->next，再p->next=s。写结果；若两句颠倒会怎样？",
+      "type": "short",
+      "model": "正确为3→5→6→9。颠倒后p->next先变s，随后s->next=p->next变成s自环，原后继6的链接丢失。",
+      "rubric": [
+        "正确接链结果",
+        "说明原后继保存",
+        "指出自环而非泛称错误"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-13",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "比较顺序表与单链表执行“查到第i项，再在它之后插入”的总成本。为什么不能只根据链表改指针O(1)就断言整个任务O(1)？",
+      "type": "short",
+      "model": "顺序表定位O(1)、插入移动最坏O(n)；单链表先遍历定位最坏O(n)、已知结点后接链O(1)。总成本需包含查找阶段。",
+      "rubric": [
+        "分别分析两个阶段",
+        "计入定位",
+        "最坏总成本"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P2-structures-2-14",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "两个带头结点非递减链表要通过重接现有结点归并，不新建数据结点。说明循环不变量、相等时的稳定选择和尾部处理。",
+      "type": "short",
+      "model": "结果尾指针前部始终已排序且由已取出的结点组成；相等时优先原左表可保持跨表约定稳定性；一表为空后接上另一表剩余链，处理原头结点所有权。",
+      "rubric": [
+        "已排序前缀不变量",
+        "相等时选择规则",
+        "不复制余链及头结点管理"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-001",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "线性表的逻辑次序确定后，其元素在内存中的地址也随之唯一确定。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "逻辑次序只规定前后关系；顺序和链式存储可实现同一线性表，地址不由逻辑结构唯一决定。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-002",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表预留了100个位置且当前长度为0，因此访问第1个元素合法。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "容量不是有效长度。空表没有第1个数据元素。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-003",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "只给单链表中间结点p，且要求保持每个结点与原数据的对应关系时，一般不能在O(1)时间内删除p本身。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "必须修改前驱的next。复制后继数据再删后继会改变结点与数据的对应，也不适用于尾结点。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-004",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "双向链表已知待删除结点地址后，删除结点的时间仍必然与表长成正比。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "普通非边界结点可通过prev、next直接修改两侧链接，时间为常数；表头等边界按表示约定处理。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-005",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "对升序单链表进行查找，可以因为有序就直接获得顺序数组折半查找的随机访问能力。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "单链表定位中点仍需沿链访问；有序性不等于按下标常数时间访问。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-006",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表扩大容量时若重新分配了存储区，原先指向元素的指针可能失效。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "元素可能被搬到新地址，旧存储区可能释放，应按扩容接口更新引用。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-007",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点的非循环单链表中，头结点的next为NULL可作为空表判据。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "头结点存在但无首数据结点时，其next为NULL。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-008",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "链表每次插入都必须申请新的动态内存，不能使用预先分配的结点。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "结点可来自静态游标空间、内存池或调用者，动态申请不是链式表示的必要条件。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-009",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "两个递增有序表合并时总是先取左表中相等关键字，可保持各表原有的相对次序。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "先左后右处理相等项不会反转同一输入表的元素；若原序列左段先于右段，也满足归并稳定性。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-010",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "把一个有m项的稀疏多项式表示为按指数有序的链表，其存储结点数一定等于最高指数加1。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "稀疏表示通常只存非零项，结点数依赖项数m，而不是最高次数。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-011",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "对非空循环单链表从任一结点出发，沿next前进必定遇到NULL。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "合法循环表会回到起点，应以是否回到起点终止。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-012",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表删除一个元素后，未使用位置中残留旧值不必然影响线性表的逻辑内容。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "有效范围由长度确定；若无资源释放等附加语义，长度之外的旧值不是表元素。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-013",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "链表中结点的分配先后顺序就是数据元素的逻辑顺序。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "逻辑次序由链接决定，先分配的结点也可以位于后面。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-014",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "对有头结点的单链表，遍历计数若从头结点开始计入，则会把长度多算1。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 0,
+      "explanation": "头结点不属于线性表的数据元素，应从head->next计数。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-J-015",
+      "chapter": 2,
+      "section": "判断题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "将两个非空循环单链表连接为一个环时，只改一个next就足够，并且两个原环全部结点仍各出现一次。",
+      "type": "single",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explanation": "需要打破两个原闭环并交叉连接两处，单改一个链接通常不能形成包含全部结点的单一环。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-001",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表a的起始地址为2000，每个元素占12字节，下标从0开始，a[7]的起始地址为多少？",
+      "type": "single",
+      "options": [
+        "2072",
+        "2012",
+        "2084",
+        "2096"
+      ],
+      "answer": 2,
+      "explanation": "地址=2000+7×12=2084。下标7对应第8项。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-002",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "长度为n的顺序表在第i个元素之前插入一项（1≤i≤n），需要移动多少个原元素？",
+      "type": "single",
+      "options": [
+        "i-1",
+        "n-i+1",
+        "n-i",
+        "i"
+      ],
+      "answer": 1,
+      "explanation": "原第i到第n项都要后移，共n-i+1项。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-003",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "在有n个元素的顺序表末尾追加一项，当前仍有空闲容量，数据移动次数为多少？",
+      "type": "single",
+      "options": [
+        "0",
+        "1",
+        "n",
+        "n+1"
+      ],
+      "answer": 0,
+      "explanation": "直接写入第n个下标处并增加长度，原元素不移动。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-004",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "对长度为n的顺序表，在n个现有位置等概率删除一项，平均移动次数是多少？",
+      "type": "single",
+      "options": [
+        "n/2",
+        "(n+1)/2",
+        "n-1",
+        "(n-1)/2"
+      ],
+      "answer": 3,
+      "explanation": "第i项删除需移动n-i项，平均为(0+1+…+n-1)/n=(n-1)/2。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-005",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "头指针h直接指向首元素，无头结点。在表头插入新结点s的正确顺序是？",
+      "type": "single",
+      "options": [
+        "s=h; h=h->next;",
+        "s->next=NULL; h->next=s;",
+        "s->next=h; h=s;",
+        "h=s; s->next=h;"
+      ],
+      "answer": 2,
+      "explanation": "先保存原首元素链接，再更新头指针；反过来会让s指向自身并丢失原链。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-006",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "单链表中p为有效结点，要在p之后插入独立新结点s，应采用哪组操作？",
+      "type": "single",
+      "options": [
+        "p->next=s->next; s=p;",
+        "s->next=p->next; p->next=s;",
+        "p->next=s; s->next=p->next;",
+        "s->next=p; p=s;"
+      ],
+      "answer": 1,
+      "explanation": "先把原后继接到s之后，再让p指向s。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-007",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "已知p是单链表结点q的前驱，q不是头结点，删除并释放q时必须在free(q)之前保存什么？",
+      "type": "single",
+      "options": [
+        "q的后继地址",
+        "q的数据一定要复制到p",
+        "表长一定要遍历重算",
+        "整个链表副本"
+      ],
+      "answer": 0,
+      "explanation": "需通过p->next=q->next接续。free后再访问q->next属于释放后访问。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-008",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点的循环单链表head，空表应满足哪项？",
+      "type": "single",
+      "options": [
+        "head==NULL且头结点仍存在",
+        "head->next==NULL",
+        "head->next->next==NULL",
+        "head->next==head"
+      ],
+      "answer": 3,
+      "explanation": "循环表示中空表头结点指向自身，NULL不是该表示的空表链接。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-009",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "循环双向链表带头结点h，空表的两个链接应为？",
+      "type": "single",
+      "options": [
+        "next为h、prev为NULL",
+        "next为NULL、prev为h",
+        "h->next=h且h->prev=h",
+        "均为NULL"
+      ],
+      "answer": 2,
+      "explanation": "前驱、后继方向都要形成空表自环。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-010",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "频繁按序号读取，更新少，且元素数量稳定，通常优先选择哪种存储？",
+      "type": "single",
+      "options": [
+        "不带索引的循环单链表",
+        "每项单独存于随机地址但不留链接",
+        "顺序存储",
+        "仅有头指针的单链表"
+      ],
+      "answer": 2,
+      "explanation": "顺序表示可直接按下标定位且局部性好；链接表示通常要逐项寻找。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-011",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "单链表只保存头指针，不保存尾指针。在非空表尾插入一个已分配结点，主要耗时来自哪里？",
+      "type": "single",
+      "options": [
+        "将所有结点向后移动",
+        "查找尾结点",
+        "修改最后一个next",
+        "写入新结点数据必为O(n)"
+      ],
+      "answer": 1,
+      "explanation": "找到尾结点需沿链走，接链本身常数时间，且无整表搬移。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-012",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "双向链表非边界结点q的前驱为p、后继为r，摘除q的正确链接是？",
+      "type": "single",
+      "options": [
+        "p->next=r; r->prev=p;",
+        "p->prev=r; r->next=p;",
+        "p->next=q; r->prev=q;",
+        "q->next=p; q->prev=r;"
+      ],
+      "answer": 0,
+      "explanation": "删除后需让p与r在两个方向直接相连。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-013",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "静态链表通常用什么代替机器指针表示链接？",
+      "type": "single",
+      "options": [
+        "元素值本身且不许重复",
+        "元素占用字节数",
+        "变量声明先后顺序",
+        "数组下标或游标"
+      ],
+      "answer": 3,
+      "explanation": "结点放在数组中，以游标字段指向另一数组位置。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-014",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表已满，扩容申请失败，合理的插入接口应如何处理？",
+      "type": "single",
+      "options": [
+        "把旧指针直接覆盖成NULL且不保留",
+        "任意丢弃一个旧元素",
+        "报告失败并保持原表内容有效",
+        "先增加长度再返回失败"
+      ],
+      "answer": 2,
+      "explanation": "资源申请失败不应破坏已有效的数据与长度；临时指针可保护旧存储。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-015",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "在m项与n项的有序链表上归并，不作重复扫描，最坏时间阶为？",
+      "type": "single",
+      "options": [
+        "O(1)",
+        "O(m+n)",
+        "O(mn)",
+        "O(log(m+n))"
+      ],
+      "answer": 1,
+      "explanation": "每一步至少消费一个结点，各结点至多处理常数次。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-016",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "链表结点中同时含数据与链接。相比只连续保存同种数据的数组，它一般增加了哪项开销？",
+      "type": "single",
+      "options": [
+        "链接字段的存储开销",
+        "元素逻辑数量必然翻倍",
+        "每个数据必须排序",
+        "数据不能重复"
+      ],
+      "answer": 0,
+      "explanation": "链接字段及可能的分配管理、对齐都有成本，逻辑元素个数不因此增加。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-017",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "关于有序表去重后的结果，以下哪项是必须满足的后置条件？",
+      "type": "single",
+      "options": [
+        "所有重复值一项也不保留",
+        "长度一定是原长的一半",
+        "首尾元素必须交换",
+        "每个原有不同值保留一次且仍有序"
+      ],
+      "answer": 3,
+      "explanation": "去重保留集合中的每个值一份，而不是删除所有曾重复的值。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-018",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表插入时把后移操作写成从前向后依次a[j+1]=a[j]，主要风险是什么？",
+      "type": "single",
+      "options": [
+        "下标必然变成负数",
+        "算法一定形成指针环",
+        "尚未搬移的原值被覆盖",
+        "分配容量自动减半"
+      ],
+      "answer": 2,
+      "explanation": "从前往后右移会把后面待搬的值覆盖，应从末端向插入点搬。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-019",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "两个链表共享同一段后缀。对其中一个表逐结点free后，另一个表可能出现什么问题？",
+      "type": "single",
+      "options": [
+        "共享后缀必然不释放",
+        "含悬空指针",
+        "自动复制出独立后缀",
+        "长度自动正确更新"
+      ],
+      "answer": 1,
+      "explanation": "共享内存被释放不会自动更新另一条引用，应明确共享所有权与释放策略。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-S-020",
+      "chapter": 2,
+      "section": "选择题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "用多项式项链表表示3x^8-2x+5时，若不存零系数项，数据结点数为多少？",
+      "type": "single",
+      "options": [
+        "5",
+        "3",
+        "9",
+        "8"
+      ],
+      "answer": 1,
+      "explanation": "只存三个非零项：指数8、1、0。次数8不等于项数。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-001",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表含9项，删除第4项后，为保持原有次序需要移动____项。",
+      "type": "fill",
+      "answers": [
+        [
+          "5"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "原第5至9项前移，共5项。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-002",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表当前有6项，在第2项之前插入，需后移____项。",
+      "type": "fill",
+      "answers": [
+        [
+          "5"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "原第2至6项均需后移。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-003",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "长度为n的顺序表，在n+1个插入位置等概率插入，平均移动____项（用n表示）。",
+      "type": "fill",
+      "answers": [
+        [
+          "n/2",
+          "0.5n",
+          "n÷2"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "移动次数依次n,n-1,…,0，平均n/2。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-004",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "无头结点的单链表为空时，头指针的值为____。",
+      "type": "fill",
+      "answers": [
+        [
+          "NULL",
+          "nullptr",
+          "空指针"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "头指针直接指向首数据结点，没有数据时为空。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-005",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点的非循环单链表，首数据结点由head->____取得。",
+      "type": "fill",
+      "answers": [
+        [
+          "next"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "head本身是辅助结点，next才是第一项或NULL。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-006",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "已知p是尾结点，非循环单链表的p->next等于____。",
+      "type": "fill",
+      "answers": [
+        [
+          "NULL",
+          "nullptr",
+          "空指针"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "非循环链的终点用空链接表示。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-007",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "单链表共有10个数据结点，从首数据结点沿next到第7个数据结点，需跟随____次链接。",
+      "type": "fill",
+      "answers": [
+        [
+          "6"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "到第1项为0次，到第7项为6次。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-008",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "数组基地址为4096，每项8字节，下标从0开始，第5个元素的地址为____。",
+      "type": "fill",
+      "answers": [
+        [
+          "4128"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "第5项下标4，4096+4×8=4128。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-009",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点的单链表只含一个数据结点时，连同头结点一共有____个结点。",
+      "type": "fill",
+      "answers": [
+        [
+          "2"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "逻辑长度1，实际结点数加上辅助头结点为2。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-010",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "一个循环单链表恰有5个结点，从其中任一结点出发，最少跟随____次next回到自身。",
+      "type": "fill",
+      "answers": [
+        [
+          "5"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "合法单环每走一条边到下一结点，5条边完成一圈。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-011",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表容量20、长度12，在不扩容且不删除的前提下最多还能成功追加____项。",
+      "type": "fill",
+      "answers": [
+        [
+          "8"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "空闲容量为20-12=8。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-012",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "升序表A=(1,4,7)、B=(2,4,6)，保留重复项归并后的序列为____（逗号分隔）。",
+      "type": "fill",
+      "answers": [
+        [
+          "1,2,4,4,6,7",
+          "1，2，4，4，6，7"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "依次取较小值，相等的两项都保留。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-013",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "多项式(2x^3+5x)+(−2x^3+7)相加并删除零系数项，结果的非零项数为____。",
+      "type": "fill",
+      "answers": [
+        [
+          "2"
+        ]
+      ],
+      "formats": [
+        "number"
+      ],
+      "explanation": "三次项抵消，剩5x+7，共两项。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-014",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "对带头结点单链表执行p=head; while(p->next) p=p->next;，循环结束时，若表非空，p指向____结点。",
+      "type": "fill",
+      "answers": [
+        [
+          "尾",
+          "尾结点",
+          "最后一个数据",
+          "最后一个数据结点"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "条件检测后继是否存在，最终停在next为空的最后数据结点。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-F-015",
+      "chapter": 2,
+      "section": "填空题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "执行p=q后，再令q=q->next，p仍指向____（原q结点/新q结点）。",
+      "type": "fill",
+      "answers": [
+        [
+          "原q结点",
+          "原q",
+          "原结点"
+        ]
+      ],
+      "formats": [
+        "text"
+      ],
+      "explanation": "指针赋值复制地址，之后修改变量q不自动修改变量p。",
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-001",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "同一长度为n的表，分别用顺序数组与带头结点单链表存储。比较“按序号读取第i项”和“已给前驱地址后插入”的时间，并说明为什么不能笼统说链表插入总比数组快。",
+      "type": "short",
+      "model": "数组按序号O(1)，链表按序号最坏O(n)；已给链表前驱且结点已备好时接链O(1)，顺序表对应插入通常需O(n)搬移。若链表先按序号找位置，查找开销仍可能O(n)。",
+      "rubric": [
+        "区分定位与接链",
+        "比较两个操作",
+        "说明条件"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-002",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表采用“容量用完就加1”的扩容策略。开始容量1，连续追加n项，扩容均搬走所有旧元素。估算总搬移量，并解释改为容量翻倍的收益。",
+      "type": "short",
+      "model": "每次加1会搬1+2+…+(n-1)=n(n-1)/2项，累计Θ(n²)。容量翻倍时搬移1+2+4+…，总量小于2n，追加的均摊成本可为O(1)，但单次扩容仍可能O(n)，也要考虑空闲容量。",
+      "rubric": [
+        "总量求和",
+        "翻倍几何和",
+        "单次与均摊区分"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-003",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "链表A与B共享后缀。学生用“从A头开始逐结点free，再从B头开始逐结点free”销毁两个表。指出两类内存错误，并提出一种可行的管理方式。",
+      "type": "short",
+      "model": "B会含指向已释放共享结点的悬空引用；再次遍历或free会造成释放后访问、重复释放。可禁止共享并在构造时深复制，或统一所有者管理共享结点，仅在最后引用消失后释放；不能只把A的头指针设空就认为B安全。",
+      "rubric": [
+        "共享对象识别",
+        "两类错误",
+        "有效所有权方案"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-004",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "带头结点循环链表有3个数据结点。有人使用for(p=head->next;p!=NULL;p=p->next)遍历。说明会发生什么，并给出恰好处理每个数据结点一次的终止条件。",
+      "type": "short",
+      "model": "合法环不会到NULL，循环会重复访问并把头结点当数据。应从head->next开始，以p!=head为条件；空表起点即head，执行0次。",
+      "rubric": [
+        "错误机制",
+        "排除头结点",
+        "空表一致"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-005",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "升序表为(2,5,5,5,8)。要求找到值5的所有出现位置。一名同学找到一个5便返回成功。这个结果为什么不足？写出本题应有的结果及一种查找策略。",
+      "type": "short",
+      "model": "应返回第2、3、4个位置，或等价范围[2,4]。一次命中只证明存在，未完成枚举。顺序扫描首次命中后继续到值变大；随机访问数组也可分别求左右边界，单链表不据此获得O(log n)的总访问时间。",
+      "rubric": [
+        "结果范围",
+        "存在与全部区分",
+        "可行策略"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-006",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "两条按指数递减排列的多项式项链分别为[(6,4),(2,1)]与[(-6,4),(3,2)]，二元组表示(系数,指数)。求和并说明为何不能把两个表直接串接当结果。",
+      "type": "short",
+      "model": "结果[(3,2),(2,1)]，指数4项合并系数为0应删除。直接串接既未合并同指数项，也可能破坏指数顺序，表示不规范。归并时指数大者先取，相等时系数相加。",
+      "rubric": [
+        "抵消与结果",
+        "规范表示",
+        "归并逻辑"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-007",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "顺序表原内容(10,20,30,40)，要在第2项前插入99。错误代码从j=1到3执行a[j+1]=a[j]。列出搬移后有效候选区前5项，并说明正确搬移方向。",
+      "type": "short",
+      "model": "错误搬移得到(10,20,20,20,20)，因为20不断覆盖尚未读出的30、40。应j从3递减到1搬移，再令a[1]=99，结果(10,99,20,30,40)，长度由4改5。",
+      "rubric": [
+        "追踪覆盖",
+        "从后向前",
+        "最终值与长度"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-A-008",
+      "chapter": 2,
+      "section": "应用题",
+      "revision": 1,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "接口规定删除失败时表必须不变。有人先执行length--，随后才检查删除位置是否越界。说明契约被破坏在哪里，按步骤给出正确处理顺序。",
+      "type": "short",
+      "model": "非法请求也改变了长度，后续有效范围错误。应先检查表对象、位置与当前长度；合法后搬移删除位置之后的元素，最后更新长度并返回成功。失败路径不写入表状态。若数据带资源，还需按既定所有权释放被删项。",
+      "rubric": [
+        "失败原子性",
+        "先验证后修改",
+        "更新顺序"
+      ],
+      "coding": false,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-D-001",
+      "chapter": 2,
+      "section": "算法设计",
+      "revision": 3,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "整数顺序表存放在有效数组a的前n项，0≤n≤256，元素可为任意int值。实现 int removeNegatives(int a[], int n)，原地删除所有负数，保持其余元素的相对次序，返回新长度。只有返回长度内的前缀属于结果，尾部存储内容不作要求。不得另开与n同规模的数组，要求O(n)时间、O(1)辅助空间。全负时返回0，无负时返回原长度。",
+      "type": "short",
+      "model": "用读指针r遍历0..n-1，写指针w初值0。若a[r]>=0，执行a[w++]=a[r]；扫描后n=w。保留项按读取顺序写回，因此稳定。全负得空表，无负长度不变。时间O(n)，辅助O(1)。\n\n参考实现：\n```c\nint removeNegatives(int a[],int n){int w=0;for(int r=0;r<n;r++)if(a[r]>=0)a[w++]=a[r];return w;}\n```",
+      "rubric": [
+        "读写位置分开",
+        "稳定性",
+        "边界与复杂度"
+      ],
+      "coding": true,
+      "judge": true,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-D-002",
+      "chapter": 2,
+      "section": "算法设计",
+      "revision": 3,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "系统提供 typedef struct Node { int data; struct Node *next; } Node;。两条无头结点的单链表各有0至256个数据结点，NULL表示空表，两表均无环，可能共享同一后缀。实现 int sharesNode(const Node *a, const Node *b)：存在共同结点对象返回1，否则0。数据相等不代表结点共享；两条空表不算共享。不得修改或释放任何结点，要求O(m+n)时间、O(1)辅助空间。",
+      "type": "short",
+      "model": "分别遍历到两表末尾。若任一表为空则不相交；两个非空表共享结点当且仅当尾结点地址相同。无环单链表共享后会共用整个后缀，所以尾相同；比较地址不是数据。各遍历一次O(m+n)，额外O(1)。\n\n参考实现：\n```c\nint sharesNode(const Node*a,const Node*b){if(!a||!b)return 0;while(a->next)a=a->next;while(b->next)b=b->next;return a==b;}\n```",
+      "rubric": [
+        "地址身份",
+        "尾结点判据证明",
+        "空表与无环前提"
+      ],
+      "coding": true,
+      "judge": true,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-D-003",
+      "chapter": 2,
+      "section": "算法设计",
+      "revision": 3,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "系统提供 typedef struct Node { int data; struct Node *next; } Node;。head是有效头结点，head->next指向首个数据结点；头结点的data不属于表中元素。数据结点0至256个，链非循环、无共享，结点data和x可为任意int值。实现 void removeValue(Node *head, int x)，删除并释放原链中所有data等于x的数据结点，保持其余元素的相对次序，保留头结点。输入数据结点均由标准内存分配函数申请且可用free释放；结果链的数据结点仍由调用方拥有并可逐个free，不限定幸存数据结点的地址。要求O(n)时间、O(1)辅助空间；连续命中也应全部删除。",
+      "type": "short",
+      "model": "pre=head；while(pre->next!=NULL){q=pre->next;if(q->data==x){pre->next=q->next;free(q);}else pre=q;} 命中时pre不前进，故连续项不会遗漏；空表安全。O(n)时间、O(1)辅助空间。\n\n参考实现：\n```c\nvoid removeValue(Node*head,int x){Node*pre=head;while(pre->next){Node*p=pre->next;if(p->data==x){pre->next=p->next;free(p);}else pre=p;}}\n```",
+      "rubric": [
+        "前驱保留",
+        "连续删除",
+        "释放与边界"
+      ],
+      "coding": true,
+      "judge": true,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-D-004",
+      "chapter": 2,
+      "section": "算法设计",
+      "revision": 3,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "系统提供 typedef struct Node { int data; struct Node *next; } Node;。first指向无头结点非空单链表的首个数据结点，表无环，长度1至256，data可为任意int值。k为正int整数。实现 const Node *kthFromEnd(const Node *first, int k)：返回原链倒数第k个结点的地址，不足k项时返回NULL。不得修改或释放结点，不得用同值的新结点代替原结点。设计一次扫描算法，要求O(n)时间、O(1)辅助空间。",
+      "type": "short",
+      "model": "先令fast与slow均为首数据结点，让fast走k步，每步前若fast为空则失败。之后两指针同步前进直到fast为空，此时slow为倒数第k项。k<=0先拒绝。fast与slow间距k，对空表或k超长可检测。O(n)时间、O(1)辅助空间。\n\n参考实现：\n```c\nconst Node*kthFromEnd(const Node*first,int k){const Node*fast=first,*slow=first;for(int i=0;i<k;i++){if(!fast)return NULL;fast=fast->next;}while(fast){fast=fast->next;slow=slow->next;}return slow;}\n```",
+      "rubric": [
+        "先拉开间距",
+        "不足k检测",
+        "同步不变量"
+      ],
+      "coding": true,
+      "judge": true,
+      "practiceWeight": 3
+    },
+    {
+      "id": "P4-structures-2-D-005",
+      "chapter": 2,
+      "section": "算法设计",
+      "revision": 3,
+      "pool": "practice",
+      "origin": "原创",
+      "stem": "整数数组a、b的有效前缀长度分别为n、m，0≤n,m≤256；各自严格递增，元素可为任意int值。实现 int intersection(const int a[], int n, const int b[], int m, int c[])，把交集中的每个值恰好一次写入c，返回结果长度。c与两个输入不重叠，容量至少为min(n,m)；a、b可以是同一数组或重叠片段。不得修改输入。结果次序不限制，返回长度以外的c尾区不作要求。要求O(n+m)时间，除输出外O(1)辅助空间。",
+      "type": "short",
+      "model": "i=j=k=0；两边均未结束时比较A[i]和B[j]：小者下标前进；相等则C[k++]=A[i]，i、j均前进。任一结束即结束，返回长度k。小者不可能在另一表剩余部分命中，故可舍弃。时间O(m+n)，除输出外空间O(1)，空输入交集为空。\n\n参考实现：\n```c\nint intersection(const int a[],int n,const int b[],int m,int c[]){int i=0,j=0,k=0;while(i<n&&j<m){if(a[i]<b[j])i++;else if(a[i]>b[j])j++;else{c[k++]=a[i];i++;j++;}}return k;}\n```",
+      "rubric": [
+        "双指针分支",
+        "正确性依据",
+        "输出长度与成本"
+      ],
+      "coding": true,
+      "judge": true,
+      "practiceWeight": 3
+    }
+  ],
+  "originalCanonicalSha256": "c4892f8ffa538a12423099a3d2cd2517b849248deb89a73e18afe3fa6821e8ed",
+  "ledger": [
+    {
+      "id": "2-01",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "038a865fd35298d8576aaf8ecfac4e89bce7817ca39bd8d8a43b5bd5bab004b6",
+      "mechanism": "连续插入/重新定位",
+      "independentCheck": "第一次3项后移，更新表后第二次2项，共5；当前位序不是原始位序。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "2-02",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "b667a7946eba63beb3e06d9fe5b7abac96ed1a1b09e24020b8c1f9786f5c5e78",
+      "mechanism": "删除后前驱的移动时机",
+      "independentCheck": "连续命中被跨过；尾删后p变NULL而下次读p->next；else才移动前驱可同时修两错。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P-S-01",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "5d478fcf542a9f82f1e36a07d46b92993dbc4d83c8bf90da4fc3cd5bf122b5be",
+      "mechanism": "双向删除两侧链接",
+      "independentCheck": "非边界删除需前驱next和后继prev直接互指；其余选项中的全体data等无效干扰修复。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P2-structures-2-1",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "d16507a45475fbc1d02c3ab3de578a6c26332073dffaa70d2650c227cdea2248",
+      "mechanism": "顺序删除的后续项移动",
+      "independentCheck": "尾删0次但中间删需前移，故“任意位置都不用移”为假。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-2",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "22aaaa5a105309b5f16440486bab2065c76aee99652dcbbc984a351ec587b5f0",
+      "mechanism": "辅助头与数据数量",
+      "independentCheck": "头结点不属于表的数据元素，判真；和有/无头的空表表示区别保留。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-3",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "57add9fc654669fdd365ab10361ba9e26a3b2be815bded0e18a6bb246a0441d5",
+      "mechanism": "单链表无直接前驱",
+      "independentCheck": "仅next不能由p直接取得前驱；一般需从头找，判假。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-4",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "656ddf8f4cfb44b2001e33a8124d7c4a4f1c3674daa1a842595ca8b60628ccf2",
+      "mechanism": "分配成功后接链",
+      "independentCheck": "分配失败前不改原链接即可保原结构，判真；不是“链式永不失败”。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-5",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "06d852f14d9f1af149b282e0f1dbb1c1f961b4da6c0df7bf0babcc3f8c524584",
+      "mechanism": "循环表终止判据",
+      "independentCheck": "合法环不会遇NULL，须回到指定入口/头结点，判真。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-6",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "6dba7ae6914850c80de02aeb1bb888a71946fc38d5ff8b7b84dd2e6744352d2f",
+      "mechanism": "带头链首插赋值次序",
+      "independentCheck": "先保存原head->next再挂s，否则s自环；和无头插更新句柄不是同一对象槽。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-7",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "944f38ca1461a83b257433ad1b5ebf39bc2f59e45ca50d1b9d8cc3dcd99bdf50",
+      "mechanism": "按下标删的搬移数",
+      "independentCheck": "移动k+1..n-1共n-k-1，独算选第3项。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-8",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "a4af3c0100daeefd89f9ca8a07f9e411e49a47baf3b53b84905aa8a8a9344c7f",
+      "mechanism": "反复头插的逆序",
+      "independentCheck": "默认初表空才仅有C,B,A；若原有D则还剩D。原题未给初表空，候选补足不改变头插目标。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P2-structures-2-9",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "24c8ba733d09c2bb3ec5d280da9844102a53a1f5e539cdd6ce345efb94df2fac",
+      "mechanism": "带头非循环表判空表达式",
+      "independentCheck": "需head->next为空；现漏收括号/反向比较等常见等价C表达式，候选扩答案。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P2-structures-2-10",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "709cc4991bac783cade5266086d04d639de3d2135179d67787a0e2dee2fd8fb8",
+      "mechanism": "具体删除移动次数",
+      "independentCheck": "8项删下标2移3..7共5，与通式同构无新条件；候选改加权成功查找ASL。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P2-structures-2-11",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "cc0eb66b80161c4f07d4521269e5cd4477b29b43a3a3b6b7efe2f6d2f6f7bb64",
+      "mechanism": "原地逆链的时空",
+      "independentCheck": "每结点常数次处理为Θ(m)，常数辅助指针为Θ(1)；有明确原地约束。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-12",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "9dd788f5426c214ca9fb83dc98d24f23b328c44701bf72fa79796bdb477a2d34",
+      "mechanism": "保存后继再插入的轨迹",
+      "independentCheck": "正确3,5,6,9；逆序使s.next=s并失去原6后缀。具体错误跟踪保留。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-13",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "dc20817a90a408e510f23408908fe0aa4b60b30c7c845a80f01e3612d832783f",
+      "mechanism": "定位加插入的总成本",
+      "independentCheck": "数组定位常数/搬移线性；链表定位线性/接链常数，不能只计末次写链接。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P2-structures-2-14",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "efc2a2d7836df8c2d09e77b5e829d3d618a05ea450bc3ac745f15b2507341a9a",
+      "mechanism": "复用结点稳定归并",
+      "independentCheck": "正常独占结点时算法正确；未公开互不共享，头结点管理又超出所问，候选补前提并收准评分。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-J-001",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "06754fb589e6d988142999c5f99b7e38d1ac89bf2328d98eac3e54f3e1bcf8c3",
+      "mechanism": "逻辑次序不决定物理地址",
+      "independentCheck": "同一数据次序可有不同数组基址/链布局，判假。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-002",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "e08cba7c0cc876665ac4ca814345fe944b568537f21b1bd585635e3e830ce707",
+      "mechanism": "容量与有效长度",
+      "independentCheck": "分配100格但长度0无首元素，判假；访问边界是逻辑长度。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-003",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "d69be5a1728761b874353c67a5791a40e5919ca77fa38f2aa2963297b40356d4",
+      "mechanism": "结点身份限制下删除",
+      "independentCheck": "保持结点与值对应时不能借复制后继值变相删除p；须修改前驱，通常非O(1)。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-004",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "c474d0dc6c10aff5ea1c217b106fd769f3fde800b48a2c6bfd0aaff59e76ac95",
+      "mechanism": "双向删除局部成本",
+      "independentCheck": "有前驱后继可常数改边；全称“仍必线性”被非边界例否定。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-005",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "4fc52a0372139b55eec403c6ba02f4b83b182727484eb3364cafaecd54ced3b6",
+      "mechanism": "有序链不等于随机访问",
+      "independentCheck": "中点仍需沿链，排序性不制造O(1)寻址，判假。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-006",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "0d8ab8ef50f9badd54e8b914c13629a93a76743feae0e261a0a6cf6d143faed4",
+      "mechanism": "扩容后的旧元素指针",
+      "independentCheck": "真实存储可能迁移，旧地址可失效；不是逻辑值丢失。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-007",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "4ed9b22ad1f83b5438cf0f9af809c572972b78b5712f064fedc2ba8b8cee6131",
+      "mechanism": "带头非循环判空",
+      "independentCheck": "与P2-2-9同条件同谓词仅换判断，候选改双向逆边一致性。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-J-008",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "d9540e94a94783be27b7bbf5c4633bc30517a9194ac6a6d01f9142fa9bc92766",
+      "mechanism": "链结点来源非必须malloc",
+      "independentCheck": "预分配池/游标数组也能组成链，动态分配不是抽象必要条件，判假。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-009",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "6ea56360bec2c259aae444727a39bd94b65a64ebccedd9f97c7410778a56cb6b",
+      "mechanism": "归并稳定性",
+      "independentCheck": "相等先取左不会反转任一输入内部顺序；若原逻辑A在B前也满足整体稳定，判真。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-010",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "04e72777cb834e299477dae2971c7a3d13298dbc9c62dfb852aa9d6cb06df927",
+      "mechanism": "稀疏项数不同于最高指数",
+      "independentCheck": "仅存非零项，项数m可远小于最高次数+1，判假。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-011",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "3050fa7da6746889898e019a8cfb59154e619a2f8066a8258cb4744c29949679",
+      "mechanism": "循环表必遇NULL错误",
+      "independentCheck": "与P2-2-5同一终止机制反向重问，候选改有序查找的提前失败条件。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-J-012",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "3e8d9d01be3b7044d30d03986f5ef68e18f05d73e0f0b9da3938f24d4cea09c9",
+      "mechanism": "删除后的无效尾区",
+      "independentCheck": "长度定义有效内容，尾区残值未必影响表；未附带资源释放语义，不强要清零。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-013",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "09d787ea1f2a6178754a5a3873bf189f0f40985a66fd22e0cd27db06ac236639",
+      "mechanism": "分配时序不同于链顺序",
+      "independentCheck": "先分配也可放在逻辑尾/中间，逻辑次序由next决定，判假。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-J-014",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "557edda3a72bf56f77fbbf61f01bea6fc7d50aa74ee2421035d52b64fdd4f492",
+      "mechanism": "头结点计数多1",
+      "independentCheck": "与P2-2-2/F009同一辅助头计数，候选补元素可含多字段但关系仍线性的基础概念。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-J-015",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "0f1afcb00888d218cd7f5a7b136dcfff420d6c430a04c1c7e04587aa28bdada1",
+      "mechanism": "两个环连接至少两条边",
+      "independentCheck": "仅改一边不能同时打破两个原闭环并形成唯一全结点环；两结点各自环反例即可。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-001",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "07133e3063148fb9f3ee5c5d3521a759c79f0319e3dc2a7e32373de255c3e0c1",
+      "mechanism": "0起下标直接寻址",
+      "independentCheck": "2000+7×12=2084，按实际公开起始地址/字节跨度独算。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-002",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "ff41824ad65cba7be0ce710650e956aeb28b5d580cbafe691ee9aa460e480bac",
+      "mechanism": "顺序插入的通式",
+      "independentCheck": "第i..n项共n-i+1项右移；i从1起明示。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-003",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "6a14be80b1682aacb36a03868dad5a89a81342cfacdabeded8b36c63f5c4e846",
+      "mechanism": "有空容量的尾插",
+      "independentCheck": "只写新项，没有已有项搬移，0次；与满需扩容是实际不同边界。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-004",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "a191dac5c3b752db7d265b9a95d5bc236bb04baadcd13eb2296f2a6c203cc3d5",
+      "mechanism": "等概率删除平均搬移",
+      "independentCheck": "n>=1的操作隐含非空位置，从n-1..0取均值=(n-1)/2，独立累加核。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-005",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "8a4a31ca6e2ab897563ca3544a01279207e93dd33d07281eda01dc94cbe590ae",
+      "mechanism": "无头首插更新头句柄",
+      "independentCheck": "s.next=h;h=s；保留原首地址，不能先h=s。与固定辅助头next更新是不同对象槽。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-006",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "6c51e031945a1a55a860db4f811d93867742e282436c5d3e865559dcd4ec4ccb",
+      "mechanism": "已知p后插",
+      "independentCheck": "和带头首插/具体接链重复同两句；候选改双向四边接入。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-S-007",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "67d4a8b5e97d3c85e056f28b936582f207372579613c99b9ba9ddc5bcb1148d6",
+      "mechanism": "free前保存后继",
+      "independentCheck": "先在p.next或临时变量保存q.next才能释放q，不把释放后的q作可读对象。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-008",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "6fbfb0b818a57205d654b4375da1eaed190aa8dca61523542f8da3b794bfc8cb",
+      "mechanism": "带头单循环空态",
+      "independentCheck": "空时head.next=head，和非循环NULL是真实不同表示边界。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-009",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "fc875a925a0387fe1078ac29e0c264ceed330ed426dc009f2cec645a79f7ae37",
+      "mechanism": "带头双循环空态",
+      "independentCheck": "next和prev都应指h，两方向一致；不是只让一个方向自环。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-010",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "7c7b141857bf4eb6d5e68c75dd9789f15a3a2f4964581d64a59f4565a9e250a5",
+      "mechanism": "读多写少的存储选择",
+      "independentCheck": "按序号频繁读取适合顺序数组；原无链接散存干扰不是合法完整存储，候选改可用的游标链。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-S-011",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "db5b0cc40a5c821ebff623b7f14e0071faa38be69a5e4d90acd2cc083225b7b0",
+      "mechanism": "无尾句柄时尾插查找成本",
+      "independentCheck": "非空单链先找尾是主耗时，接链接本身固定步数，保留定位与动作区别。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-012",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "fb96b905c56420a79ff7fbdf5da76c1b804c26b46839131a398f2ba2adf9c5b1",
+      "mechanism": "双向删除重接",
+      "independentCheck": "与P-S-01同一非边界删除两条边，仅换字母；候选改双向循环从近端定位。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-S-013",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "0ad6c6df483a1290483569b1ee586624f52fbd603236f25319c0995bbbfb9b2a",
+      "mechanism": "静态链的游标表示",
+      "independentCheck": "结点在数组，用下标/游标接逻辑后继；原声明顺序等无效干扰修复。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-S-014",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "693bf325d1177ffea04f312645e08c4fd39e03a32a7adbbc7b193aab3b127513",
+      "mechanism": "扩容申请失败保护",
+      "independentCheck": "旧指针暂存、失败不增长度或丢原内容，当前答案正确；直接覆盖realloc指针是实际错误。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-015",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "daf4a6aab5f3c655fcd9304d3f1777bf02f4a594fd044060f17886b4cd68ba2a",
+      "mechanism": "两有序表线性归并成本",
+      "independentCheck": "每步至少消费一项，总O(m+n)，不是两个长度相乘；保留时阶。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-016",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "92a5a8b60d209c8f5083c9b563eb0acf10bd99ffe1fa25dbeb78485099718cca",
+      "mechanism": "链域额外存储",
+      "independentCheck": "数据节点增加next/prev等字段；原排序/数据重复等无关选项修为真实成本混淆。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-S-017",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "4d26931dbad1c22684f8999419843a1ab56367b10be8bb2966a41da10abf33fc",
+      "mechanism": "有序去重后置",
+      "independentCheck": "每个不同值至少/至多一份且仍有序；不能全删重复值，原首尾交换等无效干扰修复。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-S-018",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "60df27b103b0044f8d4990f846c169b658a9fd6d662115507c128d09ce0d15e1",
+      "mechanism": "右移错误方向覆盖",
+      "independentCheck": "与A007同一错误循环已要求完整值轨迹，候选改归并每轮比较的精确最坏次数。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-S-019",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "514b7fa43c08f6c01c6497411a62cbeebd6746648f9e58a09ba0d3855aba1922",
+      "mechanism": "共享后缀释放后悬空",
+      "independentCheck": "A销毁共享部分，B的旧引用失效；保留本题，A003替换以免重问同一风险。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-S-020",
+      "revision": 1,
+      "type": "single",
+      "origin": "original",
+      "questionSha256": "36bfb21c8ef5786709e7ec809d88ca331f72cf1ca5db41ed370ff8aa46d1de61",
+      "mechanism": "多项式非零项计数",
+      "independentCheck": "3x^8,-2x,5共3项；最高次8不等于节点数9。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-001",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "ffc49afb3470e2af455ff00cd1a73864837515913e9819b56f98c61c10b1419b",
+      "mechanism": "1起位序删除具体边界",
+      "independentCheck": "9项删第4项，后面5..9共5项。保留位序与0起下标通式的明确坐标差异。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-002",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "207af6c36094aba8a9a76958226667aae0c11133a92996972028ce6163ee2262",
+      "mechanism": "具体插入移动数",
+      "independentCheck": "6项第2项之前移5，与S002同条件仅代数字；候选补课件集合并的去重追加。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-F-003",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "e5f29c7b54c411516a74e02d11f69af0d2b3cd6b1237f57570ddcd3615bc6ac1",
+      "mechanism": "等概率插入平均搬移",
+      "independentCheck": "n..0共n+1种，平均n/2；现缺0.5*n等普通数学等价写法，候选扩别名。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-F-004",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "78c5d19533a1e0f8d626fbe53c937e5f43a5e7675e8b260e3e4451002919b16f",
+      "mechanism": "无头空表指针",
+      "independentCheck": "没有首数据结点，头为空；文本NULL/空指针语义还应接受C空指针常量0。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-F-005",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "5fa35e1c7c2fe9f88f121784a60dc46e7e4a8323f22885c36c91435951e2b811",
+      "mechanism": "辅助头后的首元字段",
+      "independentCheck": "head.next访问第一数据或空，不能把head本身当元素；字段补全仅next。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-006",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "ce7c19ef99059540dfee3b27c3746ed4e929a11571bf3693e5973e4696fbdbd3",
+      "mechanism": "非循环尾空链接",
+      "independentCheck": "p.next为空；NULL与作为空指针常量的0都应接受，候选加别名。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-F-007",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "2ebe71517f3630aa0c1b2a91a967e5bb780a95c01e6ff321f3ce46c5d2c3e86b",
+      "mechanism": "单向链定位的边数",
+      "independentCheck": "从第1项起到第7项要6条边，不计起点一次；逻辑n10不改变距离。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-008",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "4b3dc26e2620b48036bada3f89fa08b77aa402785bb44e74b18a26f5844bcb2a",
+      "mechanism": "1起位序到字节地址",
+      "independentCheck": "第5项下标4，4096+4×8=4128；和S001的0起下标约定有真实偏1边界，保留。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-009",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "a6b1c4da123e71421ce99e8991516cf83eeafef34fe51c53467ff821104ace8d",
+      "mechanism": "头结点与一个数据结点",
+      "independentCheck": "总节点1+1=2；此题直接核辅助对象不属于逻辑长度。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-010",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "d23cd93a79c53abfea67dc637f631b220945704ab7b07b195f52ae9096ccba1d",
+      "mechanism": "单环一圈边数",
+      "independentCheck": "5个结点的一个合法环走5条next首次返回；不把空链接当终点。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-011",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "94fbc0c5ea623e9aefb913a12d24db99773b21d593b6d6fea61d4883b2a68430",
+      "mechanism": "容量剩余量",
+      "independentCheck": "20-12=8项可追加；明确不扩容不删除，保留资源上限边界。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-012",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "990b7a471e3f7943e36491f17ce23359c8076b4e07fe1b575339141a92c57593",
+      "mechanism": "归并保留重复项",
+      "independentCheck": "两个非递减序列的多重集归并为1,2,4,4,6,7；不同于集合并去重追加。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-013",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "dc4722f32879143b1ff1edd2ae96d48fb1e65b8ecb57ddce13efb0d43531f45d",
+      "mechanism": "多项式高次抵消",
+      "independentCheck": "与A006都是两项加两项、共同高次抵消余两项，仅换系数/指数/题型；候选改两项多项式相乘。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-F-014",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "d68120a112e901fcd7fb317136fe858867ff950c6e8851648123a4390668ed92",
+      "mechanism": "遍历到尾的循环边界",
+      "independentCheck": "while检查后继，停在最后数据而非NULL；表非空已给。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-F-015",
+      "revision": 1,
+      "type": "fill",
+      "origin": "original",
+      "questionSha256": "c434504b8dfbe6f0a18379d46e8d7399a5515837b52d6fea70cd21a015369169",
+      "mechanism": "变量地址复制后各自推进",
+      "independentCheck": "p=q仅复制地址，随后q前进不改变p；需补q原指有效结点，避免q.next无定义。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-A-001",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "75da463209ad0ac93c194de58c87c0d6828c3a7797eb4635de5a936fba108c4a",
+      "mechanism": "顺序/链定位再修改总成本",
+      "independentCheck": "和P2-2-13同一总成本结论换型，候选改三表同时命中删除/与或差异。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-A-002",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "fa889933a3e6a1bc3a73a4588444474e1e3f6ae9ddb128e2f522bb4d3c9f8259",
+      "mechanism": "逐次加1与倍增扩容",
+      "independentCheck": "加1搬移n(n-1)/2，倍增几何和<2n；区分总成本、均摊、单次最坏，不同约束保留。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-A-003",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "1189156ac73549a15b7d4731a433409dc67240651c417947b92b7cf997a81a4f",
+      "mechanism": "共享结构销毁两次",
+      "independentCheck": "与S019同一共享free后悬空，再重复free的直接延伸；候选改无序去重时相邻判断失效。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-A-004",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "1326b3fb1a484d783b36adc4ea4f3f0cf27dce6d176aa4874e4dc763dda3b9a5",
+      "mechanism": "带头环的只处理数据一圈",
+      "independentCheck": "NULL条件永不终止且会误处理头；p!=head从head.next起，空表执行0次。具体修循环不同于只判是否NULL。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-A-005",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "2ca4d28d41d00bf5cf28c8958be360830cc3f9a52670fe9f39bdb0f9f193de32",
+      "mechanism": "全部匹配而非一次存在",
+      "independentCheck": "2,5,5,5,8应返回位序2..4，单命中不足；保留寻找全范围这一新增目标。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-A-006",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "2e165373a97323dc0eef1ea5c3ab4528c1f8e2b5820a314b4ef5c093d4d8282a",
+      "mechanism": "多项式规范求和",
+      "independentCheck": "4次项6-6抵消，剩(3,2),(2,1)，直接串接不规范；保留结构与求和理由，F013换机制。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-A-007",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "0f53ee953c6fef206108a14a3350ba1b545e8726c42ef2d7a8a8191aed20e6e3",
+      "mechanism": "向右覆盖的具体轨迹",
+      "independentCheck": "容量至少5时错误10,20,20,20,20；补容量避免a[4]域外，且正确插入最终值/长度未在题干另问，只作解析延伸，不列独立评分。",
+      "conclusion": "revision_candidate",
+      "candidateRevision": 2
+    },
+    {
+      "id": "P4-structures-2-A-008",
+      "revision": 1,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "8a6a119c9ed177331582be4d6cf4e5466d1af8e4915d3d3fb7645cd945c79076",
+      "mechanism": "失败时表不变的更新次序",
+      "independentCheck": "length先减则非法位置也改状态，先验证后搬移/更新才能保失败不变；不强加未给资源类型释放。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-D-001",
+      "revision": 3,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "e4edbaded352aa7b115d8696bca56912c1ea5192804137d94227d35c8038c3ac",
+      "mechanism": "稳定删除负数",
+      "independentCheck": "读写游标，保留>=0含0，逻辑n与存储容量分离；参考功能正确，本轮不编译或证明所有资源/方法约束。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-D-002",
+      "revision": 3,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "2dd3f833cef98cb5712adfe6bca3513ea4b5817c1c4d2e6adb87fb04c49d96a3",
+      "mechanism": "共享对象而非相同值",
+      "independentCheck": "无环共享当且仅当非空尾相同；原连续pool布局漏错误p+1，主线已定向散槽修复，另审helper。",
+      "conclusion": "driver_issue_root_fix"
+    },
+    {
+      "id": "P4-structures-2-D-003",
+      "revision": 3,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "8e2040adacf2ebbd9c7ecd30c677704ec73ece423d49888aa0fe983c099b01c4",
+      "mechanism": "带头链删所有x并释放",
+      "independentCheck": "先保前驱，连续命中不推进；原对象可释放、幸存地址不固定均明确；不要求输入以外别名。",
+      "conclusion": "retain"
+    },
+    {
+      "id": "P4-structures-2-D-004",
+      "revision": 3,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "4a5972a21860f76467478f85a30ce4e0692575f9e12d4409a92b58e29b24f802",
+      "mechanism": "倒数k结点对象",
+      "independentCheck": "快指针先走k，尾部同步slow；长度不足返回NULL、k>0已给；原连续pool漏p+1，主线修物理映射。",
+      "conclusion": "driver_issue_root_fix"
+    },
+    {
+      "id": "P4-structures-2-D-005",
+      "revision": 3,
+      "type": "short",
+      "origin": "original",
+      "questionSha256": "1d83addd8cc80df51c740aca66098705df041e5af9eb921973ce3f6f9fbbbe2f",
+      "mechanism": "严格递增数组交集多解",
+      "independentCheck": "独立Set交集，输出排序不限制；输入允许别名、输出独立、物理tail不评分，现条件充分。",
+      "conclusion": "retain"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "P-S-01",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "所有结点data等项为无效干扰。",
+      "newMechanism": "双向非边界删除需两方向闭合。",
+      "nearbyDifference": "S012不再重问这两边。",
+      "independentCheck": "以p前驱u、后继v建三个对象，删除后u.next=v且v.prev=u；只改一边不够。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P-S-01",
+        "type": "single",
+        "stem": "双向链表结点p既非首也非尾，删除p并保持前后双向链接，必须修改：",
+        "options": [
+          "仅p->next",
+          "前驱的next及后继的prev",
+          "仅头指针",
+          "所有结点data"
+        ],
+        "answer": 1,
+        "explanation": "p->prev->next=p->next，p->next->prev=p->prev，然后释放p。",
+        "chapter": 2,
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P-S-01",
+        "type": "single",
+        "stem": "双向链表结点p既非首也非尾，删除p并保持前后双向链接，必须修改：",
+        "options": [
+          "仅待删p的prev与next",
+          "前驱的next及后继的prev",
+          "仅前驱的next",
+          "仅后继的prev"
+        ],
+        "answer": 1,
+        "explanation": "p->prev->next=p->next，p->next->prev=p->prev，然后释放p。",
+        "chapter": 2,
+        "coding": false,
+        "practiceWeight": 3,
+        "revision": 2
+      }
+    },
+    {
+      "id": "P2-structures-2-9",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "常见等价C判空写法被现文本评分拒绝。",
+      "newMechanism": "只扩已给命题的常见等价答案，不冒充新机制。",
+      "nearbyDifference": "J007原重问改双向一致性；无头/循环的真实表示差异不混用。",
+      "independentCheck": "在head有效且next为空/非空两态下，所有新增表达式真假相同。有限别名不声称识别所有C程序等价。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P2-structures-2-9",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "带头结点空单链表，head非空，常用的判空条件为____（填写C表达式）。",
+        "type": "fill",
+        "answers": [
+          [
+            "head->next==NULL",
+            "head->next==0",
+            "!head->next"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "头结点存在不表示有数据结点，应检查其next。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P2-structures-2-9",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "带头结点空单链表，head非空，常用的判空条件为____（填写C表达式）。",
+        "type": "fill",
+        "answers": [
+          [
+            "head->next==NULL",
+            "head->next==0",
+            "!head->next",
+            "(head->next==NULL)",
+            "(head->next)==NULL",
+            "NULL==head->next",
+            "0==head->next",
+            "!(head->next)"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "头结点存在不表示有数据结点，应检查其next。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P2-structures-2-8",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "未给初表为空，完整结果可能还含原有数据。",
+      "newMechanism": "头插逆序（只补初态）。",
+      "nearbyDifference": "不是另造一种入栈/出栈题，也不改新结点的接链过程。",
+      "independentCheck": "空初态依次得[A]、[B,A]、[C,B,A]；若原有D，原题会得[C,B,A,D]，候选排除该歧义。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P2-structures-2-8",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "在单链表头部反复插入A、B、C，最终数据结点次序为：",
+        "type": "single",
+        "options": [
+          "A B C",
+          "C B A",
+          "B A C",
+          "C A B"
+        ],
+        "answer": 1,
+        "explanation": "每次新结点放到最前，顺序反转。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P2-structures-2-8",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "在初始为空的单链表头部依次插入A、B、C，最终数据结点次序为：",
+        "type": "single",
+        "options": [
+          "A B C",
+          "C B A",
+          "B A C",
+          "C A B"
+        ],
+        "answer": 1,
+        "explanation": "每次新结点放到最前，顺序反转。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P2-structures-2-10",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与下标删除移动数通式仅代数值，无新前提。",
+      "newMechanism": "非等概率成功顺序查找ASL。",
+      "nearbyDifference": "删除/插入平均搬移是另一种操作成本；本题有明确不等命中概率。",
+      "independentCheck": "把概率拆为四个等可能事件10,10,20,30，比较总数1+1+2+3=7，平均7/4。",
+      "studyEvidence": "学校chapter2-1顺序查找算法2.3和ASL段给出概率加权定义。",
+      "previous": {
+        "id": "P2-structures-2-10",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "下标0起的顺序表长度8，删除下标2的元素需移动____个元素。",
+        "type": "fill",
+        "answers": [
+          [
+            "5"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "移动下标3、4、5、6、7。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P2-structures-2-10",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "顺序表的数据依次为10、20、30。从第一项开始顺序查找，查到相等项立即停止，只统计数据值比较。每次都查找成功，查10、20、30的概率分别为1/2、1/4、1/4，平均比较____次。",
+        "type": "fill",
+        "answers": [
+          [
+            "1.75",
+            "7/4"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "三项分别需要1、2、3次比较，期望为1×1/2+2×1/4+3×1/4=7/4=1.75。不能在非等概率条件下直接用(3+1)/2。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P2-structures-2-14",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "复用数据结点归并缺少互不共享前提，原rubric额外要求头结点管理。",
+      "newMechanism": "稳定原结点归并（补合法输入与稳定含义，收准评分）。",
+      "nearbyDifference": "J009只判相等先左的稳定性质；本题需实际不变量及余链，不新加头所有权子问。",
+      "independentCheck": "A/B若共用一个数据结点，保留两个输入多重集时一个结点不能在非环结果出现两次；独占输入后按取小者归并正确。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P2-structures-2-14",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "两个带头结点非递减链表要通过重接现有结点归并，不新建数据结点。说明循环不变量、相等时的稳定选择和尾部处理。",
+        "type": "short",
+        "model": "结果尾指针前部始终已排序且由已取出的结点组成；相等时优先原左表可保持跨表约定稳定性；一表为空后接上另一表剩余链，处理原头结点所有权。",
+        "rubric": [
+          "已排序前缀不变量",
+          "相等时选择规则",
+          "不复制余链及头结点管理"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P2-structures-2-14",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "A、B是两个头结点不同、数据结点互不共享的带头非递减链表。通过重接现有数据结点归并，不新建数据结点。把A中各元素视为原先排在B中各元素之前，要求归并稳定。说明循环不变量、值相等时的选择和一表结束后的处理。",
+        "type": "short",
+        "model": "结果尾指针以前是非递减的已归并前缀，恰含两个输入已消费的元素。值相等时先取A中当前项，各表内部按原次序取，可保持题定的整体稳定性。一表结束后将另一表余链直接接到结果尾，不必逐项复制。",
+        "rubric": [
+          "已排序前缀与已消费元素的不变量",
+          "相等先A并保持各输入内部次序",
+          "直接接余链，不新建数据结点"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-J-007",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "和P2-2-9同一带头非循环判空命题，仅换题型。",
+      "newMechanism": "双向结构的逆边一致性。",
+      "nearbyDifference": "不是判空，也不只是选择删除语句；给后续修改提供结构性不变量。",
+      "independentCheck": "创建相邻对象p、q，合法两边为p.next=q和q.prev=p；条件排除了无后继边界。",
+      "studyEvidence": "学校chapter2-3双向结构对称性p->prior->next=p=p->next->prior。",
+      "previous": {
+        "id": "P4-structures-2-J-007",
+        "chapter": 2,
+        "section": "判断题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "带头结点的非循环单链表中，头结点的next为NULL可作为空表判据。",
+        "type": "single",
+        "options": [
+          "正确",
+          "错误"
+        ],
+        "answer": 0,
+        "explanation": "头结点存在但无首数据结点时，其next为NULL。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-J-007",
+        "chapter": 2,
+        "section": "判断题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "在合法双向链表中，p指向有效结点且p->next非NULL，则p->next->prev必定等于p。",
+        "type": "single",
+        "options": [
+          "正确",
+          "错误"
+        ],
+        "answer": 0,
+        "explanation": "双向链接的相邻关系应互相对应：p的后继的前驱就是p。只更新next而不更新对应prev，会破坏这个不变量。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-J-011",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "和P2-2-5同一循环表不会遇NULL的结论反向重问。",
+      "newMechanism": "单调有序性允许提前证明未命中。",
+      "nearbyDifference": "J005区分有序和随机访问能力；本题利用有序做逻辑停止，不声称随机访问。",
+      "independentCheck": "在所有长度≤5、值域0..3的非递减序列中对全部查询枚举，首次大于后的后缀均不含x。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-J-011",
+        "chapter": 2,
+        "section": "判断题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "对非空循环单链表从任一结点出发，沿next前进必定遇到NULL。",
+        "type": "single",
+        "options": [
+          "正确",
+          "错误"
+        ],
+        "answer": 1,
+        "explanation": "合法循环表会回到起点，应以是否回到起点终止。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-J-011",
+        "chapter": 2,
+        "section": "判断题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "在非递减单链表中查找x，从首数据结点依次比较。若尚未命中便遇到一个data>x的结点，可以立即判定表中不存在x。",
+        "type": "single",
+        "options": [
+          "正确",
+          "错误"
+        ],
+        "answer": 0,
+        "explanation": "后面的值都不小于当前data，而当前值已大于x，余下不可能再出现x。这个提前停止依赖有序性，不能照搬到无序链表。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-J-014",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与P2-2-2/F009同为辅助头多计一次，换型重复。",
+      "newMechanism": "元素、数据项与线性关系的层次区别。",
+      "nearbyDifference": "J001谈逻辑/物理地址；本题谈一个逻辑元素可含多个字段，不再数头结点。",
+      "independentCheck": "把三个(系数,指数)记录作为三元素序列，各内部两字段不产生六个表元素。",
+      "studyEvidence": "学校chapter2-1多项式顺序表示和ADT List。",
+      "previous": {
+        "id": "P4-structures-2-J-014",
+        "chapter": 2,
+        "section": "判断题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "对有头结点的单链表，遍历计数若从头结点开始计入，则会把长度多算1。",
+        "type": "single",
+        "options": [
+          "正确",
+          "错误"
+        ],
+        "answer": 0,
+        "explanation": "头结点不属于线性表的数据元素，应从head->next计数。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-J-014",
+        "chapter": 2,
+        "section": "判断题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "线性表的一个元素可以是由多个数据项组成的记录；是否为线性结构取决于元素之间的先后关系，而不是每个元素只有一个字段。",
+        "type": "single",
+        "options": [
+          "正确",
+          "错误"
+        ],
+        "answer": 0,
+        "explanation": "例如多项式的一项可用(系数,指数)两个字段表示，它仍是表中的一个元素。字段数不是元素之间前驱、后继关系的数量。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-S-006",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与带头首插及P2-2-12的同两句保存后继接链重复。",
+      "newMechanism": "双向插入的四条边，独立新结点的两个域也需初始化。",
+      "nearbyDifference": "P-S-01保留双向删除的两边；本题增加新对象和两个逆链接，非单链插入换名。",
+      "independentCheck": "用对象q/s/p逐句执行四组选项，只第一组四条边均等于目标。",
+      "studyEvidence": "学校chapter2-3算法2.13的双向插入。",
+      "previous": {
+        "id": "P4-structures-2-S-006",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "单链表中p为有效结点，要在p之后插入独立新结点s，应采用哪组操作？",
+        "type": "single",
+        "options": [
+          "p->next=s->next; s=p;",
+          "s->next=p->next; p->next=s;",
+          "p->next=s; s->next=p->next;",
+          "s->next=p; p=s;"
+        ],
+        "answer": 1,
+        "explanation": "先把原后继接到s之后，再让p指向s。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-S-006",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "双向链表中q与p相邻，q->next=p且p->prev=q。新结点s独立于原表，要把s插在q与p之间并保持双向链接，哪组操作正确？",
+        "type": "single",
+        "options": [
+          "s->prev=q; s->next=p; q->next=s; p->prev=s;",
+          "q->next=s; p->prev=s;",
+          "s->prev=p; s->next=q; q->next=s; p->prev=s;",
+          "q->next=s; s->next=q->next; p->prev=s; s->prev=q;"
+        ],
+        "answer": 0,
+        "explanation": "要同时建立q↔s和s↔p四个方向的链接。只改两个旧结点会留下s的未定链接；把两邻居接反或从已改的q->next取后继也会出错。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-S-010",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "“随机散存而不留链接”不是完整可选表示。",
+      "newMechanism": "保留频繁按序号读取的存储选择，只改无效干扰。",
+      "nearbyDifference": "有序性/尾插成本另题处理，不添加未给的排序前提。",
+      "independentCheck": "数组可由基址和位移直接定位，三个链式候选都须按链接定位。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-S-010",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "频繁按序号读取，更新少，且元素数量稳定，通常优先选择哪种存储？",
+        "type": "single",
+        "options": [
+          "不带索引的循环单链表",
+          "每项单独存于随机地址但不留链接",
+          "顺序存储",
+          "仅有头指针的单链表"
+        ],
+        "answer": 2,
+        "explanation": "顺序表示可直接按下标定位且局部性好；链接表示通常要逐项寻找。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-S-010",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "频繁按序号读取，更新少，且元素数量稳定，通常优先选择哪种存储？",
+        "type": "single",
+        "options": [
+          "不带索引的循环单链表",
+          "使用游标链接且不另设位置索引的静态链表",
+          "顺序存储",
+          "仅有头指针的单链表"
+        ],
+        "answer": 2,
+        "explanation": "顺序表示可直接按下标定位且局部性好；链接表示通常要逐项寻找。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-S-012",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与P-S-01相同双向非边界删除，仅换变量名。",
+      "newMechanism": "已知长度的双向循环表从近端定位。",
+      "nearbyDifference": "F007为单向且从首元出发；这里两方向可选且从辅助头出发，确有不同能力/起点约束。",
+      "independentCheck": "生成100数据结点与头的双向环，两个方向各走到目标，步数98与3，取3。",
+      "studyEvidence": "学校chapter2-3双向循环结构及各类链表查找效率比较。",
+      "previous": {
+        "id": "P4-structures-2-S-012",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "双向链表非边界结点q的前驱为p、后继为r，摘除q的正确链接是？",
+        "type": "single",
+        "options": [
+          "p->next=r; r->prev=p;",
+          "p->prev=r; r->next=p;",
+          "p->next=q; r->prev=q;",
+          "q->next=p; q->prev=r;"
+        ],
+        "answer": 0,
+        "explanation": "删除后需让p与r在两个方向直接相连。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-S-012",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "一个带头结点h的双向循环链表有100个数据结点，位序从1起。从h出发，每跟随一次next或prev算一次链接访问，允许选择较短方向。到第98个数据结点最少访问几次链接？",
+        "type": "single",
+        "options": [
+          "3",
+          "2",
+          "98",
+          "97"
+        ],
+        "answer": 0,
+        "explanation": "从h沿prev到第100项需1次，再到第99、第98项各1次，共3次；沿next需98次。不能把已到尾结点当作免费起点。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-S-013",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "声明先后/字节数等干扰与静态链链接含义无关。",
+      "newMechanism": "静态链以物理槽下标表示链接（合理误区）。",
+      "nearbyDifference": "J013分配先后/逻辑次序保留；本题不声称游标等于逻辑第几项。",
+      "independentCheck": "物理槽4可链接槽1，再到槽7，逻辑次序4→1→7不是递增下标或表长。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-S-013",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "静态链表通常用什么代替机器指针表示链接？",
+        "type": "single",
+        "options": [
+          "元素值本身且不许重复",
+          "元素占用字节数",
+          "变量声明先后顺序",
+          "数组下标或游标"
+        ],
+        "answer": 3,
+        "explanation": "结点放在数组中，以游标字段指向另一数组位置。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-S-013",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "静态链表通常用什么代替机器指针表示链接？",
+        "type": "single",
+        "options": [
+          "当前逻辑位序，插删后所有链接都须重编号",
+          "整个数组的首地址",
+          "当前表长",
+          "数组下标或游标"
+        ],
+        "answer": 3,
+        "explanation": "结点放在数组中，以游标字段指向另一数组位置。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-S-016",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "原选项排序/不能重复等不构成存储成本干扰。",
+      "newMechanism": "链域是每个结点的额外存储（换合理成本误区）。",
+      "nearbyDifference": "不同于S011的定位时间，也不把元素数量误翻倍。",
+      "independentCheck": "数据字段保持一份，next/prev单独占存储；链式不要求复制所有数据或整表。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-S-016",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "链表结点中同时含数据与链接。相比只连续保存同种数据的数组，它一般增加了哪项开销？",
+        "type": "single",
+        "options": [
+          "链接字段的存储开销",
+          "元素逻辑数量必然翻倍",
+          "每个数据必须排序",
+          "数据不能重复"
+        ],
+        "answer": 0,
+        "explanation": "链接字段及可能的分配管理、对齐都有成本，逻辑元素个数不因此增加。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-S-016",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "链表结点中同时含数据与链接。相比只连续保存同种数据的数组，它一般增加了哪项开销？",
+        "type": "single",
+        "options": [
+          "链接字段的存储开销",
+          "为保持逻辑次序而必需的连续空闲槽",
+          "为直接按位序访问而必须建立的下标索引表",
+          "每次插入都必须另存当前全部数据的连续副本"
+        ],
+        "answer": 0,
+        "explanation": "链接字段及可能的分配管理、对齐都有成本，逻辑元素个数不因此增加。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-S-017",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "长度一半/首尾交换不是有序去重的合理后置。",
+      "newMechanism": "保留有序去重的结果契约，修干扰项。",
+      "nearbyDifference": "A003候选改无序条件下相邻策略的失效，不再共享free重问。",
+      "independentCheck": "[1,1,2,2,3]需[1,2,3]，既不能全删重复值也不能只处理首段。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-S-017",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "关于有序表去重后的结果，以下哪项是必须满足的后置条件？",
+        "type": "single",
+        "options": [
+          "所有重复值一项也不保留",
+          "长度一定是原长的一半",
+          "首尾元素必须交换",
+          "每个原有不同值保留一次且仍有序"
+        ],
+        "answer": 3,
+        "explanation": "去重保留集合中的每个值一份，而不是删除所有曾重复的值。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-S-017",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "关于有序表去重后的结果，以下哪项是必须满足的后置条件？",
+        "type": "single",
+        "options": [
+          "所有曾重复的值一项也不保留",
+          "只需处理第一个值的重复段，后面不必检查",
+          "不同值可以任意重排，不需要保持有序",
+          "每个原有不同值保留一次且仍有序"
+        ],
+        "answer": 3,
+        "explanation": "去重保留集合中的每个值一份，而不是删除所有曾重复的值。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-S-018",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "A007已要求同一错误右移循环完整轨迹，原选择只是换型。",
+      "newMechanism": "归并的精确最坏两项比较次数，而非仅时间阶。",
+      "nearbyDifference": "S015仍为总时间O(m+n)；本题明确计数单位和余项不比较，区分m+n与m+n-1。",
+      "independentCheck": "枚举1≤m,n≤5的互异键交错分配，逐轮比较，最大恰m+n-1。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-S-018",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "顺序表插入时把后移操作写成从前向后依次a[j+1]=a[j]，主要风险是什么？",
+        "type": "single",
+        "options": [
+          "下标必然变成负数",
+          "算法一定形成指针环",
+          "尚未搬移的原值被覆盖",
+          "分配容量自动减半"
+        ],
+        "answer": 2,
+        "explanation": "从前往后右移会把后面待搬的值覆盖，应从末端向插入点搬。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-S-018",
+        "chapter": 2,
+        "section": "选择题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "两个非空有序表分别有m、n项。归并时每轮比较两表当前项的大小记1次，取出较小项；一表耗尽后直接接上另一表余项，不再比较两表元素。最坏需要多少次这样的比较？",
+        "type": "single",
+        "options": [
+          "m+n-1",
+          "m+n",
+          "mn",
+          "min(m,n)"
+        ],
+        "answer": 0,
+        "explanation": "每次比较至少取走一项，最后一次比较后至少还有另一表的一项无需再比较，因此至多m+n-1次。把两表元素交错安排、到倒数第二项才耗尽一表时可以达到。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-F-002",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与S002同一1起插入搬移通式只代入n=6,i=2。",
+      "newMechanism": "集合并的去重追加与原序保留。",
+      "nearbyDifference": "F012保留重复的有序归并有不同输出契约；D005交集只取共同值，任务也不同。",
+      "independentCheck": "独立Set成员检查并按B扫描追加，输出[4,1,7,2,9]；直接拼接和排序均违反题面。",
+      "studyEvidence": "学校chapter2-3的2.5.1集合并算法2.15，与有序保重归并并列。",
+      "previous": {
+        "id": "P4-structures-2-F-002",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "顺序表当前有6项，在第2项之前插入，需后移____项。",
+        "type": "fill",
+        "answers": [
+          [
+            "5"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "原第2至6项均需后移。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-F-002",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "用不含重复值的线性表A=(4,1,7)、B=(1,2,4,9)表示两个集合。依次扫描B；只有当前值不在A中时才追加到A末尾，不排序。完成后A为____（逗号分隔）。",
+        "type": "fill",
+        "answers": [
+          [
+            "4,1,7,2,9"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "1和4已在A中，不再追加；2和9按B中的顺序追加，A成为4,1,7,2,9。集合并去除重复，但不要求把原有次序变成升序。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-F-003",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "普通等价数学形式0.5*n等未收。",
+      "newMechanism": "只扩数学等价写法，不算新增机制。",
+      "nearbyDifference": "删除平均是n个位置，插入是n+1个位置，真实样本空间差别保留。",
+      "independentCheck": "对n=0..20逐项枚举移动数0..n，均值n/2；新增别名在数学意义相同，不把它解释为C整除代码。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-F-003",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "长度为n的顺序表，在n+1个插入位置等概率插入，平均移动____项（用n表示）。",
+        "type": "fill",
+        "answers": [
+          [
+            "n/2",
+            "0.5n",
+            "n÷2"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "移动次数依次n,n-1,…,0，平均n/2。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-F-003",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "长度为n的顺序表，在n+1个插入位置等概率插入，平均移动____项（用n表示）。",
+        "type": "fill",
+        "answers": [
+          [
+            "n/2",
+            "0.5n",
+            "n÷2",
+            "0.5*n",
+            "n*0.5",
+            "n/2.0",
+            "(n)/2",
+            "(n/2)"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "移动次数依次n,n-1,…,0，平均n/2。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-F-004",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "题干仅问抽象指针值，0是空指针语境的普通等价表述。",
+      "newMechanism": "仅增加已给空指针含义的等价答案。",
+      "nearbyDifference": "两题未像P2-2-9那样要求填写C表达式；保留旧nullptr仅作空指针概念词接受，不声称它是C17常量或可编译源码。",
+      "independentCheck": "NULL/0在指针语境表示无对象；nullptr不是C17常量，不据此教学其为C17写法，也不声称机器空指针字节必全0。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-F-004",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "无头结点的单链表为空时，头指针的值为____。",
+        "type": "fill",
+        "answers": [
+          [
+            "NULL",
+            "nullptr",
+            "空指针"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "头指针直接指向首数据结点，没有数据时为空。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-F-004",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "无头结点的单链表为空时，头指针的值为____。",
+        "type": "fill",
+        "answers": [
+          [
+            "NULL",
+            "nullptr",
+            "空指针",
+            "0"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "头指针直接指向首数据结点，没有数据时为空。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-F-006",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "题干仅问抽象指针值，0是空指针语境的普通等价表述。",
+      "newMechanism": "仅增加已给空指针含义的等价答案。",
+      "nearbyDifference": "两题未像P2-2-9那样要求填写C表达式；保留旧nullptr仅作空指针概念词接受，不声称它是C17常量或可编译源码。",
+      "independentCheck": "NULL/0在指针语境表示无对象；nullptr不是C17常量，不据此教学其为C17写法，也不声称机器空指针字节必全0。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-F-006",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "已知p是尾结点，非循环单链表的p->next等于____。",
+        "type": "fill",
+        "answers": [
+          [
+            "NULL",
+            "nullptr",
+            "空指针"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "非循环链的终点用空链接表示。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-F-006",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "已知p是尾结点，非循环单链表的p->next等于____。",
+        "type": "fill",
+        "answers": [
+          [
+            "NULL",
+            "nullptr",
+            "空指针",
+            "0"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "非循环链的终点用空链接表示。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-F-013",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与A006都是共有高次项相消后剩两项，仅改数/题型。",
+      "newMechanism": "稀疏多项式乘法的项对分配与同次合并。",
+      "nearbyDifference": "A006保留加法抵消；这里有交叉项和指数相加，不是给原抵消式换系数。",
+      "independentCheck": "独立枚举4个项对，用指数和分桶累加系数，得到{2:2,1:-1,0:-1}。",
+      "studyEvidence": "学校chapter2-1案例2.1明确包含一元多项式加、减、乘。",
+      "previous": {
+        "id": "P4-structures-2-F-013",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "多项式(2x^3+5x)+(−2x^3+7)相加并删除零系数项，结果的非零项数为____。",
+        "type": "fill",
+        "answers": [
+          [
+            "2"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "三次项抵消，剩5x+7，共两项。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-F-013",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "两个多项式分别用(系数,指数)项序列[(2,1),(1,0)]和[(1,1),(-1,0)]表示。将它们相乘，合并同指数项并删除零系数项后，结果共有____个非零项。",
+        "type": "fill",
+        "answers": [
+          [
+            "3"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "(2x+1)(x-1)=2x²-2x+x-1=2x²-x-1，三个指数2、1、0的系数都非零。乘法需取两表所有项对，不能只像加法那样把同指数两两相加。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-F-015",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "q->next需q原先有效，不能在NULL等无定义输入上求唯一结果。",
+      "newMechanism": "变量赋值复制地址（补有效对象前提）。",
+      "nearbyDifference": "没有把p写入对象与q变量修改混淆，也不限制q.next是否NULL。",
+      "independentCheck": "q前进只改q变量，p仍保存赋值时的旧地址。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-F-015",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "执行p=q后，再令q=q->next，p仍指向____（原q结点/新q结点）。",
+        "type": "fill",
+        "answers": [
+          [
+            "原q结点",
+            "原q",
+            "原结点"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "指针赋值复制地址，之后修改变量q不自动修改变量p。",
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-F-015",
+        "chapter": 2,
+        "section": "填空题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "p、q是两个独立指针变量，q原先指向有效结点。执行p=q后，再令q=q->next，p仍指向____（原q结点/新q结点）。",
+        "type": "fill",
+        "answers": [
+          [
+            "原q结点",
+            "原q",
+            "原结点"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "指针赋值复制地址，之后修改变量q不自动修改变量p。",
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-A-001",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与P2-2-13同一定位加修改总成本结论重复。",
+      "newMechanism": "组合集合条件的与/或区别和全部匹配删除。",
+      "nearbyDifference": "D005求两表交集；此题保留A的其余多重项，且必须同时满足另两表，不能只换一个函数名。",
+      "independentCheck": "独立集合B∩C={2}，稳定过滤A得到[4,5,7]；用B∪C过滤只剩[5]作可复现反例。",
+      "studyEvidence": "学校集合操作；严C配套2.29的三表条件作为机制参照，本候选为具体结果与错误逻辑辨析，不复制算法原题。",
+      "previous": {
+        "id": "P4-structures-2-A-001",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "同一长度为n的表，分别用顺序数组与带头结点单链表存储。比较“按序号读取第i项”和“已给前驱地址后插入”的时间，并说明为什么不能笼统说链表插入总比数组快。",
+        "type": "short",
+        "model": "数组按序号O(1)，链表按序号最坏O(n)；已给链表前驱且结点已备好时接链O(1)，顺序表对应插入通常需O(n)搬移。若链表先按序号找位置，查找开销仍可能O(n)。",
+        "rubric": [
+          "区分定位与接链",
+          "比较两个操作",
+          "说明条件"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-A-001",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "A=(2,2,4,5,7)、B=(2,4)、C=(2,7)。从A中删去值同时在B和C出现的所有项，其余项保持原次序。写出结果，并解释为什么不能把“同时在B和C出现”误作“在B或C出现”。",
+        "type": "short",
+        "model": "B、C共同的值只有2，因此删除A中的两个2，结果为(4,5,7)。4只在B，7只在C，都应保留；若误用“或”，还会删掉4和7，只剩5。一次命中条件必须是两个成员判断都成立。",
+        "rubric": [
+          "结果4,5,7且两个2都删",
+          "用4或7指出只在一表出现应保留",
+          "区分交集条件与并集条件"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-A-003",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "与S019同一共享后缀释放后悬空，改问两类错误未改变核心输入。",
+      "newMechanism": "无序条件使相邻去重不充分，允许不同改进策略。",
+      "nearbyDifference": "本地2.20有序保证同值连续；此题去掉该关键前提，原算法实际失败，不是换数字或接口。",
+      "independentCheck": "独立相邻压缩得[2,1,2]，按首次出现投影的目标为[2,1]；不额外要求O(1)空间/某种算法。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-A-003",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "链表A与B共享后缀。学生用“从A头开始逐结点free，再从B头开始逐结点free”销毁两个表。指出两类内存错误，并提出一种可行的管理方式。",
+        "type": "short",
+        "model": "B会含指向已释放共享结点的悬空引用；再次遍历或free会造成释放后访问、重复释放。可禁止共享并在构造时深复制，或统一所有者管理共享结点，仅在最后引用消失后释放；不能只把A的头指针设空就认为B安全。",
+        "rubric": [
+          "共享对象识别",
+          "两类错误",
+          "有效所有权方案"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-A-003",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "一个未排序的链表数据依次为2,1,2,2。某方法只检查相邻结点：相等就删除后一个，不等就前进，直到表尾。写出处理后的序列，说明是否已经让每个值只保留一次，并给出一种保留每个值首次出现结点的改进思路。",
+        "type": "short",
+        "model": "结果是2,1,2，非相邻的两个2仍在，因此未完成全表去重。相邻删除只有在相同值必连续时才足够。可记录已见值，首次保留、再次遇到时删除；也可依次保留一个值并扫描其后删除所有同值结点。两种方案都可保留首次出现结点，不要求本题唯一实现。",
+        "rubric": [
+          "相邻策略处理后2,1,2",
+          "指出无序时相同值未必连续",
+          "给出能识别非相邻重复且保留首次出现的可行办法"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      }
+    },
+    {
+      "id": "P4-structures-2-A-007",
+      "baseRevision": 1,
+      "targetRevision": 2,
+      "state": "candidate_not_integrated",
+      "reason": "追踪a[4]需真实容量至少5；题干没问正确插入的最终值与长度，旧rubric该项属于额外扣分。",
+      "newMechanism": "右移覆盖的具体轨迹（只补容量前提）。",
+      "nearbyDifference": "保留该完整错误追踪，S018候选改为另一计数任务；不把越界前提留给解析。",
+      "independentCheck": "在5格有效存储中模拟三次赋值得[10,20,20,20,20]；容量4时最后写不在数组域，不能据其产生唯一正常输出。",
+      "studyEvidence": "学校第2章已提课件：基本操作、表示或应用；本候选自行表述。",
+      "previous": {
+        "id": "P4-structures-2-A-007",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 1,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "顺序表原内容(10,20,30,40)，要在第2项前插入99。错误代码从j=1到3执行a[j+1]=a[j]。列出搬移后有效候选区前5项，并说明正确搬移方向。",
+        "type": "short",
+        "model": "错误搬移得到(10,20,20,20,20)，因为20不断覆盖尚未读出的30、40。应j从3递减到1搬移，再令a[1]=99，结果(10,99,20,30,40)，长度由4改5。",
+        "rubric": [
+          "追踪覆盖",
+          "从后向前",
+          "最终值与长度"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      },
+      "question": {
+        "id": "P4-structures-2-A-007",
+        "chapter": 2,
+        "section": "应用题",
+        "revision": 2,
+        "pool": "practice",
+        "origin": "原创",
+        "stem": "顺序表数组容量至少为5，当前内容为(10,20,30,40)，要在第2项前插入99。错误代码从j=1到3执行a[j+1]=a[j]。列出搬移后候选区前5项，并说明正确搬移方向。",
+        "type": "short",
+        "model": "错误搬移得到(10,20,20,20,20)，因为20不断覆盖尚未读出的30、40。应j从3递减到1搬移，再令a[1]=99，结果(10,99,20,30,40)，长度由4改5。",
+        "rubric": [
+          "追踪覆盖得10,20,20,20,20",
+          "指出后向搬移避免读源被覆盖"
+        ],
+        "coding": false,
+        "practiceWeight": 3
+      }
+    }
+  ],
+  "candidateCanonicalSha256": "ec77df6c1a17132c822a315e88fd628f8e3aaa1ff4ccab8a64f78e37041ebc41"
+}

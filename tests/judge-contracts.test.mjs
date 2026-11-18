@@ -27,7 +27,7 @@ test('数组测试包含宽整数差值、稳定保序、单趟冒泡与连续�
 });
 test('现有C练习全部实质代码题都有服务端契约，别把解释型swap漏掉',()=>{
  const code=getPracticeCourse('programming').questions.filter(q=>q.coding);
- assert.equal(code.length,182); // 原50题＋表达式/控制结构/函数三章各44题。
+ assert.equal(code.filter(q=>q.chapter!==11).length,346); // 已接原50题＋五章各44题＋预处理36题＋基础I/O40题。
  assert.ok(code.some(q=>q.id==='P-C-03'));
  for(const q of code){assert.equal(q.judge,true,q.id);assert.ok(judgeContract(q.id),q.id);}
 });

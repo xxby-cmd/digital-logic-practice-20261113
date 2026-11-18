@@ -8,4 +8,11 @@ test('数值与字符规范保留位宽，空白不能作答',()=>{assert.equal(
 test('简答必须自评，草稿不计为完成',()=>{const q=questions.find(q=>q.type==='short');assert.equal(grade(q,'某个答案').status,'review');const result=counts(questions,{[questions[0].id]:{status:'draft'},[q.id]:{status:'review'}});assert.equal(result.done,1);assert.equal(result.review,1);assert.equal(result.correct,0);});
 test('数值允许等值小数，位串不能丢前导零',()=>{const q=questions.find(q=>q.id==='3-06');assert.equal(grade(q,['0.50']).correct,true);assert.equal(grade(q,['0.51']).correct,false);const bits=questions.find(q=>q.id==='1-09');assert.equal(grade(bits,['01011000']).correct,true);assert.equal(grade(bits,['1011000']).correct,false);});
 test('独立穷举校验关键组合逻辑推导',()=>{for(let A=0;A<2;A++)for(let B=0;B<2;B++)for(let C=0;C<2;C++){assert.equal((A&B)|((1-A)&C)|(B&C),(A&B)|((1-A)&C));assert.equal((A|B)&(A|(1-B)),A);assert.equal((A&B)|(A&C)|(B&C),Number(A+B+C>=2));assert.equal((A&B)|((1-A)&C),(A&B)|((1-A)&C)|(B&C));const D=[0,1,C,C];assert.equal(D[2*A+B],((1-A)&B)|(A&C));const n=4*A+2*B+C;assert.equal(Number([0,2,4,6].includes(n)),1-C);assert.equal(Number([1,3,5,7].includes(n)),C);}});
+
+test('数值题允许显式正号，文字与定长位串保持原契约',()=>{
+ const numeric={type:'fill',answers:[['1.20']],formats:['number']};
+ for(const value of ['+1.20','＋１.２００','1.2'])assert.equal(grade(numeric,[value]).correct,true);
+ for(const value of ['+','-','++1.2','1.3','Infinity'])assert.equal(grade(numeric,[value]).correct,false);
+ assert.equal(grade({type:'fill',answers:[['011']],formats:['text']},['+011']).correct,false);
+});
 test('独立核对时序题与数制答案',()=>{let q=0,seq='';for(const [J,K]of [[1,0],[1,1],[0,0],[0,1]]){q=(J&(1-q))|((1-K)&q);seq+=q;}assert.equal(seq,'1000');q=1;seq='';for(const T of [0,1,1,0,1]){q^=T;seq+=q;}assert.equal(seq,'10110');assert.equal((45).toString(2),'101101');assert.equal((6+3).toString(2),'1001');assert.equal(parseInt('35',16)+10/16,53.625);assert.equal(parseInt('101',2)+1/4+1/8,5.375);});

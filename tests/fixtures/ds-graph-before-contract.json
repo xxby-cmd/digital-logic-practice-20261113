@@ -1,0 +1,216 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-graph-before-contract",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-7-1794927124803-iamhx2",
+      "title": "第7章 图 · 章节练习",
+      "chapter": 7,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 9,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-7-D-001",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计邻接表无向图连通分量计数算法，孤立点也计一分量。",
+          "type": "short",
+          "model": "visited全假，count=0。遍历各点v，若未访则count++并从v做DFS/BFS标完可达点。外层不能只启动一次。O(n+m)时间O(n)空间；n=0时分量数0。",
+          "rubric": [
+            "外层遍历",
+            "孤立空图",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 12
+        },
+        {
+          "id": "P4-structures-7-D-006",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计Bellman-Ford判断是否有源s可达的负环，说明不可达顶点为何不能参与无穷距离松弛。",
+          "type": "short",
+          "model": "dist[s]=0其余无穷，最多n-1轮扫描全部弧，仅dist[u]有限时松弛u→v；若一轮无变化可停。再扫一轮仍可严格改善则有源可达负环。无穷标记不能直接与权相加，防溢出及虚假可达。O(nm+n)时间O(n)空间。",
+          "rubric": [
+            "有限距离保护",
+            "额外一轮",
+            "范围与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-7-D-002",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计邻接矩阵有向图的逆邻接表构建，输出每点的入邻居。",
+          "type": "short",
+          "model": "建n个空表，双循环i,j，若A[i][j]存在，则在逆表j中追加i。权值若需保留一起复制。矩阵扫描O(n²)，输出O(n+m)空间；不能错写入逆表i，否则仍是出邻接。",
+          "rubric": [
+            "交换归属",
+            "边存在语义",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-7-D-008",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给单源单汇AOE DAG，活动时长非负，所有活动位于源到汇路径。设计求所有关键活动算法。",
+          "type": "short",
+          "model": "拓扑序前推ve[v]=max(ve[u]+w)，源0；工期T=ve[sink]。vl全T，逆拓扑做vl[u]=min(vl[v]-w)。弧最早ve[u]、最迟vl[v]-w，相等即关键。输出所有零时差弧，不强行拼为唯一关键路径。O(n+m)时间O(n)辅助。",
+          "rubric": [
+            "最早最晚",
+            "活动时差",
+            "多路径"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-7-D-003",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "不带权简单无向图用邻接表，设计判断二分图算法，可不连通。",
+          "type": "short",
+          "model": "color初未定；每个未定点启动BFS，置0，其邻居若未定置相反色，若已定同色则失败。全部完成为二分图。孤立点可任染色，自环立即冲突。O(n+m)时间O(n)空间。",
+          "rubric": [
+            "全分量染色",
+            "同色冲突",
+            "边界"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-7-D-007",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给无负环加权有向图，说明Floyd如何同时维护最短路径恢复信息，缺弧用无穷。",
+          "type": "short",
+          "model": "dist对角0、弧为权，next[i][j]对存在弧设j，不可达未定义。k外层；若i→k、k→j有限且和更小时，更新dist和next[i][j]=next[i][k]。恢复反复u=next[u][t]到t，先检查可达。O(n³)时间O(n²)空间；相等不必覆盖，负环需另检对角并不恢复无界路径。",
+          "rubric": [
+            "阶段顺序",
+            "首跳传播",
+            "可达与负环"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-7-D-004",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给DAG固定邻接次序，设计输出字典序最小拓扑序的方法，编号0..n-1。",
+          "type": "short",
+          "model": "统计入度，用最小堆维护当前所有零入度点，每次弹最小，更新出邻居新零入度入堆。贪心选最小可行首项再递归剩余，得字典序最小。处理数<n则输入有环。O((n+m)log(n+1))上界，额外O(n)。",
+          "rubric": [
+            "堆选择",
+            "最小性",
+            "判环成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-7-D-009",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "无向简单图邻接表，设计求割点的DFS规则，根与非根分别说明。",
+          "type": "short",
+          "model": "记录dfn与low。树边(u,v)递归后low[u]=min(low[u],low[v])，非父回边更新dfn[v]。非根u若某树孩子v满足low[v]>=dfn[u]则割点；DFS根须有至少2个树孩子。外层遍历所有分量。O(n+m)时间O(n)空间；平行边需按边ID处理父边，本题简单图。",
+          "rubric": [
+            "low更新",
+            "根特例",
+            "全分量与前提"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-7-D-005",
+          "chapter": 7,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计用并查集与边排序求无向带权图最小生成森林，孤立点保留，允许负权。",
+          "type": "short",
+          "model": "边按权升序，初始化每点独立集合；若边两端根不同则选并union，否则略过。所有边后各连通分量的已选边为MST，孤立点独立树。时间O(m log(m+1)+(n+m)α(n))上界，存边O(m)、并查集O(n)。负权不妨碍切分/交换性质。",
+          "rubric": [
+            "排序与判环",
+            "森林覆盖",
+            "条件成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 11
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-7-D-001": "revision1 saved reasoning: P4-structures-7-D-001",
+        "P4-structures-7-D-006": "revision1 saved reasoning: P4-structures-7-D-006",
+        "P4-structures-7-D-002": "revision1 saved reasoning: P4-structures-7-D-002",
+        "P4-structures-7-D-008": "revision1 saved reasoning: P4-structures-7-D-008",
+        "P4-structures-7-D-003": "revision1 saved reasoning: P4-structures-7-D-003",
+        "P4-structures-7-D-007": "revision1 saved reasoning: P4-structures-7-D-007",
+        "P4-structures-7-D-004": "revision1 saved reasoning: P4-structures-7-D-004",
+        "P4-structures-7-D-009": "revision1 saved reasoning: P4-structures-7-D-009",
+        "P4-structures-7-D-005": "revision1 saved reasoning: P4-structures-7-D-005"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

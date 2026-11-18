@@ -1,0 +1,638 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {
+    "network": {
+      "seen": [],
+      "current": null,
+      "records": {},
+      "legacy": {
+        "records": {},
+        "favorites": [],
+        "archived": {}
+      }
+    },
+    "structures": {
+      "seen": [
+        "P4-structures-2-F-002"
+      ],
+      "current": "P4-structures-2-F-002",
+      "records": {
+        "P4-structures-2-F-005": {
+          "answer": [
+            "next"
+          ],
+          "revision": 2,
+          "submitted": true,
+          "reviewPending": false,
+          "status": "correct",
+          "correct": true,
+          "correctBlanks": 1,
+          "revealed": true
+        },
+        "P4-structures-2-F-002": {
+          "answer": [
+            "\n4,1,\n7,2,9"
+          ],
+          "revision": 3,
+          "submitted": true,
+          "reviewPending": false,
+          "correctBlanks": 1,
+          "revealed": true,
+          "status": "correct",
+          "correct": true
+        }
+      },
+      "legacy": {
+        "records": {
+          "P4-structures-2-F-005": {
+            "answer": [
+              "next"
+            ],
+            "revision": 1,
+            "submitted": true,
+            "status": "correct",
+            "correct": true,
+            "reviewPending": false,
+            "correctBlanks": 1,
+            "revealed": true
+          }
+        },
+        "favorites": [],
+        "archived": {}
+      },
+      "chapter": "2",
+      "kind": "fill",
+      "listView": false,
+      "archived": {
+        "P4-structures-2-F-005@1": {
+          "answer": [
+            "next"
+          ],
+          "revision": 1,
+          "submitted": true,
+          "status": "correct",
+          "correct": true,
+          "reviewPending": false,
+          "correctBlanks": 1,
+          "revealed": true
+        }
+      }
+    },
+    "digital": {
+      "seen": [],
+      "current": null,
+      "records": {},
+      "legacy": {
+        "records": {},
+        "favorites": [],
+        "archived": {}
+      }
+    },
+    "programming": {
+      "seen": [],
+      "current": null,
+      "records": {},
+      "legacy": {
+        "records": {},
+        "favorites": [],
+        "archived": {}
+      }
+    }
+  },
+  "tests": [
+    {
+      "id": "test-structures-1794953920510-ofelh0q8ejo",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-2-1794953920510-1z08ux",
+      "title": "第2章 线性表 · 章节练习",
+      "chapter": 2,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 18,
+          "code": 0,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P2-structures-2-10",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序表的数据依次为10、20、30。从第一项开始顺序查找，查到相等项立即停止，只统计数据值比较。每次都查找成功，查10、20、30的概率分别为1/2、1/4、1/4，平均比较____次。",
+          "type": "fill",
+          "answers": [
+            [
+              "1.75",
+              "7/4"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "三项分别需要1、2、3次比较，期望为1×1/2+2×1/4+3×1/4=7/4=1.75。不能在非等概率条件下直接用(3+1)/2。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-012",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "升序表A=(1,4,7)、B=(2,4,6)，保留重复项归并后的序列为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "1,2,4,4,6,7",
+              "1，2，4，4，6，7"
+            ]
+          ],
+          "formats": [
+            "integer-sequence"
+          ],
+          "explanation": "依次取较小值，相等的两项都保留。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-008",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数组基地址为4096，每项8字节，下标从0开始，第5个元素的地址为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "4128"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "第5项下标4，4096+4×8=4128。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-002",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用不含重复值的线性表A=(4,1,7)、B=(1,2,4,9)表示两个集合。依次扫描B；只有当前值不在A中时才追加到A末尾，不排序。完成后A为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "4,1,7,2,9"
+            ]
+          ],
+          "formats": [
+            "integer-sequence"
+          ],
+          "explanation": "1和4已在A中，不再追加；2和9按B中的顺序追加，A成为4,1,7,2,9。集合并去除重复，但不要求把原有次序变成升序。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-009",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点的单链表只含一个数据结点时，连同头结点一共有____个结点。",
+          "type": "fill",
+          "answers": [
+            [
+              "2"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "逻辑长度1，实际结点数加上辅助头结点为2。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P2-structures-2-11",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "把m个结点的单链表原地逆置，每个结点访问常数次，时间复杂度为____，额外空间复杂度为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "O(m)",
+              "Θ(m)"
+            ],
+            [
+              "O(1)",
+              "Θ(1)"
+            ]
+          ],
+          "formats": [
+            "text",
+            "text"
+          ],
+          "explanation": "依次重接next，使用常数个辅助指针，不需复制结点。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-011",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序表容量20、长度12，在不扩容且不删除的前提下最多还能成功追加____项。",
+          "type": "fill",
+          "answers": [
+            [
+              "8"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "空闲容量为20-12=8。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-001",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序表含9项，删除第4项后，为保持原有次序需要移动____项。",
+          "type": "fill",
+          "answers": [
+            [
+              "5"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "原第5至9项前移，共5项。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-007",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "单链表共有10个数据结点，从首数据结点沿next到第7个数据结点，需跟随____次链接。",
+          "type": "fill",
+          "answers": [
+            [
+              "6"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "到第1项为0次，到第7项为6次。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-014",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "对带头结点单链表执行p=head; while(p->next) p=p->next;，循环结束时，若表非空，p指向____结点。",
+          "type": "fill",
+          "answers": [
+            [
+              "尾",
+              "尾结点",
+              "最后一个数据",
+              "最后一个数据结点"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "条件检测后继是否存在，最终停在next为空的最后数据结点。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 6
+        },
+        {
+          "id": "P4-structures-2-F-010",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个循环单链表恰有5个结点，从其中任一结点出发，最少跟随____次next回到自身。",
+          "type": "fill",
+          "answers": [
+            [
+              "5"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "合法单环每走一条边到下一结点，5条边完成一圈。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        },
+        {
+          "id": "P2-structures-2-9",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点空单链表，head非空，常用的判空条件为____（填写C表达式）。",
+          "type": "fill",
+          "answers": [
+            [
+              "head->next==NULL",
+              "head->next==0",
+              "!head->next",
+              "(head->next==NULL)",
+              "(head->next)==NULL",
+              "NULL==head->next",
+              "0==head->next",
+              "!(head->next)"
+            ]
+          ],
+          "formats": [
+            "c-tokens"
+          ],
+          "explanation": "头结点存在不表示有数据结点，应检查其next。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        },
+        {
+          "id": "P4-structures-2-F-013",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个多项式分别用(系数,指数)项序列[(2,1),(1,0)]和[(1,1),(-1,0)]表示。将它们相乘，合并同指数项并删除零系数项后，结果共有____个非零项。",
+          "type": "fill",
+          "answers": [
+            [
+              "3"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "(2x+1)(x-1)=2x²-2x+x-1=2x²-x-1，三个指数2、1、0的系数都非零。乘法需取两表所有项对，不能只像加法那样把同指数两两相加。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        },
+        {
+          "id": "P4-structures-2-F-015",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "p、q是两个独立指针变量，q原先指向有效结点。执行p=q后，再令q=q->next，p仍指向____（原q结点/新q结点）。",
+          "type": "fill",
+          "answers": [
+            [
+              "原q结点",
+              "原q",
+              "原结点"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "指针赋值复制地址，之后修改变量q不自动修改变量p。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        },
+        {
+          "id": "P4-structures-2-F-004",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "无头结点的单链表为空时，头指针的值为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "NULL",
+              "nullptr",
+              "空指针",
+              "0"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "头指针直接指向首数据结点，没有数据时为空。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        },
+        {
+          "id": "P4-structures-2-F-005",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点的非循环单链表，首数据结点由head->____取得。",
+          "type": "fill",
+          "answers": [
+            [
+              "next"
+            ]
+          ],
+          "formats": [
+            "c-tokens"
+          ],
+          "explanation": "head本身是辅助结点，next才是第一项或NULL。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        },
+        {
+          "id": "P4-structures-2-F-006",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "已知p是尾结点，非循环单链表的p->next等于____。",
+          "type": "fill",
+          "answers": [
+            [
+              "NULL",
+              "nullptr",
+              "空指针",
+              "0"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "非循环链的终点用空链接表示。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        },
+        {
+          "id": "P4-structures-2-F-003",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "长度为n的顺序表，在n+1个插入位置等概率插入，平均移动____项（用n表示）。",
+          "type": "fill",
+          "answers": [
+            [
+              "n/2",
+              "0.5n",
+              "n÷2",
+              "0.5*n",
+              "n*0.5",
+              "n/2.0",
+              "(n)/2",
+              "(n/2)"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "移动次数依次n,n-1,…,0，平均n/2。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 5
+        }
+      ],
+      "startedAt": 1794953920510,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P2-structures-2-10": [
+          "1.75"
+        ],
+        "P4-structures-2-F-012": [
+          "1,2,4,4,6,7"
+        ],
+        "P4-structures-2-F-002": [
+          "41,7,2,9"
+        ],
+        "P2-structures-2-9": [
+          "head /*空表*/ -> next == NULL"
+        ],
+        "P4-structures-2-F-005": [
+          "ne\nxt"
+        ]
+      },
+      "marks": {
+        "P2-structures-2-10": 6,
+        "P4-structures-2-F-012": 6,
+        "P4-structures-2-F-008": 0,
+        "P4-structures-2-F-002": 0,
+        "P4-structures-2-F-009": 0,
+        "P2-structures-2-11": 0,
+        "P4-structures-2-F-011": 0,
+        "P4-structures-2-F-001": 0,
+        "P4-structures-2-F-007": 0,
+        "P4-structures-2-F-014": 0,
+        "P4-structures-2-F-010": 0,
+        "P2-structures-2-9": 5,
+        "P4-structures-2-F-013": 0,
+        "P4-structures-2-F-015": 0,
+        "P4-structures-2-F-004": 0,
+        "P4-structures-2-F-005": 0,
+        "P4-structures-2-F-006": 0,
+        "P4-structures-2-F-003": 0
+      },
+      "result": {
+        "total": 17,
+        "scores": {
+          "P2-structures-2-10": 6,
+          "P4-structures-2-F-012": 6,
+          "P4-structures-2-F-008": 0,
+          "P4-structures-2-F-002": 0,
+          "P4-structures-2-F-009": 0,
+          "P2-structures-2-11": 0,
+          "P4-structures-2-F-011": 0,
+          "P4-structures-2-F-001": 0,
+          "P4-structures-2-F-007": 0,
+          "P4-structures-2-F-014": 0,
+          "P4-structures-2-F-010": 0,
+          "P2-structures-2-9": 5,
+          "P4-structures-2-F-013": 0,
+          "P4-structures-2-F-015": 0,
+          "P4-structures-2-F-004": 0,
+          "P4-structures-2-F-005": 0,
+          "P4-structures-2-F-006": 0,
+          "P4-structures-2-F-003": 0
+        },
+        "settledAt": 1794953941820
+      },
+      "subjectiveGradingVersion": 1,
+      "submittedAt": 1794953941814,
+      "expired": false
+    }
+  ],
+  "chapterPracticeSettings": {
+    "structures": {
+      "2": {
+        "preset": "custom",
+        "addJudgement": false,
+        "judgementCount": 3,
+        "custom": {
+          "choice": "0",
+          "fill": "18",
+          "code": 0,
+          "judgement": 0
+        }
+      }
+    }
+  }
+}

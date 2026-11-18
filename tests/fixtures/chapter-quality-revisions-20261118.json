@@ -1,0 +1,1123 @@
+{
+  "baseline": "c48a0263772f359dfa0682502157fb1b3970798d40d6d0a8db42c7a966ddeff3",
+  "items": [
+    {
+      "subject": "network",
+      "id": "P3-network-1-10",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "single",
+      "baseQuestionSha256": "7a1c78323f79592a063075ccd5c7d12b8612225c53185073fcccc7774acbf967",
+      "patch": {
+        "stem": "源主机经1台路由器向目的主机连续发送2个等长分组，每个分组1000B。两段链路的发送速率均为8Mb/s，路由器采用存储转发。忽略传播、处理时延和其他流量，从源主机开始发送到目的主机收全这2个分组，共需（ ）。",
+        "options": [
+          "2ms",
+          "4ms",
+          "3ms",
+          "1ms"
+        ],
+        "explanation": "每个分组在每段链路上发送需1000×8/(8×10⁶)=1ms。0～1ms发第1个分组到路由器；1～2ms，路由器转发第1个，源主机同时发送第2个；2～3ms，路由器转发第2个。因此共3ms。两段链路可以并行工作，不能把4次发送全部串行相加。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch1-1.pdf第49页存储转发与L/R模型、Ch1-2.pdf第5页发送时延；本题在相同模型下增加两个分组并发调度。时延/分组交换主线编为重点3，不声称课件原有本题。"
+      },
+      "newQuestionSha256": "d129e1d99681e23254ce8891f76260132e5820fece2c8116448b9dd7e7ddbb72"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-26",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "single",
+      "baseQuestionSha256": "e48263165b17b461a69484c42843776ad40fb0af5c836d332969b1218135afa7",
+      "patch": {
+        "stem": "攻击者截获一条合法请求，之后把该请求原样再次发送给服务器，试图让服务器重复执行原操作。该行为主要属于（ ）。",
+        "options": [
+          "仅进行被动监听",
+          "拒绝服务攻击",
+          "源IP地址伪造",
+          "重放攻击"
+        ],
+        "explanation": "重放是记录合法消息后再次发送，企图使旧消息再次生效。请求内容可以一个字节也不改，因此只检查内容是否被篡改，不能代替对请求新鲜性的检查。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch1-2.pdf第37页单列记录/重放攻击。本题属安全概览中的行为识别，编为基础2；未据概览页把全部安全细节标成重点。"
+      },
+      "newQuestionSha256": "447e96bebcf32b152303351615a4e9c8f501f0834eb2ca858cc763130a950b37"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-41",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "fill",
+      "baseQuestionSha256": "7249cd2bf2cdbbb26d927faa066bee5c13562dcf718ba1d8548c36ad035a2673",
+      "patch": {
+        "stem": "传送同一份数据可选两种理想方案：方案甲先用10ms建立电路，再以2Mb/s发送；方案乙无需建立电路，以1Mb/s发送。忽略传播、排队、首部等其他开销。当数据量为____kbit时，两种方案的完成时间恰好相等（1kbit=1000bit）。",
+        "answers": [
+          [
+            "20"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "设数据量为L bit，甲用时0.010+L/(2×10⁶)s，乙用时L/10⁶s。相等时，0.010=L/(2×10⁶)，得L=20000bit=20kbit。数据更小时固定建立时间更显著，不能只比较发送速率。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch1-1.pdf第52页呼叫建立/专用资源、第56页分组无需呼叫建立，Ch1-2.pdf第5页L/R。固定开销与速率交点是交换性能比较的迁移，编为重点3，不声称课件含此组数值。"
+      },
+      "newQuestionSha256": "00568743d282bbf550fc29aa25574805a7d215d1eebf8602200d045bee010ff1"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-42",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "fill",
+      "baseQuestionSha256": "12d0345e5dfa98c498fc499fa1a1572aa52e8038700bcffe438fb8ee664cd2bd",
+      "patch": {
+        "stem": "某同步时分复用链路每帧4ms，某用户在每帧中固定占用前1ms，其时隙分别为[0,1)、[4,5)、[8,9)ms等。一份数据在t=2.5ms才到达该用户发送端，只能在分配给自己的时隙内发送。它至少还要等待____ms，才能开始发送。",
+        "answers": [
+          [
+            "1.5"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "t=2.5ms已错过该用户本帧的时隙，下一个可用时隙从t=4ms开始，因此要等4−2.5=1.5ms。其他时隙即使空闲，固定分配的同步时分复用也不能让该用户提前占用。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch1-1.pdf第54页明确TDM固定帧/时隙。到达相位是该资源规则的基础应用，编为基础2；不据单页认定本校期末重点。"
+      },
+      "newQuestionSha256": "accbea1a13404c33ed1d96d86b5bacacf07c458c2e9ac7f980a125d185176101"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-52",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "fill",
+      "baseQuestionSha256": "66947e5241145998d84724664396ded182b86b533ff789a5da680d8413c03c58",
+      "patch": {
+        "stem": "某输出链路原先空闲，等待缓存最多容纳3个分组，正在发送的分组不占等待缓存。6个分组同时到达时，允许其中1个立即开始发送，其余分组先入缓存，无法放入的直接丢弃。本次共丢弃____个分组。",
+        "answers": [
+          [
+            "2"
+          ]
+        ],
+        "explanation": "1个分组立即发送，3个进入等待缓存，共能接纳4个。剩余6−1−3=2个被丢弃。题目给出的3个缓存位置不包含正在发送的那个分组。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch1-1.pdf第50页及Ch1-2.pdf第3、10页明确等待队列有限、满缓存到达丢失。区分在服务与等待位置的突发接纳，属排队/丢包主线，编为重点3。"
+      },
+      "newQuestionSha256": "3f6aec1519a598c0caa41e821b1d5b6bf17edb28b920a01e3acb9f3764e281fe"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-61",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "fill",
+      "baseQuestionSha256": "256f8e4aaab7153b338587598d61db680ef6327f0202dfb2b96a1aca42913190",
+      "patch": {
+        "stem": "4个用户独立地以1/2的概率处于活跃状态，每个活跃用户都需要1Mb/s。一条2Mb/s链路由这4个用户共享。某一时刻总需求超过链路容量的概率为____（用最简分数表示）。",
+        "answers": [
+          [
+            "5/16"
+          ]
+        ],
+        "explanation": "超过2Mb/s需要至少3个用户同时活跃。4个用户共有2⁴=16种等可能的活跃组合，其中恰好3人活跃有4种、4人活跃有1种，所以概率为(4+1)/16=5/16。平均活跃人数为2，并不表示需求永远不超过容量。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch1-1.pdf第55页直接用同时活跃人数超出容量的概率解释统计复用。小规模独立状态尾事件枚举贴合其逻辑，编为重点3；非只依据Np均值。"
+      },
+      "newQuestionSha256": "e16b09942e85c298bf88c42262bc33530514d194e2295a62caf577e6915e453e"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-64",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "fill",
+      "baseQuestionSha256": "93050a87694f13b52d1d80dd3b473066613e92d5fbaa6cc3289819931574bec7",
+      "patch": {
+        "stem": "某链路协议规定帧总长至少64B，帧首部与尾部固定共18B。用该协议封装一个30B的IP包时，除首尾外还需补____B填充，才能达到最小帧长；填充不计入IP包长度。",
+        "answers": [
+          [
+            "16"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "未填充时帧长30+18=48B，比64B少16B，故需补16B。补的是链路层帧的填充，原IP包长度仍为30B。最小帧长和首尾长度均由题目给定，不要求背某种具体链路标准。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch1-2.pdf第23页给出逐层封装。最小帧长与填充规则是本题明示的迁移约束，不声称课件已讲该标准/数值；层间包长主线编为重点3。"
+      },
+      "newQuestionSha256": "00e0283e7759bb0a5b72a5982184bb12e488321a819a0a42c458ae22dc57824f"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-19",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "single",
+      "baseQuestionSha256": "eca3c81ca404b4c21ee45605bb7878d7a18d7c30a1dcb3c2b45e7eeb502ae349",
+      "patch": {
+        "stem": "某链路的标称发送速率为100Mb/s。对一个长度为1000B的分组，若发送时确实连续达到该速率，则下列哪一项仍不能仅据这些信息确定？",
+        "options": [
+          "该分组包含8000bit",
+          "该分组的端到端交付时延",
+          "该分组的理想发送时延为0.08ms",
+          "连续按该速率发送时，每1ms可送出100000bit"
+        ],
+        "explanation": "1000B=8000bit，理想发送时延8000/(100×10⁶)=0.08ms，1ms可发送100000bit。但端到端还需考虑传播、处理、排队和经过的其他链路，题目没有给出这些条件，因此交付时延不能确定。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch1-2.pdf第4—5页区分处理、排队、发送、传播。速率与端到端时延的边界是性能分析主线，编为重点3；不声称本校必考。"
+      },
+      "newQuestionSha256": "8f30f87a5c08e5dfedbbebd50055712ece3dbc341bf0496c3a3c1babac2eb572"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-94",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "short",
+      "baseQuestionSha256": "d40223b636550d1da532f6f77049f64628187de6e6f2e02f3a909637a7b8d42e",
+      "patch": {
+        "stem": "四层封装依次为应用记录1000B、传输首部24B、IP首部20B、链路首尾18B。求IP包大小、帧大小，以及应用内容占帧总长的百分比（用百分数表示，保留两位小数）。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch1-2.pdf第23页封装图明确上层数据与各层控制信息的包含关系。中间IP包/帧长度及有效比例的账本编为重点3；这属于编排判断，不等于本校必考。"
+      },
+      "newQuestionSha256": "ba7240d0842403f52d402d16c4c98a4611bf8bcf93f9e340ef7b1095da26c35c"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-1",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "single",
+      "baseQuestionSha256": "c0090f94f68506da7aba89331d55b690af897fc04e59f193a948b5968db9f9e8",
+      "patch": {
+        "options": [
+          "双方必须使用相同的操作系统和编程语言",
+          "只约定正常消息格式，不必规定收到异常消息后的动作",
+          "消息格式、交互顺序以及收到消息或发生事件后的动作",
+          "双方的协议软件必须使用完全相同的内部实现"
+        ],
+        "explanation": "协议约定通信实体交换什么格式的消息、按什么顺序交互，以及收到消息或出现事件时采取什么动作。使用不同系统、语言或内部实现的设备，只要遵守相同的对外交互规则，也可以通信；异常事件的处理也可以是协议规则的一部分。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch1-1.pdf第24页明确协议约定报文格式、次序与动作。作为协议基础辨析编排，基础2；不声称本校必考。"
+      },
+      "newQuestionSha256": "0a1039b624f86dfc0bab555496fd6bc98dc76805e9f94143ecd2bf868d1e3f80"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-12",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "single",
+      "baseQuestionSha256": "7d8af5d660a6e815f6d4a0777ba224d50f405f062ca0fc9d46c257c0484d2543",
+      "patch": {
+        "stem": "在因特网的分组交换核心中，路由器转发分组时的主要作用是（ ）。",
+        "options": [
+          "依据转发信息将分组送往合适的输出链路",
+          "解释所有应用报文并直接完成用户的业务操作",
+          "为每次通信永久预留一条端到端独占物理线路",
+          "只放大电信号，不检查分组首部"
+        ],
+        "explanation": "路由器需要根据分组首部及转发信息选择输出链路，再把分组向目的地转发。应用业务由端系统处理；逐次通信独占电路与分组交换不同；只放大信号也不能完成IP转发。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch1-1.pdf第28页区分边缘/接入/核心，第49页展示核心路由器存储转发。职责辨析作为基础2；核心网这一名称本身不等于逐题重点。"
+      },
+      "newQuestionSha256": "60332fe03e9eb792f95c2c7c98cd0f9470b88d6123b6fee50081828610acaff3"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-15",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "single",
+      "baseQuestionSha256": "f93e4df2d2e08ff36962c481b9fe45c15c947682c77b79130bcc4eb2eb1adb4e",
+      "patch": {
+        "stem": "区分接入网与核心网时，下列哪一项最能说明二者的主要结构角色？",
+        "options": [
+          "按速率划分，低速链路一定属于接入网",
+          "接入网连接端系统与边缘路由器，核心网通过路由器互联形成骨干",
+          "按覆盖距离划分，只要距离较长就一定属于核心网",
+          "按介质划分，光纤链路一定属于核心网"
+        ],
+        "explanation": "接入网侧重把端系统接入边缘路由器，核心网侧重路由器之间的骨干互联。接入也可采用高速光纤，介质、速率或单条链路的距离都不能独自决定其角色。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch1-1.pdf第28页网络架构、第31页端系统与边缘路由器接入。结构角色辨析作为基础2，不由介质或速率臆断。"
+      },
+      "newQuestionSha256": "3e009480d4d1a3c57a3b477dd70d3605851660fb08e49a5387c9411f94c4176b"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-1-28",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 1,
+      "type": "single",
+      "baseQuestionSha256": "93099a114ef79ed668eaa4a94dfb3425530130cbb3bb74c3677587239c90e095",
+      "patch": {
+        "stem": "在一条固定路径上，长期限制该连接可达到的吞吐率、可用传输速率最低的链路称为（ ）。",
+        "options": [
+          "物理距离最长的链路",
+          "瓶颈链路",
+          "源主机直接接入的链路",
+          "路径中的核心网链路"
+        ],
+        "explanation": "瓶颈由路径中限制该流速率的环节决定。它可能在接入网，也可能在核心网；物理距离影响传播时延，不能据此把最长链路直接判为吞吐率瓶颈。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch1-2.pdf第14—15页明确瓶颈与共享链路速率。此题仅识别名称与定义，编为基础2，区别于计算瓶颈的题。"
+      },
+      "newQuestionSha256": "803335edddcc123f7ea05ff6ab9f8fae54d997163c14ac45429fd7aad30240d6"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-8",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "7e12396c8d43cbd8050907fee10a0869805f18ddac4562c4013b8db479172699",
+      "patch": {
+        "stem": "循环队列使用长度为m（m≥2）的数组，牺牲一格；front指队首元素，rear指下一可写位置。在此约定下，front==rear表示满队列。"
+      },
+      "newQuestionSha256": "dc0029af3bf3b05d9ad30a240e43828922728ab1ddd8711c52b5140357e61c8f"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-18",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "031cac94b9d638f7536b03949503f249c0b4f07c878a70da1bac73045973fff8",
+      "patch": {
+        "stem": "普通栈的栈顶总是当前栈内数值最大的元素。"
+      },
+      "newQuestionSha256": "dbae47b9e5ef81d91490771201133dfbe6579e50804d0e172fc2aa6d37ee12d6"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-27",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "4e208f0562d185b5d108fdfc5f4ff27ba4bc2fb73eb5526cf82ffd030cfbd015",
+      "patch": {
+        "stem": "一个不回绕、不搬移元素的顺序队列使用数组a[0..5]，front指队首，rear表示下一可写位置。现front=2、rear=6，再入队因rear到达数组末端而被拒绝，但a[0]、a[1]已空闲。这主要属于：",
+        "options": [
+          "假溢出",
+          "队列下溢",
+          "所有存储单元均占满的真溢出",
+          "front与rear相等造成的空满歧义"
+        ],
+        "answer": 0,
+        "explanation": "队首前面已有两个可复用单元，只因非循环表示不能直接利用而拒绝入队，称假溢出。循环队列让下标按模回绕；预留一格则是另一件事，用于区分空满。"
+      },
+      "newQuestionSha256": "dfd737ada36e8c35879ac0fcfe674db543938319f838e796fde0b11ab3709f12"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-28",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "61c6a496499ff2e0692e2c325f454077dfcb3c3640cbfa04a15013ba723e8910",
+      "patch": {
+        "stem": "循环队列使用长度为m的数组（m≥2），牺牲一个单元区分空满；front指向队首元素，rear指向下一可写位置。当前元素个数为："
+      },
+      "newQuestionSha256": "0b2357764d14a9283c4a983c0ce5eba3127064ef77431dae30bc51ce8bca7a95"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-29",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "35a56de064e04ade44efa16ac3f10e4e5a207249621c200d80224af50f0edd8c",
+      "patch": {
+        "options": [
+          "front==rear且都指头结点",
+          "front指头结点而rear==NULL",
+          "front==NULL而rear指头结点",
+          "front、rear都指向最后删除的数据结点"
+        ]
+      },
+      "newQuestionSha256": "1a22c981da22d7d31c65a60966bbd67d2d849ebbaa3518cc869dbd946c8d627e"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-36",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "52a5235a80ca6d1a3c66f245f0bc4632f211b803f01bcc1336ff78bcf80b6929",
+      "patch": {
+        "options": [
+          "只保存每次调用的实参，不保存返回后还要使用的局部值",
+          "只保存最深层调用的返回值",
+          "保存各未结束调用在返回后仍要使用的局部状态和继续执行的位置",
+          "只保存当前最内层调用的局部状态，外层状态可以全部丢弃"
+        ]
+      },
+      "newQuestionSha256": "aef9665e0da75468cfdca21b6e233e62fc6f471f8cd4190c3dd154f8558118cb"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-37",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "5ad019b38aff0a277afc11e9b7dd65b0f5d18f7845a62f918e988b1d0fb9ca44",
+      "patch": {
+        "options": [
+          "新元素压入in，出队直接弹出in栈顶",
+          "新元素压入in，出队时若out为空才把in全部逐项弹入out，再弹出out",
+          "新元素压入in，每次出队都把in全部倒入out，不管out是否还有旧元素",
+          "新元素压入in，out为空时只把in栈顶一项移到out，再弹出out"
+        ]
+      },
+      "newQuestionSha256": "be338717be177eed6083834265fab79d85e5676daa0d0755594d52ff34242660"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-38",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "86079272962512979e40fce7deefd1032f71940bf46c0ef80c9e55f35c006112",
+      "patch": {
+        "stem": "两个栈共享数组a[0..m-1]并从两端相向增长。top1、top2分别是当前栈顶下标，两个空栈初值分别为-1和m。数组空间全部用完的条件是：",
+        "options": [
+          "top1+1==top2",
+          "top1==top2",
+          "top1+top2==m",
+          "top1==m/2或top2==m/2"
+        ],
+        "explanation": "两顶之间的空闲格数为top2-top1-1。它等于0时空间用完，即top1+1==top2；顶下标相等已经发生覆盖，固定中点也不能体现共享。"
+      },
+      "newQuestionSha256": "169621ef9896913a9397606e95f1ba73371403a2ce2952a212840bfde1fe0ad0"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-43",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "d67fa715be3a3d520c8820e47560c34070c73a3a8d9a7812591ae7e438e06333",
+      "patch": {
+        "options": [
+          "尚未匹配左括号的类型及其嵌套顺序",
+          "所有已扫描左括号和右括号的累计数量",
+          "最早出现且尚未匹配的左括号类型即可",
+          "只记录最后一个右括号的类型"
+        ]
+      },
+      "newQuestionSha256": "50f4b427549854c06ef48a4e9385cde0693a1bcaeb4e247facb8e8d7716bf370"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-44",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "ee5c51104bb190552076150c1e107c675e16d14188e87f5b1002fe3d0b3bef39",
+      "patch": {
+        "stem": "初始空栈，元素按1,2,3,4的顺序入栈，允许入栈与出栈交错。若第一个弹出的元素是2，则刚弹出2后栈内自底向顶必为："
+      },
+      "newQuestionSha256": "2ac562c222bb5b66ef23d37763d0448430db52228b22ea77405ee6226cd6d40d"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-46",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "bb98c3d6c11812ae8a3a62a5e8def5235fd5bd231de2db34dc493f31436f87ca",
+      "patch": {
+        "options": [
+          "只有把弹出位置清零，该元素才算出栈",
+          "不再包含该旧项",
+          "仍包含该旧项，因为数组格中仍存着原值",
+          "容量也应随top一起减少一个单元"
+        ]
+      },
+      "newQuestionSha256": "a2e8f10cc4776df93292c345a3f05493de31b497447ee206d782aa10dd80b102"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-48",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "eef89490eb5696a4f77f09592676ce584d7f52fcc9ef9147512a9748d3a12b8f",
+      "patch": {
+        "options": [
+          "只会使队列长度算错，不会影响写入下标",
+          "只要队列曾经出队，rear超出数组末端仍然可以安全写入",
+          "即使改成模回绕，也必须同时搬移所有剩余元素",
+          "下标越过数组边界"
+        ]
+      },
+      "newQuestionSha256": "0bdb0c737627e87d54f78d4269dd58c22b041ce83e2a2178b14a606745bb17c7"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-49",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "920c1c36f5417eaf5cee88f0d9095cc2dfb5eb70abe2f4c4ea1725588acd48af",
+      "patch": {
+        "stem": "求一个完整匹配括号串的最大嵌套深度，在匹配扫描过程中应记录：",
+        "options": [
+          "累计见到的左括号总数",
+          "扫描结束时栈中的左括号数",
+          "尚未匹配左括号数的最大值",
+          "括号总数的一半"
+        ],
+        "explanation": "当前未匹配左括号数就是当前嵌套层数，取扫描过程的峰值。()()的总对数为2但深度只有1；扫描结束栈空也不代表从未嵌套。"
+      },
+      "newQuestionSha256": "611237115add7516b8844c7cb5743c00a55d2e9190ec4da4f121a4d48dab9010"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-50",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "cf721b8a0170e17b3a889623d31d216c4fe599ceefe77eb240376c5a0f0c1bf0",
+      "patch": {
+        "stem": "一个2行3列的迷宫，所有格子均可通行，入口在左上角，出口在右上角。用栈作深度优先回溯，每步只走上下左右相邻格；每格按下、右、上、左的顺序尝试不在当前通路中的邻格，走到出口立即停止。相邻移动一次算1步。首次找到的通路和最短通路各有几步？",
+        "options": [
+          "首次4步，最短2步",
+          "首次2步，最短2步",
+          "首次4步，最短4步",
+          "首次5步，最短2步"
+        ],
+        "answer": 0,
+        "explanation": "首次依次从(1,1)走到(2,1)、(2,2)、(2,3)、(1,3)，共4步。沿第一行向右两步即可到出口，且至少要横向移动两格，所以最短为2步。栈式回溯沿一个分支深入，第一条可行通路不保证最短。"
+      },
+      "newQuestionSha256": "8fa4456741980afdc555233c9b40f2657f1f156b6fbaf191411d97bded09ebaa"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-56",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "fill",
+      "baseQuestionSha256": "484439bcc015dff94a96774ff443fb82993494955aa37295dbba6cb98a805b23",
+      "patch": {
+        "stem": "循环队列使用数组下标0..6，rear指下一可写位置且当前为6。一次成功入队后rear为____。"
+      },
+      "newQuestionSha256": "9e295301868bbd75dca219028cab51c5ad0fb5974beee2f0e166906a32e35d7f"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-57",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "fill",
+      "baseQuestionSha256": "d0b397be3cd7b33f90c815ea325ae2e6372b6a945a3cfe407bd4cf42e6d34a7a",
+      "patch": {
+        "stem": "初始空栈，互异元素依次按A,B,C,D,E入栈，允许入出交错。要得到出栈序列B,D,C,E,A，栈的容量至少为____。",
+        "answers": [
+          [
+            "3"
+          ]
+        ],
+        "explanation": "先压A、B后弹B，栈留A；为出D必须再压C、D，此时同时有A、C、D三项。依次弹D、C，再压出E、弹A即可，故3既必要又足够。"
+      },
+      "newQuestionSha256": "c3506ba8d70e258de5d02b3b6bc5b9b0a21954c80046aa5dd8c7528035e52b87"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-59",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "fill",
+      "baseQuestionSha256": "09b6aea9ff281f8a6b2945e5a209da05d33235c12588d06c5806d1d42b2a9203",
+      "patch": {
+        "stem": "从空操作数栈开始，按从左到右顺序处理后缀串2 + 3 4 *，其中+、*均为二元运算。首次无法执行的记号是第____个（记号从1开始编号）。",
+        "answers": [
+          [
+            "2"
+          ]
+        ],
+        "explanation": "读入2后栈只有一个操作数，接着的+需要两个操作数，故第2个记号就失败。虽然全串有3个操作数和2个二元运算符，整体数量合适仍不能保证每个前缀可执行。"
+      },
+      "newQuestionSha256": "ec23775990afa6c13bb5e46de07663f1cb0bdf49324c1c635de608f2c8f15be9"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-61",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "fill",
+      "baseQuestionSha256": "6142540a51acb8ad4a9d9b80463887091cd6c40694a56a080eed07813300ff0a",
+      "patch": {
+        "stem": "从空栈计算合法后缀表达式A B C * + D E + /。每个字母入栈，每个二元运算符弹出两个值后把结果压回。操作数栈最多同时保存____个值。",
+        "answers": [
+          [
+            "3"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "各记号后的栈高为1,2,3,2,1,2,3,2,1，峰值为3。这里求操作数栈的容量，不是表达式中的字母总数，也不是括号深度。"
+      },
+      "newQuestionSha256": "7fde19e02e33185e4d901112a9e93f128513d775267d09e4de5cf4268b8572ef"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-63",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "fill",
+      "baseQuestionSha256": "b658d76d1539f206ccf6bed98f151f48a1b91c4320a0b2ccc47cfbb3a2ccf713",
+      "patch": {
+        "stem": "初始空栈，3个互异元素按a,b,c的顺序入栈，允许入栈和出栈交错且最后全部出栈。不同的完整出栈序列共有____种。",
+        "answers": [
+          [
+            "5"
+          ]
+        ],
+        "explanation": "合法结果为abc、acb、bac、bca、cba，共5种；cab不行，因为先出c后栈顶为b，不能跳过b出a。"
+      },
+      "newQuestionSha256": "bf32404d7cff3d3c0a4df3fb89e6315e2b82e207cd26647ecf064a5502fe7afd"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-64",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "fill",
+      "baseQuestionSha256": "c2aba0a932f868eddfdb821cf4169f3be1f6644269e72daaae1f0217ab289f36",
+      "patch": {
+        "stem": "循环队列使用容量为6的数组，front指队首元素，rear指下一可写位置，并用计数器count区分空满。count=6时front与rear____（填相等或不等）。"
+      },
+      "newQuestionSha256": "45cbf928a36ca1874ac4f4c1c65cfafd3bc0879914a83c9e5d1db227d08ef9af"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-70",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "fill",
+      "baseQuestionSha256": "3bb08197d88a890d20b54115350f415741c6296ed231790969b15a70c1085c43",
+      "patch": {
+        "stem": "三根柱A、B、C上进行汉诺塔搬运。初始4个大小不同的盘子全在A上，小盘在大盘上；每次只能移动一根柱的最上面一个盘子，且大盘不能放在小盘上。把全部盘子按原次序移到C，最少移动____次。",
+        "answers": [
+          [
+            "15"
+          ]
+        ],
+        "explanation": "先把上面3盘移到B，再移动最大盘到C，最后将3盘移到C。最少次数T(n)=2T(n-1)+1、T(0)=0，得到T(1)..T(4)=1,3,7,15。最大盘移动前后各需处理3盘，给出下界；递归搬运可达到该下界。"
+      },
+      "newQuestionSha256": "ee3b00003cd580955791e969c6e8fc97c9c26fef84efd48f9f25f08fe7726583"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-72",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "44945bced438e716e25827e2f2e9b7fc5acb0e2ead76d0242ab9b546dcf7e19a",
+      "patch": {
+        "stem": "初始空栈，两个不同元素的值都为5，并按先到的第1个、后到的第2个的顺序入栈，允许入出交错。仅看到输出值序列5,5，能否唯一确定入栈与出栈的交错过程？用两组合法操作说明。",
+        "model": "不能。入第1个、出第1个、入第2个、出第2个；以及入第1个、入第2个、出第2个、出第1个，都输出值5,5，但元素身份和操作过程不同。只看相同键值丢失了元素身份信息。",
+        "rubric": [
+          "给出一入一出的合法过程",
+          "给出先全入再逆序出的合法过程",
+          "指出输出值相同不代表元素身份/操作过程相同"
+        ]
+      },
+      "newQuestionSha256": "50888591a36d0378b061a0cabe2a3e6fb4076d74883bce06d31a5db0bfbe7439"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-73",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "956047f1343362a9d435407f497ce9aa58a5381177fe8a2fe85481ef80e816c0",
+      "patch": {
+        "stem": "循环队列使用长度为6的数组，牺牲一格；front指队首元素，rear指下一可写位置。初始front=4、rear=1，依次成功出队一次、入x、入y，写每步front/rear和最终元素个数。"
+      },
+      "newQuestionSha256": "bd999b9549ac281d595a586f25c502a39fe0001f73b24c910f2d9d8471972cb6"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-76",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "17e8fc3af7ea12645af9a595287718a70b5f2eee3ec883f7b73a153318c17fb2",
+      "patch": {
+        "stem": "行编辑缓冲区初始为空。普通字母追加到行尾；#删除当前行最后一个字母（空行时忽略）；@清空当前行。这些命令本身不留在缓冲区。依次输入#ab##c@de##f，写出各步缓冲区内容，并说明为什么用栈处理#合适。",
+        "model": "依次为空、a、ab、a、空、c、空、d、de、d、空、f，最终有效行是f。#撤销最近保留的一个字母，符合后进先出；@把当前有效栈清空，不能只删一个字母。",
+        "rubric": [
+          "正确处理空行上的#",
+          "逐步区分普通追加、单次退格和整行清空，最终为f",
+          "说明最近保留字符先删除与LIFO对应"
+        ]
+      },
+      "newQuestionSha256": "1d222c66a92a2bce67729a01048e7f09df0d59b4fa5a268b1dd3eb59738cf209"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-79",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "cf6920a224b8134fa610a02378cf1fd4cfa524e320413b841f0b33ce5f7186bc",
+      "patch": {
+        "stem": "一个不带头结点的循环链队列只保留尾指针rear：空队列rear为NULL，非空时rear->next指向队首。说明怎样找到队首，以及删除并释放队首时，多个结点和只有一个结点两种情况下rear及链接分别怎样更新。",
+        "model": "非空时先用p=rear->next保存队首。多个结点时令rear->next=p->next，rear仍指原尾，再释放p；只有一个结点时p就是rear，应先令rear=NULL，再释放p。不能释放p后再从p读后继。",
+        "rubric": [
+          "由rear->next找到并先保存队首",
+          "多结点时绕过队首且尾指针不变",
+          "单结点时rear置NULL，并在保存必要信息/更新链接后释放"
+        ]
+      },
+      "newQuestionSha256": "cfcb5815250adc7913603f6dfa192ebe910e6144a83505bcff0c1c57e1269bb4"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-81",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "279b4ffd354618dad03a512e002b97741a6f0d9c8abe81371a44ecfa5cc1cea5",
+      "patch": {
+        "rubric": [
+          "capacity字段不会自动增加真实可访问的存储区域",
+          "按虚增的容量写入原分配范围之外会越界"
+        ]
+      },
+      "newQuestionSha256": "51f54b132000852246334bcf47a942ebfa33f9038c37ccab17a208410918b1ad"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-83",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "f19aeceffd687937ecae4a080f525792ed9350880a0dad88d17ee197373c8b82",
+      "patch": {
+        "stem": "递归过程f(n)在n=0或n=1时直接返回；n≥2时先完整执行f(n-1)，再完整执行f(n-2)，然后返回。执行f(4)时，写出按进入先后得到的n序列、总调用次数和同时活动的f调用的最大个数。起始调用和基例都计入。",
+        "model": "进入顺序为4,3,2,1,0,1,2,1,0，共9次；最大同时活动4个，例如f(4)→f(3)→f(2)→f(1)。第二个子调用开始时第一个子调用已返回，所以总调用次数不能当成栈的最大深度。",
+        "rubric": [
+          "正确列出两分支的先后进入序列",
+          "总调用9次，含起始与基例",
+          "最大同时活动4个，并区分先后发生和同时未返回"
+        ]
+      },
+      "newQuestionSha256": "45f27683495f3380852799374754f17738930cd423e1bb1ae874727952a9f621"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-84",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "db46830d1cbc9b4a8a1df016c88a6e387e54cc3460808fa6efbe7227e1e0b6ac",
+      "patch": {
+        "stem": "栈S自底向顶为3,1,3,2,3,4，辅助栈T初始为空。反复弹出S，遇到3就丢弃，其他值压入T；S空后，再把T全部弹回S。写出第一阶段结束时T和最终S的自底向顶序列，并说明未删除元素的相对次序是否保留。",
+        "model": "第一阶段T自底向顶为4,2,1；再倒回后S为1,2,4。未删除项在原S中自底向顶也按1,2,4排列。保留项经历两次逆序，故相对次序恢复；只完成第一阶段会倒序。",
+        "rubric": [
+          "第一阶段T为4,2,1",
+          "最终S为1,2,4，所有3都删除",
+          "用两次反转说明保留项相对次序不变"
+        ]
+      },
+      "newQuestionSha256": "a0445118c59ef7edbecef647f15ba98d1dceca83d0733dbfaae1777a04ac56b1"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-86",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "013e6cf63a7f5123388ad4c5f187433ebc57e9065b0290efbf76bf9ab9cba9be",
+      "patch": {
+        "model": "无法区分成功取到-1与失败。可返回独立状态码，元素通过输出参数写回，调用者先检查状态再使用值；也可返回同时含状态和值的结构。关键是状态不再占用某个合法int元素值。",
+        "rubric": [
+          "指出成功得到-1与失败无法区分",
+          "给出独立状态通道并能表达任意int元素值"
+        ]
+      },
+      "newQuestionSha256": "d0a5ef4bb6c3f9aa547b3a17857a6df73bfb9bff5aebfaf6f9e30757c035777c"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-88",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "c5bbbd4dc5de577ab7ad9fba3e25dc6a8243a72b58f75461f260ed0977da398e",
+      "patch": {
+        "model": "连续除2先得到最低有效位，再逐渐得到高位；二进制通常从最高位向最低位书写，栈的逆序弹出正好把余数顺序反转。",
+        "rubric": [
+          "说明余数按低位到高位产生",
+          "说明二进制书写需高位在前，栈的LIFO可反转顺序"
+        ]
+      },
+      "newQuestionSha256": "9169a7a3c6a52cf8f1141a0d3ec41e1515828eb2d70d47c0e72530fdbd77e803"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-89",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "ff077bd9aab40cd6de995f2b59bbc2eaf96eaaac63463bd4f9ca9d11d4738ab0",
+      "patch": {
+        "stem": "一个双端队列初始为空，元素按A,B,C,D的顺序依次从队尾进入，允许入出交错；出队可任选队头或队尾。判断能否分别得到C,A,D,B和D,B,A,C。可行时给出操作，不可行时指出第一个无法取出的元素。",
+        "model": "C,A,D,B可行：尾入A、B、C，尾出C，头出A，尾入D，尾出D，头出B。D,B,A,C不可行：要先出D须先将A,B,C,D全部入队并从尾出D，余A,B,C，此时B在中间，两端都取不到；矛盾在第二项B。",
+        "rubric": [
+          "可行序列的输入顺序和两端弹出操作合法",
+          "先出D后剩余队列为A,B,C",
+          "指出B在中间且无新输入，第二项无法从任一端取出"
+        ]
+      },
+      "newQuestionSha256": "e1a1dbdf4fd203872a9c7746f752bb8a3b47b76448df13a077b8989e67260b47"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-S-011",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "a2c7d0c4ddf7bc67830a5f8ec4a08b99d748db4cd067d0248f60f22fb35099f9",
+      "patch": {
+        "stem": "逻辑函数F=A⊕(AB)的最简与或式为（ ）。",
+        "options": [
+          "AB′",
+          "A",
+          "AB",
+          "B′"
+        ],
+        "answer": 0,
+        "explanation": "先按A分情况：A=0时，AB=0，异或结果为0；A=1时，AB=B，故F=1⊕B=B′。合起来得到F=AB′。AB是A的一部分，只能在逻辑或A+AB中直接被吸收；这里是异或，AB=1会使两个1异或为0。"
+      },
+      "newQuestionSha256": "81ffbe2b659a2561a19b39070149fc44917c15c0a3cd819b693ac98b5d30fad1"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-F-007",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "45bc24d41b723133a6c7ada298d31526e1b2653b974bb212d831d766f4734793",
+      "patch": {
+        "stem": "已知F(A,B,C)=Σm(1,3,6)，按ABC编号，A为最高位。令X=A′，改按XBC编号，X为最高位。F的最小项编号从小到大依次为____、____、____。",
+        "answers": [
+          [
+            "2"
+          ],
+          [
+            "5"
+          ],
+          [
+            "7"
+          ]
+        ],
+        "formats": [
+          "number",
+          "number",
+          "number"
+        ],
+        "explanation": "先保留原来使F=1的实际输入：ABC为001、011、110。改用X=A′后，它们分别写成XBC=101、111、010，编号为5、7、2，升序为2、5、7。改变的是输入坐标A的极性；不是把F取反，也不是直接沿用原编号。"
+      },
+      "newQuestionSha256": "f3f6091540174b2ea8a734b9bed00c9690b371459c9aa795845c532926d3bc51"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-F-009",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "d91decd88e4cd8343e0c288158050101277fa3c9a5a817f3dc228b49249c8863",
+      "patch": {
+        "stem": "三变量函数F(A,B,C)=Σm(1,2,4)，其余输入输出均为0，无无关项。F的最简与或式至少含____个乘积项。",
+        "answers": [
+          [
+            "3"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "三个取1的输入分别为001、010、100，任意两组都相差两位，不能合并。又没有无关项可借用，所以每个合法乘积项最多覆盖其中一个1点，至少需要3项；A′B′C+A′BC′+AB′C′正好用3项，达到下界。"
+      },
+      "newQuestionSha256": "275b0a7c6f108928c8d45f6e3407a36fd95739d1e09acf9ee4cbaab2afaad6e4"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-F-012",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "a73e247bb872171d37b07c50386179f48ff5b3006bb511735d969f293d798362",
+      "patch": {
+        "stem": "A、B、C、D均为二值变量，电路的有效输入须满足A=B，C和D不受限制。可能出现的有效输入组合共有____种。",
+        "answers": [
+          [
+            "8"
+          ]
+        ],
+        "explanation": "A、B只能取00或11，共2种；C、D仍可取00、01、10、11，共4种。有效输入共有2×4=8种。4个变量并不总有16种有效输入，2⁴只是在四个输入可以独立任取时的全集大小。"
+      },
+      "newQuestionSha256": "19e0ea26a53f9ca40231c1fba3bd70526dd82943850d8311076678b295d293d9"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-F-016",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "474101b41474c9ba648f76edd797552602aaa5b0b0c16bf4272c46de76e89bfd",
+      "patch": {
+        "stem": "三变量函数F(A,B,C)=Σm(0,1,2,4)，无无关项。求最简与或式时，卡诺图中最大的合法合并组含____个格。",
+        "explanation": "m0=000分别与m1=001、m2=010、m4=100相邻，因此可以合成两格组。但这四个1不是一个完整的四格矩形：例如把0、1、2放进同一四格组还必须包含m3，而m3是指定0。穷尽所有四格组都不能避开指定0，所以最大合法组只有2格。格数是2的幂只是必要条件，还要能构成完整的合法相邻组。"
+      },
+      "newQuestionSha256": "b82d68af8b3de74a0b6653ab7a54dfb9e4310c825221b33f35310900e515b54d"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-F-017",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "d47e55febae5aeb5c6e6b3a001fbcee79557f200d43a97feba6107bd170af187",
+      "patch": {
+        "stem": "三变量函数F(A,B,C)=Σm(1,2,4,7)，按ABC编号，A为最高位。现将C接为A⊕B，A、B可任意取0或1，此时F恒为____。",
+        "answers": [
+          [
+            "0"
+          ]
+        ],
+        "explanation": "将AB依次取00、01、10、11，C=A⊕B依次为0、1、1、0，实际输入ABC只能是000、011、101、110，编号为0、3、5、6，均不在F的1集合中，因此输出恒为0。题目不再只问某个编号是否在集合中，必须先由连线关系确定实际可达输入。"
+      },
+      "newQuestionSha256": "8e9a26dac879612635815b4068e16d0f242a53372d88f7476fbb1e691087d0aa"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-R-003",
+      "baseRevision": 2,
+      "revision": 3,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "ffb946357d7db888e4cc34468d5adf7488683aaaf7b170c540d005dddadd5437",
+      "patch": {
+        "stem": "令X=A+B、Y=AB，其中A、B均为二值变量。列出(X,Y)实际可能出现的取值组合，并化简F=X+XY。X、Y不能独立取遍四种组合，是否会使这里的吸收律失效？说明理由。",
+        "model": "AB=00、01、10、11时，(X,Y)依次为(0,0)、(1,0)、(1,0)、(1,1)，所以实际可达组合只有(0,0)、(1,0)、(1,1)，不会出现(0,1)。吸收律X+XY=X对X、Y的全部四种二值组合都成立，当然也对其中的可达组合成立，不要求X、Y相互独立。因此F=X=A+B。也可先按A、B逐行核对，但不能因X、Y来自相关函数就否定布尔恒等式的代入规则。",
+        "rubric": [
+          "由AB四种组合列出(X,Y)=(0,0)、(1,0)、(1,1)，排除(0,1)",
+          "用吸收律得到F=X=A+B",
+          "说明恒等式对全域成立，代入有关联的函数后仍成立"
+        ]
+      },
+      "newQuestionSha256": "94a5ce82c02d4971a97d5072ef657ff1238deae454f51af0b96354d10d8873af"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-2-C-005",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "c5419d4849c6f102c6cd0aa2eda528aee51190330ad6da1f7b33207e8478ad05",
+      "patch": {
+        "stem": "四变量函数F在A=B=0时输出D，在A=B=1时输出C，其余AB组合输出0。按ABCD编号，A为最高位。写出F的与或式和Σm式，并分别说明在AB=00、AB=11这两种条件下，哪个输入变量的取值不影响输出。",
+        "model": "两种取1条件相或，得F=A′B′D+ABC。AB=00时，只有D=1输出1，C可以取0或1，对应0001、0011；AB=11时，只有C=1输出1，D可以取0或1，对应1110、1111。因此F=Σm(1,3,14,15)。在AB=00条件下输出与C无关；在AB=11条件下输出与D无关。这是各条件下的局部无关性，不能因此从整个函数中同时删除C和D。",
+        "rubric": [
+          "由两个互斥条件得到A′B′D+ABC",
+          "按ABCD写出Σm(1,3,14,15)，两分支各补齐自由变量",
+          "指出AB=00时C自由、AB=11时D自由，并限于相应条件"
+        ]
+      },
+      "newQuestionSha256": "794d56287cce3d5dded7831369950b8047023c20950b8cd4444dd294498079d7"
+    },
+    {
+      "subject": "programming",
+      "id": "C6B-programming-2-S-034",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "f63f3233d514c773d4bfede6ee216d54da7c8f6d5d497d049683d7aba964dced",
+      "patch": {
+        "stem": "标准输入依次是一个空格、一个换行、一个空格和字符7。下面C17程序输出为：\n```c\n#include <stdio.h>\n\nint main(void){\nint n=0;scanf(\"%d\",&n);printf(\"%d\",n);\nreturn 0;\n}\n```"
+      },
+      "newQuestionSha256": "0c0f3b66e8160d01324d952c056cfed65e198e4d9dabb500812b2cfd0dbe7cd1"
+    },
+    {
+      "subject": "programming",
+      "id": "C6B-programming-2-S-036",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "c863313d3b0e8ab60c09d5655128caddddcef0fd75183b7a7285d9648b58cf84",
+      "patch": {
+        "stem": "标准输入依次是一个空格、一个换行、一个空格和字符Q。下面C17程序输出为：\n```c\n#include <stdio.h>\n\nint main(void){\nchar c=0;scanf(\" %c\",&c);printf(\"[%c]\",c);\nreturn 0;\n}\n```"
+      },
+      "newQuestionSha256": "e5189987a18335d80f44d052a58d8611e3d0d2a9957507df0c9d4efae68f60c6"
+    },
+    {
+      "subject": "programming",
+      "id": "C6B-programming-2-S-047",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "9f84260cb8806655a7c3268cba2ec69c79695098d1ab237d835d1a162f3354ac",
+      "patch": {
+        "stem": "标准输入依次是字符7、一个空格、一个换行、一个空格和字符X。下面C17程序输出为：\n```c\n#include <stdio.h>\n\nint main(void){\nint n=0;scanf(\"%d \",&n);int c=getchar();printf(\"%d %c\",n,c);\nreturn 0;\n}\n```"
+      },
+      "newQuestionSha256": "ce05fa2af657c4c661804b345e07b1c50c640b531b29e10fd594e83c330413cd"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-91",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "9823ef33a287ea990700c0522b1c7d08deab8c155020ca66b9c30d462d4a7967",
+      "patch": {
+        "stem": "数组栈容量为cap，top记录当前元素个数，也指向下一可写位置。编写int push(int a[],int cap,int *top,int x)：满栈返回0且不改状态，否则入栈并返回1。0≤*top≤cap，a至少有cap个元素，top指向数组之外的独立int变量。"
+      },
+      "newQuestionSha256": "12121a301ec335696521e75dbd86c387f97e5ff457fa2129278f5b3e3afca8fe"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-92",
+      "baseRevision": 2,
+      "revision": 3,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "4aa8e56919e183fca70032660464be57baa4327b7f66d9b50b68c0a5db4ee1b4",
+      "patch": {
+        "stem": "数组栈用top记录当前元素个数，也指向下一可写位置。编写int pop(int a[],int *top,int *out)：栈空时返回0且不改变*out；否则弹出栈顶元素，写入*out，更新*top并返回1。参数有效，栈数组、top和out指向的对象互不重叠。"
+      },
+      "newQuestionSha256": "3734d41afc7ce9a8bb6032e399d3ccf18556bec3aee4f9e2fc3b03cc105f68f3"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-94",
+      "baseRevision": 2,
+      "revision": 3,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "14e66a32b14e3817d689023235475ba86f23a6f65d29aef9c5c02be8dd13a551",
+      "patch": {
+        "stem": "链栈结点定义为typedef struct Node{int v;struct Node *next;}Node;，*top指向栈顶，空栈时为NULL。编写int popL(Node **top,int *out)：栈空时返回0；否则把栈顶值写入*out，更新栈顶指针并释放被弹出的结点，返回1。链无环，结点均可用free释放。top和out指向有效的独立变量，均不占用结点存储。"
+      },
+      "newQuestionSha256": "0e1c096a831bd2bd5dfec11b2e78805ae8f6ed974c48dd2c3194d767ba4feb8f"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-95",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "e260f6a718f25582cd3a4a815f88d48614efed0155c32f3409fed89a1354506e",
+      "patch": {
+        "stem": "容量为m的数组循环队列牺牲一格区分空、满，front指向首元素，rear指向下一可写位置。编写int enq(int a[],int m,int front,int *rear,int x)：满队列返回0且不改状态，否则入队并返回1。m≥2，下标均在[0,m)内，a至少有m项，rear指向数组之外的独立int变量。"
+      },
+      "newQuestionSha256": "5aa80cf28e5e5f62545b774b0ae37ada86f0d65957952067668420d2e498189d"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-96",
+      "baseRevision": 2,
+      "revision": 3,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "bab67cf1fe9a3d051c424b2a456bfbd72d171e47072f0109c509f1244970cba9",
+      "patch": {
+        "stem": "数组循环队列容量为m，牺牲一个单元区分空、满，front指向队首元素，rear指向下一可写位置。编写int deq(int a[],int m,int *front,int rear,int *out)：空队列返回0且不改变*out；否则输出队首值、更新*front并返回1。m≥2，参数有效，下标均在[0,m)内。a至少有m项，front和out各指向独立int变量，与数组存储互不重叠。"
+      },
+      "newQuestionSha256": "f28240418773345578d4134832973c33098e40b3cad58c8e8bd6377b2bd5ec92"
+    },
+    {
+      "subject": "structures",
+      "id": "P3-structures-3-100",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "short",
+      "baseQuestionSha256": "b039273d5cfa731311f6942fa326fb77ffabc88ee0c2eb0e978e2bd07aa2d00b",
+      "patch": {
+        "stem": "给定长度n≥0的入栈序列in和候选出栈序列out，in中的整数互异。编写int validPop(const int in[],const int out[],int n,int s[])，用数组栈判断out能否由in得到，可以则返回1，否则返回0。两个输入数组只读，不得修改；辅助数组s容量至少为n，与两个输入数组均不重叠。"
+      },
+      "newQuestionSha256": "be502dc8be3a0eb42c3e67b8825fcd52db823e1fdfa6591065ca097f0a6a4b32"
+    }
+  ]
+}

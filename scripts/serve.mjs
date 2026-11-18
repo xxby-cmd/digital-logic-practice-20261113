@@ -3,6 +3,8 @@ import {readFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {handleRun} from './run-api.mjs';
+import {handleExplain} from './explain-api.mjs';
+import {handleReview} from './ai-grading.mjs';
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml'};
 export function createPracticeServer(directory=path.resolve(process.cwd(),'dist')){
  const root=path.resolve(directory);
@@ -10,6 +12,8 @@ export function createPracticeServer(directory=path.resolve(process.cwd(),'dist'
   try{
    const url=new URL(req.url,'http://localhost');
    if(['/api/run','/api/judge'].includes(url.pathname))return await handleRun(req,res,res.socket.localPort);
+   if(url.pathname==='/api/explain')return await handleExplain(req,res,res.socket.localPort);
+   if(url.pathname==='/api/review')return await handleReview(req,res,res.socket.localPort);
    if(!['GET','HEAD'].includes(req.method)){res.writeHead(405);res.end();return;}
    const name=decodeURIComponent(url.pathname)==='/'?'/index.html':decodeURIComponent(url.pathname);
    const file=path.resolve(root,'.'+name);

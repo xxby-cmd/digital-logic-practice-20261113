@@ -1,0 +1,231 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-arrays-before-tolerated",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-5-1794963536205-ndts9f",
+      "title": "第5章 数组和广义表 · 章节练习",
+      "chapter": 5,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 2,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 2,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 2,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 2,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-5-F-017",
+          "chapter": 5,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "L=(a,b,c)，T(T(L))的结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "(c)",
+              "（c）"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "两次去掉首项，仍为单元素表。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 50
+        },
+        {
+          "id": "P4-structures-5-F-016",
+          "chapter": 5,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "L=((a,b),c)，H(H(L))得到原子____。",
+          "type": "fill",
+          "answers": [
+            [
+              "a"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "先得到子表(a,b)，再取头得a。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 50
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P4-structures-5-F-016": [
+          "A"
+        ],
+        "P4-structures-5-F-017": [
+          "(c,)"
+        ]
+      },
+      "marks": {
+        "P4-structures-5-F-017": 50,
+        "P4-structures-5-F-016": 50
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P4-structures-5-F-017": 50,
+          "P4-structures-5-F-016": 50
+        },
+        "settledAt": 1794963536206
+      },
+      "submittedAt": 2,
+      "expired": false
+    },
+    {
+      "id": "ds-arrays-before-wrong",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-5-1794963536205-ndts9f",
+      "title": "第5章 数组和广义表 · 章节练习",
+      "chapter": 5,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 2,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 2,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 2,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 2,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-5-F-017",
+          "chapter": 5,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "L=(a,b,c)，T(T(L))的结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "(c)",
+              "（c）"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "两次去掉首项，仍为单元素表。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 50
+        },
+        {
+          "id": "P4-structures-5-F-016",
+          "chapter": 5,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "L=((a,b),c)，H(H(L))得到原子____。",
+          "type": "fill",
+          "answers": [
+            [
+              "a"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "先得到子表(a,b)，再取头得a。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 50
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P4-structures-5-F-016": [
+          "b"
+        ],
+        "P4-structures-5-F-017": [
+          "c"
+        ]
+      },
+      "marks": {
+        "P4-structures-5-F-017": 0,
+        "P4-structures-5-F-016": 0
+      },
+      "result": {
+        "total": 0,
+        "scores": {
+          "P4-structures-5-F-017": 0,
+          "P4-structures-5-F-016": 0
+        },
+        "settledAt": 1794963536206
+      },
+      "submittedAt": 2,
+      "expired": false
+    }
+  ]
+}

@@ -1,10 +1,23 @@
 import {cExpressionsGuides} from './c-expressions-guides.js';
 import {cControlGuides} from './c-control-guides.js';
 import {cFunctionsGuides} from './c-functions-guides.js';
+import {cPointersGuides} from './c-pointers-guides.js';
+import {cRecordsGuides} from './c-records-guides.js';
+import {cPreprocessorGuides} from './c-preprocessor-guides.js';
+import {cBasicsGuides} from './c-basics-guides.js';
+import {revisionedDsTaskGuides,dsTaskGuide,dsCodingTaskGuides} from './ds-coding-task-guides.js';
+import {cFileCodingIds} from './c-file-availability.js';
+import {hasJavaJudgeContract} from './java-coding-catalog.js';
 const ready=new Set(['6-02','P-C-03','P-C-04',...Object.keys(cExpressionsGuides),...Object.keys(cControlGuides),...Object.keys(cFunctionsGuides)]);
+for(const id of Object.keys(cPointersGuides))ready.add(id);
+for(const id of Object.keys(cRecordsGuides))ready.add(id);
+for(const id of Object.keys(cPreprocessorGuides))ready.add(id);
+for(const id of Object.keys(cBasicsGuides))ready.add(id);
+for(const id of Object.keys(revisionedDsTaskGuides))ready.add(id);
+for(const id of cFileCodingIds)ready.add(id);
 for(let i=10;i<=15;i++)ready.add(`P2-programming-6-${i}`);
 for(let i=41;i<=81;i++)ready.add(`P3-programming-6-${i}`);
 for(let i=21;i<=35;i++)ready.add(`FULL-programming-v1-${i}`);
 ready.add('FULL-structures-v1-31');ready.add('FULL-structures-v1-32');
 for(let i=91;i<=100;i++)ready.add(`P3-structures-3-${i}`);
-export function hasJudgeContract(id){return ready.has(id);}
+export function hasJudgeContract(id,revision,language='c'){if(language==='java')return hasJavaJudgeContract(id,revision);if(language!=='c')return false;const guide=revisionedDsTaskGuides[id];return ready.has(id)&&(!guide||revision===undefined||!!dsTaskGuide(id,revision)||(revision===1&&Object.hasOwn(dsCodingTaskGuides,id)));}

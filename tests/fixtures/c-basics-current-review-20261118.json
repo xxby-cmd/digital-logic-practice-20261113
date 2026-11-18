@@ -1,0 +1,560 @@
+{
+  "scope": "60当前题绑定；36本轮实际C17运行、24独立语义答案，非从q.answer生成期望",
+  "cases": [
+    {
+      "id": "C6B-programming-2-S-001",
+      "stemHashes": {
+        "1": "bc169056d6fa81d9d52dc4de8bb3fe232370ceb324f0f9493a4ea20bbc2f4621"
+      },
+      "expectedText": "total_2",
+      "note": "字符集合与首字符同时合法"
+    },
+    {
+      "id": "C6B-programming-2-S-002",
+      "stemHashes": {
+        "1": "273fd180390c20ec225d04979fd776f6df003459633f6e98fe7e01ca1bc2f765"
+      },
+      "expectedText": "2 7",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "c8b5b2e2e564d502476dc02bf8257381544a74764623fbdfe4d8f28f2e6d07a9",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-003",
+      "stemHashes": {
+        "1": "fe0af93a69c39855026522785c8ab57ddf47d7ef78396e12001b4146edcea92e"
+      },
+      "expectedText": "double",
+      "note": "类型关键字与库函数名分开"
+    },
+    {
+      "id": "C6B-programming-2-S-004",
+      "stemHashes": {
+        "1": "a2cd6582dd0cf74b64228f37b752c5c3b138daa4e3ecc8bb6842582bf1ffc962"
+      },
+      "expectedText": "double height,weight;",
+      "note": "声明符逗号不是重复写类型"
+    },
+    {
+      "id": "C6B-programming-2-S-005",
+      "stemHashes": {
+        "1": "6812c17d635feaabd0cb89bdb9f6ba26ae3c1de0c83d949ae8f6d4e59b257e25"
+      },
+      "expectedText": "读取了尚未初始化的自动变量",
+      "note": "未初始化读取不指定偶然输出"
+    },
+    {
+      "id": "C6B-programming-2-S-006",
+      "stemHashes": {
+        "1": "cd502e8073ebf1a9ab5f70d0fad88c8e92a2839e283706cf96030d91a1aedcdb"
+      },
+      "expectedText": "3 5",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "be1e86c20422ee4951c7756d24075eadb9382bfab95067f29a8a6de33a3ec79d",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-007",
+      "stemHashes": {
+        "1": "c335843a041b03bdefadf9d1b09cced7be03ff6b7326853f510786a22f929e59"
+      },
+      "expectedText": "limit=20;",
+      "note": "const可读取但不可普通赋值修改"
+    },
+    {
+      "id": "C6B-programming-2-S-008",
+      "stemHashes": {
+        "1": "3705e53deed9a9274172d011048898c637a28a68dfe7d231ec3ac3df998e8838"
+      },
+      "expectedText": "n的值都是5，前者是初始化、后者是定义后赋值",
+      "note": "区分赋初值发生的时点"
+    },
+    {
+      "id": "C6B-programming-2-S-009",
+      "stemHashes": {
+        "1": "0a3c8623628ecec91622e23ba6b1f94df6a1d4ca9eef5b528e2f6c9b365f851b"
+      },
+      "expectedText": "08",
+      "note": "八进制数字集合排除8"
+    },
+    {
+      "id": "C6B-programming-2-S-010",
+      "stemHashes": {
+        "1": "b49917bcd10447965e0e0271f00cee0ea4bcca7ac6079d3fa86247f0cfdec8b0"
+      },
+      "expectedText": "42 42",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "ebf4c421d79aa8a54fc1fc0bc29bfe951c82beab7d28e61f5127f3ea0f5730f2",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-011",
+      "stemHashes": {
+        "1": "24d639571c265d693b168b17e71daf360a2829b18dedead7ba83d5ae645ec43f"
+      },
+      "expectedText": "5.",
+      "note": "小数点后数字可缺省但指数值不可缺省"
+    },
+    {
+      "id": "C6B-programming-2-S-012",
+      "stemHashes": {
+        "1": "77ae6f8c15852f3db92f5b270cbcb5facb359ffbdf817ad217d2ca73c160bdc7"
+      },
+      "expectedText": "0.0125",
+      "note": "乘十的负二次方而非改变整体符号"
+    },
+    {
+      "id": "C6B-programming-2-S-013",
+      "stemHashes": {
+        "1": "a2061b240cf4de925a0f7d9a710528ad1c4c3cfe1ea47626d48364ee9d40af47"
+      },
+      "expectedText": "1",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "ed720543e5205a9f151d22f41c54b02d27225279e16e82e0dfdae61d8816f039",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-014",
+      "stemHashes": {
+        "1": "f6ad6253d7bf5233b302eb023062ac9d6b54911d46e6528ccfc93636233c6a84"
+      },
+      "expectedText": "1",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "1c5c0eca629f0241f569429b53fe4651e51468f9748c83cf9f86d9fa12a5e35b",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-015",
+      "stemHashes": {
+        "1": "fbf5ceb12cc18eace80c2683843d99d684b0dbd85218fc3dc9dd8c2911317227"
+      },
+      "expectedText": "1",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "18e4a940fb4c482090e4ad96986fcca08b2f5dcec5ca063a000a9492dbc0382e",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-016",
+      "stemHashes": {
+        "1": "0637d683c695ca4673bfe0df18c3147272a4fbe0794f16158ab3aeaa32304bbd"
+      },
+      "expectedText": "Q Q",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "f267cf5e2bb5907e644fbe74bbd236723e79fc1117a10f410d6a413914a65214",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-017",
+      "stemHashes": {
+        "1": "a0316b0659142020e4141f09e66d094c7e1e18f379fa8ed688d36fdd634c186d"
+      },
+      "expectedText": "54 6",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "9780bc621a849a7a4cdf6a4023a94ec62e4f9eecca5b90d2b94b90492e5b3084",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-018",
+      "stemHashes": {
+        "1": "e0eb91824111ebfcfd40f128f1d33de78b450120cf30298a1aa1e3d8586541c0"
+      },
+      "expectedText": "''",
+      "note": "空单字符常量与空格/转义不同"
+    },
+    {
+      "id": "C6B-programming-2-S-019",
+      "stemHashes": {
+        "1": "a85c1f8e1c1bb8489ae0c70f65b61b15a1f6c4452bc9a8f872af2d3cf8a98618"
+      },
+      "expectedText": "1 0",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "0cc25ccf1929d978bb5855dd9fdf813eca255b84418c9ccccbc84b5895e54f76",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-020",
+      "stemHashes": {
+        "1": "07ad6b8e1fd68d5cefef92212c95b26e732c606de9c6003cc1a8bd532b9c4f6a"
+      },
+      "expectedText": "\\ \"ok\"",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "a154129654c6b6ab043d7d2cb4de52b2b4751db6f63fedbf0a67c124b618735c",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-021",
+      "stemHashes": {
+        "1": "38233ca2480d18a8277c01fb539c5d136bd61ff90effb32a1c25be65da528e7a"
+      },
+      "expectedText": "A2",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "6248c088acf7f1362b3a730bfdb2027817d5ab72bf07c68cc21df06d789a4c5d",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-022",
+      "stemHashes": {
+        "1": "a85b1314f0f771a97977313a4819c8d806b77c13aaa3c811b69ce1f88162d640"
+      },
+      "expectedText": "A",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "84f73eefb32e31b6f835c5f9c0b2e60f54b149b95eaf5158c54b75dda29d164a",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-023",
+      "stemHashes": {
+        "1": "f7f5607428e9a322255cb3816e869c62ed90bcfffcefc0532db2832c197a3532"
+      },
+      "expectedText": "a\nb",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "308322e366163a99ba7230615d9431863def8bf25de4d3b36ac756585c986326",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-024",
+      "stemHashes": {
+        "1": "65e44a257dae76ebbf18ed5440d514094213dcdb23425a605d288dd2455d1023"
+      },
+      "expectedText": "sizeof(char)==1",
+      "note": "语言字节单位而非固定硬件字长"
+    },
+    {
+      "id": "C6B-programming-2-S-025",
+      "stemHashes": {
+        "1": "5d5c4ede5da8ae4aa78a00e5c916b23e04e1ba32a909e4610054164a36ab787b"
+      },
+      "expectedText": "unsigned long int",
+      "note": "小值100可由UL首选类型表示"
+    },
+    {
+      "id": "C6B-programming-2-S-026",
+      "stemHashes": {
+        "1": "7eb9cbd7856ea57dcc5503afae6163e4bc84630b920f548caf9e1c52c065d0b7"
+      },
+      "expectedText": "能表示某个量级，不代表能精确保存该量级的每个小数",
+      "note": "范围与精度是两个独立维度"
+    },
+    {
+      "id": "C6B-programming-2-S-027",
+      "stemHashes": {
+        "1": "5e809a8c3f9ae6fca86f6127bf1b94c14cb4cdf79a10329d8f2e42198b73afd2"
+      },
+      "expectedText": "printf(\"%d\",a); double b=2.5;",
+      "note": "C17允许声明语句交错，不套C90习惯"
+    },
+    {
+      "id": "C6B-programming-2-S-028",
+      "stemHashes": {
+        "1": "0bad733e45417d8c63e688836cc83b365b2b41f86905dd371bfb205ea343b60f"
+      },
+      "expectedText": "scanf(\"%d\",&n);",
+      "note": "int输入匹配int指针"
+    },
+    {
+      "id": "C6B-programming-2-S-029",
+      "stemHashes": {
+        "1": "c573bbe4ef0b62aba3433426ff05ad09144ef8a09a13bb26cd9546d576f4dbfd"
+      },
+      "expectedText": "scanf(\"%f%lf\",&f,&d);",
+      "note": "scanf目标不按printf可变实参提升处理"
+    },
+    {
+      "id": "C6B-programming-2-S-030",
+      "stemHashes": {
+        "1": "9f510a689601874897260675cee6a48b1687eac0878c7725b11ade387fed0c98"
+      },
+      "expectedText": "1.25 2.50",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "3537f7763d99212ceca48ae725574b90fd8035a5f216a01d9add82cc87d926f7",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-031",
+      "stemHashes": {
+        "1": "4df46bfdc86f9234e74c0a3957854441829406471e55ab4f2f6aa7b8424c5256"
+      },
+      "expectedText": "1 12 9",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "904d79c61b6a91cd55e07d8e2afdc8875e4b2c018ec05c2ffa35751e498c742f",
+      "stdin": "12 x"
+    },
+    {
+      "id": "C6B-programming-2-S-032",
+      "stemHashes": {
+        "1": "8a9af97b2b211c4cbff27416ee359293504ba5154c8104c0631490fcf9de4927"
+      },
+      "expectedText": "2 4 9",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "9d8ab20f288d0051cc2c2d7e11ea7729d795fa047207bf516154a5f99e58abe6",
+      "stdin": "4 6 9"
+    },
+    {
+      "id": "C6B-programming-2-S-033",
+      "stemHashes": {
+        "1": "0940d06c8ec5211294ce4d314095208ef5855a78294cc0b32651780ab8e74ffd"
+      },
+      "expectedText": "1 25",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "e69dc0ff1b910d74586ebf51f6d57b26f5f54785c58d611ce9b6ff44e7355cd1",
+      "stdin": "25%"
+    },
+    {
+      "id": "C6B-programming-2-S-034",
+      "stemHashes": {
+        "1": "412bb52f933b52eb5b134c7872a516ec61a0c2c333a1dc81ff67144d37727810",
+        "2": "31e030ecde38e731e9ca04c2077c1a58389433094ba9aef2975aac0bba6e080c"
+      },
+      "expectedText": "7",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "3b42accdfc096516cbc5264c6eedf4300bb06e66c7c13a6104c55e2faec6e1d6",
+      "stdin": " \n 7"
+    },
+    {
+      "id": "C6B-programming-2-S-035",
+      "stemHashes": {
+        "1": "8b937549402dfdece3d8c46045b1d11c809c4f6694c8aad760a80b135fedcbff"
+      },
+      "expectedText": "[ ][Q]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "facb71315e67dc70212568cd7763b8147d6da4b169181334a186759e956789b2",
+      "stdin": " Q"
+    },
+    {
+      "id": "C6B-programming-2-S-036",
+      "stemHashes": {
+        "1": "34bd30d5dc96bb269295a2c18afb70e247687bb3df73cb042f4f7b0833b20522",
+        "2": "f0de0c41f8b98cc6c9287654367cbe67052bf448e65224d6cab4b848069b8a78"
+      },
+      "expectedText": "[Q]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "cf05eec128caaee93602e4bb4101ee16c38406526646edd8e041d762bd1ba12c",
+      "stdin": " \n Q"
+    },
+    {
+      "id": "C6B-programming-2-S-037",
+      "stemHashes": {
+        "1": "93cd7dc1b93e49a0b698b6eab741e5266aa11b0e873f4e632c17cd50221f7480"
+      },
+      "expectedText": "1 3 9",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "49556474e4497933c66ff4003027399940180511129f75ceebd852ea9951ce98",
+      "stdin": "3 4"
+    },
+    {
+      "id": "C6B-programming-2-S-038",
+      "stemHashes": {
+        "1": "1df0faae61c5ab408d371070f060f81a75cb98ce21ee1858a9d70215e0ab758b"
+      },
+      "expectedText": "16",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "fef4d46101a5b002ce886333e9fd091ba5992693b1f70d5f2a90dd6e4af0b640",
+      "stdin": "0x10"
+    },
+    {
+      "id": "C6B-programming-2-S-039",
+      "stemHashes": {
+        "1": "0d9dd686d315d8fe0f837f085c8261ff7be2aeccce4a21d55a3b6d717eb07207"
+      },
+      "expectedText": "10",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "3b42accdfc096516cbc5264c6eedf4300bb06e66c7c13a6104c55e2faec6e1d6",
+      "stdin": "010"
+    },
+    {
+      "id": "C6B-programming-2-S-040",
+      "stemHashes": {
+        "1": "e7b2ed800c4927b825268587509757f614c9df4ac88c274e9d67f861dcc0dc4a"
+      },
+      "expectedText": "8",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "d3808457b23686a568128f777012dc9a3585b80fda29fa47a5f0a83843094a5d",
+      "stdin": "10"
+    },
+    {
+      "id": "C6B-programming-2-S-041",
+      "stemHashes": {
+        "1": "5d53fdde05ff63b67120a000f562cec4d2a220a2628a70ef78c0501c8df15c02"
+      },
+      "expectedText": "-4 5",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "779fbd67f3570dc35e159500df80795a958d27d1f56f7d038bfebc4fd258c827",
+      "stdin": "-45X"
+    },
+    {
+      "id": "C6B-programming-2-S-042",
+      "stemHashes": {
+        "1": "9d8a894ea1b0dc7d16751b4831a831d970fb83f54ac9aded3e02986f03768e3a"
+      },
+      "expectedText": "写入3字符，不自动追加空字符",
+      "note": "%c字段宽度与%s终止符区别"
+    },
+    {
+      "id": "C6B-programming-2-S-043",
+      "stemHashes": {
+        "1": "0f0d26b7a254f4617b10a5b24e7cc3e8afd3386afe8cc57dbb77e4511defabd6"
+      },
+      "expectedText": "[hi][ ]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "98637b97024091017b0dfee1c3358e1952f1a6dbc011b127bd5d47ae6041f418",
+      "stdin": "hi there"
+    },
+    {
+      "id": "C6B-programming-2-S-044",
+      "stemHashes": {
+        "1": "89bed49fe340eaaecae037a0db0fcf90ddc853248ae763f4d2092bbecdeb2b55"
+      },
+      "expectedText": "printf(\"%f\",n);",
+      "note": "printf格式不把int自动转换成double"
+    },
+    {
+      "id": "C6B-programming-2-S-045",
+      "stemHashes": {
+        "1": "bb1454fc42bbd3f0bb1893b8db07dba006188046fb7b7b41ed30d36028826046"
+      },
+      "expectedText": "int变量",
+      "note": "保留全部字符码与EOF判定"
+    },
+    {
+      "id": "C6B-programming-2-S-046",
+      "stemHashes": {
+        "1": "e0520b9f2a266c492af61056f25f7290d946726f8dbd68b5a325a5ca21d5148e"
+      },
+      "expectedText": "0 99",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "3cfb834669eac4d3620dee4ef89f490bd115bb6b0825bfee38012a83e23f1c52",
+      "stdin": "x"
+    },
+    {
+      "id": "C6B-programming-2-S-047",
+      "stemHashes": {
+        "1": "e7157f2b7b5d9793b2eec5058d972ac603aa4010fe20a447046e333ce00d11a5",
+        "2": "a6520dde394a098f6a33bed070aa6be854e16f3eecc6b3c39001a2bc63e0b909"
+      },
+      "expectedText": "7 X",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "bec6e28fe8c2d4c642a1c13f9fa315dc9e1e64c035bced38faf73b82cae0bd4b",
+      "stdin": "7 \n X"
+    },
+    {
+      "id": "C6B-programming-2-S-048",
+      "stemHashes": {
+        "1": "2840f564dfe8d8b8858e17d5556bb91e7c71991d4abf1ca024b3f33b97d4822b"
+      },
+      "expectedText": "<-2> 4",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "5787f8c88857ce838e65c597f9683f2b6f1a615ec7a0191c053d1da969ef5dce",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-049",
+      "stemHashes": {
+        "1": "f3cd970e80988d5a1b3393847e9ed893c8e86f0cb4e0adc37d28f43a491526b8"
+      },
+      "expectedText": "[12345]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "43bf909ced3f5eb0666cd338312063c61b8c776e0e995eeca15c9973e25a5ddf",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-050",
+      "stemHashes": {
+        "1": "d84d3dddad9233cab3dfac3fd69b94872c64ed3dc29b0e9a1dc874098f218589"
+      },
+      "expectedText": "[12   ]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "11261ffc631f376e9b240509f6000d1b2032f001b77af2c10a8eff9d490ef722",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-051",
+      "stemHashes": {
+        "1": "962bea474ea61df56e779d69f451250d800af1d5152b6b2aeb57eb7e1e56ad9c"
+      },
+      "expectedText": "[-0012]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "7c3d7b71dc395ab49fc0a8215dca43c8bc111d46d03348615191a47cbd12f74a",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-052",
+      "stemHashes": {
+        "1": "5e5f5f8a848d735a2be092f1bb2bd1c81c405a96e76fa99e104b6c2fe01ea2b1"
+      },
+      "expectedText": "[2]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "0afda85136b5b7921922343ac077be5afc0b72622fa8be98bdd6a04d3bcd8ce1",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-053",
+      "stemHashes": {
+        "1": "e6ec32993a9d9e0614d7760d7e476f157e8730a66359b128171efe5b02264216"
+      },
+      "expectedText": "[   abc]",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "ed2121ea93151e63bb993c626a2fb20193f8d2c8434e579968ef0c1509fd1f89",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-054",
+      "stemHashes": {
+        "1": "920c65b960b1b65ae99c110e0111e845636cddbee386cbb6333d198b0bc88fee"
+      },
+      "expectedText": "done=100%",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "c44dbe4f875a5f59fec96f1124204ea35f12cd00872e75107ba58985d9486331",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-055",
+      "stemHashes": {
+        "1": "cadf93c6055672965c2535782994767ac9bc1b3f427efd08043aa54327dd17a4"
+      },
+      "expectedText": "1.25 1.250",
+      "note": "按当前题干C17程序与实际stdin独立实编，源/输入分别有指纹。",
+      "sourceSha256": "07a84c2122da324a1ff1b4245fdf6193b58c21c9218712d86e31ccc5cdc9c8eb",
+      "stdin": ""
+    },
+    {
+      "id": "C6B-programming-2-S-056",
+      "stemHashes": {
+        "1": "b039ada78d53043c2f81b4549a51f3ed22fbea3266fb154b120b17b39560507a"
+      },
+      "expectedText": "%zu",
+      "note": "sizeof结果的size_t类型"
+    },
+    {
+      "id": "C6B-programming-2-S-057",
+      "stemHashes": {
+        "1": "3a6e97038ad3595ed106653fe17cb9ffb2aa86cb1f9af8c27560a2a92d80d8a6"
+      },
+      "expectedText": "<math.h>",
+      "note": "原型声明所在标准头"
+    },
+    {
+      "id": "C6B-programming-2-S-058",
+      "stemHashes": {
+        "1": "d68373204503cba7a52ee5ff7865874423bff7086e33101c8a3347a836dee382"
+      },
+      "expectedText": "读入温度，计算结果，输出结果",
+      "note": "数据依赖顺序而非引入无关循环"
+    },
+    {
+      "id": "C6B-programming-2-S-059",
+      "stemHashes": {
+        "1": "b84fc28a560f8e77f11c0ed5744384cd1790a34f790ec9c56474bc5a82638da0"
+      },
+      "expectedText": "同一作用域重复定义了同名对象且类型冲突",
+      "note": "声明不等于改变既有对象类型"
+    },
+    {
+      "id": "C6B-programming-2-S-060",
+      "stemHashes": {
+        "1": "24627a3a665254ee24cbc5fdd55027e589b3630a681e014ab935bf446580579a"
+      },
+      "expectedText": "char word[6];",
+      "note": "输入宽度之外再留一个NUL单元"
+    }
+  ]
+}

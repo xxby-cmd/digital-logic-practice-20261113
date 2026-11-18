@@ -1,0 +1,3611 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "before-transport-20261118-1",
+      "kind": "chapter",
+      "subject": "network",
+      "paperId": "chapter-practice-network-3-1794958243675-me00w2",
+      "title": "第3章 运输层 · 章节练习",
+      "chapter": 3,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 52,
+        "counts": {
+          "choice": 40,
+          "judgement": 0,
+          "fill": 11,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 1,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 52,
+          "counts": {
+            "choice": 40,
+            "judgement": 0,
+            "fill": 11,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 1,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P3-network-3-21",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP TIME_WAIT的一项作用是：",
+          "type": "single",
+          "options": [
+            "把UDP变成可靠流",
+            "无需定时就立即销毁状态",
+            "处理最后ACK可能丢失、隔离旧报文等",
+            "为所有应用永久占用端口"
+          ],
+          "answer": 2,
+          "explanation": "有限等待有助结束握手和旧段影响控制。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-20",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收方通告零窗口后，发送方的窗口探测机制用于：",
+          "type": "single",
+          "options": [
+            "强行忽略接收方窗口持续灌入新数据",
+            "替换拥塞控制",
+            "提升介质传播速度",
+            "避免窗口重新开放的更新丢失造成永久等待"
+          ],
+          "answer": 3,
+          "explanation": "少量探测促进窗口状态更新，不等于取消流控。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-22",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "UDP应用一次发送一个数据报，对端的接收接口通常：",
+          "type": "single",
+          "options": [
+            "保证一定到达",
+            "保留数据报边界，但缓冲不足可能截断/丢弃剩余部分，依接口语义",
+            "变成任意可靠字节流",
+            "必自动拼接成TCP"
+          ],
+          "answer": 1,
+          "explanation": "数据报边界与可靠性是两个问题，接收缓冲也需正确设置。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-19",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "三次握手第三个报文主要不能简单省略，因为：",
+          "type": "single",
+          "options": [
+            "每个应用请求必须有三个数据包",
+            "TCP只能数到3",
+            "MAC地址有三部分",
+            "需要让被动方确认主动方收到其握手信息等"
+          ],
+          "answer": 3,
+          "explanation": "双方确认建立状态，降低旧请求等导致的错误连接状态风险。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-23",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "需要尽快获得最新状态、过期样本价值低的应用选择UDP，仍需考虑：",
+          "type": "single",
+          "options": [
+            "丢失、乱序、拥塞与应用恢复策略",
+            "UDP使网络永不拥塞",
+            "不再需要任何应用协议",
+            "所有旧数据都必须无限重传"
+          ],
+          "answer": 0,
+          "explanation": "不用TCP不意味着可以不做可靠性取舍和拥塞友好设计。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-18",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "对端发送FIN而本端仍有应用数据待发，TCP可能：",
+          "type": "single",
+          "options": [
+            "支持半关闭，本端继续发送自己的数据",
+            "所有情况立即重连",
+            "自动丢弃所有双向数据",
+            "变成以太网协议"
+          ],
+          "answer": 0,
+          "explanation": "两个方向的关闭可分别进行。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-24",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP是全双工，意味着：",
+          "type": "single",
+          "options": [
+            "两个方向共用一个序号而无需区分",
+            "不能半关闭",
+            "同一时刻只能一方发送",
+            "两个方向可同时独立传送字节流"
+          ],
+          "answer": 3,
+          "explanation": "两个方向有各自的序号与确认关系。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-17",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "FIN表示发送方在一个方向上不再发送数据，它：",
+          "type": "single",
+          "options": [
+            "等价于RST强制中止",
+            "同样占用一个序号",
+            "取消所有已发字节",
+            "禁止对端再发任何数据"
+          ],
+          "answer": 1,
+          "explanation": "FIN参与可靠有序结束；与RST语义不同。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-25",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收端应用读取速度下降，可能最先影响：",
+          "type": "single",
+          "options": [
+            "源端MAC位数",
+            "IP地址长度",
+            "接收窗口通告",
+            "物理传播速度"
+          ],
+          "answer": 2,
+          "explanation": "缓冲积压导致可用接收空间减少。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-16",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "三次握手中SYN消耗的序号数量为：",
+          "type": "single",
+          "options": [
+            "取决于IP长度",
+            "整个接收窗口",
+            "0",
+            "1"
+          ],
+          "answer": 3,
+          "explanation": "SYN占用一个TCP序号，即使没有数据负载。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-26",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "理想慢启动中每轮完整窗口得到确认，cwnd大致：",
+          "type": "single",
+          "options": [
+            "每RTT归零",
+            "每RTT加1MSS",
+            "每RTT倍增",
+            "永久不变"
+          ],
+          "answer": 2,
+          "explanation": "每个ACK增加一定窗口，整轮反馈形成近似指数增长；阈值等条件需另计。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-15",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "重传后的ACK可能对应原段或重传段，因此直接以它测RTT存在：",
+          "type": "single",
+          "options": [
+            "端口类型变化",
+            "IPv6地址变短",
+            "接收窗口必为负",
+            "采样归属歧义"
+          ],
+          "answer": 3,
+          "explanation": "无法总确定ACK对应哪次发送，RTT采样需处理此歧义。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-27",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "经典拥塞避免理想模型中，每轮RTT无丢失时cwnd大致：",
+          "type": "single",
+          "options": [
+            "加1MSS",
+            "翻四倍",
+            "减为0",
+            "等于MAC地址数"
+          ],
+          "answer": 0,
+          "explanation": "常用基础模型是加性增长，而非慢启动式倍增。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-14",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP对RTT做平滑估计而不是只取最后一次测量值，主要为了：",
+          "type": "single",
+          "options": [
+            "兼顾变化和测量波动",
+            "取消所有计时器",
+            "保证RTT固定",
+            "让ACK无需发送"
+          ],
+          "answer": 0,
+          "explanation": "平滑避免一次波动造成过大跳变，同时持续跟踪趋势。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-28",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "丢失一个TCP段就能绝对证明发生网络拥塞吗？",
+          "type": "single",
+          "options": [
+            "不能，也可能误码或其他故障",
+            "不能，因为TCP绝不丢包",
+            "能，接收端必已关闭",
+            "能，只有拥塞会丢包"
+          ],
+          "answer": 0,
+          "explanation": "丢失可作为控制信号，但原因并不唯一。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-13",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设置过小的重传超时可能导致：",
+          "type": "single",
+          "options": [
+            "原网络绝无丢包",
+            "不必要重传",
+            "信号传播加速",
+            "接收缓存自动变大"
+          ],
+          "answer": 1,
+          "explanation": "ACK尚在正常途中也可能被误判超时。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-29",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "重复ACK可能触发快速重传，但重复ACK也可能由什么产生？",
+          "type": "single",
+          "options": [
+            "IP地址十进制变长",
+            "链路速率单位改写",
+            "报文乱序",
+            "应用字符变大写"
+          ],
+          "answer": 2,
+          "explanation": "乱序可暂时形成相同累计确认，不能把重传触发当原因确证。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-12",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP校验和错误的段通常不能：",
+          "type": "single",
+          "options": [
+            "由发送方之后超时重传",
+            "由冗余传输恢复影响",
+            "被当成正确新数据交付",
+            "被接收端丢弃"
+          ],
+          "answer": 2,
+          "explanation": "差错检测失败就不能按正确数据使用。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-30",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在单个TCP字节流中，一个缺失段可能阻塞其后已收到字节交给应用，这称为：",
+          "type": "single",
+          "options": [
+            "全网广播风暴",
+            "UDP连接中止",
+            "按序交付导致的队头阻塞现象",
+            "所有IP转发停止"
+          ],
+          "answer": 2,
+          "explanation": "后续数据可先缓存，但连续按序交付等待缺口。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-11",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "MSS与MTU的主要区别为：",
+          "type": "single",
+          "options": [
+            "二者都指MAC长度",
+            "MSS包括全部应用文件",
+            "MTU指TCP序号空间",
+            "MSS指TCP数据负载上限，MTU指链路可承载网络层包大小上限"
+          ],
+          "answer": 3,
+          "explanation": "不能把MTU整段容量都当作TCP应用负载。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-31",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个确认报文丢失，却未必导致数据重传，原因可能是：",
+          "type": "single",
+          "options": [
+            "所有报文均自动带SYN",
+            "稍后更大的累计ACK已覆盖它",
+            "TCP不使用确认",
+            "ACK丢失不会发生"
+          ],
+          "answer": 1,
+          "explanation": "累计确认可一次覆盖多个此前已收到的连续字节。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-10",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "正常发送新数据时，窗口约束通常同时受：",
+          "type": "single",
+          "options": [
+            "仅rwnd",
+            "仅cwnd",
+            "rwnd与cwnd及已在途数据",
+            "仅目的端口数值"
+          ],
+          "answer": 2,
+          "explanation": "可用新数据额度约为min(rwnd,cwnd)减未确认在途量。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-32",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数据已被TCP接收并确认，能否保证应用业务已成功提交数据库？",
+          "type": "single",
+          "options": [
+            "不能，传输确认不等于业务完成",
+            "保证，ACK就是事务提交",
+            "保证，TCP检查SQL",
+            "只要端口80就保证"
+          ],
+          "answer": 0,
+          "explanation": "确认范围是传输接收，不包含应用业务语义。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-9",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP拥塞控制主要响应：",
+          "type": "single",
+          "options": [
+            "网络路径的拥塞状况",
+            "文件扩展名",
+            "字符编码",
+            "终端显示分辨率"
+          ],
+          "answer": 0,
+          "explanation": "端到端发送负载需与路径承载能力协调。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-33",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP连接建立后修改任一端地址或端口，通常：",
+          "type": "single",
+          "options": [
+            "仍必是同一连接",
+            "等于更改窗口",
+            "只修改FCS无需其他处理",
+            "不能简单当成原四元组连接继续使用"
+          ],
+          "answer": 3,
+          "explanation": "传统TCP连接由端点组合识别，迁移需额外机制。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-8",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP流量控制主要保护：",
+          "type": "single",
+          "options": [
+            "以太网交换表",
+            "接收端缓冲区",
+            "所有中间链路绝不拥塞",
+            "DNS缓存"
+          ],
+          "answer": 1,
+          "explanation": "接收窗口反映接收端可接收能力，与拥塞窗口职责不同。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-34",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "UDP首部长度通常为：",
+          "type": "single",
+          "options": [
+            "40B",
+            "由数据内容任意决定",
+            "8B",
+            "20B"
+          ],
+          "answer": 2,
+          "explanation": "源端口、目的端口、长度、校验和各2B。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-7",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "收到乱序后续字节，采用累计确认且前面仍有缺口，ACK通常：",
+          "type": "single",
+          "options": [
+            "置为段长",
+            "变为MAC广播",
+            "直接跳到最高已见字节之后",
+            "停在首个缺失字节"
+          ],
+          "answer": 3,
+          "explanation": "累计确认不能越过空洞；SACK可补充报告块但不改变累计ACK含义。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-35",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "UDP长度字段包含：",
+          "type": "single",
+          "options": [
+            "仅目的端口",
+            "UDP首部与UDP数据",
+            "仅IP首部",
+            "整个以太网前导码"
+          ],
+          "answer": 1,
+          "explanation": "不能把UDP长度直接当应用载荷。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-6",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP累计ACK号表示：",
+          "type": "single",
+          "options": [
+            "下一个期待的字节序号",
+            "已收到段的个数",
+            "重传次数",
+            "最后一个字节本身的序号"
+          ],
+          "answer": 0,
+          "explanation": "ACK=n表示此前连续字节已收到，下一缺口从n开始。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-36",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP存在端口号的主要用途之一为：",
+          "type": "single",
+          "options": [
+            "标识传输端点中的进程/服务关系",
+            "表示路由跳数",
+            "决定光速",
+            "替代全部应用消息格式"
+          ],
+          "answer": 0,
+          "explanation": "端口用于复用分用，但不是完整应用协议。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-5",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP序号一般给什么编号？",
+          "type": "single",
+          "options": [
+            "字节位置",
+            "整个应用文件名",
+            "以太网交换端口",
+            "主机MAC顺序"
+          ],
+          "answer": 0,
+          "explanation": "有数据的段SEQ表示该段首个数据字节的序号。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-37",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "拥塞窗口单位用MSS描述时，在换算字节量前需要知道：",
+          "type": "single",
+          "options": [
+            "VLAN总数",
+            "域名长度",
+            "ARP表老化周期",
+            "每个MSS对应的字节数"
+          ],
+          "answer": 3,
+          "explanation": "窗口单位与字节序号的单位不能混算。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-4",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "服务端同时与多名客户通信，TCP连接通常不能只用哪个单独字段区分？",
+          "type": "single",
+          "options": [
+            "双端IP和端口",
+            "服务器端口",
+            "源目的IP和源目的端口的组合",
+            "连接四元组"
+          ],
+          "answer": 1,
+          "explanation": "多条连接可共享服务器监听端口，需结合对端端点。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-38",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "SACK与累计ACK的关系通常为：",
+          "type": "single",
+          "options": [
+            "有SACK就不需序号",
+            "累计ACK自动改成包个数",
+            "SACK补充报告已收到的非连续区间",
+            "SACK把TCP改为不按序交付"
+          ],
+          "answer": 2,
+          "explanation": "接收区间信息帮助选择重传，累计ACK含义仍保留。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-3",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "UDP与TCP相比，UDP本身不提供：",
+          "type": "single",
+          "options": [
+            "可靠按序字节流交付",
+            "校验和机制",
+            "端口分用",
+            "长度字段"
+          ],
+          "answer": 0,
+          "explanation": "UDP保留数据报服务，不包含TCP式可靠按序字节流。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-39",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个应用把“没有数据可读”直接判断为对端已正常关闭，问题在于：",
+          "type": "single",
+          "options": [
+            "应用不应读取socket",
+            "暂时无数据与流结束是不同状态",
+            "TCP从不关闭",
+            "读取总应返回完整消息"
+          ],
+          "answer": 1,
+          "explanation": "需按实际接口区分暂不可读、超时、错误和EOF。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-2",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP应用一次send写入200B，对端一次recv：",
+          "type": "single",
+          "options": [
+            "可能只返回部分或合并更多字节",
+            "必按IP分片边界返回",
+            "等于建立200条连接",
+            "必恰好返回200B"
+          ],
+          "answer": 0,
+          "explanation": "TCP是字节流，应用调用边界不是接收消息边界。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-40",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "可靠传输会增加额外开销，但可靠性的本意是：",
+          "type": "single",
+          "options": [
+            "使所有时延都变0",
+            "在协议及环境条件下恢复差错/丢失并避免重复有序交付等",
+            "让物理信道永无噪声",
+            "保证应用永不出错"
+          ],
+          "answer": 1,
+          "explanation": "协议从不等于修改物理世界或包办应用正确性。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-1",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "网络层把数据交到主机之后，传输层还需解决：",
+          "type": "single",
+          "options": [
+            "按端口等信息交给对应进程",
+            "重新定义光纤速度",
+            "替交换机学习所有MAC",
+            "为每个比特分配物理位置"
+          ],
+          "answer": 0,
+          "explanation": "主机到进程的复用/分用是传输层的重要职责。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-44",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "FIN段SEQ=9000、无载荷，对方确认FIN的ACK为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "9001"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "FIN同样占1个序号。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-45",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP发送SEQ=2000、300B数据并带FIN，全部收到后确认号为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "2301"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "数据占300，FIN再占1。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-43",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "无数据的SYN段SEQ=3200，正常确认它的ACK为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "3201"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "SYN占1个序号。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-46",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "UDP总长88B，应用数据为____B。",
+          "type": "fill",
+          "answers": [
+            [
+              "80"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "减去8B首部。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-42",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收方已连续收到1000至1499字节，下一期待为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "1500"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "ACK指向下一个字节，不是已收末字节1499。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-47",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4 MTU1500B，IP首部20B、TCP首部32B，无其他开销，则最大TCP数据为____B。",
+          "type": "fill",
+          "answers": [
+            [
+              "1448"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "1500−20−32。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-41",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP段SEQ=700，载荷120B，不含SYN/FIN，最后一个数据字节序号为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "819"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "区间700至700+120−1。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-48",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "rwnd=9000B、cwnd=12000B、未确认数据4000B，其他条件不限制时还可发____B。",
+          "type": "fill",
+          "answers": [
+            [
+              "5000"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "min(9000,12000)−4000。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P-N-02",
+          "type": "fill",
+          "stem": "链路速率为8 Mb/s，应用数据600字节，协议总开销40字节。整个分组发送时间为____ms（十进制）。",
+          "answers": [
+            [
+              "0.64"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "总640字节，5120bit/8Mb/s=0.64ms。",
+          "chapter": 3,
+          "coding": false,
+          "practiceWeight": 3,
+          "section": "填空题",
+          "points": 1
+        },
+        {
+          "id": "P3-network-3-49",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "cwnd=7MSS，每MSS1200B，则窗口为____B。",
+          "type": "fill",
+          "answers": [
+            [
+              "8400"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "7×1200。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 1
+        },
+        {
+          "id": "3-01",
+          "chapter": 3,
+          "type": "fill",
+          "title": "确认号与重传",
+          "topic": "确认号与重传",
+          "stem": "甲向乙发送三个连续TCP数据段，首段序号为1200，三段数据长度依次为300 B、200 B、100 B，均不含SYN或FIN。乙按序收到第一段，第二段丢失，第三段已缓存。乙发送累积确认，且不考虑其他交互。第三段到达后乙发出的确认号为____；第二段重传并被收到后，确认号为____。",
+          "priority": "重点",
+          "difficulty": "基础",
+          "points": 1,
+          "revision": 1,
+          "explanation": "1500；1800。累积确认号指向下一个缺失字节；收到乱序第三段不能跨过空洞确认。重传补洞后连同已缓存数据一起推进。考查序号区间、乱序缓存和累积确认关系，不依赖用户以前作答。",
+          "source": {
+            "book": "当前课程知识体系 · 独立编写",
+            "ppt": "计算机网络课程课件"
+          },
+          "answers": [
+            [
+              "1500"
+            ],
+            [
+              "1800"
+            ]
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "section": "填空题"
+        },
+        {
+          "id": "P-N-04",
+          "type": "short",
+          "stem": "服务器接收缓冲区很大，但网络突然拥塞。解释为何仅使用接收窗口不能避免网络中间节点过载。",
+          "model": "接收窗口反映接收端缓存能力，不能描述路径中间路由器队列；拥塞控制依据网络反馈约束发送量，与接收方流量控制共同作用。",
+          "rubric": [
+            "端点缓存与路径资源不同",
+            "说明两种窗口共同约束"
+          ],
+          "chapter": 3,
+          "coding": false,
+          "practiceWeight": 3,
+          "section": "计算题",
+          "points": 1
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P3-network-3-21": 2,
+        "P3-network-3-20": 3,
+        "P3-network-3-22": 1,
+        "P3-network-3-19": 3,
+        "P3-network-3-23": 0,
+        "P3-network-3-18": 0,
+        "P3-network-3-24": 3,
+        "P3-network-3-17": 1,
+        "P3-network-3-25": 2,
+        "P3-network-3-16": 3,
+        "P3-network-3-26": 2,
+        "P3-network-3-15": 3,
+        "P3-network-3-27": 0,
+        "P3-network-3-14": 0,
+        "P3-network-3-28": 0,
+        "P3-network-3-13": 1,
+        "P3-network-3-29": 2,
+        "P3-network-3-12": 2,
+        "P3-network-3-30": 2,
+        "P3-network-3-11": 3,
+        "P3-network-3-31": 1,
+        "P3-network-3-10": 2,
+        "P3-network-3-32": 0,
+        "P3-network-3-9": 0,
+        "P3-network-3-33": 3,
+        "P3-network-3-8": 1,
+        "P3-network-3-34": 2,
+        "P3-network-3-7": 3,
+        "P3-network-3-35": 1,
+        "P3-network-3-6": 0,
+        "P3-network-3-36": 0,
+        "P3-network-3-5": 0,
+        "P3-network-3-37": 3,
+        "P3-network-3-4": 1,
+        "P3-network-3-38": 2,
+        "P3-network-3-3": 0,
+        "P3-network-3-39": 1,
+        "P3-network-3-2": 0,
+        "P3-network-3-40": 1,
+        "P3-network-3-1": 0,
+        "P3-network-3-44": [
+          "9001"
+        ],
+        "P3-network-3-45": [
+          "2301"
+        ],
+        "P3-network-3-43": [
+          "3201"
+        ],
+        "P3-network-3-46": [
+          "80"
+        ],
+        "P3-network-3-42": [
+          "1500"
+        ],
+        "P3-network-3-47": [
+          "1448"
+        ],
+        "P3-network-3-41": [
+          "819"
+        ],
+        "P3-network-3-48": [
+          "5000"
+        ],
+        "P-N-02": [
+          "0.64"
+        ],
+        "P3-network-3-49": [
+          "8400"
+        ],
+        "3-01": [
+          "1500",
+          "1800"
+        ],
+        "P-N-04": "接收窗口反映接收端缓存能力，不能描述路径中间路由器队列；拥塞控制依据网络反馈约束发送量，与接收方流量控制共同作用。"
+      },
+      "marks": {
+        "P3-network-3-21": 2,
+        "P3-network-3-20": 2,
+        "P3-network-3-22": 2,
+        "P3-network-3-19": 2,
+        "P3-network-3-23": 2,
+        "P3-network-3-18": 2,
+        "P3-network-3-24": 2,
+        "P3-network-3-17": 2,
+        "P3-network-3-25": 2,
+        "P3-network-3-16": 2,
+        "P3-network-3-26": 2,
+        "P3-network-3-15": 2,
+        "P3-network-3-27": 2,
+        "P3-network-3-14": 2,
+        "P3-network-3-28": 2,
+        "P3-network-3-13": 2,
+        "P3-network-3-29": 2,
+        "P3-network-3-12": 2,
+        "P3-network-3-30": 2,
+        "P3-network-3-11": 2,
+        "P3-network-3-31": 2,
+        "P3-network-3-10": 2,
+        "P3-network-3-32": 2,
+        "P3-network-3-9": 2,
+        "P3-network-3-33": 2,
+        "P3-network-3-8": 2,
+        "P3-network-3-34": 2,
+        "P3-network-3-7": 2,
+        "P3-network-3-35": 2,
+        "P3-network-3-6": 2,
+        "P3-network-3-36": 2,
+        "P3-network-3-5": 2,
+        "P3-network-3-37": 2,
+        "P3-network-3-4": 2,
+        "P3-network-3-38": 2,
+        "P3-network-3-3": 2,
+        "P3-network-3-39": 2,
+        "P3-network-3-2": 2,
+        "P3-network-3-40": 2,
+        "P3-network-3-1": 2,
+        "P3-network-3-44": 2,
+        "P3-network-3-45": 2,
+        "P3-network-3-43": 2,
+        "P3-network-3-46": 2,
+        "P3-network-3-42": 2,
+        "P3-network-3-47": 2,
+        "P3-network-3-41": 2,
+        "P3-network-3-48": 2,
+        "P-N-02": 1,
+        "P3-network-3-49": 1,
+        "3-01": 1,
+        "P-N-04": 1
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P3-network-3-21": 2,
+          "P3-network-3-20": 2,
+          "P3-network-3-22": 2,
+          "P3-network-3-19": 2,
+          "P3-network-3-23": 2,
+          "P3-network-3-18": 2,
+          "P3-network-3-24": 2,
+          "P3-network-3-17": 2,
+          "P3-network-3-25": 2,
+          "P3-network-3-16": 2,
+          "P3-network-3-26": 2,
+          "P3-network-3-15": 2,
+          "P3-network-3-27": 2,
+          "P3-network-3-14": 2,
+          "P3-network-3-28": 2,
+          "P3-network-3-13": 2,
+          "P3-network-3-29": 2,
+          "P3-network-3-12": 2,
+          "P3-network-3-30": 2,
+          "P3-network-3-11": 2,
+          "P3-network-3-31": 2,
+          "P3-network-3-10": 2,
+          "P3-network-3-32": 2,
+          "P3-network-3-9": 2,
+          "P3-network-3-33": 2,
+          "P3-network-3-8": 2,
+          "P3-network-3-34": 2,
+          "P3-network-3-7": 2,
+          "P3-network-3-35": 2,
+          "P3-network-3-6": 2,
+          "P3-network-3-36": 2,
+          "P3-network-3-5": 2,
+          "P3-network-3-37": 2,
+          "P3-network-3-4": 2,
+          "P3-network-3-38": 2,
+          "P3-network-3-3": 2,
+          "P3-network-3-39": 2,
+          "P3-network-3-2": 2,
+          "P3-network-3-40": 2,
+          "P3-network-3-1": 2,
+          "P3-network-3-44": 2,
+          "P3-network-3-45": 2,
+          "P3-network-3-43": 2,
+          "P3-network-3-46": 2,
+          "P3-network-3-42": 2,
+          "P3-network-3-47": 2,
+          "P3-network-3-41": 2,
+          "P3-network-3-48": 2,
+          "P-N-02": 1,
+          "P3-network-3-49": 1,
+          "3-01": 1,
+          "P-N-04": 1
+        },
+        "settledAt": 1794958243682
+      },
+      "subjectiveGradingVersion": 1,
+      "submittedAt": 2,
+      "expired": false,
+      "aiReviews": {
+        "P-N-04": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P-N-04",
+          "revision": 1,
+          "language": "c",
+          "answer": "接收窗口反映接收端缓存能力，不能描述路径中间路由器队列；拥塞控制依据网络反馈约束发送量，与接收方流量控制共同作用。",
+          "points": 1,
+          "score": 1,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "before-transport-20261118-2",
+      "kind": "chapter",
+      "subject": "network",
+      "paperId": "chapter-practice-network-3-1794958243680-5s0ah2",
+      "title": "第3章 运输层 · 章节练习",
+      "chapter": 3,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 51,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 16,
+          "code-fill": 0,
+          "analysis": 20,
+          "calculation": 15,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 51,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 16,
+            "code-fill": 0,
+            "analysis": 20,
+            "calculation": 15,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P3-network-3-58",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "延续前题，补齐2000至2199后且此前2200至2299已缓存，ACK变为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "2300"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "缺口补齐后连同缓存一起推进。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-57",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "采用累计ACK，已连续到1999、期待2000，此时收到SEQ=2200、长度100且缓存，ACK仍为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "2000"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "缺口未补齐，累计确认不越过它。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-59",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一条连接双向传输，A方向发送100B、B方向发送50B。两个方向的数据序号空间有____套（填1或2）。",
+          "type": "fill",
+          "answers": [
+            [
+              "2"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "双向各自独立编号，不能相加共用。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-56",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个不含SYN/FIN的相邻数据段，首段SEQ=500、长度200，后段SEQ应为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "700"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "后段首字节在前段之后。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-60",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "平滑RTT估计式Enew=0.75Eold+0.25Sample，旧估计80ms、新样本120ms，新估计____ms。",
+          "type": "fill",
+          "answers": [
+            [
+              "90"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "0.75×80+0.25×120。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-55",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP数据偏移字段为8，其首部长度为____B。",
+          "type": "fill",
+          "answers": [
+            [
+              "32"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "8×4，不能按8B。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-61",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "简化超时估计RTO=E+4D，E=60ms、偏差D=8ms，则RTO=____ms。",
+          "type": "fill",
+          "answers": [
+            [
+              "92"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "60+32；实际协议还可能有下限/粒度，本题按给定式。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-54",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个无选项TCP首部长度20B，数据偏移字段按4B计，字段值为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "5"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "20/4。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-62",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "指数退避从200ms起，每次超时翻倍且无上限，连续两次退避后的RTO为____ms。",
+          "type": "fill",
+          "answers": [
+            [
+              "800"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "200→400→800。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-53",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP序号按2^32循环，序号2^32−1之后的下一个序号为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "模2^32回绕。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-63",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有效窗口为24000B、RTT40ms，持续满窗且无其他限制，理想吞吐率为____Mb/s。",
+          "type": "fill",
+          "answers": [
+            [
+              "4.8"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "24000×8/0.04=4.8×10^6bit/s。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-52",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "拥塞避免初始cwnd=10MSS，每完整RTT加1，5轮全部确认后cwnd为____MSS。",
+          "type": "fill",
+          "answers": [
+            [
+              "15"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "10+5，不是10×2^5。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-64",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "需要至少3000个不同本地临时端口，提供50000至52999的闭区间是否足够？填可用数量____。",
+          "type": "fill",
+          "answers": [
+            [
+              "3000"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "52999−50000+1，恰好够；实际保留/占用另计。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-51",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "理想慢启动初始cwnd=1MSS，前三轮发送窗口依次为1、2、4，第三轮确认完成后cwnd为____MSS。",
+          "type": "fill",
+          "answers": [
+            [
+              "8"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "本题无阈值限制，按每轮倍增。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-65",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4中无选项IP首部20B、TCP首部20B，发100B应用数据形成IP总长____B。",
+          "type": "fill",
+          "answers": [
+            [
+              "140"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "100+20+20。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-50",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收缓存10000B，尚未被应用读走的数据占6500B，简化模型中的可用接收窗口为____B。",
+          "type": "fill",
+          "answers": [
+            [
+              "3500"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "总容量减占用。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-76",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收端缓冲很大且不丢包，TCP吞吐率仍较低，列举三种可能因素。",
+          "type": "short",
+          "model": "有效窗口与RTT、应用产生数据的速度、磁盘/CPU、路径瓶颈或协议等待均可能限制吞吐；大缓存不消除所有限制。",
+          "rubric": [
+            "至少三种因素",
+            "位置及因果清楚",
+            "不只归因网络带宽"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-75",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "将慢启动理解成“开始时总是比拥塞避免更慢”有什么问题？",
+          "type": "short",
+          "model": "“慢”相对直接把大窗口灌入网络而言；理想慢启动按轮指数增长，拥塞避免按轮线性增长，不能只凭名称比较增长率。",
+          "rubric": [
+            "名称语境",
+            "指数与线性",
+            "明确比较条件"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-77",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "为什么大RTT路径常需要更大在途窗口才能充分利用同一条链路？",
+          "type": "short",
+          "model": "数据发送后要经过更长反馈时间才能释放窗口；若窗口太小会在确认返回前发空可用额度而等待。所需在途量约速率乘RTT。",
+          "rubric": [
+            "反馈等待",
+            "窗口受限",
+            "带宽时延积"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-74",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "为什么发送方重传的是“同一批字节”，而不能给它分配全新的数据序号？",
+          "type": "short",
+          "model": "序号标识流中位置，重传需填补原缺口。换成新序号会被当成后续新数据，原空洞仍未解决。",
+          "rubric": [
+            "字节位置标识",
+            "填补缺口",
+            "错误重编号后果"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-78",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "把拥塞控制去掉，单个应用短期或许更快，为什么不能据此推荐所有应用都这样做？",
+          "type": "short",
+          "model": "共享网络存在外部性，多个不受控发送源可加剧队列、丢失和无用重传，整体有效吞吐与公平性可能下降。",
+          "rubric": [
+            "单流与群体区别",
+            "拥塞反馈机制",
+            "整体与公平性"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-73",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收窗口为0时，为什么立即关闭连接不是唯一合理选择？",
+          "type": "short",
+          "model": "零窗口可能只是应用暂时没读取缓存，之后可重新开放；发送端按协议暂停普通新数据并使用窗口探测，连接仍可保留。",
+          "rubric": [
+            "暂时背压",
+            "暂停而非强灌",
+            "探测恢复"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-79",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "为什么TCP收到的FIN必须按序处理，不能无视此前的数据缺口直接宣布整个接收流结束？",
+          "type": "short",
+          "model": "FIN位于特定序号位置，表示此前数据之后的结束。缺口未补齐就结束会丢弃还应交付的字节，违反可靠有序流语义。",
+          "rubric": [
+            "FIN序号位置",
+            "保留前序数据",
+            "有序结束"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-72",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个TCP数据段的ACK丢失，但后续更大ACK到达，为什么计时器不必总等待该旧ACK重现？",
+          "type": "short",
+          "model": "累计确认覆盖此前全部连续字节，旧段已被间接确认，可推进发送基序号并按协议管理计时器。",
+          "rubric": [
+            "累计覆盖",
+            "推进已确认边界",
+            "不要求逐段ACK配对"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-80",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "比较正常FIN关闭与RST中止，不要仅说“都关闭”。",
+          "type": "short",
+          "model": "FIN表示一个方向数据正常结束并参与序号确认；RST用于重置/中止连接，可能使未完成数据和应用操作报错，不能当作可靠完成通知。",
+          "rubric": [
+            "有序半关闭",
+            "中止语义",
+            "应用完成不能等同"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-71",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP确认到接收方并不保证业务只执行一次。说明断线重试如何导致重复业务，以及应用如何处理。",
+          "type": "short",
+          "model": "请求可能已执行但业务回复在返回途中丢失，客户端重建连接重发会形成新请求；应使用业务请求ID、幂等键、事务去重等。",
+          "rubric": [
+            "执行与回复失败区分",
+            "应用重试是新流量",
+            "幂等去重"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-81",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "RTT测量中，原段与重传段都可能在途，ACK到达后为何容易算错样本？",
+          "type": "short",
+          "model": "不知道ACK确认的是较早发送还是较晚重传，两个起点产生不同RTT；需按协议避免不明确样本或借助额外时间戳信息。",
+          "rubric": [
+            "两个候选起点",
+            "样本歧义",
+            "合理处理机制"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-70",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "流量控制与拥塞控制都可能减小发送窗口，如何根据位置与目的区分？",
+          "type": "short",
+          "model": "流控保护接收端缓冲和消费能力；拥塞控制限制路径负载。二者同时约束，接收能力大并不能保证中间网络不拥塞。",
+          "rubric": [
+            "端点缓冲",
+            "网络路径",
+            "共同约束"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-82",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "UDP应用若决定自行做可靠传输，除了重发还应考虑哪些机制？",
+          "type": "short",
+          "model": "检测差错/缺失、超时反馈、序号与去重、乱序缓存或交付约定、流控与拥塞控制等；仅无限重发不构成完善可靠协议。",
+          "rubric": [
+            "检测与反馈",
+            "序号去重及次序",
+            "资源和拥塞约束"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-69",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "为什么重传超时应适应RTT变化，而不是全网所有连接设同一极短值？",
+          "type": "short",
+          "model": "路径距离、排队和处理不同，过短误重传，过长延缓恢复；估计RTT及波动有助平衡两类风险。",
+          "rubric": [
+            "路径差异",
+            "短/长风险",
+            "自适应理由"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-83",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "为什么不能把TCP的MSS直接设成链路MTU数值而不扣首部？",
+          "type": "short",
+          "model": "MSS只计TCP数据；IP和TCP首部也要放进网络层包，直接用MTU作数据量会超限，可能分片或无法通过。",
+          "rubric": [
+            "MSS数据范围",
+            "首部占容量",
+            "超限后果"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-68",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收端已收到后续数据但一直回相同累计ACK，发送端能从中得到哪些信息，又不能绝对断定什么？",
+          "type": "short",
+          "model": "可以知道前一连续缺口未补齐，并可能推断后续有到达；不能仅凭相同ACK绝对断定原段永久丢失，也可能只是乱序。",
+          "rubric": [
+            "首缺口",
+            "后续到达线索",
+            "丢失与乱序区分"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-84",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "SACK显示高序号字节已收到，而累计ACK仍较小，两个信息是否矛盾？",
+          "type": "short",
+          "model": "不矛盾。累计ACK指首个连续缺口；SACK报告缺口后已收到的块，接收方可保留它们等待前面补齐。",
+          "rubric": [
+            "累计边界",
+            "非连续块",
+            "补缺口再交付"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-67",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "相同的端口号可在不同主机或TCP/UDP中出现，为什么通常不构成冲突？",
+          "type": "short",
+          "model": "端口在主机及传输协议上下文内解释；连接还结合对端IP端口。仅数字相同不表示同一传输端点。",
+          "rubric": [
+            "作用域",
+            "协议区分",
+            "端点组合"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-85",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个大文件分多次send，并在最后发完后立即关闭套接字，应用如何知道远端真的处理完成？",
+          "type": "short",
+          "model": "仅本地写入成功或正常关闭不等于远端业务完成；若需要处理成功保证，应在应用协议中等待远端完成回复并定义重试/去重。",
+          "rubric": [
+            "本地缓冲与远端接收区别",
+            "接收与处理区别",
+            "应用确认设计"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-66",
+          "chapter": 3,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP为什么不能单靠“接收到一个数据段”就判断一条应用消息结束？给出一种可行的消息边界方案。",
+          "type": "short",
+          "model": "TCP只保证字节流，分段与应用写入边界不绑定；应用可用长度前缀、明确分隔符或固定长度记录，并正确处理半包/粘连。",
+          "rubric": [
+            "字节流性质",
+            "一种明确协议",
+            "不假定一次recv完整"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-93",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "某段首发t=0，超时值100ms；首次超时重传并将下一超时翻倍，若第二次也超时，再重传。分别写两次重传时刻；不要把超时值当绝对时刻。",
+          "type": "short",
+          "model": "第一次100ms；第二次从第一次重传起等200ms，在300ms。下一次等待若继续翻倍为400ms。",
+          "rubric": [
+            "相对间隔",
+            "100与300",
+            "超时起点重置"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-94",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一条连接已确认到ACK=5000，发送端已发至SEQ=6999（含），之后收到ACK=6200。新确认多少B？仍在途多少B？",
+          "type": "short",
+          "model": "新确认5000至6199共1200B；剩余6200至6999共800B。",
+          "rubric": [
+            "ACK含义",
+            "区间端点",
+            "1200与800"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-92",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "按给定平滑式Enew=0.875Eold+0.125Sample，旧E=100ms，连续样本140ms、60ms。逐次计算新E，保留到0.001ms。",
+          "type": "short",
+          "model": "第一次105ms；第二次0.875×105+0.125×60=99.375ms。第二次须用更新后的105。",
+          "rubric": [
+            "顺次更新",
+            "第一次105",
+            "第二次99.375"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-95",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "网络MTU1280B，使用IPv6基本首部40B、TCP首部20B，无扩展首部。MSS上限多少？应用传5000B最少需多少数据段，末段载荷多少？",
+          "type": "short",
+          "model": "MSS1220B，ceil(5000/1220)=5段；前4段4880B，末段120B。",
+          "rubric": [
+            "扣首部",
+            "向上取整5",
+            "末段120"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-91",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "理想拥塞避免初始8MSS，每轮发满且窗口轮末加1，4轮共发多少段？第4轮结束窗口多少？",
+          "type": "short",
+          "model": "轮初8、9、10、11，共38段，轮末12MSS。",
+          "rubric": [
+            "线性增长",
+            "求和38",
+            "结束12"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-96",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP一方向初始SYN序号为300，握手后发送共900B数据，再发送无数据FIN。求FIN的SEQ和对它的正常累计ACK。",
+          "type": "short",
+          "model": "首数据SEQ=301，900B为301至1200，FIN序号1201，确认ACK=1202。",
+          "rubric": [
+            "SYN推进1",
+            "900B区间",
+            "FIN再占1"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-90",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "理想慢启动初始1MSS，每轮发满并全确认，前5轮共可发多少段？第5轮确认后窗口多少？",
+          "type": "short",
+          "model": "每轮1、2、4、8、16，共31段；第五轮结束后32MSS。",
+          "rubric": [
+            "本轮发送与轮末窗口分开",
+            "等比求和31",
+            "轮末32"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-97",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "接收缓存12KB（1KB=1024B），已有8000B未读，应用读走3000B，期间又收到2000B新数据。按简化空间模型，当前接收窗口多少B？",
+          "type": "short",
+          "model": "总12288B，占用8000−3000+2000=7000B，空余5288B。",
+          "rubric": [
+            "KB定义",
+            "占用状态更新",
+            "窗口5288"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-89",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "发送方rwnd=18MSS、cwnd=12MSS，已有9MSS未确认。只计算额度、不实际发送新数据：现在还能发多少？随后收到累计确认释放4MSS、cwnd不变且rwnd降为7MSS，又最多能发多少？",
+          "type": "short",
+          "model": "先min(18,12)−9=3MSS；若尚未发这3MSS，释放后未确认5MSS，额度min(7,12)−5=2MSS。题意按两次额度计算之间未新发数据。",
+          "rubric": [
+            "初始3",
+            "明确未新发前提",
+            "新状态2"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-98",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "UDP每次应用数据200B，UDP首部8B，IPv4首部20B；每秒发送500个数据报，无链路开销。求应用速率与IP层发送速率。",
+          "type": "short",
+          "model": "应用200×500×8=0.8Mb/s；IP总228×500×8=0.912Mb/s。",
+          "rubric": [
+            "统计层次",
+            "每包首部",
+            "两个速率"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-88",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有效窗口32000B、RTT80ms、瓶颈10Mb/s，忽略开销和丢失，求窗口限制吞吐率与实际理想上界；窗口至少多少B能达到10Mb/s？",
+          "type": "short",
+          "model": "窗口速率32000×8/0.08=3.2Mb/s，实际上界min(3.2,10)=3.2；满10Mb/s至少10^7×0.08/8=100000B。",
+          "rubric": [
+            "窗口/RTT",
+            "与瓶颈取小",
+            "100000B在途量"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-99",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "某TCP段SEQ=2^32−100，载荷160B且无SYN/FIN。按模2^32编号，完整收到后的ACK是多少？",
+          "type": "short",
+          "model": "序号推进160，(2^32−100+160) mod 2^32=60。需回绕，不能写超过32位的数。",
+          "rubric": [
+            "模编号",
+            "增160",
+            "ACK60"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-87",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "TCP客户SYN的SEQ=10000，服务器SYN+ACK的SEQ=40000。写服务器ACK、客户第三握手段的SEQ和ACK（均不带数据）。",
+          "type": "short",
+          "model": "服务器ACK=10001；客户第三段SEQ=10001、ACK=40001。两个方向各加各自SYN的1。",
+          "rubric": [
+            "两个独立序号空间",
+            "SYN各占1",
+            "三个字段"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-3-100",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "简化模型中RTT固定50ms，接收窗口8000B，MSS1000B，发送端每RTT发满且无其他限制。传80000B至少需几轮、理想数据吞吐率多少？",
+          "type": "short",
+          "model": "每轮8段=8000B，共10轮；稳态吞吐8000×8/0.05=1.28Mb/s。此模型只按完整窗口轮次，不额外计握手。",
+          "rubric": [
+            "每轮容量",
+            "10轮",
+            "速率1.28及忽略项"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 1
+        },
+        {
+          "id": "P3-network-3-86",
+          "chapter": 3,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "A按序发三段，首段SEQ=800，载荷依次150、250、100B。第二段丢失，第三段缓存；求第三段SEQ、此时累计ACK、补齐第二段后的ACK。",
+          "type": "short",
+          "model": "第三段SEQ=1200；第一段收至949，ACK=950；补齐后连续至1299，ACK=1300。",
+          "rubric": [
+            "逐段区间",
+            "缺口950",
+            "缓存推进1300"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 1
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P3-network-3-58": [
+          "2300"
+        ],
+        "P3-network-3-57": [
+          "2000"
+        ],
+        "P3-network-3-59": [
+          "2"
+        ],
+        "P3-network-3-56": [
+          "700"
+        ],
+        "P3-network-3-60": [
+          "90"
+        ],
+        "P3-network-3-55": [
+          "32"
+        ],
+        "P3-network-3-61": [
+          "92"
+        ],
+        "P3-network-3-54": [
+          "5"
+        ],
+        "P3-network-3-62": [
+          "800"
+        ],
+        "P3-network-3-53": [
+          "0"
+        ],
+        "P3-network-3-63": [
+          "4.8"
+        ],
+        "P3-network-3-52": [
+          "15"
+        ],
+        "P3-network-3-64": [
+          "3000"
+        ],
+        "P3-network-3-51": [
+          "8"
+        ],
+        "P3-network-3-65": [
+          "140"
+        ],
+        "P3-network-3-50": [
+          "3500"
+        ],
+        "P3-network-3-76": "有效窗口与RTT、应用产生数据的速度、磁盘/CPU、路径瓶颈或协议等待均可能限制吞吐；大缓存不消除所有限制。",
+        "P3-network-3-75": "“慢”相对直接把大窗口灌入网络而言；理想慢启动按轮指数增长，拥塞避免按轮线性增长，不能只凭名称比较增长率。",
+        "P3-network-3-77": "数据发送后要经过更长反馈时间才能释放窗口；若窗口太小会在确认返回前发空可用额度而等待。所需在途量约速率乘RTT。",
+        "P3-network-3-74": "序号标识流中位置，重传需填补原缺口。换成新序号会被当成后续新数据，原空洞仍未解决。",
+        "P3-network-3-78": "共享网络存在外部性，多个不受控发送源可加剧队列、丢失和无用重传，整体有效吞吐与公平性可能下降。",
+        "P3-network-3-73": "零窗口可能只是应用暂时没读取缓存，之后可重新开放；发送端按协议暂停普通新数据并使用窗口探测，连接仍可保留。",
+        "P3-network-3-79": "FIN位于特定序号位置，表示此前数据之后的结束。缺口未补齐就结束会丢弃还应交付的字节，违反可靠有序流语义。",
+        "P3-network-3-72": "累计确认覆盖此前全部连续字节，旧段已被间接确认，可推进发送基序号并按协议管理计时器。",
+        "P3-network-3-80": "FIN表示一个方向数据正常结束并参与序号确认；RST用于重置/中止连接，可能使未完成数据和应用操作报错，不能当作可靠完成通知。",
+        "P3-network-3-71": "请求可能已执行但业务回复在返回途中丢失，客户端重建连接重发会形成新请求；应使用业务请求ID、幂等键、事务去重等。",
+        "P3-network-3-81": "不知道ACK确认的是较早发送还是较晚重传，两个起点产生不同RTT；需按协议避免不明确样本或借助额外时间戳信息。",
+        "P3-network-3-70": "流控保护接收端缓冲和消费能力；拥塞控制限制路径负载。二者同时约束，接收能力大并不能保证中间网络不拥塞。",
+        "P3-network-3-82": "检测差错/缺失、超时反馈、序号与去重、乱序缓存或交付约定、流控与拥塞控制等；仅无限重发不构成完善可靠协议。",
+        "P3-network-3-69": "路径距离、排队和处理不同，过短误重传，过长延缓恢复；估计RTT及波动有助平衡两类风险。",
+        "P3-network-3-83": "MSS只计TCP数据；IP和TCP首部也要放进网络层包，直接用MTU作数据量会超限，可能分片或无法通过。",
+        "P3-network-3-68": "可以知道前一连续缺口未补齐，并可能推断后续有到达；不能仅凭相同ACK绝对断定原段永久丢失，也可能只是乱序。",
+        "P3-network-3-84": "不矛盾。累计ACK指首个连续缺口；SACK报告缺口后已收到的块，接收方可保留它们等待前面补齐。",
+        "P3-network-3-67": "端口在主机及传输协议上下文内解释；连接还结合对端IP端口。仅数字相同不表示同一传输端点。",
+        "P3-network-3-85": "仅本地写入成功或正常关闭不等于远端业务完成；若需要处理成功保证，应在应用协议中等待远端完成回复并定义重试/去重。",
+        "P3-network-3-66": "TCP只保证字节流，分段与应用写入边界不绑定；应用可用长度前缀、明确分隔符或固定长度记录，并正确处理半包/粘连。",
+        "P3-network-3-93": "第一次100ms；第二次从第一次重传起等200ms，在300ms。下一次等待若继续翻倍为400ms。",
+        "P3-network-3-94": "新确认5000至6199共1200B；剩余6200至6999共800B。",
+        "P3-network-3-92": "第一次105ms；第二次0.875×105+0.125×60=99.375ms。第二次须用更新后的105。",
+        "P3-network-3-95": "MSS1220B，ceil(5000/1220)=5段；前4段4880B，末段120B。",
+        "P3-network-3-91": "轮初8、9、10、11，共38段，轮末12MSS。",
+        "P3-network-3-96": "首数据SEQ=301，900B为301至1200，FIN序号1201，确认ACK=1202。",
+        "P3-network-3-90": "每轮1、2、4、8、16，共31段；第五轮结束后32MSS。",
+        "P3-network-3-97": "总12288B，占用8000−3000+2000=7000B，空余5288B。",
+        "P3-network-3-89": "先min(18,12)−9=3MSS；若尚未发这3MSS，释放后未确认5MSS，额度min(7,12)−5=2MSS。题意按两次额度计算之间未新发数据。",
+        "P3-network-3-98": "应用200×500×8=0.8Mb/s；IP总228×500×8=0.912Mb/s。",
+        "P3-network-3-88": "窗口速率32000×8/0.08=3.2Mb/s，实际上界min(3.2,10)=3.2；满10Mb/s至少10^7×0.08/8=100000B。",
+        "P3-network-3-99": "序号推进160，(2^32−100+160) mod 2^32=60。需回绕，不能写超过32位的数。",
+        "P3-network-3-87": "服务器ACK=10001；客户第三段SEQ=10001、ACK=40001。两个方向各加各自SYN的1。",
+        "P3-network-3-100": "每轮8段=8000B，共10轮；稳态吞吐8000×8/0.05=1.28Mb/s。此模型只按完整窗口轮次，不额外计握手。",
+        "P3-network-3-86": "第三段SEQ=1200；第一段收至949，ACK=950；补齐后连续至1299，ACK=1300。"
+      },
+      "marks": {
+        "P3-network-3-58": 2,
+        "P3-network-3-57": 2,
+        "P3-network-3-59": 2,
+        "P3-network-3-56": 2,
+        "P3-network-3-60": 2,
+        "P3-network-3-55": 2,
+        "P3-network-3-61": 2,
+        "P3-network-3-54": 2,
+        "P3-network-3-62": 2,
+        "P3-network-3-53": 2,
+        "P3-network-3-63": 2,
+        "P3-network-3-52": 2,
+        "P3-network-3-64": 2,
+        "P3-network-3-51": 2,
+        "P3-network-3-65": 2,
+        "P3-network-3-50": 2,
+        "P3-network-3-76": 2,
+        "P3-network-3-75": 2,
+        "P3-network-3-77": 2,
+        "P3-network-3-74": 2,
+        "P3-network-3-78": 2,
+        "P3-network-3-73": 2,
+        "P3-network-3-79": 2,
+        "P3-network-3-72": 2,
+        "P3-network-3-80": 2,
+        "P3-network-3-71": 2,
+        "P3-network-3-81": 2,
+        "P3-network-3-70": 2,
+        "P3-network-3-82": 2,
+        "P3-network-3-69": 2,
+        "P3-network-3-83": 2,
+        "P3-network-3-68": 2,
+        "P3-network-3-84": 2,
+        "P3-network-3-67": 2,
+        "P3-network-3-85": 2,
+        "P3-network-3-66": 2,
+        "P3-network-3-93": 2,
+        "P3-network-3-94": 2,
+        "P3-network-3-92": 2,
+        "P3-network-3-95": 2,
+        "P3-network-3-91": 2,
+        "P3-network-3-96": 2,
+        "P3-network-3-90": 2,
+        "P3-network-3-97": 2,
+        "P3-network-3-89": 2,
+        "P3-network-3-98": 2,
+        "P3-network-3-88": 2,
+        "P3-network-3-99": 2,
+        "P3-network-3-87": 2,
+        "P3-network-3-100": 1,
+        "P3-network-3-86": 1
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P3-network-3-58": 2,
+          "P3-network-3-57": 2,
+          "P3-network-3-59": 2,
+          "P3-network-3-56": 2,
+          "P3-network-3-60": 2,
+          "P3-network-3-55": 2,
+          "P3-network-3-61": 2,
+          "P3-network-3-54": 2,
+          "P3-network-3-62": 2,
+          "P3-network-3-53": 2,
+          "P3-network-3-63": 2,
+          "P3-network-3-52": 2,
+          "P3-network-3-64": 2,
+          "P3-network-3-51": 2,
+          "P3-network-3-65": 2,
+          "P3-network-3-50": 2,
+          "P3-network-3-76": 2,
+          "P3-network-3-75": 2,
+          "P3-network-3-77": 2,
+          "P3-network-3-74": 2,
+          "P3-network-3-78": 2,
+          "P3-network-3-73": 2,
+          "P3-network-3-79": 2,
+          "P3-network-3-72": 2,
+          "P3-network-3-80": 2,
+          "P3-network-3-71": 2,
+          "P3-network-3-81": 2,
+          "P3-network-3-70": 2,
+          "P3-network-3-82": 2,
+          "P3-network-3-69": 2,
+          "P3-network-3-83": 2,
+          "P3-network-3-68": 2,
+          "P3-network-3-84": 2,
+          "P3-network-3-67": 2,
+          "P3-network-3-85": 2,
+          "P3-network-3-66": 2,
+          "P3-network-3-93": 2,
+          "P3-network-3-94": 2,
+          "P3-network-3-92": 2,
+          "P3-network-3-95": 2,
+          "P3-network-3-91": 2,
+          "P3-network-3-96": 2,
+          "P3-network-3-90": 2,
+          "P3-network-3-97": 2,
+          "P3-network-3-89": 2,
+          "P3-network-3-98": 2,
+          "P3-network-3-88": 2,
+          "P3-network-3-99": 2,
+          "P3-network-3-87": 2,
+          "P3-network-3-100": 1,
+          "P3-network-3-86": 1
+        },
+        "settledAt": 1794958243682
+      },
+      "subjectiveGradingVersion": 1,
+      "submittedAt": 2,
+      "expired": false,
+      "aiReviews": {
+        "P3-network-3-76": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-76",
+          "revision": 1,
+          "language": "c",
+          "answer": "有效窗口与RTT、应用产生数据的速度、磁盘/CPU、路径瓶颈或协议等待均可能限制吞吐；大缓存不消除所有限制。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-75": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-75",
+          "revision": 1,
+          "language": "c",
+          "answer": "“慢”相对直接把大窗口灌入网络而言；理想慢启动按轮指数增长，拥塞避免按轮线性增长，不能只凭名称比较增长率。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-77": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-77",
+          "revision": 1,
+          "language": "c",
+          "answer": "数据发送后要经过更长反馈时间才能释放窗口；若窗口太小会在确认返回前发空可用额度而等待。所需在途量约速率乘RTT。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-74": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-74",
+          "revision": 1,
+          "language": "c",
+          "answer": "序号标识流中位置，重传需填补原缺口。换成新序号会被当成后续新数据，原空洞仍未解决。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-78": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-78",
+          "revision": 1,
+          "language": "c",
+          "answer": "共享网络存在外部性，多个不受控发送源可加剧队列、丢失和无用重传，整体有效吞吐与公平性可能下降。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-73": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-73",
+          "revision": 1,
+          "language": "c",
+          "answer": "零窗口可能只是应用暂时没读取缓存，之后可重新开放；发送端按协议暂停普通新数据并使用窗口探测，连接仍可保留。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-79": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-79",
+          "revision": 1,
+          "language": "c",
+          "answer": "FIN位于特定序号位置，表示此前数据之后的结束。缺口未补齐就结束会丢弃还应交付的字节，违反可靠有序流语义。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-72": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-72",
+          "revision": 1,
+          "language": "c",
+          "answer": "累计确认覆盖此前全部连续字节，旧段已被间接确认，可推进发送基序号并按协议管理计时器。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-80": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-80",
+          "revision": 1,
+          "language": "c",
+          "answer": "FIN表示一个方向数据正常结束并参与序号确认；RST用于重置/中止连接，可能使未完成数据和应用操作报错，不能当作可靠完成通知。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-71": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-71",
+          "revision": 1,
+          "language": "c",
+          "answer": "请求可能已执行但业务回复在返回途中丢失，客户端重建连接重发会形成新请求；应使用业务请求ID、幂等键、事务去重等。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-81": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-81",
+          "revision": 1,
+          "language": "c",
+          "answer": "不知道ACK确认的是较早发送还是较晚重传，两个起点产生不同RTT；需按协议避免不明确样本或借助额外时间戳信息。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-70": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-70",
+          "revision": 1,
+          "language": "c",
+          "answer": "流控保护接收端缓冲和消费能力；拥塞控制限制路径负载。二者同时约束，接收能力大并不能保证中间网络不拥塞。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-82": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-82",
+          "revision": 1,
+          "language": "c",
+          "answer": "检测差错/缺失、超时反馈、序号与去重、乱序缓存或交付约定、流控与拥塞控制等；仅无限重发不构成完善可靠协议。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-69": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-69",
+          "revision": 1,
+          "language": "c",
+          "answer": "路径距离、排队和处理不同，过短误重传，过长延缓恢复；估计RTT及波动有助平衡两类风险。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-83": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-83",
+          "revision": 1,
+          "language": "c",
+          "answer": "MSS只计TCP数据；IP和TCP首部也要放进网络层包，直接用MTU作数据量会超限，可能分片或无法通过。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-68": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-68",
+          "revision": 1,
+          "language": "c",
+          "answer": "可以知道前一连续缺口未补齐，并可能推断后续有到达；不能仅凭相同ACK绝对断定原段永久丢失，也可能只是乱序。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-84": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-84",
+          "revision": 1,
+          "language": "c",
+          "answer": "不矛盾。累计ACK指首个连续缺口；SACK报告缺口后已收到的块，接收方可保留它们等待前面补齐。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-67": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-67",
+          "revision": 1,
+          "language": "c",
+          "answer": "端口在主机及传输协议上下文内解释；连接还结合对端IP端口。仅数字相同不表示同一传输端点。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-85": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-85",
+          "revision": 1,
+          "language": "c",
+          "answer": "仅本地写入成功或正常关闭不等于远端业务完成；若需要处理成功保证，应在应用协议中等待远端完成回复并定义重试/去重。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-66": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-66",
+          "revision": 1,
+          "language": "c",
+          "answer": "TCP只保证字节流，分段与应用写入边界不绑定；应用可用长度前缀、明确分隔符或固定长度记录，并正确处理半包/粘连。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-93": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-93",
+          "revision": 1,
+          "language": "c",
+          "answer": "第一次100ms；第二次从第一次重传起等200ms，在300ms。下一次等待若继续翻倍为400ms。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-94": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-94",
+          "revision": 1,
+          "language": "c",
+          "answer": "新确认5000至6199共1200B；剩余6200至6999共800B。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-92": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-92",
+          "revision": 1,
+          "language": "c",
+          "answer": "第一次105ms；第二次0.875×105+0.125×60=99.375ms。第二次须用更新后的105。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-95": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-95",
+          "revision": 1,
+          "language": "c",
+          "answer": "MSS1220B，ceil(5000/1220)=5段；前4段4880B，末段120B。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-91": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-91",
+          "revision": 1,
+          "language": "c",
+          "answer": "轮初8、9、10、11，共38段，轮末12MSS。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-96": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-96",
+          "revision": 1,
+          "language": "c",
+          "answer": "首数据SEQ=301，900B为301至1200，FIN序号1201，确认ACK=1202。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-90": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-90",
+          "revision": 1,
+          "language": "c",
+          "answer": "每轮1、2、4、8、16，共31段；第五轮结束后32MSS。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-97": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-97",
+          "revision": 1,
+          "language": "c",
+          "answer": "总12288B，占用8000−3000+2000=7000B，空余5288B。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-89": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-89",
+          "revision": 1,
+          "language": "c",
+          "answer": "先min(18,12)−9=3MSS；若尚未发这3MSS，释放后未确认5MSS，额度min(7,12)−5=2MSS。题意按两次额度计算之间未新发数据。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-98": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-98",
+          "revision": 1,
+          "language": "c",
+          "answer": "应用200×500×8=0.8Mb/s；IP总228×500×8=0.912Mb/s。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-88": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-88",
+          "revision": 1,
+          "language": "c",
+          "answer": "窗口速率32000×8/0.08=3.2Mb/s，实际上界min(3.2,10)=3.2；满10Mb/s至少10^7×0.08/8=100000B。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-99": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-99",
+          "revision": 1,
+          "language": "c",
+          "answer": "序号推进160，(2^32−100+160) mod 2^32=60。需回绕，不能写超过32位的数。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-87": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-87",
+          "revision": 1,
+          "language": "c",
+          "answer": "服务器ACK=10001；客户第三段SEQ=10001、ACK=40001。两个方向各加各自SYN的1。",
+          "points": 2,
+          "score": 2,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-100": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-100",
+          "revision": 1,
+          "language": "c",
+          "answer": "每轮8段=8000B，共10轮；稳态吞吐8000×8/0.05=1.28Mb/s。此模型只按完整窗口轮次，不额外计握手。",
+          "points": 1,
+          "score": 1,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        },
+        "P3-network-3-86": {
+          "version": 1,
+          "grader": "codex",
+          "questionId": "P3-network-3-86",
+          "revision": 1,
+          "language": "c",
+          "answer": "第三段SEQ=1200；第一段收至949，ACK=950；补齐后连续至1299，ACK=1300。",
+          "points": 1,
+          "score": 1,
+          "feedback": "仅用于修前答卷兼容验证的模拟回执，不代表真实模型评阅。",
+          "criteria": [
+            {
+              "index": 0,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 1,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            },
+            {
+              "index": 2,
+              "verdict": "met",
+              "comment": "兼容性模拟评分点，非模型实评。"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

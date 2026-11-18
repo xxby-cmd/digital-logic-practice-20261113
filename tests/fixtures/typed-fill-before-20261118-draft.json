@@ -1,0 +1,1192 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "before-typed-structures-2",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-2-1794953099760-jb66i4",
+      "title": "第2章 线性表 · 章节练习",
+      "chapter": 2,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 4,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 4,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 4,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 4,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-2-F-005",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点的非循环单链表，首数据结点由head->____取得。",
+          "type": "fill",
+          "answers": [
+            [
+              "next"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "head本身是辅助结点，next才是第一项或NULL。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-2-F-002",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用不含重复值的线性表A=(4,1,7)、B=(1,2,4,9)表示两个集合。依次扫描B；只有当前值不在A中时才追加到A末尾，不排序。完成后A为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "4,1,7,2,9"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "1和4已在A中，不再追加；2和9按B中的顺序追加，A成为4,1,7,2,9。集合并去除重复，但不要求把原有次序变成升序。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-2-F-012",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "升序表A=(1,4,7)、B=(2,4,6)，保留重复项归并后的序列为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "1,2,4,4,6,7",
+              "1，2，4，4，6，7"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "依次取较小值，相等的两项都保留。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 25
+        },
+        {
+          "id": "P2-structures-2-9",
+          "chapter": 2,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点空单链表，head非空，常用的判空条件为____（填写C表达式）。",
+          "type": "fill",
+          "answers": [
+            [
+              "head->next==NULL",
+              "head->next==0",
+              "!head->next",
+              "(head->next==NULL)",
+              "(head->next)==NULL",
+              "NULL==head->next",
+              "0==head->next",
+              "!(head->next)"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "头结点存在不表示有数据结点，应检查其next。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 25
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-2-F-005": [
+          "next"
+        ],
+        "P4-structures-2-F-002": [
+          "4,1,7,2,9"
+        ],
+        "P4-structures-2-F-012": [
+          "1,2,4,4,6,7"
+        ],
+        "P2-structures-2-9": [
+          "head->next==NULL"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-2-F-005": "c",
+        "P4-structures-2-F-002": "c",
+        "P4-structures-2-F-012": "c",
+        "P2-structures-2-9": "c"
+      }
+    },
+    {
+      "id": "before-typed-structures-4",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-4-1794953099765-3rpgtp",
+      "title": "第4章 串 · 章节练习",
+      "chapter": 4,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 2,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 2,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 2,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 2,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-4-F-006",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "前缀函数π定义为每个前缀最长边界长度。模式abab的π依次为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0,0,1,2",
+              "0，0，1，2"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "a无非空边界，ab无，aba边界a，abab边界ab。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 50
+        },
+        {
+          "id": "P4-structures-4-F-003",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串banana中ana的全部1起始出现位置为____（逗号分隔，含重叠）。",
+          "type": "fill",
+          "answers": [
+            [
+              "2,4",
+              "2，4"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "第2至4项、第4至6项分别组成ana。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 50
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-4-F-006": [
+          "0,0,1,2"
+        ],
+        "P4-structures-4-F-003": [
+          "2,4"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-4-F-006": "c",
+        "P4-structures-4-F-003": "c"
+      }
+    },
+    {
+      "id": "before-typed-structures-5",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-5-1794953099769-l29cz3",
+      "title": "第5章 数组和广义表 · 章节练习",
+      "chapter": 5,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 1,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 1,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 1,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 1,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-5-F-010",
+          "chapter": 5,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个三元组(2,5,-4)表示第2行第5列的值为-4，转置后的对应三元组为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "(5,2,-4)",
+              "5,2,-4",
+              "（5，2，-4）"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "交换行列，数值不变。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 100
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-5-F-010": [
+          "(5,2,-4)"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-5-F-010": "c"
+      }
+    },
+    {
+      "id": "before-typed-structures-9",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-9-1794953099774-mwp2x2",
+      "title": "第9章 查找 · 章节练习",
+      "chapter": 9,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 1,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 1,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 1,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 1,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-9-F-014",
+          "chapter": 9,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "表长8、起点6、线性探测增量1，接下来的两个地址为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "7,0",
+              "7，0"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "按模8循环，6→7→0。",
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 100
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-9-F-014": [
+          "7,0"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-9-F-014": "c"
+      }
+    },
+    {
+      "id": "before-typed-structures-10",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-10-1794953099778-1xqez7",
+      "title": "第10章 内部排序 · 章节练习",
+      "chapter": 10,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 3,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 3,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 3,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 3,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-10-F-004",
+          "chapter": 10,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "[5,2,4,1]第一趟选择最小并换首项，结果____。",
+          "type": "fill",
+          "answers": [
+            [
+              "1,2,4,5",
+              "1，2，4，5"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "全段最小1位于末端，与5交换；恰一次全有序是样例巧合。",
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 34
+        },
+        {
+          "id": "P4-structures-10-F-010",
+          "chapter": 10,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "十进制LSD排序序列21,13,12按个位稳定一趟后为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "21,12,13",
+              "21，12，13"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "个位1、2、3依次收集。",
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 33
+        },
+        {
+          "id": "P4-structures-10-F-003",
+          "chapter": 10,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数组[3,2,1]从左向右升序冒泡一趟，状态为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "2,1,3",
+              "2，1，3"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "先交换3与2，再交换3与1，最大3到末尾。",
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 33
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-10-F-004": [
+          "1,2,4,5"
+        ],
+        "P4-structures-10-F-010": [
+          "21,12,13"
+        ],
+        "P4-structures-10-F-003": [
+          "2,1,3"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-10-F-004": "c",
+        "P4-structures-10-F-010": "c",
+        "P4-structures-10-F-003": "c"
+      }
+    },
+    {
+      "id": "before-typed-structures-11",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-11-1794953099783-322h8i",
+      "title": "第11章 外部排序 · 章节练习",
+      "chapter": 11,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 2,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 2,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 2,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 2,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-11-F-011",
+          "chapter": 11,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "容量2置换选择输入2,4,3,1，第一段为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "2,3,4",
+              "2，3，4"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "输出2补3活跃，输出3补1冻结，输出4后切段。",
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 50
+        },
+        {
+          "id": "P4-structures-11-F-006",
+          "chapter": 11,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "输入流A=(2,6)、B=(1,7)、C=(3,4)，输出1后，新的候选三元组按A,B,C顺序为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "2,7,3",
+              "2，7，3"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "1来自B，仅B候选前进到7，其他不变。",
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 50
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-11-F-011": [
+          "2,3,4"
+        ],
+        "P4-structures-11-F-006": [
+          "2,7,3"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-11-F-011": "c",
+        "P4-structures-11-F-006": "c"
+      }
+    },
+    {
+      "id": "before-typed-structures-12",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-12-1794953099788-2ljt5i",
+      "title": "第12章 文件 · 章节练习",
+      "chapter": 12,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 3,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 3,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 3,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 3,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-12-F-002",
+          "chapter": 12,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "全集ID为{1,2,3,4,5}，条件A={2,4}，NOT A为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "1,3,5",
+              "1，3，5"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "补集必须相对明确的全集计算。",
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 34
+        },
+        {
+          "id": "P4-structures-12-F-003",
+          "chapter": 12,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "P={1,2,5}、Q={2,3}，P且非Q的ID为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "1,5",
+              "1，5"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "集合差PQ，移除共同的2。",
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 33
+        },
+        {
+          "id": "P4-structures-12-F-001",
+          "chapter": 12,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "倒排表P=(2,6,9)、Q=(1,6,9,10)，交集为____（逗号分隔）。",
+          "type": "fill",
+          "answers": [
+            [
+              "6,9",
+              "6，9"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "两条件同时满足，仅6与9同时出现。",
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 33
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-12-F-002": [
+          "1,3,5"
+        ],
+        "P4-structures-12-F-003": [
+          "1,5"
+        ],
+        "P4-structures-12-F-001": [
+          "6,9"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-12-F-002": "c",
+        "P4-structures-12-F-003": "c",
+        "P4-structures-12-F-001": "c"
+      }
+    },
+    {
+      "id": "before-typed-network-control",
+      "kind": "chapter",
+      "subject": "network",
+      "paperId": "chapter-practice-network-control-1794953099791-7m6gtc",
+      "title": "第5章 网络层：控制平面 · 章节练习",
+      "chapter": "control",
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 1,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 1,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 1,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 1,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "NC7-network-control-F-005",
+          "chapter": "control",
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "AS65010把从外部学来的路径65020 65030向另一个外部邻居通告。本题采用在AS_PATH前加本AS号的普通序列形式，新AS_PATH依次为____（填写三个AS号）。",
+          "type": "fill",
+          "answers": [
+            [
+              "65010 65020 65030"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "外部再通告时把65010加到前面，记录这份可达信息经过的AS。不是把本AS放到最后，也不是用下一跳接口IP替换AS号。",
+          "coding": false,
+          "mechanism": "外部通告前置本AS",
+          "conceptGroup": "BGP",
+          "studyLevel": "core",
+          "studyWeight": 3,
+          "studyEvidence": "学校Ch4第139—153页；第7版5.4；RFC4271",
+          "source": {
+            "basis": "学校Ch4第139—153页；第7版5.4；RFC4271",
+            "origin": "依知识机制独立构造；未复制参考题"
+          },
+          "practiceWeight": 4.5,
+          "points": 100
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "NC7-network-control-F-005": [
+          "65010 65020 65030"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "NC7-network-control-F-005": "c"
+      }
+    },
+    {
+      "id": "before-typed-network-7",
+      "kind": "chapter",
+      "subject": "network",
+      "paperId": "chapter-practice-network-7-1794953099794-is75cf",
+      "title": "第7章 无线网络和移动网络 · 章节练习",
+      "chapter": 7,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 1,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 1,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 1,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 1,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P6-network-7-F-010",
+          "chapter": 7,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "双极性CDMA码c=(1,1,−1,−1)，数据符号d=−1。发送码片序列为____（逗号分隔，不写括号）。",
+          "type": "fill",
+          "answers": [
+            [
+              "-1,-1,1,1"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "逐项乘−1，把每个码片符号取反，得到−1、−1、1、1。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 100
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P6-network-7-F-010": [
+          "-1,-1,1,1"
+        ]
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P6-network-7-F-010": "c"
+      }
+    },
+    {
+      "id": "before-typed-digital-1",
+      "kind": "chapter",
+      "subject": "digital",
+      "paperId": "chapter-practice-digital-1-1794953099797-itpauy",
+      "title": "第1章 概述 · 章节练习",
+      "chapter": 1,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 7,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 4,
+          "code-fill": 0,
+          "analysis": 2,
+          "calculation": 0,
+          "design": 1,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 7,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 4,
+            "code-fill": 0,
+            "analysis": 2,
+            "calculation": 0,
+            "design": 1,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-digital-1-F-015",
+          "chapter": 1,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "二进制位b3b2b1b0=1010，标准反射格雷码g=b XOR(b右移1)，结果____。",
+          "type": "fill",
+          "answers": [
+            [
+              "1111"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "1010 XOR0101=1111，保留4位。",
+          "coding": false,
+          "practiceWeight": 1.2,
+          "points": 15
+        },
+        {
+          "id": "P4-digital-1-F-002",
+          "chapter": 1,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "二进制小数0.0001的十进制值为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0.0625"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "第4小数位权1/16=0.0625。",
+          "coding": false,
+          "practiceWeight": 1.2,
+          "points": 15
+        },
+        {
+          "id": "P4-digital-1-F-017",
+          "chapter": 1,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数据1100加偶校验位，使含校验位的1总数为偶数，校验位____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "原2个1已经为偶，不增加1。",
+          "coding": false,
+          "practiceWeight": 1.2,
+          "points": 14
+        },
+        {
+          "id": "P4-digital-1-F-001",
+          "chapter": 1,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "十进制等式(21)r=15成立且数字2合法，则基数r=____。",
+          "type": "fill",
+          "answers": [
+            [
+              "7"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "2r+1=15，r=7。",
+          "coding": false,
+          "practiceWeight": 1.2,
+          "points": 14
+        },
+        {
+          "id": "P4-digital-1-R-008",
+          "chapter": 1,
+          "section": "分析题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用4位补码计算0101+0100。写出保留4位的结果、对应真值，并判断是否溢出。",
+          "type": "short",
+          "model": "+5+4=+9不可表示，截位1001解释为-7。两正数相加得负号是本例有符号溢出判据；不能把1001按无符号9解释后说补码也没问题。",
+          "rubric": [
+            "9与-7",
+            "同号异结果",
+            "编码解释"
+          ],
+          "coding": false,
+          "practiceWeight": 1.2,
+          "points": 14
+        },
+        {
+          "id": "P4-digital-1-R-001",
+          "chapter": 1,
+          "section": "分析题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "将二进制数(10.01)₂转换为十进制数，写出按位权展开的过程。",
+          "type": "short",
+          "model": "正确为2+1/4=2.25。整数和小数位置的位权都由基数决定，二进制依次…4,2,1,1/2,1/4…，不是把数字符号原样当十进制。一般Σd_i r^i，小数位i为负。",
+          "rubric": [
+            "位权",
+            "2.25",
+            "一般规则"
+          ],
+          "coding": false,
+          "practiceWeight": 1.2,
+          "points": 14
+        },
+        {
+          "id": "P4-digital-1-C-014",
+          "chapter": 1,
+          "section": "综合应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "正逻辑表示报警A=1为高电平，另接口负逻辑表示报警B=1为低电平。两根线物理电压都高，分别应如何判报警？为什么不能把逻辑1等同于“报警一定有效”？",
+          "type": "short",
+          "model": "按给定含义，A高→A=1报警；B高→B=0不报警。逻辑值映射与业务有效条件由接口共同定义，若另把报警定义为低有效则需按其规则。只看物理高低或只看符号名称不能跨接口套结论。",
+          "rubric": [
+            "两个结果",
+            "逻辑映射",
+            "业务约定"
+          ],
+          "coding": false,
+          "practiceWeight": 1.2,
+          "points": 14
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-digital-1-F-015": [
+          "1111"
+        ],
+        "P4-digital-1-F-002": [
+          "0.0625"
+        ],
+        "P4-digital-1-F-017": [
+          "0"
+        ],
+        "P4-digital-1-F-001": [
+          "7"
+        ],
+        "P4-digital-1-R-008": "+5+4=+9不可表示，截位1001解释为-7。两正数相加得负号是本例有符号溢出判据；不能把1001按无符号9解释后说补码也没问题。",
+        "P4-digital-1-R-001": "正确为2+1/4=2.25。整数和小数位置的位权都由基数决定，二进制依次…4,2,1,1/2,1/4…，不是把数字符号原样当十进制。一般Σd_i r^i，小数位i为负。",
+        "P4-digital-1-C-014": "按给定含义，A高→A=1报警；B高→B=0不报警。逻辑值映射与业务有效条件由接口共同定义，若另把报警定义为低有效则需按其规则。只看物理高低或只看符号名称不能跨接口套结论。"
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-digital-1-F-015": "c",
+        "P4-digital-1-F-002": "c",
+        "P4-digital-1-F-017": "c",
+        "P4-digital-1-F-001": "c",
+        "P4-digital-1-R-008": "c",
+        "P4-digital-1-R-001": "c",
+        "P4-digital-1-C-014": "c"
+      }
+    }
+  ]
+}

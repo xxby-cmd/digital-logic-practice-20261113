@@ -1,0 +1,2418 @@
+{
+  "schema": 1,
+  "scope": "仅100道原创已交付题快照、31份未接入原创修订候选及本测试使用的必要审查元数据；不含学校原件或个人数据",
+  "sourceSnapshotSha256": "0c4e51029e163894a3ae2a513e1f80bdf6bcfaaac0ecfc7e0dad6ff883f7d0a3",
+  "candidateCanonicalSha256": "118f9c9432c40dd80ce718f3e6f433bb1c56d22737c0e085ff5a978965b343ca",
+  "sourceSnapshotRaw": "{\n  \"at\": \"2026-11-17T19:09:19.842Z\",\n  \"htmlSha256\": \"c48a0263772f359dfa0682502157fb1b3970798d40d6d0a8db42c7a966ddeff3\",\n  \"subject\": \"structures\",\n  \"chapter\": 3,\n  \"unit\": {\n    \"id\": 3,\n    \"name\": \"第3章 栈和队列\",\n    \"count\": 100,\n    \"target\": 100\n  },\n  \"questions\": [\n    {\n      \"id\": \"P3-structures-3-1\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"栈只允许在一端插入与删除，但可以采用顺序或链式存储。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"操作限制属于抽象结构，存储实现可不同。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-2\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"链栈入栈必须先从栈顶遍历到链尾。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"把链表头部作为栈顶即可O(1)入栈，无需尾遍历。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-3\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"顺序栈数组容量固定时，即使其他内存空闲，也可能发生该栈溢出。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"固定容量是该实现的限制，不等于整个进程没有剩余内存。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-4\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"对空栈执行弹出，必须按接口约定报告失败，不能读取不存在的元素。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"空栈下溢是边界条件，不能把未初始化数组项当数据。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-5\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"同一入栈序列的所有排列都是可能的出栈序列。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"后进先出约束排除部分排列，需模拟检验。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-6\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"队列总是先进先出，但普通队列也允许从队尾随意删除任意项。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"普通FIFO队列只在队尾入、队头出；双端队列是另一种操作约定。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-7\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列使用模运算回绕，不意味着数据元素必须在内存形成链式环。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"数组仍连续，只是下标逻辑循环。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-8\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"牺牲一个数组单元区分空满时，front==rear表示满队列。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"该约定下相等为空，(rear+1)%m==front为满。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-9\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"使用独立计数器的循环队列，可以不牺牲一个存储单元。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"计数器区分相同下标时空与满，容量可用全部单元。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-10\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"数组循环队列出队时必须把剩余元素整体前移。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"只推进队头下标，避免普通顺序表式移动。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-11\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"递归函数的活动记录通常按后进先出方式管理。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"后调用的函数先完成并返回上一层。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-12\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"只要一个函数用了循环，就不可能需要辅助栈。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"可显式用栈模拟递归或管理待处理任务。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-13\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"表达式中的左括号可作为运算符栈的边界标记。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"遇匹配右括号时弹出其内运算符直到左括号。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-14\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"后缀表达式可以不依靠普通优先级括号规则来确定二元运算次序。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"操作数/运算符的位置已编码求值结构，常用栈求值。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-15\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"后缀表达式遇到减法时，先弹出的数应作为左操作数。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"先弹出的是右操作数，再弹出才是左操作数。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-16\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"括号总数为偶数就能保证括号序列匹配。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"例如)(总数为2，却顺序错误。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-17\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"队列长度为1时，删除唯一元素后应同步维护队头和队尾的一致状态。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"链队列尤其需把尾指针恢复为空队约定，避免悬空。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-18\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"栈顶元素数值最大，因此栈可直接用于取最小值。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"栈顶表示最近入栈，不具有数值大小保证；可另加辅助结构。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-19\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"两个栈共享一个数组从两端向中间增长时，可在两栈之间动态共享剩余空间。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"碰撞前空闲区可被任一栈使用，不需事先固定两份容量。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-20\",\n      \"chapter\": 3,\n      \"section\": \"判断题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"环形数组下标回绕后，rear的数值小于front就一定是错误状态。\",\n      \"type\": \"single\",\n      \"options\": [\n        \"正确\",\n        \"错误\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"合法队列可以跨数组尾首两段，需按模计算长度。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-21\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"空栈依次push(2)、push(7)、pop、push(4)、pop，弹出序列为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"2,7\",\n        \"7,4\",\n        \"7,2\",\n        \"4,7\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"每次弹出当前栈顶，7先出，后入4再出，2留在底。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-22\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"入栈顺序1,2,3，允许入出交错，下列不可能的出栈序列为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"2,1,3\",\n        \"3,1,2\",\n        \"3,2,1\",\n        \"1,2,3\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"先出3需把1,2都压入，此时必须先出2再出1。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-23\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"顺序栈top指向当前栈顶、空为−1，入栈x的常见操作是：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"a[--top]=x\",\n        \"a[top]=x后不改top\",\n        \"a[top++]=x\",\n        \"a[++top]=x\"\n      ],\n      \"answer\": 3,\n      \"explanation\": \"先将−1推进到0再写，需先检查容量。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-24\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"top表示下一可写位置、空为0时，弹出的典型操作为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"a[top+1]\",\n        \"a[top--]\",\n        \"a[--top]\",\n        \"a[++top]\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"先减到最后已存项下标，再取数据；接口约定必须明确。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-25\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"链栈以不带头结点单链表头为top，入栈新结点s应：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"s->next=top;top=s;\",\n        \"top=s;s->next=top;\",\n        \"s->next=NULL;不改top\",\n        \"先释放top再访问它\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"先保存旧顶到s->next再更新top，不能形成自环或丢链。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-26\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"普通队列尾部入队的同时，其最早入队且未删除元素位于：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"队头\",\n        \"数组最大下标必然位置\",\n        \"任意中间位置\",\n        \"队尾\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"队头指向下一次出队对象，和物理数组端点不是一回事。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-27\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"数组长度m、牺牲一单元循环队列的满条件为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"rear==m\",\n        \"front==0\",\n        \"rear==front\",\n        \"(rear+1)%m==front\"\n      ],\n      \"answer\": 3,\n      \"explanation\": \"空相等，预留一格时尾再进1将碰头表示满。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-28\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列front指首元素、rear指下一可写位置，长度为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"m-front\",\n        \"rear-front总成立\",\n        \"(rear-front+m)%m\",\n        \"front+rear\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"用模处理跨数组尾部的情况，适用于牺牲一格约定。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-29\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"带头结点链队列空时，通常：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"front==rear且都指头结点\",\n        \"rear永远NULL且front指数据结点\",\n        \"front指第一个不存在的数组格\",\n        \"只能依靠所有data为0判断\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"头结点让空队列的队头队尾统一指向同一辅助结点。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-30\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"删除带头结点链队列的唯一数据结点后，应：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"令rear回到front所指头结点\",\n        \"让rear保留指向刚释放的结点\",\n        \"释放头结点且不重设front\",\n        \"令front跳过头结点\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"否则尾指针悬空，下一次入队可能访问已释放内存。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-31\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"用栈求后缀表达式6 2 / 3 +，结果为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"3\",\n        \"6\",\n        \"9\",\n        \"2\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"6/2=3，再加3得6；二元操作数顺序不可颠倒。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-32\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"中缀A+B*C的后缀表达式为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"A*BC+\",\n        \"ABC+*\",\n        \"AB+C*\",\n        \"ABC*+\"\n      ],\n      \"answer\": 3,\n      \"explanation\": \"乘法先于加法，先形成BC*再与A相加。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-33\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"中缀(A+B)*C的后缀为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"A+BC*\",\n        \"ABC*+\",\n        \"AB+C*\",\n        \"AB*C+\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"括号令A+B先完成。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-34\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"检验括号匹配时，看到右括号而栈为空，应：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"继续等待后面左括号来补\",\n        \"立即判定不匹配\",\n        \"把它当左括号压入\",\n        \"自动删除它且判成功\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"右括号必须匹配此前未闭合左括号，未来左括号不能补救。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-35\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"使用队列进行BFS时，结点何时标为已发现能避免重复入队？\",\n      \"type\": \"single\",\n      \"options\": [\n        \"每次出队后才标且允许重复进\",\n        \"永远不标\",\n        \"只在所有遍历结束时\",\n        \"第一次入队时\"\n      ],\n      \"answer\": 3,\n      \"explanation\": \"入队即标记，可避免多条边把同一待处理结点反复入队。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-36\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"把递归改成迭代且仍模拟原返回过程，常见需要保存：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"仅函数名字长度\",\n        \"完全不需要状态\",\n        \"待恢复的局部状态和返回位置\",\n        \"仅所有输入数字之和\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"显式栈应保存相当于活动记录的必要信息，而非只删递归调用。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-37\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"用两个栈实现FIFO队列，一种常见方式是：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"把两个栈各自排序\",\n        \"入栈in，出队时out为空才把in整体倒入out\",\n        \"每次都直接弹in\",\n        \"永远只压不弹\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"倒栈反转次序，out顶部变成最早进入队列的项。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-38\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"两个共享数组栈的空间耗尽条件通常是：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"两个栈顶相邻，再增长将相撞\",\n        \"任一栈达到数组中点就满\",\n        \"两栈元素值相等\",\n        \"任一栈为空\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"共享空间的边界是总占用，不是固定中点。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-39\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"普通FIFO队列适合直接表示：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"总是选关键字最小任务且不维护别的结构\",\n        \"任意撤销最近一次操作\",\n        \"任意优先级抢占\",\n        \"先到先处理的等待任务\"\n      ],\n      \"answer\": 3,\n      \"explanation\": \"优先队列、栈等有不同语义，FIFO不自动按值选择。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-40\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"撤销编辑操作常用栈，是利用：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"最早执行先撤销\",\n        \"数值最大先撤销\",\n        \"字符字典序\",\n        \"最近执行先撤销\"\n      ],\n      \"answer\": 3,\n      \"explanation\": \"操作历史逆序恢复符合LIFO。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-41\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列使用计数器count、容量m，满条件为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"rear==m必满\",\n        \"count==0\",\n        \"count==m\",\n        \"front==rear必满\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"计数器明确区分相同下标下的空满。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-42\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"链栈的正常入栈/出栈时间复杂度通常为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"O(n²)\",\n        \"O(1)\",\n        \"O(log n)\",\n        \"O(n)\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"头部改链接，忽略分配器实现成本的通常结构分析为常数。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-43\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"括号匹配算法采用栈而非只计数量，在多种括号混合时主要为记录：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"未匹配左括号的类型和嵌套顺序\",\n        \"全部字符ASCII和\",\n        \"只需记录总长度\",\n        \"仅右括号数量\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"([)]数量相等但嵌套类型顺序不匹配。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-44\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"一个栈按1,2,3,4入栈，想使2最先出栈，首步弹出后栈内自底向顶必为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"1\",\n        \"1,3\",\n        \"4,3,1\",\n        \"空\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"先入1,2，再弹2；3,4尚未入栈，否则挡住2。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-45\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"n次入队、n次出队采用数组循环队列，正常结构操作总时间为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"O(log n)\",\n        \"O(1)总时间\",\n        \"O(n)\",\n        \"O(n²)\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"每次O(1)，2n次累加O(n)。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-46\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"顺序栈弹出后不清除数组旧值，但正确减少top，后续逻辑栈：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"必须把全部数组置0才有效\",\n        \"不再包含该旧项\",\n        \"仍必包含旧项\",\n        \"马上变成链表\"\n      ],\n      \"answer\": 1,\n      \"explanation\": \"有效范围由top定义；是否清值是其他需求，不等于结构成员关系。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-47\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"队列只维护队头指针而没有队尾指针，若每次尾插都从头寻找尾，单次入队可能：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"O(n)\",\n        \"始终O(1)\",\n        \"必O(log n)\",\n        \"不可能实现\"\n      ],\n      \"answer\": 0,\n      \"explanation\": \"遍历成本不可由“链表改指针常数”省略。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-48\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"环形数组入队时若新rear计算漏掉取模，可能：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"必自动由C数组回绕\",\n        \"元素自动排好序\",\n        \"变为可靠传输协议\",\n        \"下标越过数组边界\"\n      ],\n      \"answer\": 3,\n      \"explanation\": \"C数组不会替程序执行模回绕，越界访问需避免。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-49\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"求括号序列的最大嵌套深度，匹配过程中可记录：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"所有右括号下标之和\",\n        \"只看总括号数除2\",\n        \"栈深度的最大值\",\n        \"最后一个字符的值\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"嵌套深度是同时未闭合左括号数的最大值。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-50\",\n      \"chapter\": 3,\n      \"section\": \"选择题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"单队列长度为0时执行peek读取队头，合理接口为：\",\n      \"type\": \"single\",\n      \"options\": [\n        \"默认所有队列都有整数0\",\n        \"自动分配一个假元素\",\n        \"报告为空，不把某个整数值当成所有情况通用失败标志\",\n        \"无条件返回数组第0项\"\n      ],\n      \"answer\": 2,\n      \"explanation\": \"元素可能恰为0或−1，宜用状态码加输出参数等明确区分。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-51\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"顺序栈top指当前顶、空为−1；已有7个元素，top为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"6\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"第一个元素下标0，7项顶下标6。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-52\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"数组容量12、top指当前顶且为8，还可压入____个元素。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"3\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"已用9格，可用12−9。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-53\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"top表示下一可写位置，值为5，则当前有____个元素。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"5\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"有效范围0至4。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-54\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"长度9的牺牲一格循环队列最多存____个元素。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"8\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"预留一格用于区分空满。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-55\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列m=10、front=8、rear=3，按首元素/下一可写约定，长度为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"5\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"(3−8+10)%10=5。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-56\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列m=7、rear=6，入队一次后rear为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"0\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"(6+1)%7。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-57\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列m=7、front=6，合法出队一次后front为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"0\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"队头同样按模推进。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-58\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"空栈依次入a,b,c，弹出两次后栈顶为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"a\"\n        ]\n      ],\n      \"formats\": [\n        \"text\"\n      ],\n      \"explanation\": \"依次弹c,b，剩a。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-59\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"后缀表达式8 3 - 2 *的值为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"10\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"先8−3=5，再乘2。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-60\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"后缀表达式2 3 4 * +的值为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"14\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"先3×4=12，再加2。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-61\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"中缀A*(B+C)的后缀为____（连写字母和运算符）。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"ABC+*\"\n        ]\n      ],\n      \"formats\": [\n        \"text\"\n      ],\n      \"explanation\": \"括号内加法先形成BC+。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-62\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"括号串(()(()))的最大嵌套深度为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"3\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"扫描未闭合数依次1,2,1,2,3,2,1,0。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-63\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"四个元素依次入栈再全部弹出，累计入栈/出栈操作次数为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"8\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"各4次。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-64\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"带计数器容量为6的循环队列，count=6时front与rear按模可能____（填相等或不等）。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"相等\"\n        ]\n      ],\n      \"formats\": [\n        \"text\"\n      ],\n      \"explanation\": \"满圈回到同一下标，靠count区分空满。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-65\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"两个栈共享容量20数组，分别已有6项和9项，尚可共同使用____格。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"5\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"20−6−9。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-66\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"链队列带头结点，空队列的数据结点数为____，通常结点总数为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"0\"\n        ],\n        [\n          \"1\"\n        ]\n      ],\n      \"formats\": [\n        \"number\",\n        \"number\"\n      ],\n      \"explanation\": \"辅助头结点不计入数据数量。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-67\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"遍历长度n的括号串，每字符进栈或出栈至多一次，最坏时间复杂度为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"O(n)\",\n          \"Θ(n)\"\n        ]\n      ],\n      \"formats\": [\n        \"text\"\n      ],\n      \"explanation\": \"总操作次数线性，最坏辅助空间也可为O(n)。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-68\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"后缀表达式含5个操作数、仅二元运算且合法完整，需要____个运算符。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"4\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"每次二元运算把栈中值数减少1，最终留1，故5−1。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-69\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"栈中从底至顶为4,1,9，连续peek两次且不弹出，之后元素数仍为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"3\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"peek只观察，不能把读取当删除。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-70\",\n      \"chapter\": 3,\n      \"section\": \"填空题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列m=8，front=2，长度5，rear指下一可写位置，应为____。\",\n      \"type\": \"fill\",\n      \"answers\": [\n        [\n          \"7\"\n        ]\n      ],\n      \"formats\": [\n        \"number\"\n      ],\n      \"explanation\": \"(2+5)%8。\",\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-71\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"模拟入栈顺序A,B,C,D，检验出栈B,D,C,A能否实现，给出一组操作。\",\n      \"type\": \"short\",\n      \"model\": \"可实现：入A、入B、出B、入C、入D、出D、出C、出A。每次目标都必须在栈顶，不可跳过中间项。\",\n      \"rubric\": [\n        \"按原序入栈\",\n        \"列出合法操作\",\n        \"验证栈顶限制\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-72\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"入栈顺序A,B,C,D，为什么出栈C,A,D,B不可能？指出首个矛盾。\",\n      \"type\": \"short\",\n      \"model\": \"要先出C，需先把A,B,C压入；弹C后栈顶是B，不可能跳过B直接弹A，故在第二个出栈项即矛盾。\",\n      \"rubric\": [\n        \"还原先出C条件\",\n        \"弹后顶为B\",\n        \"首矛盾定位\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-73\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列长度6、牺牲一格，front=4、rear=1。依次出队一次、入x、入y，写每步front/rear和最终长度。\",\n      \"type\": \"short\",\n      \"model\": \"初长3。出队后front=5,rear=1；入x后5,2；入y后5,3。最终(3−5+6)%6=4。\",\n      \"rubric\": [\n        \"区分头尾更新\",\n        \"模回绕\",\n        \"长度4\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-74\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"顺序栈top指当前顶，代码a[top++]=x用于空top=−1的栈，哪里错？给出正确入栈次序。\",\n      \"type\": \"short\",\n      \"model\": \"先使用−1下标导致越界。应先查满，再++top，再a[top]=x；或a[++top]=x。若约定top为下一可写位置则另论，不能混用约定。\",\n      \"rubric\": [\n        \"指出具体越界\",\n        \"检查容量\",\n        \"统一top约定\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-75\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"说明用两个栈实现FIFO队列的出队过程，为何只在输出栈为空时倒入？\",\n      \"type\": \"short\",\n      \"model\": \"in保存新入项；out非空时顶是更早的项，应先弹out。只有out空时才把in逐项弹入out，反转形成最早项在顶；过早混倒会破坏先后。\",\n      \"rubric\": [\n        \"两栈含义\",\n        \"反转顺序\",\n        \"不提前覆盖旧等待项\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-76\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"括号串([)]为何计数法可能误判，而类型栈能在何处拒绝？\",\n      \"type\": \"short\",\n      \"model\": \"左右数量均匹配，但读到)时栈顶是[，类型不符立即拒绝。仅计数量不能表示最近未闭合的类型。\",\n      \"rubric\": [\n        \"类型与顺序\",\n        \"拒绝位置\",\n        \"计数法局限\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-77\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"对后缀表达式9 4 1 + -逐步列出操作数栈，说明减法次序。\",\n      \"type\": \"short\",\n      \"model\": \"9后[9]，4后[9,4]，1后[9,4,1]，+得[9,5]，−先弹右5再弹左9，结果[4]。\",\n      \"rubric\": [\n        \"每步栈内容\",\n        \"先弹右操作数\",\n        \"最终4\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-78\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"把A−B−C转成后缀，并解释为什么不是A B C − −。\",\n      \"type\": \"short\",\n      \"model\": \"减法左结合，先(A−B)−C，后缀AB−C−。ABC−−表示A−(B−C)，一般不同。\",\n      \"rubric\": [\n        \"左结合\",\n        \"正确后缀\",\n        \"错误式不同树形\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-79\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"带头结点链队列最后一项被释放后，rear仍指原项。为什么下一次入队可能出错，如何修？\",\n      \"type\": \"short\",\n      \"model\": \"rear变成悬空指针，若通过rear->next接新结点会写已释放内存。删除时若目标就是rear，令rear=front所指头结点，再按统一尾插处理。\",\n      \"rubric\": [\n        \"悬空写风险\",\n        \"检测唯一尾项\",\n        \"恢复空队不变量\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-80\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"循环队列空满都可能出现front==rear，比较牺牲一格与计数器方案如何消除歧义。\",\n      \"type\": \"short\",\n      \"model\": \"牺牲一格让满状态停在rear下一格即front，最多m−1项；计数器允许m项，并用count=0/m区分相同下标的空满。\",\n      \"rubric\": [\n        \"两种判据\",\n        \"容量代价\",\n        \"不可混用公式\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-81\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"顺序栈扩容时不能只修改capacity而保留原数组，为什么？\",\n      \"type\": \"short\",\n      \"model\": \"capacity只是记录值，不会自动增加真实分配内存；需成功申请更大区域并保存原元素，失败时保持旧栈，避免按虚假容量越界写。\",\n      \"rubric\": [\n        \"逻辑容量与物理分配\",\n        \"迁移并维护top\",\n        \"失败保护\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-82\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"一个递归函数先调用f(n−1)，返回后打印n，初次f(4)，基例n=0直接返回。写输出及活动调用深度。\",\n      \"type\": \"short\",\n      \"model\": \"输出1,2,3,4；若把f(0)基例也计活动记录，最大5层，若只计非基例为4，需声明口径。先深后回溯决定输出顺序。\",\n      \"rubric\": [\n        \"回溯输出\",\n        \"1至4\",\n        \"深度口径\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-83\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"队列处理中，任务只在出队后标记已访问；若两个先处理节点都指向同一尚未出队任务，可能发生什么？\",\n      \"type\": \"short\",\n      \"model\": \"该任务可被重复入队，占用资源甚至重复执行；一般首次入队就标已发现，把已排队与已处理状态区分。\",\n      \"rubric\": [\n        \"重复排队路径\",\n        \"入队标记\",\n        \"发现与完成不同\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-84\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"共享数组双栈中一边持续增长、另一边空闲，相比预先固定各一半有什么优势？代价是什么？\",\n      \"type\": \"short\",\n      \"model\": \"一边可使用大部分未占空间，减少一侧假溢出；仍需维护两顶边界、总容量和互不覆盖，不意味着容量无限。\",\n      \"rubric\": [\n        \"动态共享\",\n        \"假溢出减少\",\n        \"碰撞保护\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-85\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"链栈每次push分配结点，顺序栈预先分配数组，两者如何比较空间使用和失败方式？\",\n      \"type\": \"short\",\n      \"model\": \"链栈随项数分配但有指针及分配开销，可能malloc失败；顺序栈连续且每项紧凑，但固定容量可能满，扩容需迁移。不能只说链栈永不溢出。\",\n      \"rubric\": [\n        \"开销结构\",\n        \"分配/容量失败\",\n        \"条件化比较\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-86\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"一个队列接口用−1表示出队失败，但队列允许保存任意int，存了−1时会有什么歧义？给出改进接口。\",\n      \"type\": \"short\",\n      \"model\": \"无法区分成功取到−1与失败。可返回状态码，元素通过int *out写回，失败不改out；或用含状态和值的返回结构。\",\n      \"rubric\": [\n        \"值域冲突\",\n        \"明确状态通道\",\n        \"失败时输出保护\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-87\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"括号匹配扫描结束时栈非空，即使途中没有右括号类型冲突，为何仍失败？\",\n      \"type\": \"short\",\n      \"model\": \"说明还有左括号未闭合，例如(()。局部每个右括号都能匹配不等于所有左括号也被匹配，结束必须检查空栈。\",\n      \"rubric\": [\n        \"未闭合左括号\",\n        \"具体反例\",\n        \"完整终止条件\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-88\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"用栈实现十进制正整数转二进制，为什么将除2余数压栈后再弹出，而非直接按计算顺序输出？\",\n      \"type\": \"short\",\n      \"model\": \"除2先得到最低有效位，再逐渐得到高位；输出需要高位在前，栈的逆序弹出正好反转。0需单独表示为0。\",\n      \"rubric\": [\n        \"余数方向\",\n        \"逆序作用\",\n        \"0边界\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-89\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"比较队列和双端队列，为什么不能把支持两端删除的实现结果拿来判断普通队列的出队合法性？\",\n      \"type\": \"short\",\n      \"model\": \"普通队列仅队头出，双端队列允许另一端操作，合法序列集合不同。应先固定抽象操作约定，再判断序列，不能用更强结构替代。\",\n      \"rubric\": [\n        \"操作集合不同\",\n        \"合法性依赖契约\",\n        \"先明确结构\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-90\",\n      \"chapter\": 3,\n      \"section\": \"应用题\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"两个栈实现队列，某次倒栈耗O(n)，为何一长串操作仍可有O(1)均摊成本？\",\n      \"type\": \"short\",\n      \"model\": \"每个元素至多压入in、弹出in、压入out、弹出out各一次，总次数与元素数线性；偶发集中成本摊到整串操作，不表示每次最坏都常数。\",\n      \"rubric\": [\n        \"逐元素计数\",\n        \"总成本线性\",\n        \"均摊与最坏区别\"\n      ],\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-91\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"数组栈容量cap，top指下一可写位置。编写int push(int a[],int cap,int *top,int x)，满返回0且不改状态，否则入栈返回1。已知参数有效且0≤*top≤cap。\",\n      \"type\": \"short\",\n      \"model\": \"int push(int a[],int cap,int *top,int x){if(*top==cap)return 0;a[*top]=x;(*top)++;return 1;}\\n先检查边界，成功后才改变top。\",\n      \"rubric\": [\n        \"按约定检查满\",\n        \"写入旧top位置\",\n        \"成功推进且失败不变\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-92\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 2,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"数组栈用top记录当前元素个数，也指向下一可写位置。编写int pop(int a[],int *top,int *out)：栈空时返回0且不改变*out；否则弹出栈顶元素，写入*out，更新*top并返回1。参数均有效。\",\n      \"type\": \"short\",\n      \"model\": \"int pop(int a[],int *top,int *out){if(*top==0)return 0;(*top)--;*out=a[*top];return 1;}\",\n      \"rubric\": [\n        \"先查空\",\n        \"先减再读\",\n        \"失败输出不变\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-93\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"结点typedef struct Node{int v;struct Node *next;}Node;。编写int pushL(Node **top,int x)，申请失败返回0且原栈不变，成功返回1。参数top有效。\",\n      \"type\": \"short\",\n      \"model\": \"int pushL(Node **top,int x){Node *s=malloc(sizeof *s);if(!s)return 0;s->v=x;s->next=*top;*top=s;return 1;}\\n需包含<stdlib.h>；先分配成功再改头链接。\",\n      \"rubric\": [\n        \"malloc检查\",\n        \"保存旧顶\",\n        \"二级指针写回\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-94\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 2,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"链栈结点定义为typedef struct Node{int v;struct Node *next;}Node;，*top指向栈顶，空栈时为NULL。编写int popL(Node **top,int *out)：栈空时返回0；否则把栈顶值写入*out，更新栈顶指针并释放被弹出的结点，返回1。top和out均为有效指针。\",\n      \"type\": \"short\",\n      \"model\": \"int popL(Node **top,int *out){if(!*top)return 0;Node *s=*top;*out=s->v;*top=s->next;free(s);return 1;}\\n需包含<stdlib.h>，释放前保存后继，避免读已释放结点。\",\n      \"rubric\": [\n        \"空栈\",\n        \"写回新顶和输出\",\n        \"free前取后继\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-95\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"容量m的数组循环队列牺牲一格，front首元素、rear下一可写，m≥2。编写入队int enq(int a[],int m,int front,int *rear,int x)。满返回0，否则1。所有下标合法。\",\n      \"type\": \"short\",\n      \"model\": \"int enq(int a[],int m,int front,int *rear,int x){int nr=(*rear+1)%m;if(nr==front)return 0;a[*rear]=x;*rear=nr;return 1;}\",\n      \"rubric\": [\n        \"预先计算回绕尾\",\n        \"满时不改\",\n        \"写旧rear再更新\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-96\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 2,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"数组循环队列容量为m，牺牲一个单元区分空、满，front指向队首元素，rear指向下一可写位置。编写int deq(int a[],int m,int *front,int rear,int *out)：空队列返回0且不改变*out；否则输出队首值、更新*front并返回1。m≥2，指针有效，下标均在[0,m)内。\",\n      \"type\": \"short\",\n      \"model\": \"int deq(int a[],int m,int *front,int rear,int *out){if(*front==rear)return 0;*out=a[*front];*front=(*front+1)%m;return 1;}\",\n      \"rubric\": [\n        \"空条件\",\n        \"读当前头\",\n        \"回绕推进\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-97\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 2,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"输入字符串只含(和)，长度n≥0。编写int match(const char s[],int n)，括号完整匹配返回1，否则0。可用计数器，不要求显式栈；说明为何单类型可简化。s为有效的只读字符数组，前n项是待检查的括号，不修改输入；只按n处理，不依赖终止零字节，空串完整匹配。\",\n      \"type\": \"short\",\n      \"model\": \"int match(const char s[],int n){int d=0;for(int i=0;i<n;i++){if(s[i]=='(')d++;else if(--d<0)return 0;}return d==0;}\\n单类型只需记录未闭合数，任一前缀不能为负，结束必须0；多类型还需栈保存类型顺序。\\n\\n参考实现：\\n```c\\nint match(const char s[],int n){int depth=0;for(int i=0;i<n;i++){if(s[i]=='(')depth++;else if(--depth<0)return 0;}return depth==0;}\\n/* 单类型只需记录尚未闭合的左括号数：任一前缀不为负，结束为0。多类型还需区分括号的嵌套顺序，不能仅计总数。 */\\n```\",\n      \"rubric\": [\n        \"前缀非负\",\n        \"结束为0\",\n        \"说明单/多类型区别\"\n      ],\n      \"coding\": true,\n      \"manualReview\": true,\n      \"judge\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-98\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 2,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"整数数组a长n≥0，给一个容量至少n的辅助数组s。用栈逆置a，编写void reverseByStack(int a[],int n,int s[])。说明额外空间和是否优于原地双指针空间。a、s为有效且彼此独立的数组，元素为int；结果写回a的前n项，s用作辅助栈，返回后的工作区内容不评分，n=0时不访问数组元素。\",\n      \"type\": \"short\",\n      \"model\": \"void reverseByStack(int a[],int n,int s[]){int top=0;for(int i=0;i<n;i++)s[top++]=a[i];for(int i=0;i<n;i++)a[i]=s[--top];}\\n时间O(n)、辅助O(n)，双指针可用O(1)空间，本题练LIFO而非宣称最省空间。\\n\\n参考实现：\\n```c\\nvoid reverseByStack(int a[],int n,int s[]){int top=0;for(int i=0;i<n;i++)s[top++]=a[i];for(int i=0;i<n;i++)a[i]=s[--top];}\\n/* 先逐项压栈，再按后进先出顺序弹回。时间O(n)，辅助栈占O(n)空间；原地双指针交换只需O(1)辅助空间，因此用栈并不更省空间。 */\\n```\",\n      \"rubric\": [\n        \"压入再逆序弹出\",\n        \"空数组\",\n        \"空间比较\"\n      ],\n      \"coding\": true,\n      \"manualReview\": true,\n      \"judge\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-99\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 2,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"编写int queueLen(int m,int front,int rear)，按牺牲一单元约定返回循环队列长度。m≥2且下标均在[0,m)，要求即使rear<front也正确。\",\n      \"type\": \"short\",\n      \"model\": \"int queueLen(int m,int front,int rear){return rear>=front?rear-front:m-(front-rear);}\\nrear≥front时直接相减；发生回绕时，用数组长度减去front到rear的反向距离。也可写return (int)(((long long)rear-front+m)%m);，先转为long long再相加。不能直接用int计算rear-front+m：m很大时，中间结果可能溢出，即使最终队列长度仍能用int表示。\",\n      \"rubric\": [\n        \"两段情况\",\n        \"空长度0\",\n        \"回绕非负\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    },\n    {\n      \"id\": \"P3-structures-3-100\",\n      \"chapter\": 3,\n      \"section\": \"算法设计\",\n      \"revision\": 1,\n      \"pool\": \"practice\",\n      \"origin\": \"原创\",\n      \"stem\": \"用数组栈检查一个候选pop序列是否可由互异整数入栈序列in得到。两数组长n≥0，辅助栈s容量n，返回1或0。编写int validPop(const int in[],const int out[],int n,int s[])。\",\n      \"type\": \"short\",\n      \"model\": \"int validPop(const int in[],const int out[],int n,int s[]){int top=0,j=0;for(int i=0;i<n;i++){s[top++]=in[i];while(top>0&&j<n&&s[top-1]==out[j]){top--;j++;}}return j==n;}\\n每项进出至多一次，O(n)时间；n=0时返回1。\",\n      \"rubric\": [\n        \"按输入序压入\",\n        \"匹配栈顶才弹\",\n        \"边界顺序安全\",\n        \"结束j==n及线性复杂度\"\n      ],\n      \"judge\": true,\n      \"coding\": false,\n      \"practiceWeight\": 2.5\n    }\n  ]\n}\n",
+  "audit": {
+    "ledger": [
+      {
+        "id": "P3-structures-3-1",
+        "revision": 1,
+        "sourceQuestionSha256": "c66fb8a190df8bd6b734c5268939402ac63015e669cb8ab98d0914dab78d97da",
+        "mechanism": "抽象栈与存储表示",
+        "conclusion": "保留",
+        "answerCheck": "栈的插删位置限制不限定连续或链接存储，两种均可，判真。"
+      },
+      {
+        "id": "P3-structures-3-2",
+        "revision": 1,
+        "sourceQuestionSha256": "80a1854b049264c823e48c47677c3c0f98156ac8c8ceceb7e081d28e371e8c2a",
+        "mechanism": "链栈头插",
+        "conclusion": "保留",
+        "answerCheck": "以链头作栈顶只改新结点next及top即可；构造一个结点的反例即否定必须尾遍历。"
+      },
+      {
+        "id": "P3-structures-3-3",
+        "revision": 1,
+        "sourceQuestionSha256": "7f9fd9e05b9a6bc7bb6426b966d9845122ac88e1331a0a069cbaf84b08536816",
+        "mechanism": "固定容量溢出",
+        "conclusion": "保留",
+        "answerCheck": "栈自己的已分配容量与进程其他空闲内存独立；容量占满即可能失败，判真。"
+      },
+      {
+        "id": "P3-structures-3-4",
+        "revision": 1,
+        "sourceQuestionSha256": "7dff91c763e839d4d9785e2e27a5647d3efcad285cac164ae60a758d3f87214e",
+        "mechanism": "空栈下溢",
+        "conclusion": "保留",
+        "answerCheck": "元素数0时不存在栈顶值，必须走约定的失败分支，判真。"
+      },
+      {
+        "id": "P3-structures-3-5",
+        "revision": 1,
+        "sourceQuestionSha256": "8cd57e18598df075f879a5d0d119229e0400f59ab3268bf7b5bcaca48f7c012b",
+        "mechanism": "出栈排列受限",
+        "conclusion": "保留",
+        "answerCheck": "输入1,2,3不能输出3,1,2：出3后2挡住1，故并非所有排列。"
+      },
+      {
+        "id": "P3-structures-3-6",
+        "revision": 1,
+        "sourceQuestionSha256": "d5aa98c101c63e4d648f0d69d812a6b992daca50f0cfc0260ff7eee37fe93212",
+        "mechanism": "普通队列操作端点",
+        "conclusion": "保留",
+        "answerCheck": "FIFO只从头删除；允许从尾删除改变了抽象操作集，判假。"
+      },
+      {
+        "id": "P3-structures-3-7",
+        "revision": 1,
+        "sourceQuestionSha256": "69a24d400eca7f9b333e7f5045622aeda62bb9407ac291dfc94dbf73547e0f4b",
+        "mechanism": "环形下标与物理链环",
+        "conclusion": "保留",
+        "answerCheck": "连续数组下标可按模回绕，不需要结点next组成物理环，判真。"
+      },
+      {
+        "id": "P3-structures-3-8",
+        "revision": 1,
+        "sourceQuestionSha256": "d8ce920ed9496d75e0341a4f6703cf81939c4ec7df5b5db0a6cb1c0f1f11b8e7",
+        "mechanism": "预留一格的空满区别",
+        "conclusion": "修订候选",
+        "answerCheck": "常规front首项/rear下一空位约定中，相等为空而非满；题干却未写这两个含义，候选补足而保留基础误区识别。"
+      },
+      {
+        "id": "P3-structures-3-9",
+        "revision": 1,
+        "sourceQuestionSha256": "0c7f737fd0c8feca6842455794ef7352f8220b64867e5535b5546097721d3c49",
+        "mechanism": "计数器利用全部容量",
+        "conclusion": "保留",
+        "answerCheck": "count=0与count=m区分空/满，故相等下标仍可容纳m项，判真。"
+      },
+      {
+        "id": "P3-structures-3-10",
+        "revision": 1,
+        "sourceQuestionSha256": "3fa2a4a66cadc8590ca503211af1570a6042fe982fddd8e77a5304ff6dfbdf9d",
+        "mechanism": "循环队列出队不搬移",
+        "conclusion": "保留",
+        "answerCheck": "只推进front即可保持剩余逻辑次序；整体搬移并非必须，判假。"
+      },
+      {
+        "id": "P3-structures-3-11",
+        "revision": 1,
+        "sourceQuestionSha256": "fb4edd47918bfe351436872ed2939629717b266a5632939318c8ba6e36823e60",
+        "mechanism": "调用记录LIFO",
+        "conclusion": "保留",
+        "answerCheck": "嵌套调用先返回内层，外层状态仍待恢复；通常按后进先出管理，判真。"
+      },
+      {
+        "id": "P3-structures-3-12",
+        "revision": 1,
+        "sourceQuestionSha256": "995e58529e2ab2763ff7ffa8f85b270df901d6f1e534fbe0c464f9cd45a6c093",
+        "mechanism": "迭代与显式栈相容",
+        "conclusion": "保留",
+        "answerCheck": "迭代DFS或模拟返回过程可使用循环和显式栈；循环不排斥栈，判假。"
+      },
+      {
+        "id": "P3-structures-3-13",
+        "revision": 1,
+        "sourceQuestionSha256": "c49406b13066344d6f408cced76a35ae190f1d716f32aa44b4c330133eac6f00",
+        "mechanism": "运算符栈的左括号屏障",
+        "conclusion": "保留",
+        "answerCheck": "右括号只弹出最近未匹配左括号以内的运算符，不越过屏障，判真。"
+      },
+      {
+        "id": "P3-structures-3-14",
+        "revision": 1,
+        "sourceQuestionSha256": "18e77699c6a7822d93cf1ab2ef0e5c14e10eeb6e1f1f2efbe55918379a46400c",
+        "mechanism": "后缀序列编码运算树",
+        "conclusion": "保留",
+        "answerCheck": "每个二元运算符作用于此前形成的两个子结果，运算次序不需再查普通中缀优先级，判真。"
+      },
+      {
+        "id": "P3-structures-3-15",
+        "revision": 1,
+        "sourceQuestionSha256": "6fbc2d49f2a3bf7dc9c8f80bc7384ca7d5e812b437aff2a8abdb62cc857d10c7",
+        "mechanism": "非交换运算的弹出顺序",
+        "conclusion": "保留",
+        "answerCheck": "栈先弹右操作数，再弹左操作数；用8 3 -得到5反证原断言。"
+      },
+      {
+        "id": "P3-structures-3-16",
+        "revision": 1,
+        "sourceQuestionSha256": "7049a112e9c3d1bfeb21d20b24bec90b281791429315356297f3c97331fbd47e",
+        "mechanism": "总数不足以保证匹配",
+        "conclusion": "保留",
+        "answerCheck": ")(长度2为偶数但首个前缀无法弹出，判假；与结束未闭合是不同边界。"
+      },
+      {
+        "id": "P3-structures-3-17",
+        "revision": 1,
+        "sourceQuestionSha256": "83d7d575dec8693a713ccb45d0573f8d455de741db61ed89a395dd60cae0ce27",
+        "mechanism": "单元素队列变空的不变量",
+        "conclusion": "保留",
+        "answerCheck": "删除唯一数据后头尾需回到所用实现的空状态；未强行规定所有表示都用同一指针值。"
+      },
+      {
+        "id": "P3-structures-3-18",
+        "revision": 1,
+        "sourceQuestionSha256": "6420ada58f172df02c4262690f3e6a5f9bd632f562e0f73c2db3c17bbef054bc",
+        "mechanism": "栈顶不代表最大值",
+        "conclusion": "修订候选",
+        "answerCheck": "先压9再压1，顶为1即可否定顶值最大；原句又用“最大所以直接取最小”产生不依赖栈知识也可否定的逻辑跳跃，候选去掉后半句。"
+      },
+      {
+        "id": "P3-structures-3-19",
+        "revision": 1,
+        "sourceQuestionSha256": "e69a4adf7d08d8f9eca0b487384a3af5684f368f872d691d111e93f0bf778a56",
+        "mechanism": "共享双栈的剩余空间",
+        "conclusion": "保留",
+        "answerCheck": "两栈从端点相向生长，空区未预分成两半；共享容量与值大小无关，判真。"
+      },
+      {
+        "id": "P3-structures-3-20",
+        "revision": 1,
+        "sourceQuestionSha256": "4d00ce32df1fd91cfb14d267a5de3116a8e1ace6d33eeb3695abd29804c42fed",
+        "mechanism": "回绕时rear小于front",
+        "conclusion": "保留",
+        "answerCheck": "m=7、front=6、rear=1可有2项，数值大小不能当非法判据。"
+      },
+      {
+        "id": "P3-structures-3-21",
+        "revision": 1,
+        "sourceQuestionSha256": "1ea9181ebe659b410d93c58fd4996e31c6a33dadf121cabe06416d4edad95cab",
+        "mechanism": "交错压弹的输出轨迹",
+        "conclusion": "保留",
+        "answerCheck": "按push/pop逐项模拟得7,4，留下2；绑定当前操作串和四个实际选项核唯一。"
+      },
+      {
+        "id": "P3-structures-3-22",
+        "revision": 1,
+        "sourceQuestionSha256": "ba8dc33e901f8a503320b7cf2c8807adf3f06abc9a08d47fd628ef29f6a44dbf",
+        "mechanism": "不可能的栈排列",
+        "conclusion": "保留",
+        "answerCheck": "穷举/贪心栈模拟四个候选，唯3,1,2不可达，首矛盾是2压住1。"
+      },
+      {
+        "id": "P3-structures-3-23",
+        "revision": 1,
+        "sourceQuestionSha256": "da831e86c353b1d1d8e555e74c68677e2b279ae157374d302a4faab1f8a9afef",
+        "mechanism": "当前顶下标的入栈前增",
+        "conclusion": "保留",
+        "answerCheck": "空顶-1，首次写入必须是下标0，a[++top]=x满足；其余操作分别越界或漏推进。"
+      },
+      {
+        "id": "P3-structures-3-24",
+        "revision": 1,
+        "sourceQuestionSha256": "64e962f79984b4d8e7736114ceb63489afa7733848bb76102dca781b1430d272",
+        "mechanism": "下一空位的出栈前减",
+        "conclusion": "保留",
+        "answerCheck": "非空时最后有效项下标top-1，先--top再读；与23的不同指针约定须分别保留。"
+      },
+      {
+        "id": "P3-structures-3-25",
+        "revision": 1,
+        "sourceQuestionSha256": "3a32ac3733b854f1d8f9707dd76f476a07f8dec2b45d193d3eb3ddb659751d9b",
+        "mechanism": "链栈头插赋值次序",
+        "conclusion": "保留",
+        "answerCheck": "先s->next保存旧top，再更新top，不会丢链/自环；选项有具体指针错因。"
+      },
+      {
+        "id": "P3-structures-3-26",
+        "revision": 1,
+        "sourceQuestionSha256": "2e62b6b5f8b0d43eeea079496b5e19c2485796cdb5cf90f0b3e2e8731d43c045",
+        "mechanism": "FIFO队头与物理下标",
+        "conclusion": "保留",
+        "answerCheck": "最早尚未删除项就是下一出队对象，逻辑队头不必在最大数组下标。"
+      },
+      {
+        "id": "P3-structures-3-27",
+        "revision": 1,
+        "sourceQuestionSha256": "c2b6fb4ba66337f44c3d1dcf98bdea1474770977e01c1e36393196a65b98cc85",
+        "mechanism": "预留一格满条件",
+        "conclusion": "修订候选",
+        "answerCheck": "与8重复考同一空满判据；本题还未明确front/rear含义。候选改为非循环顺序队列假溢出的成因。"
+      },
+      {
+        "id": "P3-structures-3-28",
+        "revision": 1,
+        "sourceQuestionSha256": "ff132c46a5c0fc7c83c886d7d2c83d2ec8c6b123fb55f03e22987b0509a25832",
+        "mechanism": "环形长度公式",
+        "conclusion": "修订候选",
+        "answerCheck": "题干未定义m、未排除可用满容量的计数器方案。m=6、front=rear=2、count=6时真长度6，所选公式为0。"
+      },
+      {
+        "id": "P3-structures-3-29",
+        "revision": 1,
+        "sourceQuestionSha256": "8870ce32b15b7d57629dd1252bf8dc69c5fc20d68cf861727d3838b5858d926e",
+        "mechanism": "带头链队空状态",
+        "conclusion": "修订候选",
+        "answerCheck": "正确项成立；“不存在的数组格/所有data为0”干扰与链队指针误区无关，改为合理指针状态。"
+      },
+      {
+        "id": "P3-structures-3-30",
+        "revision": 1,
+        "sourceQuestionSha256": "ddf7ffcbc058e15dbf700432d9731fd2d48337deb2db33b793de59fb25b2e88e",
+        "mechanism": "唯一链队数据结点删除",
+        "conclusion": "保留",
+        "answerCheck": "删除唯一数据后rear回到头结点；否则尾插写悬空结点。保留此基础边界，79换不同表示。"
+      },
+      {
+        "id": "P3-structures-3-31",
+        "revision": 1,
+        "sourceQuestionSha256": "34f51982390b7db7ca479924de860c016fa8d956f3cb3ad1f41b8fd64b8507ab",
+        "mechanism": "两步后缀求值",
+        "conclusion": "保留",
+        "answerCheck": "解析实际记号6 2 / 3 +，二元操作栈独算得6；除法先弹右值不能颠倒。"
+      },
+      {
+        "id": "P3-structures-3-32",
+        "revision": 1,
+        "sourceQuestionSha256": "6d3b3fe6018b3af57f751db270d3ac4d48834fa5759ceb496e37ccdac95f23f1",
+        "mechanism": "优先级决定后缀次序",
+        "conclusion": "保留",
+        "answerCheck": "先形成B*C子树，再与A相加，后序遍历为ABC*+。"
+      },
+      {
+        "id": "P3-structures-3-33",
+        "revision": 1,
+        "sourceQuestionSha256": "140227d216fbfdacf3f9593897fbc8b33fc66aacb47ff3868a53ffbd8d0f6241",
+        "mechanism": "括号改变中缀树形",
+        "conclusion": "保留",
+        "answerCheck": "先形成A+B子树，再乘C，后序遍历AB+C*；与无括号32是实际优先级差异。"
+      },
+      {
+        "id": "P3-structures-3-34",
+        "revision": 1,
+        "sourceQuestionSha256": "c13c092688c949b225983ec2c6feb68897f3d28102f0d829e07e5c97ef069965",
+        "mechanism": "未匹配右括号的前缀失败",
+        "conclusion": "保留",
+        "answerCheck": "右括号到达而无此前左括号，未来字符无法修复这个前缀，立即拒绝。"
+      },
+      {
+        "id": "P3-structures-3-35",
+        "revision": 1,
+        "sourceQuestionSha256": "4c96b82ad60abad6127f11a954a21523717b709ada235fb1fdf546d4665c798f",
+        "mechanism": "入队即标记已发现",
+        "conclusion": "保留",
+        "answerCheck": "菱形依赖中两个已处理点可同时发现一个待处理点，首次入队标记能阻止第二次入队。"
+      },
+      {
+        "id": "P3-structures-3-36",
+        "revision": 1,
+        "sourceQuestionSha256": "ed27293cd29a0f48cb0df0805491e52929ca7584244cd8aec9481058fe398ceb",
+        "mechanism": "显式调用记录的信息",
+        "conclusion": "修订候选",
+        "answerCheck": "答案成立；名字长度/输入数和等与恢复现场无关，替为只存参数、只存返回值等真实遗漏。"
+      },
+      {
+        "id": "P3-structures-3-37",
+        "revision": 1,
+        "sourceQuestionSha256": "ed43146ac2cc6aba9ccf9ddb652888ac269d5df319c45f30d43abfb67b87616a",
+        "mechanism": "双栈队列的转移时机",
+        "conclusion": "修订候选",
+        "answerCheck": "功能答案成立；排序/永不弹出干扰过弱，替为直接弹入栈、过早混倒和只转移一项。"
+      },
+      {
+        "id": "P3-structures-3-38",
+        "revision": 1,
+        "sourceQuestionSha256": "6b5e0c2dbed7ccb6bab375ce056dbb223e7e61572957a2c0460171772e1256fe",
+        "mechanism": "共享双栈满边界",
+        "conclusion": "修订候选",
+        "answerCheck": "正确项成立；值相等/一栈空不是容量误区。候选公开两顶当前项及空值，用相邻/相等/顶和/中点作合理辨析。"
+      },
+      {
+        "id": "P3-structures-3-39",
+        "revision": 1,
+        "sourceQuestionSha256": "7bb918ca94dd4170f1c1e56d6cf4616117661250041725c9c59914d0d49e8267",
+        "mechanism": "FIFO适用任务顺序",
+        "conclusion": "保留",
+        "answerCheck": "按到达时间等待就是FIFO；撤销、最小键和优先级抢占需要不同规则，四种任务语义均可辨。"
+      },
+      {
+        "id": "P3-structures-3-40",
+        "revision": 1,
+        "sourceQuestionSha256": "b762e3ba51dacb2ead169c32d185d62bddc373cdb408bcf32a0366e2db37b0bf",
+        "mechanism": "撤销的LIFO顺序",
+        "conclusion": "保留",
+        "answerCheck": "已执行动作序列的最后一步先撤销，和按到达时间处理不同，选最近执行。"
+      },
+      {
+        "id": "P3-structures-3-41",
+        "revision": 1,
+        "sourceQuestionSha256": "7f7070bc8e73ffce15d533e811149d6a2571f1be50a81ab52ebccfb46ed54015",
+        "mechanism": "计数式队列满判据",
+        "conclusion": "保留",
+        "answerCheck": "count恰是有效项数，等于m才满；front/rear相等还可能为空，独立于预留一格表示。"
+      },
+      {
+        "id": "P3-structures-3-42",
+        "revision": 1,
+        "sourceQuestionSha256": "8fc8aa7bb13b1c06d6a6818660f86c35d59f9974189b7313657b93efdece1623",
+        "mechanism": "链栈局部修改复杂度",
+        "conclusion": "保留",
+        "answerCheck": "通常结构分析中头插/头删只做固定次链接读写，忽略分配器成本为O(1)。"
+      },
+      {
+        "id": "P3-structures-3-43",
+        "revision": 1,
+        "sourceQuestionSha256": "ac06e6c6bf86f250cef979ccae0e56e43e4e1194eae29df869e24cddbaab59a5",
+        "mechanism": "混合括号的类型与嵌套",
+        "conclusion": "修订候选",
+        "answerCheck": "正确项成立；ASCII和等项荒谬，替为仅累计总数、只记录最早类型等可解释错误。"
+      },
+      {
+        "id": "P3-structures-3-44",
+        "revision": 1,
+        "sourceQuestionSha256": "e11754bee83b63a987626922845200cb46f0a9f858bf4b5bbf5c1684b4a0db99",
+        "mechanism": "首个出栈项后的必然栈态",
+        "conclusion": "修订候选",
+        "answerCheck": "按常规交错操作解释时答案1成立，但未明示初态为空和允许入出交错；若先全压入则2不能先出。候选补足原意。"
+      },
+      {
+        "id": "P3-structures-3-45",
+        "revision": 1,
+        "sourceQuestionSha256": "cd4ef8a61016078b7f712bfb23b410a7ef4afa87aea91270653b3de8a83fd714",
+        "mechanism": "一串常数时间队列操作",
+        "conclusion": "保留",
+        "answerCheck": "2n次操作每次常数总为O(n)，区别总量和单次，不等同63只数8次。"
+      },
+      {
+        "id": "P3-structures-3-46",
+        "revision": 1,
+        "sourceQuestionSha256": "cd1ada4b2d79b80eb8d44496c5da2e1dc4e493e52efab0b09f7e3bccbf997ccc",
+        "mechanism": "逻辑栈有效区与残留字节",
+        "conclusion": "修订候选",
+        "answerCheck": "正确项成立；“马上变链表”无效，替为清零、容量变化、残留值仍算有效项等实际误区。"
+      },
+      {
+        "id": "P3-structures-3-47",
+        "revision": 1,
+        "sourceQuestionSha256": "f655d6b9d79e472a5efb1c8a7c47eaf51c300560d73ace135e99eb7b369153cd",
+        "mechanism": "无尾指针的尾插成本",
+        "conclusion": "保留",
+        "answerCheck": "题干明确每次从头寻找尾，需遍历n个结点而非只看末次改链接，故可能O(n)。"
+      },
+      {
+        "id": "P3-structures-3-48",
+        "revision": 1,
+        "sourceQuestionSha256": "a8fac56a36a31f272508e5a884be141c91ff6264e367d54765e3d1115a2b2661",
+        "mechanism": "环形下标缺模的越界",
+        "conclusion": "修订候选",
+        "answerCheck": "正确项成立；可靠传输/自动排序脱离问题，替为只影响计数、假满和必须搬移等误区。"
+      },
+      {
+        "id": "P3-structures-3-49",
+        "revision": 1,
+        "sourceQuestionSha256": "65a294eba6ccee964a77d972e38539f2f200c65e5fb65c029197f7591ffcd99c",
+        "mechanism": "括号嵌套的峰值",
+        "conclusion": "修订候选",
+        "answerCheck": "正确项成立；字符值/下标和荒谬，改成累计左括号、最终栈高、总对数与峰值辨析。"
+      },
+      {
+        "id": "P3-structures-3-50",
+        "revision": 1,
+        "sourceQuestionSha256": "8418958180d6352eae0a8c7f1dec71d236de10b1ca0d7c799f4aab900434a0f0",
+        "mechanism": "空队列peek的状态和值",
+        "conclusion": "修订候选",
+        "answerCheck": "与86均为任意int不能用一个元素值作通用失败哨兵；只换peek/出队和0/-1没有新推理。优先保留86，50候选改迷宫第一条通路与最短路。"
+      },
+      {
+        "id": "P3-structures-3-51",
+        "revision": 1,
+        "sourceQuestionSha256": "19c35f53d770aa81b96c1f59b7b66b6a8654878c6aac65ce9cd886c5b6700386",
+        "mechanism": "当前顶下标与元素数",
+        "conclusion": "保留",
+        "answerCheck": "从下标0起存7项，最后有效下标为7-1=6；明确当前顶约定。"
+      },
+      {
+        "id": "P3-structures-3-52",
+        "revision": 1,
+        "sourceQuestionSha256": "b21e611287920c59f025cb0cf6e1400d8f1c6aeb3524a729d8022827bb0e4a19",
+        "mechanism": "栈剩余物理容量",
+        "conclusion": "保留",
+        "answerCheck": "top=8即9项，容量12还可压3项；所求是剩余容量而非简单重复51的顶值。"
+      },
+      {
+        "id": "P3-structures-3-53",
+        "revision": 1,
+        "sourceQuestionSha256": "6a479882ffbe7b9636e279a4f5db082eb4d2a20a498cca93f1093170dd761cd6",
+        "mechanism": "下一空位等于元素数",
+        "conclusion": "保留",
+        "answerCheck": "下标0..4共5项；与51的当前顶约定相反，是需保留的实际表示差异。"
+      },
+      {
+        "id": "P3-structures-3-54",
+        "revision": 1,
+        "sourceQuestionSha256": "18d514d73f90c840c3f499cfcafc2616d5d9fcb1e36a2e5446caa5311de9d7d7",
+        "mechanism": "预留一格的可用容量",
+        "conclusion": "保留",
+        "answerCheck": "数组9格中留1格，最多8项；区别于计数方案的容量m。"
+      },
+      {
+        "id": "P3-structures-3-55",
+        "revision": 1,
+        "sourceQuestionSha256": "2bdd78d70786c96ff721a30b397d6de6ba571381952e64c5afa9519d3e8ad4ef",
+        "mechanism": "队列跨尾首长度",
+        "conclusion": "保留",
+        "answerCheck": "由front=8沿10进制下标走8,9,0,1,2到rear=3，共5项；有实际回绕边界。"
+      },
+      {
+        "id": "P3-structures-3-56",
+        "revision": 1,
+        "sourceQuestionSha256": "24b1436f01c940224459d50892333f7076277ef57742744ff2fa1b53593a96b8",
+        "mechanism": "入队时尾指针回绕",
+        "conclusion": "修订候选",
+        "answerCheck": "答案0仅在入队成功时成立，候选补“成功”；与57同m=7、6加1取模，57替换为容量约束。"
+      },
+      {
+        "id": "P3-structures-3-57",
+        "revision": 1,
+        "sourceQuestionSha256": "56e3318fe942690be4556d80f299d1013504ae52c37e0463351c64649b1fb0cf",
+        "mechanism": "出队时头指针回绕",
+        "conclusion": "修订候选",
+        "answerCheck": "与56同一个模推进过程、同数据，只换头尾与题型对象。候选改为给定出栈序列所需最小栈容量。"
+      },
+      {
+        "id": "P3-structures-3-58",
+        "revision": 1,
+        "sourceQuestionSha256": "6ef73679a24fd7edd105d2d3248e9721ee4d7be5cef894c74dc46a0320eb8692",
+        "mechanism": "批量压弹后的栈顶",
+        "conclusion": "保留",
+        "answerCheck": "从a,b,c的尾连续删c,b，剩a；基础LIFO状态题，不与21交错新增数据轨迹视作同条件。"
+      },
+      {
+        "id": "P3-structures-3-59",
+        "revision": 1,
+        "sourceQuestionSha256": "efcef7bf4f23b3d28f77dec50207deb1c55e5c4a249eaf6a20000e754dacd5c9",
+        "mechanism": "同形两步后缀数值",
+        "conclusion": "修订候选",
+        "answerCheck": "与31都是先对前两数二元运算，再与第三数运算，只换数/运算符；候选改为总数合格但前缀下溢。"
+      },
+      {
+        "id": "P3-structures-3-60",
+        "revision": 1,
+        "sourceQuestionSha256": "fd8ca34fbaf3d943e138e0fe406b91b8424961b3e9af965269ff82715dc3236c",
+        "mechanism": "后缀右子表达式先求值",
+        "conclusion": "保留",
+        "answerCheck": "2 3 4 * +先暂存2及3、4三个值，先算右支3*4再加2；与31的左支链形有实际树形差别。"
+      },
+      {
+        "id": "P3-structures-3-61",
+        "revision": 1,
+        "sourceQuestionSha256": "5fdc708c14dbe3451e43ebf378c1a4d0467308164d2ddc454f882cce24aee5ed",
+        "mechanism": "括号中缀转后缀",
+        "conclusion": "修订候选",
+        "answerCheck": "与33同一内层加法外层乘法，只换内层在左右的位置；候选改考后缀求值所需峰值栈高。"
+      },
+      {
+        "id": "P3-structures-3-62",
+        "revision": 1,
+        "sourceQuestionSha256": "6c9a695bdcec0c63c2d4fb9f4e4566a79df1544a046cfde254e63adf35ad063d",
+        "mechanism": "具体嵌套深度轨迹",
+        "conclusion": "保留",
+        "answerCheck": "前缀未闭合数1,2,1,2,3,2,1,0，最大3；具体多峰结构可核49算法。"
+      },
+      {
+        "id": "P3-structures-3-63",
+        "revision": 1,
+        "sourceQuestionSha256": "84b00a23c2bff9e0a5800e98743f3b699c6ec2db9fc11ff0cf646116349a54c3",
+        "mechanism": "固定入出次数求和",
+        "conclusion": "修订候选",
+        "answerCheck": "四入四出只算4+4，未引入栈约束；候选改为互异3项全部可能出栈序列数，需合法操作枚举。"
+      },
+      {
+        "id": "P3-structures-3-64",
+        "revision": 1,
+        "sourceQuestionSha256": "feb8d79d77b9daf7281067e24a0fc13acb847280b991bfbb1e1a2bd8e25afe25",
+        "mechanism": "计数满队与相等下标",
+        "conclusion": "修订候选",
+        "answerCheck": "答案按常规首项/下一空位约定成立；题干未公开这两个含义，候选补出，避免改用rear末项时不等也合理。"
+      },
+      {
+        "id": "P3-structures-3-65",
+        "revision": 1,
+        "sourceQuestionSha256": "e63528e697d9d1c4bd1f8882341a0a0023e0e692b94c8d8dce57b4a964c46955",
+        "mechanism": "共享双栈空区大小",
+        "conclusion": "保留",
+        "answerCheck": "20格减去两侧6和9项，余5格；共享总剩余量区别于38的下标相邻判据。"
+      },
+      {
+        "id": "P3-structures-3-66",
+        "revision": 1,
+        "sourceQuestionSha256": "7dc1d632e5edaace6cccf4b5812303377e147a47adf470cd055aa2befb87053d",
+        "mechanism": "辅助头结点不计数据",
+        "conclusion": "保留",
+        "answerCheck": "空链队仍有1个辅助头结点但0个数据结点；计数对象与29指针状态不同。"
+      },
+      {
+        "id": "P3-structures-3-67",
+        "revision": 1,
+        "sourceQuestionSha256": "daeeb5a09b3af35826ae1aa06e79f4e7a053bda8c0380593547d7809d0496af2",
+        "mechanism": "逐字符进出栈的总成本",
+        "conclusion": "保留",
+        "answerCheck": "每字符至多固定次压弹且需扫描n项，总操作数线性，O(n)/Θ(n)均接受。"
+      },
+      {
+        "id": "P3-structures-3-68",
+        "revision": 1,
+        "sourceQuestionSha256": "b3e9bc21556f7adea74e4f729c4008d5205f069e4c99c89b312622872c258fc0",
+        "mechanism": "完整二元后缀的操作数-运算符关系",
+        "conclusion": "保留",
+        "answerCheck": "每个二元运算净少一个值，5个值变1需4次；只是必要计数，59候选另核前缀充分性。"
+      },
+      {
+        "id": "P3-structures-3-69",
+        "revision": 1,
+        "sourceQuestionSha256": "c4bedea571a1665b17ba2671cb0ebd69c7d8adefdbb1017f0231b93bab531b39",
+        "mechanism": "peek不删除",
+        "conclusion": "保留",
+        "answerCheck": "连续读取两次不改变top，原3项仍3项；与实际pop的状态变更不同。"
+      },
+      {
+        "id": "P3-structures-3-70",
+        "revision": 1,
+        "sourceQuestionSha256": "d865eaba6cf0b3f7644518bd2919ec41c7ef40dc7ebfc58cfcb02a45c914dee9",
+        "mechanism": "反求rear的同一模关系",
+        "conclusion": "修订候选",
+        "answerCheck": "与28/55仍是rear/front/长度的同一式子重排，且本例无回绕新约束。候选补学校已讲的汉诺塔递推。"
+      },
+      {
+        "id": "P3-structures-3-71",
+        "revision": 1,
+        "sourceQuestionSha256": "11df1fc47082376b6278b34b2162641c94b53dbefc36d9b32848ad7ba1a9517c",
+        "mechanism": "合法出栈的操作证书",
+        "conclusion": "保留",
+        "answerCheck": "按A,B,C,D原序，输出B,D,C,A存在P A,P B,O B,P C,P D,O D,O C,O A；各步不跳顶。"
+      },
+      {
+        "id": "P3-structures-3-72",
+        "revision": 1,
+        "sourceQuestionSha256": "8b28efc6ae70b746af97bb19552987c240f9389199fd3f37a0c3596e217b2529",
+        "mechanism": "不可能栈排列的首矛盾",
+        "conclusion": "修订候选",
+        "answerCheck": "与22的不可能3,1,2同为“第3项先出后第2项挡住第1项”，只换字母加无关尾项。候选改重复值下值序列不唯一确定操作。"
+      },
+      {
+        "id": "P3-structures-3-73",
+        "revision": 1,
+        "sourceQuestionSha256": "f075798bb407326f0e2444a7320f6fe7c357873341982dfe9f2b0373761ae452",
+        "mechanism": "循环队列混合操作状态",
+        "conclusion": "修订候选",
+        "answerCheck": "按标准表示初长3，逐步(5,1),(5,2),(5,3)终长4；候选明确6为数组容量及两下标含义。"
+      },
+      {
+        "id": "P3-structures-3-74",
+        "revision": 1,
+        "sourceQuestionSha256": "370e3e71cbca9fb57def332db06bbc5121cbfad1061f891745a35374f0ad4f7f",
+        "mechanism": "混用top约定的下标错",
+        "conclusion": "保留",
+        "answerCheck": "top=-1时a[top++]先用-1，先查满后前增再写才正确；要求定位具体错而非23只识别正确式。"
+      },
+      {
+        "id": "P3-structures-3-75",
+        "revision": 1,
+        "sourceQuestionSha256": "caaa51648352cff9b5a06b8d0894f4ba769e496efb71bf486376cf25f5fd4050",
+        "mechanism": "双栈队列不提前混倒的不变量",
+        "conclusion": "保留",
+        "answerCheck": "out中旧项比in中新项更早，混倒会让新项越过旧项；重点是出队次序理由，和90均摊成本不同。"
+      },
+      {
+        "id": "P3-structures-3-76",
+        "revision": 1,
+        "sourceQuestionSha256": "9bd4a346b605bd2a7ca38a8b2c913db1f823ea8d13d551d25b632614e030848e",
+        "mechanism": "混合括号具体错配",
+        "conclusion": "修订候选",
+        "answerCheck": "43解析已直接给出同一个([)]及类型顺序原因；本题仅改问法重复。候选补学校行编辑退格/清行组合。"
+      },
+      {
+        "id": "P3-structures-3-77",
+        "revision": 1,
+        "sourceQuestionSha256": "0e3dec9443899386b5e32e41aac98c56f7d75eded06afca297122667e72aba8c",
+        "mechanism": "非交换后缀的逐步操作数栈",
+        "conclusion": "保留",
+        "answerCheck": "独算[9]→[9,4]→[9,4,1]→[9,5]→[4]；要求列栈与右数先弹，比只给数值更具体。"
+      },
+      {
+        "id": "P3-structures-3-78",
+        "revision": 1,
+        "sourceQuestionSha256": "5c12fb1c41b10cf5689487dc2fc8cbb520e0e2fc286aa759c28ebec76d3c54db",
+        "mechanism": "同优先级左结合",
+        "conclusion": "保留",
+        "answerCheck": "A-B-C构成(A-B)-C，后序AB-C-；ABC--是A-(B-C)，用9,4,1得4/6可区分。"
+      },
+      {
+        "id": "P3-structures-3-79",
+        "revision": 1,
+        "sourceQuestionSha256": "0e3277ef3f2150ed425f5902576088e5cb6a6028f67f8efab3fc69a9b4ac55c7",
+        "mechanism": "唯一链队结点删除后的悬空尾",
+        "conclusion": "修订候选",
+        "answerCheck": "30已问同一条件下rear回头结点并解析悬空风险，79无新条件。候选改仅rear的无头循环链队删除。"
+      },
+      {
+        "id": "P3-structures-3-80",
+        "revision": 1,
+        "sourceQuestionSha256": "6903885dce689fb18214039e93ec594f2f153aa5d809080e1fbc9f5f096ead7b",
+        "mechanism": "空满消歧的表示取舍",
+        "conclusion": "保留",
+        "answerCheck": "预留一格容量m-1，计数器容量m且count=0/m；要求比较两表示，不把满判据硬通用于所有方案。"
+      },
+      {
+        "id": "P3-structures-3-81",
+        "revision": 1,
+        "sourceQuestionSha256": "2e029f41f9446e082cac3e0f657e8d72aaed952f8243fa3a12fe5ce9059424ab",
+        "mechanism": "逻辑capacity不增加物理内存",
+        "conclusion": "修订候选",
+        "answerCheck": "核心答案正确，但“迁移/失败保护”不是“为何不能只改字段”的必答子问。候选仅修评分范围，不扩题。"
+      },
+      {
+        "id": "P3-structures-3-82",
+        "revision": 1,
+        "sourceQuestionSha256": "cabd0217ff76cdd2e934f36d9d21eb65b06f4494b0336eb0fc6ee095089d8cb3",
+        "mechanism": "递归回溯输出与活动深度",
+        "conclusion": "保留",
+        "answerCheck": "顺f4→f3→f2→f1→f0，回溯印1..4；含基例5层。原模型也接受声明非基例4层，口径已在评分中保留。"
+      },
+      {
+        "id": "P3-structures-3-83",
+        "revision": 1,
+        "sourceQuestionSha256": "87625428ceea1c36a399f1429513d3ca9714246f8c0c1324fff3574bd18347c4",
+        "mechanism": "出队才标记导致重复发现",
+        "conclusion": "修订候选",
+        "answerCheck": "与35同样的菱形依赖和“首次入队标记”结论，仅反向发问。候选改分支递归的总调用数与峰值深度区别。"
+      },
+      {
+        "id": "P3-structures-3-84",
+        "revision": 1,
+        "sourceQuestionSha256": "81040302bbd65a1aa715e33c4fad70c6174c87176aae7008968c276d932cbbf6",
+        "mechanism": "共享双栈容量优势",
+        "conclusion": "修订候选",
+        "answerCheck": "19已直接说明相向增长共享空区，84重复优势再泛问代价。候选改辅助栈稳定删值的双次反转。"
+      },
+      {
+        "id": "P3-structures-3-85",
+        "revision": 1,
+        "sourceQuestionSha256": "d359b48d7e95acde9e640d42ddd4e2f6fd919cd76d30f11b05e21f3dea58badc",
+        "mechanism": "顺序栈/链栈空间与失败比较",
+        "conclusion": "保留",
+        "answerCheck": "链式有指针和分配成本、可能malloc失败；数组紧凑但可固定容量耗尽，比较条件充分。"
+      },
+      {
+        "id": "P3-structures-3-86",
+        "revision": 1,
+        "sourceQuestionSha256": "74605147b2366b349529526b993894b8dc9a190af814123d4d6a4013f60625da",
+        "mechanism": "任意int和-1失败哨兵冲突",
+        "conclusion": "修订候选",
+        "answerCheck": "歧义结论正确；失败*out保持原值并非分离状态/值的必要条件，不能强加评分。候选保任务修rubric/model。"
+      },
+      {
+        "id": "P3-structures-3-87",
+        "revision": 1,
+        "sourceQuestionSha256": "b93eeeab1574b80f27bf7761f1e012eb7d626726ae997e29de7b05b84bd76139",
+        "mechanism": "结束时仍有左括号未闭合",
+        "conclusion": "保留",
+        "answerCheck": "如(()无右类型冲突但剩1个左括号，末尾非空即拒；与16/34的前缀下溢不同边界。"
+      },
+      {
+        "id": "P3-structures-3-88",
+        "revision": 1,
+        "sourceQuestionSha256": "33e124fc8ce4b86b365fe857deef8686446ae53654b97bce4957f9c17147cdf5",
+        "mechanism": "除基取余的逆序输出",
+        "conclusion": "修订候选",
+        "answerCheck": "正整数范围内原因正确；评分强要0边界超题干。候选仅删除这项必评分，不把正数题扩成非负数题。"
+      },
+      {
+        "id": "P3-structures-3-89",
+        "revision": 1,
+        "sourceQuestionSha256": "e5c9e782d9e531de00bbf09bb4e71cc2023f646133abfcab621349a2bfcc587a",
+        "mechanism": "FIFO和双端操作集合",
+        "conclusion": "修订候选",
+        "answerCheck": "6已判普通队列不能尾删，89只换成解释问法。候选在输入受限双端队列中核一个可行和一个不可行序列。"
+      },
+      {
+        "id": "P3-structures-3-90",
+        "revision": 1,
+        "sourceQuestionSha256": "d541186c13855d2d21149c24a024813ad61749b21c8ff76a120eba6b3edf49d8",
+        "mechanism": "双栈队列均摊计数",
+        "conclusion": "保留",
+        "answerCheck": "每项在in/out各至多一次入出，整串O(k)，不声称单次最坏O(1)；与75次序不变量不同目标。"
+      },
+      {
+        "id": "P3-structures-3-91",
+        "revision": 1,
+        "sourceQuestionSha256": "7f07291432c22523e4f825527e5fc9c23baf7c75f48e5227e1def1de02d6fe8d",
+        "mechanism": "数组栈push成功/满失败",
+        "conclusion": "接口缺项另报",
+        "answerCheck": "常规独立top/数组时模型正确；主线补充确认top若与待写a槽重叠则可要求同一int同时等于x和新top，需公开独立存储。未改接口。"
+      },
+      {
+        "id": "P3-structures-3-92",
+        "revision": 2,
+        "sourceQuestionSha256": "a99100fa374e1db22fb056bb9e421e26f805ea5399b3e17aa48df3a1127e550d",
+        "mechanism": "数组栈pop空失败和输出",
+        "conclusion": "接口缺项另报",
+        "answerCheck": "常规独立top/out时模型正确；仅“有效指针”未排除out==top，同一int可能被要求同时等于新top及任意弹出值，需主线裁定公开别名域。"
+      },
+      {
+        "id": "P3-structures-3-93",
+        "revision": 1,
+        "sourceQuestionSha256": "ac8170b7f7e5e1d54fc6a02233ffb76aad667ba1d9591866cac05024ff4b2c3b",
+        "mechanism": "链栈分配失败保护",
+        "conclusion": "接口只读复核",
+        "answerCheck": "新结点分配成功后才连接旧顶；失败不改头及原链。既有分配监视驱动，本轮未重跑。"
+      },
+      {
+        "id": "P3-structures-3-94",
+        "revision": 2,
+        "sourceQuestionSha256": "815746cd961e64f9d232aa40ce8d5802e1c4ff3516a01174f8912747e3f2fc8e",
+        "mechanism": "链栈pop释放",
+        "conclusion": "接口缺项另报",
+        "answerCheck": "常规外部输出对象时先保存值和后继再释放顶；主线补充out若在被释放/保留链结点内的别名域缺项。空时原题未要求out不变，现驱动未强加。"
+      },
+      {
+        "id": "P3-structures-3-95",
+        "revision": 1,
+        "sourceQuestionSha256": "904540daecfa1e6b103ad1a2c4624ced6abdc8a6953e8314e7c18ab0a772f32b",
+        "mechanism": "预留一格循环队列入队",
+        "conclusion": "接口缺项另报",
+        "answerCheck": "常规独立rear/数组时模型正确；主线补充rear若占待写a槽，可同时要求新尾下标与任意x，需公开独立存储。unused格不当逻辑数据强测。"
+      },
+      {
+        "id": "P3-structures-3-96",
+        "revision": 2,
+        "sourceQuestionSha256": "7648a8cc699eb9a4f1d3b40a1e2a47892b4d6af904534f3931e4de914e9b89dc",
+        "mechanism": "循环队列出队输出/推进",
+        "conclusion": "接口缺项另报",
+        "answerCheck": "常规front/out独立时模型正确；out==front与任意数据值可能要求同一int取两值，主线裁定域。未改契约。"
+      },
+      {
+        "id": "P3-structures-3-97",
+        "revision": 2,
+        "sourceQuestionSha256": "e0e7856d3e58f5a6605afc9198363e32b2632c68f2104d5e3bf409a62048a9e1",
+        "mechanism": "单括号逻辑前缀匹配与解释",
+        "conclusion": "驱动缺覆盖另报",
+        "answerCheck": "题干rev2明确逻辑n而非C串；现所有driver n==strlen，忽略n错族未区分。已报n=2/1与更大物理存储的合法反例；独立说明部分仍人工。"
+      },
+      {
+        "id": "P3-structures-3-98",
+        "revision": 2,
+        "sourceQuestionSha256": "f938ecc570f0f7984283224f6b8ed0397f702246975cb03f60d0b996d4d19c09",
+        "mechanism": "辅助栈逆置及空间比较",
+        "conclusion": "接口只读复核",
+        "answerCheck": "相互独立数组已公开，按前n项压弹即逆置；O(n)额外空间不优于双指针O(1)，分析需人工，黑盒不证明确实用栈。"
+      },
+      {
+        "id": "P3-structures-3-99",
+        "revision": 2,
+        "sourceQuestionSha256": "f3389acce254ae6d7c3b99f5c26a00dd5b0f21442cdd85ff3c37fe30952c5ca4",
+        "mechanism": "大m循环长度不溢出",
+        "conclusion": "接口只读复核",
+        "answerCheck": "分支rear-front或m-(front-rear)均在int范围；模型另给先转long long方案。旧int中间加m溢出已在rev2修复，不重复修。"
+      },
+      {
+        "id": "P3-structures-3-100",
+        "revision": 1,
+        "sourceQuestionSha256": "f94fea1a65d29949419e9442165213e3e25c41f11fa55f132fdfbb3137af00e3",
+        "mechanism": "互异输入的候选出栈验证",
+        "conclusion": "驱动缺覆盖另报",
+        "answerCheck": "常规只读输入下模型正确；现driver仅核两输入guard未核有效元素，正确主体后去const修改实际非const输入会漏检。原题只读约束需在原driver核，未重编。"
+      }
+    ],
+    "codeFindings": [
+      {
+        "id": "P3-structures-3-97"
+      },
+      {
+        "id": "P3-structures-3-92"
+      },
+      {
+        "id": "P3-structures-3-96"
+      },
+      {
+        "id": "P3-structures-3-91"
+      },
+      {
+        "id": "P3-structures-3-94"
+      },
+      {
+        "id": "P3-structures-3-95"
+      },
+      {
+        "id": "P3-structures-3-100"
+      }
+    ]
+  },
+  "candidateFile": {
+    "schema": 1,
+    "sourceHtmlSha256": "c48a0263772f359dfa0682502157fb1b3970798d40d6d0a8db42c7a966ddeff3",
+    "sourceSnapshotSha256": "0c4e51029e163894a3ae2a513e1f80bdf6bcfaaac0ecfc7e0dad6ff883f7d0a3",
+    "state": "not_integrated",
+    "count": 31,
+    "candidates": [
+      {
+        "id": "P3-structures-3-8",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "未写front/rear的含义，判断前提与27/28/64应一致。",
+        "newMechanism": "预留一格队列的空满区别（补足下标约定）。",
+        "nearbyDifference": "仍保留原来的基础判断；27候选改假溢出，不再重问此判据。",
+        "independentCheck": "两个下标初始相等代表0项；最多m-1项时rear下一格才到front，相等不代表满。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-8",
+          "chapter": 3,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "牺牲一个数组单元区分空满时，front==rear表示满队列。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "该约定下相等为空，(rear+1)%m==front为满。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-8",
+          "chapter": 3,
+          "section": "判断题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列使用长度为m（m≥2）的数组，牺牲一格；front指队首元素，rear指下一可写位置。在此约定下，front==rear表示满队列。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "该约定下相等为空，(rear+1)%m==front为满。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-18",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "原句“最大，因此取最小”自身逻辑矛盾，绕开了栈的考查。",
+        "newMechanism": "LIFO位置与关键字最大值无关（去掉无关逻辑跳跃）。",
+        "nearbyDifference": "19/38考空间，与本题的值序关系无关；不增加另一道同义题。",
+        "independentCheck": "压9再压1时栈顶1却最大值9；一组正常压栈反例即可否定全称断言。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-18",
+          "chapter": 3,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "栈顶元素数值最大，因此栈可直接用于取最小值。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "栈顶表示最近入栈，不具有数值大小保证；可另加辅助结构。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-18",
+          "chapter": 3,
+          "section": "判断题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "普通栈的栈顶总是当前栈内数值最大的元素。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "栈顶表示最近入栈，不具有数值大小保证；可另加辅助结构。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-27",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "重复8的空满判据，且下标定义未公开。",
+        "newMechanism": "非循环顺序队列的假溢出，区分物理空闲与当前尾部可写。",
+        "nearbyDifference": "8保留预留一格的空满区别；27不再重问该谓词。",
+        "independentCheck": "当前有效下标2,3,4,5共4项，数组6格仍有2空位；既非空，也非6项真满。",
+        "studyEvidence": "学校chapter3-2文本235–317：顺序队列假上溢、引入循环与空满消歧为两个步骤。",
+        "previous": {
+          "id": "P3-structures-3-27",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数组长度m、牺牲一单元循环队列的满条件为：",
+          "type": "single",
+          "options": [
+            "rear==m",
+            "front==0",
+            "rear==front",
+            "(rear+1)%m==front"
+          ],
+          "answer": 3,
+          "explanation": "空相等，预留一格时尾再进1将碰头表示满。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-27",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个不回绕、不搬移元素的顺序队列使用数组a[0..5]，front指队首，rear表示下一可写位置。现front=2、rear=6，再入队因rear到达数组末端而被拒绝，但a[0]、a[1]已空闲。这主要属于：",
+          "type": "single",
+          "options": [
+            "假溢出",
+            "队列下溢",
+            "所有存储单元均占满的真溢出",
+            "front与rear相等造成的空满歧义"
+          ],
+          "answer": 0,
+          "explanation": "队首前面已有两个可复用单元，只因非循环表示不能直接利用而拒绝入队，称假溢出。循环队列让下标按模回绕；预留一格则是另一件事，用于区分空满。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-28",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "可用全部m格的计数器队列在front==rear时可长m，原公式不能通用于该合法表示。",
+        "newMechanism": "环形有效区的长度（只补原意的完整表示条件）。",
+        "nearbyDifference": "与55保留公式/跨界具体计数的关系，不另将此修订计新增题。",
+        "independentCheck": "从front逐格走到rear，最多m-1步；(rear-front+m)%m唯一。满容量反例由新增条件明确排除。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-28",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列front指首元素、rear指下一可写位置，长度为：",
+          "type": "single",
+          "options": [
+            "m-front",
+            "rear-front总成立",
+            "(rear-front+m)%m",
+            "front+rear"
+          ],
+          "answer": 2,
+          "explanation": "用模处理跨数组尾部的情况，适用于牺牲一格约定。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-28",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列使用长度为m的数组（m≥2），牺牲一个单元区分空满；front指向队首元素，rear指向下一可写位置。当前元素个数为：",
+          "type": "single",
+          "options": [
+            "m-front",
+            "rear-front总成立",
+            "(rear-front+m)%m",
+            "front+rear"
+          ],
+          "answer": 2,
+          "explanation": "用模处理跨数组尾部的情况，适用于牺牲一格约定。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-29",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "两个原干扰项脱离链队指针状态。",
+        "newMechanism": "带头链队的空队不变量（更换干扰项）。",
+        "nearbyDifference": "30仍考删除唯一数据后的转移；29只问初始化/空状态。",
+        "independentCheck": "辅助头结点h仍存在，front=rear=h；三项分别不能按统一头尾操作或会悬空。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-29",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点链队列空时，通常：",
+          "type": "single",
+          "options": [
+            "front==rear且都指头结点",
+            "rear永远NULL且front指数据结点",
+            "front指第一个不存在的数组格",
+            "只能依靠所有data为0判断"
+          ],
+          "answer": 0,
+          "explanation": "头结点让空队列的队头队尾统一指向同一辅助结点。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-29",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点链队列空时，通常：",
+          "type": "single",
+          "options": [
+            "front==rear且都指头结点",
+            "front指头结点而rear==NULL",
+            "front==NULL而rear指头结点",
+            "front、rear都指向最后删除的数据结点"
+          ],
+          "answer": 0,
+          "explanation": "头结点让空队列的队头队尾统一指向同一辅助结点。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-36",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "原干扰项使用名字长度/输入之和等无关量。",
+        "newMechanism": "显式栈应保留的待恢复活动记录（合理误区）。",
+        "nearbyDifference": "11只考LIFO；82/83分别考具体深度和分支调用量。",
+        "independentCheck": "一般递归外层返回后仍可能用局部值并从不同位置继续，必须保存所有待恢复层必要信息；不要求保存已死局部变量。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-36",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "把递归改成迭代且仍模拟原返回过程，常见需要保存：",
+          "type": "single",
+          "options": [
+            "仅函数名字长度",
+            "完全不需要状态",
+            "待恢复的局部状态和返回位置",
+            "仅所有输入数字之和"
+          ],
+          "answer": 2,
+          "explanation": "显式栈应保存相当于活动记录的必要信息，而非只删递归调用。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-36",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "把递归改成迭代且仍模拟原返回过程，常见需要保存：",
+          "type": "single",
+          "options": [
+            "只保存每次调用的实参，不保存返回后还要使用的局部值",
+            "只保存最深层调用的返回值",
+            "保存各未结束调用在返回后仍要使用的局部状态和继续执行的位置",
+            "只保存当前最内层调用的局部状态，外层状态可以全部丢弃"
+          ],
+          "answer": 2,
+          "explanation": "显式栈应保存相当于活动记录的必要信息，而非只删递归调用。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-37",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "排序/永不弹出不是有用的队列实现误区。",
+        "newMechanism": "双栈队列的有效转移条件（换干扰项）。",
+        "nearbyDifference": "75保留为什么不提前混倒的次序解释；90考均摊成本。",
+        "independentCheck": "入A/B、出A、入C、再出时必须为B，直接弹in/只倒一项先出B，提前混倒让C越过旧B。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-37",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用两个栈实现FIFO队列，一种常见方式是：",
+          "type": "single",
+          "options": [
+            "把两个栈各自排序",
+            "入栈in，出队时out为空才把in整体倒入out",
+            "每次都直接弹in",
+            "永远只压不弹"
+          ],
+          "answer": 1,
+          "explanation": "倒栈反转次序，out顶部变成最早进入队列的项。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-37",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用两个栈实现FIFO队列，一种常见方式是：",
+          "type": "single",
+          "options": [
+            "新元素压入in，出队直接弹出in栈顶",
+            "新元素压入in，出队时若out为空才把in全部逐项弹入out，再弹出out",
+            "新元素压入in，每次出队都把in全部倒入out，不管out是否还有旧元素",
+            "新元素压入in，out为空时只把in栈顶一项移到out，再弹出out"
+          ],
+          "answer": 1,
+          "explanation": "倒栈反转次序，out顶部变成最早进入队列的项。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-38",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "值相等/任一栈空不是有用的容量误区。",
+        "newMechanism": "显式两端栈顶约定下的碰撞前边界。",
+        "nearbyDifference": "19谈共享，65算占用量；本题用两顶差距判满而非固定中点。",
+        "independentCheck": "m=8时占用数为(top1+1)+(8-top2)；穷举所有不交叠顶组合，空闲0与top1+1==top2完全等价。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-38",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个共享数组栈的空间耗尽条件通常是：",
+          "type": "single",
+          "options": [
+            "两个栈顶相邻，再增长将相撞",
+            "任一栈达到数组中点就满",
+            "两栈元素值相等",
+            "任一栈为空"
+          ],
+          "answer": 0,
+          "explanation": "共享空间的边界是总占用，不是固定中点。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-38",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个栈共享数组a[0..m-1]并从两端相向增长。top1、top2分别是当前栈顶下标，两个空栈初值分别为-1和m。数组空间全部用完的条件是：",
+          "type": "single",
+          "options": [
+            "top1+1==top2",
+            "top1==top2",
+            "top1+top2==m",
+            "top1==m/2或top2==m/2"
+          ],
+          "answer": 0,
+          "explanation": "两顶之间的空闲格数为top2-top1-1。它等于0时空间用完，即top1+1==top2；顶下标相等已经发生覆盖，固定中点也不能体现共享。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-43",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "ASCII和/只看长度等项过弱。",
+        "newMechanism": "混合括号需要最近未闭合类型栈（合理错误状态）。",
+        "nearbyDifference": "76候选改行编辑，不再复用同一个([)]反例。",
+        "independentCheck": "([)]读到第3个记号时最近左括号[与)不符；累计数量/最早类型不能实现正确嵌套。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-43",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "括号匹配算法采用栈而非只计数量，在多种括号混合时主要为记录：",
+          "type": "single",
+          "options": [
+            "未匹配左括号的类型和嵌套顺序",
+            "全部字符ASCII和",
+            "只需记录总长度",
+            "仅右括号数量"
+          ],
+          "answer": 0,
+          "explanation": "([)]数量相等但嵌套类型顺序不匹配。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-43",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "括号匹配算法采用栈而非只计数量，在多种括号混合时主要为记录：",
+          "type": "single",
+          "options": [
+            "尚未匹配左括号的类型及其嵌套顺序",
+            "所有已扫描左括号和右括号的累计数量",
+            "最早出现且尚未匹配的左括号类型即可",
+            "只记录最后一个右括号的类型"
+          ],
+          "answer": 0,
+          "explanation": "([)]数量相等但嵌套类型顺序不匹配。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-44",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "原文没有明确允许在1..4尚未全入完时弹出。",
+        "newMechanism": "首个输出对已入栈前缀的限制（补足初态和操作许可）。",
+        "nearbyDifference": "22判断完整输出序列；44只问第一次弹出后的必然栈态。",
+        "independentCheck": "第一次出2前必须恰好压入1和2；压3或4会挡2，提前弹1又违背第一次出2。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-44",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个栈按1,2,3,4入栈，想使2最先出栈，首步弹出后栈内自底向顶必为：",
+          "type": "single",
+          "options": [
+            "1",
+            "1,3",
+            "4,3,1",
+            "空"
+          ],
+          "answer": 0,
+          "explanation": "先入1,2，再弹2；3,4尚未入栈，否则挡住2。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-44",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "初始空栈，元素按1,2,3,4的顺序入栈，允许入栈与出栈交错。若第一个弹出的元素是2，则刚弹出2后栈内自底向顶必为：",
+          "type": "single",
+          "options": [
+            "1",
+            "1,3",
+            "4,3,1",
+            "空"
+          ],
+          "answer": 0,
+          "explanation": "先入1,2，再弹2；3,4尚未入栈，否则挡住2。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-46",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "“变成链表”与数组逻辑有效区无关。",
+        "newMechanism": "逻辑有效区与物理残留值（合理干扰项）。",
+        "nearbyDifference": "52讨论可用容量，46只区分top界定的成员与残留。",
+        "independentCheck": "top前减后逻辑范围缩短，旧值所在下标不在有效范围内；容量与top无须同步减少。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-46",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序栈弹出后不清除数组旧值，但正确减少top，后续逻辑栈：",
+          "type": "single",
+          "options": [
+            "必须把全部数组置0才有效",
+            "不再包含该旧项",
+            "仍必包含旧项",
+            "马上变成链表"
+          ],
+          "answer": 1,
+          "explanation": "有效范围由top定义；是否清值是其他需求，不等于结构成员关系。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-46",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序栈弹出后不清除数组旧值，但正确减少top，后续逻辑栈：",
+          "type": "single",
+          "options": [
+            "只有把弹出位置清零，该元素才算出栈",
+            "不再包含该旧项",
+            "仍包含该旧项，因为数组格中仍存着原值",
+            "容量也应随top一起减少一个单元"
+          ],
+          "answer": 1,
+          "explanation": "有效范围由top定义；是否清值是其他需求，不等于结构成员关系。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-48",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "自动排序/可靠传输是无关干扰项。",
+        "newMechanism": "环形指针更新缺少取模的真实后果。",
+        "nearbyDifference": "27是假溢出的表示问题，48是漏更新产生的访问错误。",
+        "independentCheck": "m=7、rear=6，再加1得7已不在[0,7)；front已有推进也不会使a[7]变合法。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-48",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "环形数组入队时若新rear计算漏掉取模，可能：",
+          "type": "single",
+          "options": [
+            "必自动由C数组回绕",
+            "元素自动排好序",
+            "变为可靠传输协议",
+            "下标越过数组边界"
+          ],
+          "answer": 3,
+          "explanation": "C数组不会替程序执行模回绕，越界访问需避免。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-48",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "环形数组入队时若新rear计算漏掉取模，可能：",
+          "type": "single",
+          "options": [
+            "只会使队列长度算错，不会影响写入下标",
+            "只要队列曾经出队，rear超出数组末端仍然可以安全写入",
+            "即使改成模回绕，也必须同时搬移所有剩余元素",
+            "下标越过数组边界"
+          ],
+          "answer": 3,
+          "explanation": "C数组不会替程序执行模回绕，越界访问需避免。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-49",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "字符值/右括号下标和无关；增加合法完整串条件。",
+        "newMechanism": "栈高的峰值，区别累计量及末态。",
+        "nearbyDifference": "62仍用有多次起伏的具体串独算；此题不改成重复的另一个数值深度题。",
+        "independentCheck": "枚举长度≤8合法括号串，对每层并存左括号计数；()()区分累计量，(())区分最终值。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-49",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "求括号序列的最大嵌套深度，匹配过程中可记录：",
+          "type": "single",
+          "options": [
+            "所有右括号下标之和",
+            "只看总括号数除2",
+            "栈深度的最大值",
+            "最后一个字符的值"
+          ],
+          "answer": 2,
+          "explanation": "嵌套深度是同时未闭合左括号数的最大值。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-49",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "求一个完整匹配括号串的最大嵌套深度，在匹配扫描过程中应记录：",
+          "type": "single",
+          "options": [
+            "累计见到的左括号总数",
+            "扫描结束时栈中的左括号数",
+            "尚未匹配左括号数的最大值",
+            "括号总数的一半"
+          ],
+          "answer": 2,
+          "explanation": "当前未匹配左括号数就是当前嵌套层数，取扫描过程的峰值。()()的总对数为2但深度只有1；扫描结束栈空也不代表从未嵌套。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-50",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "主线独审指出旧候选仍与86同为任意int的失败哨兵冲突，仅换操作、哨兵值和题型不足以去重；优先保留86。",
+        "newMechanism": "迷宫栈回溯的固定探索次序与最短路长度区别。",
+        "nearbyDifference": "86仍考错误状态和值分离；40只考撤销的LIFO，35只考避免重复入队，均没有路径质量和首次/最短的区别。",
+        "independentCheck": "从公开2×3全通矩形和下右上左顺序独立DFS得4步；独立BFS得2步，另用至少横移2格且顶行可达给出最短性证据。",
+        "studyEvidence": "学校chapter3-1第3.3迷宫案例以栈保存当前通路并回溯；本候选自拟最小矩形，不声称课件已讲BFS最短路，也不要求实现函数。",
+        "previous": {
+          "id": "P3-structures-3-50",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "单队列长度为0时执行peek读取队头，合理接口为：",
+          "type": "single",
+          "options": [
+            "默认所有队列都有整数0",
+            "自动分配一个假元素",
+            "报告为空，不把某个整数值当成所有情况通用失败标志",
+            "无条件返回数组第0项"
+          ],
+          "answer": 2,
+          "explanation": "元素可能恰为0或−1，宜用状态码加输出参数等明确区分。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-50",
+          "chapter": 3,
+          "section": "选择题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个2行3列的迷宫，所有格子均可通行，入口在左上角，出口在右上角。用栈作深度优先回溯，每步只走上下左右相邻格；每格按下、右、上、左的顺序尝试不在当前通路中的邻格，走到出口立即停止。相邻移动一次算1步。首次找到的通路和最短通路各有几步？",
+          "type": "single",
+          "options": [
+            "首次4步，最短2步",
+            "首次2步，最短2步",
+            "首次4步，最短4步",
+            "首次5步，最短2步"
+          ],
+          "answer": 0,
+          "explanation": "首次依次从(1,1)走到(2,1)、(2,2)、(2,3)、(1,3)，共4步。沿第一行向右两步即可到出口，且至少要横向移动两格，所以最短为2步。栈式回溯沿一个分支深入，第一条可行通路不保证最短。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-56",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "原文没有明示入队成功；且与57同一次模推进。",
+        "newMechanism": "队尾成功推进后的回绕（补成功条件）。",
+        "nearbyDifference": "57改成最小栈容量，不再问相同m=7、6+1的头指针。",
+        "independentCheck": "已写a[6]后下一空位从6按模7推进到0。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-56",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列m=7、rear=6，入队一次后rear为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "(6+1)%7。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-56",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列使用数组下标0..6，rear指下一可写位置且当前为6。一次成功入队后rear为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "(6+1)%7。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-57",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与56同一数值和模推进过程，只换front/rear。",
+        "newMechanism": "给定可行输出下的最小峰值容量。",
+        "nearbyDifference": "22问能否实现，71给操作证书；此题增加容量最小化约束，不是另一组同样的合法性判断。",
+        "independentCheck": "枚举所有合法压弹树并筛目标B,D,C,E,A，最小峰值3；峰值2无匹配证书。",
+        "studyEvidence": "学校chapter3-2随堂选择题第1题明确考栈容量至少多少；本题对象/序列/独算均自拟。",
+        "previous": {
+          "id": "P3-structures-3-57",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列m=7、front=6，合法出队一次后front为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "队头同样按模推进。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-57",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "初始空栈，互异元素依次按A,B,C,D,E入栈，允许入出交错。要得到出栈序列B,D,C,E,A，栈的容量至少为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "3"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "先压A、B后弹B，栈留A；为出D必须再压C、D，此时同时有A、C、D三项。依次弹D、C，再压出E、弹A即可，故3既必要又足够。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-59",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与31同形的两步后缀求值，仅替换数及运算符。",
+        "newMechanism": "后缀表达式前缀下溢，计数条件不是充分条件。",
+        "nearbyDifference": "68保留合法完整串的运算符计数；31/60保留不同树形的合法求值。",
+        "independentCheck": "逐记号栈高：读2为1，第2记号需要≥2而只有1，立即失败，不执行无定义的弹空。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-59",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "后缀表达式8 3 - 2 *的值为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "10"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "先8−3=5，再乘2。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-59",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "从空操作数栈开始，按从左到右顺序处理后缀串2 + 3 4 *，其中+、*均为二元运算。首次无法执行的记号是第____个（记号从1开始编号）。",
+          "type": "fill",
+          "answers": [
+            [
+              "2"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "读入2后栈只有一个操作数，接着的+需要两个操作数，故第2个记号就失败。虽然全串有3个操作数和2个二元运算符，整体数量合适仍不能保证每个前缀可执行。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-61",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与33同一内层加、外层乘转换，仅换内层在左/右。",
+        "newMechanism": "后缀求值的峰值工作栈需求。",
+        "nearbyDifference": "33保留括号转后缀；62是括号嵌套，不把两种栈深度混为一谈。",
+        "independentCheck": "只由当前公开记号的入栈+1、二元合并-1得到峰值3；全程运算前栈高≥2。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-61",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "中缀A*(B+C)的后缀为____（连写字母和运算符）。",
+          "type": "fill",
+          "answers": [
+            [
+              "ABC+*"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "括号内加法先形成BC+。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-61",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "从空栈计算合法后缀表达式A B C * + D E + /。每个字母入栈，每个二元运算符弹出两个值后把结果压回。操作数栈最多同时保存____个值。",
+          "type": "fill",
+          "answers": [
+            [
+              "3"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "各记号后的栈高为1,2,3,2,1,2,3,2,1，峰值为3。这里求操作数栈的容量，不是表达式中的字母总数，也不是括号深度。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-63",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "固定四入四出仅求和，未使用栈的顺序限制。",
+        "newMechanism": "枚举所有合法压弹序列得到不同输出数。",
+        "nearbyDifference": "5只是所有排列是否都行，22只识别一个非法候选；此题核完整枚举及去重。",
+        "independentCheck": "穷举3次push/3次pop且所有前缀不下溢的操作树，收集5个输出；同Catalan递推C3=5互核。",
+        "studyEvidence": "学校chapter3-1第3.1.1节思考题直接讨论3项有几种输出；本候选独立写题并枚举，不复制样题载荷。",
+        "previous": {
+          "id": "P3-structures-3-63",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "四个元素依次入栈再全部弹出，累计入栈/出栈操作次数为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "8"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "各4次。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-63",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "初始空栈，3个互异元素按a,b,c的顺序入栈，允许入栈和出栈交错且最后全部出栈。不同的完整出栈序列共有____种。",
+          "type": "fill",
+          "answers": [
+            [
+              "5"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "合法结果为abc、acb、bac、bca、cba，共5种；cab不行，因为先出c后栈顶为b，不能跳过b出a。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-64",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "未给front/rear含义，rear若指最后数据项则满时可以不等。",
+        "newMechanism": "全容量计数队列的指针整圈不变量（补表示条件）。",
+        "nearbyDifference": "41只判count满；64明确下标为什么可相等，不把rear末项约定暗中排除。",
+        "independentCheck": "连续成功入6项使rear推进整圈回front，count由0变6，而不是靠下标区分空满。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-64",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带计数器容量为6的循环队列，count=6时front与rear按模可能____（填相等或不等）。",
+          "type": "fill",
+          "answers": [
+            [
+              "相等"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "满圈回到同一下标，靠count区分空满。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-64",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列使用容量为6的数组，front指队首元素，rear指下一可写位置，并用计数器count区分空满。count=6时front与rear____（填相等或不等）。",
+          "type": "fill",
+          "answers": [
+            [
+              "相等"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "满圈回到同一下标，靠count区分空满。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-70",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与28/55的同一模长度关系反求，没有新增约束。",
+        "newMechanism": "递归分解的最少操作次数，区分调用深度和总工作量。",
+        "nearbyDifference": "82/83考活动记录；本题问最少盘移动数，并非另一个队列公式反求。",
+        "independentCheck": "独立对全部3^4=81个盘所在柱状态做合法单步BFS得最短15，另用最小盘组递推互核。",
+        "studyEvidence": "学校chapter3-2第3.4节明确列汉诺塔；严C配套3.8研究最少move次数，仅参考机制。",
+        "previous": {
+          "id": "P3-structures-3-70",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列m=8，front=2，长度5，rear指下一可写位置，应为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "7"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "(2+5)%8。",
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-70",
+          "chapter": 3,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "三根柱A、B、C上进行汉诺塔搬运。初始4个大小不同的盘子全在A上，小盘在大盘上；每次只能移动一根柱的最上面一个盘子，且大盘不能放在小盘上。把全部盘子按原次序移到C，最少移动____次。",
+          "type": "fill",
+          "answers": [
+            [
+              "15"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "先把上面3盘移到B，再移动最大盘到C，最后将3盘移到C。最少次数T(n)=2T(n-1)+1、T(0)=0，得到T(1)..T(4)=1,3,7,15。最大盘移动前后各需处理3盘，给出下界；递归搬运可达到该下界。",
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-72",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与22的312不可达是同一首矛盾，换字母加无关尾项。",
+        "newMechanism": "重复值时输出值序列对操作轨迹的不可识别性。",
+        "nearbyDifference": "22/100的互异值条件保留；候选改变关键合法域（重复键）并区分值与实体，不改原代码接口。",
+        "independentCheck": "对两个元素实体0/1枚举操作树，恰有PSPS/PPSS两个合法过程；投影值后均为[5,5]。",
+        "studyEvidence": "严C配套3.5特别区分元素实体与值；本题用最小重复键例解释条件作用，非原题转录。",
+        "previous": {
+          "id": "P3-structures-3-72",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "入栈顺序A,B,C,D，为什么出栈C,A,D,B不可能？指出首个矛盾。",
+          "type": "short",
+          "model": "要先出C，需先把A,B,C压入；弹C后栈顶是B，不可能跳过B直接弹A，故在第二个出栈项即矛盾。",
+          "rubric": [
+            "还原先出C条件",
+            "弹后顶为B",
+            "首矛盾定位"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-72",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "初始空栈，两个不同元素的值都为5，并按先到的第1个、后到的第2个的顺序入栈，允许入出交错。仅看到输出值序列5,5，能否唯一确定入栈与出栈的交错过程？用两组合法操作说明。",
+          "type": "short",
+          "model": "不能。入第1个、出第1个、入第2个、出第2个；以及入第1个、入第2个、出第2个、出第1个，都输出值5,5，但元素身份和操作过程不同。只看相同键值丢失了元素身份信息。",
+          "rubric": [
+            "给出一入一出的合法过程",
+            "给出先全入再逆序出的合法过程",
+            "指出输出值相同不代表元素身份/操作过程相同"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-73",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "“长度6”可误作有效长度，且两下标语义未明。",
+        "newMechanism": "混合入出队的逐步状态（仅明确原有表示）。",
+        "nearbyDifference": "保留实际跨尾首与分别更新头尾的综合，未换成另一次单步回绕。",
+        "independentCheck": "按公开状态推进，(4,1)→(5,1)→(5,2)→(5,3)，逐个走下标5,0,1,2，共4项。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-73",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列长度6、牺牲一格，front=4、rear=1。依次出队一次、入x、入y，写每步front/rear和最终长度。",
+          "type": "short",
+          "model": "初长3。出队后front=5,rear=1；入x后5,2；入y后5,3。最终(3−5+6)%6=4。",
+          "rubric": [
+            "区分头尾更新",
+            "模回绕",
+            "长度4"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-73",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "循环队列使用长度为6的数组，牺牲一格；front指队首元素，rear指下一可写位置。初始front=4、rear=1，依次成功出队一次、入x、入y，写每步front/rear和最终元素个数。",
+          "type": "short",
+          "model": "初长3。出队后front=5,rear=1；入x后5,2；入y后5,3。最终(3−5+6)%6=4。",
+          "rubric": [
+            "区分头尾更新",
+            "模回绕",
+            "长度4"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-76",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与43解析同一个([)]、同一个最近类型错配。",
+        "newMechanism": "行编辑中退格/清行的组合状态机。",
+        "nearbyDifference": "40只问撤销用LIFO；本题明确两个不同命令及空行边界并要求实际轨迹；43保留混合括号。",
+        "independentCheck": "独立按字符事件处理，12次缓冲区状态为[空,a,ab,a,空,c,空,d,de,d,空,f]。",
+        "studyEvidence": "学校chapter3-1第3.3行编辑案例：#退格、@清行；命令与输入串自拟。",
+        "previous": {
+          "id": "P3-structures-3-76",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "括号串([)]为何计数法可能误判，而类型栈能在何处拒绝？",
+          "type": "short",
+          "model": "左右数量均匹配，但读到)时栈顶是[，类型不符立即拒绝。仅计数量不能表示最近未闭合的类型。",
+          "rubric": [
+            "类型与顺序",
+            "拒绝位置",
+            "计数法局限"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-76",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "行编辑缓冲区初始为空。普通字母追加到行尾；#删除当前行最后一个字母（空行时忽略）；@清空当前行。这些命令本身不留在缓冲区。依次输入#ab##c@de##f，写出各步缓冲区内容，并说明为什么用栈处理#合适。",
+          "type": "short",
+          "model": "依次为空、a、ab、a、空、c、空、d、de、d、空、f，最终有效行是f。#撤销最近保留的一个字母，符合后进先出；@把当前有效栈清空，不能只删一个字母。",
+          "rubric": [
+            "正确处理空行上的#",
+            "逐步区分普通追加、单次退格和整行清空，最终为f",
+            "说明最近保留字符先删除与LIFO对应"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-79",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "30已问相同带头链队唯一项删除与悬空尾修复。",
+        "newMechanism": "仅尾指针、无头循环链队的两种删除边界。",
+        "nearbyDifference": "30保留带头非循环链队rear回头结点；本题空态及头部寻址均不同，不是同一指针名换壳。",
+        "independentCheck": "分别用2结点rear=B/B.next=A/A.next=B和1结点自环枚举，删除后为B自环/NULL，未读取已释放对象。",
+        "studyEvidence": "学校链队定义/链接操作；严C配套3.28为仅尾指针循环队（该题带头）；本候选明确采用无头表示，独立推导，不抄原载荷。",
+        "previous": {
+          "id": "P3-structures-3-79",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "带头结点链队列最后一项被释放后，rear仍指原项。为什么下一次入队可能出错，如何修？",
+          "type": "short",
+          "model": "rear变成悬空指针，若通过rear->next接新结点会写已释放内存。删除时若目标就是rear，令rear=front所指头结点，再按统一尾插处理。",
+          "rubric": [
+            "悬空写风险",
+            "检测唯一尾项",
+            "恢复空队不变量"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-79",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个不带头结点的循环链队列只保留尾指针rear：空队列rear为NULL，非空时rear->next指向队首。说明怎样找到队首，以及删除并释放队首时，多个结点和只有一个结点两种情况下rear及链接分别怎样更新。",
+          "type": "short",
+          "model": "非空时先用p=rear->next保存队首。多个结点时令rear->next=p->next，rear仍指原尾，再释放p；只有一个结点时p就是rear，应先令rear=NULL，再释放p。不能释放p后再从p读后继。",
+          "rubric": [
+            "由rear->next找到并先保存队首",
+            "多结点时绕过队首且尾指针不变",
+            "单结点时rear置NULL，并在保存必要信息/更新链接后释放"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-81",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "为何只改capacity不行不包含独立迁移/分配失败子问。",
+        "newMechanism": "区分容量元数据和真实分配（仅评分范围修正）。",
+        "nearbyDifference": "85仍比较链/数组空间与失败，本题不额外要求答出扩容事务全过程。",
+        "independentCheck": "原4格数组仅把capacity改8，a[4]仍在真实分配外；这已充分回答“为什么”，无需另外讨论失败保护。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-81",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序栈扩容时不能只修改capacity而保留原数组，为什么？",
+          "type": "short",
+          "model": "capacity只是记录值，不会自动增加真实分配内存；需成功申请更大区域并保存原元素，失败时保持旧栈，避免按虚假容量越界写。",
+          "rubric": [
+            "逻辑容量与物理分配",
+            "迁移并维护top",
+            "失败保护"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-81",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "顺序栈扩容时不能只修改capacity而保留原数组，为什么？",
+          "type": "short",
+          "model": "capacity只是记录值，不会自动增加真实分配内存；需成功申请更大区域并保存原元素，失败时保持旧栈，避免按虚假容量越界写。",
+          "rubric": [
+            "capacity字段不会自动增加真实可访问的存储区域",
+            "按虚增的容量写入原分配范围之外会越界"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-83",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与35同一个重复发现情形反向问同结论。",
+        "newMechanism": "分支递归的总调用量与峰值活动记录数。",
+        "nearbyDifference": "82保留单分支回溯输出；本题新增两个依次执行的子调用，不能把各分支栈深简单相加。",
+        "independentCheck": "独立递归事件日志得9次；显式enter/exit事件维护活动计数峰值4，并由C(n)=1+C(n-1)+C(n-2)互核。",
+        "studyEvidence": "学校chapter3-2第3.4节Fibonacci递归函数与工作记录；小规模n=4，不提升成复杂递归算法编写。",
+        "previous": {
+          "id": "P3-structures-3-83",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "队列处理中，任务只在出队后标记已访问；若两个先处理节点都指向同一尚未出队任务，可能发生什么？",
+          "type": "short",
+          "model": "该任务可被重复入队，占用资源甚至重复执行；一般首次入队就标已发现，把已排队与已处理状态区分。",
+          "rubric": [
+            "重复排队路径",
+            "入队标记",
+            "发现与完成不同"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-83",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "递归过程f(n)在n=0或n=1时直接返回；n≥2时先完整执行f(n-1)，再完整执行f(n-2)，然后返回。执行f(4)时，写出按进入先后得到的n序列、总调用次数和同时活动的f调用的最大个数。起始调用和基例都计入。",
+          "type": "short",
+          "model": "进入顺序为4,3,2,1,0,1,2,1,0，共9次；最大同时活动4个，例如f(4)→f(3)→f(2)→f(1)。第二个子调用开始时第一个子调用已返回，所以总调用次数不能当成栈的最大深度。",
+          "rubric": [
+            "正确列出两分支的先后进入序列",
+            "总调用9次，含起始与基例",
+            "最大同时活动4个，并区分先后发生和同时未返回"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-84",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "19已问共享空区的相同优势，泛问代价未形成新任务。",
+        "newMechanism": "辅助栈筛除指定值并保持幸存元素次序。",
+        "nearbyDifference": "98是无筛选逆置数组；75是队列的两栈进出分区；本题考删值后的稳定性和两个阶段。",
+        "independentCheck": "独立过滤原底顶序列得到[1,2,4]作为保序期望；另逐次弹压得到T=[4,2,1]及最终S=[1,2,4]互核。",
+        "studyEvidence": "严C配套3.4(2)是利用辅助栈删除指定值的功能辨析；本候选自拟数据、明确两个阶段与保序问题。",
+        "previous": {
+          "id": "P3-structures-3-84",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "共享数组双栈中一边持续增长、另一边空闲，相比预先固定各一半有什么优势？代价是什么？",
+          "type": "short",
+          "model": "一边可使用大部分未占空间，减少一侧假溢出；仍需维护两顶边界、总容量和互不覆盖，不意味着容量无限。",
+          "rubric": [
+            "动态共享",
+            "假溢出减少",
+            "碰撞保护"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-84",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "栈S自底向顶为3,1,3,2,3,4，辅助栈T初始为空。反复弹出S，遇到3就丢弃，其他值压入T；S空后，再把T全部弹回S。写出第一阶段结束时T和最终S的自底向顶序列，并说明未删除元素的相对次序是否保留。",
+          "type": "short",
+          "model": "第一阶段T自底向顶为4,2,1；再倒回后S为1,2,4。未删除项在原S中自底向顶也按1,2,4排列。保留项经历两次逆序，故相对次序恢复；只完成第一阶段会倒序。",
+          "rubric": [
+            "第一阶段T为4,2,1",
+            "最终S为1,2,4，所有3都删除",
+            "用两次反转说明保留项相对次序不变"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-86",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "失败*out不变是可选契约，不是消除任意int哨兵歧义的必要条件。",
+        "newMechanism": "任意值域与错误状态分离（只修不必要的评分限制）。",
+        "nearbyDifference": "50问空peek接口选择；86保留-1歧义及自行设计改进接口，不增加保持out的独立要求。",
+        "independentCheck": "(success, value)=(1,-1)与(0,任意值)状态不同；即便失败把out写0也可明确区分，不应仅因此扣分。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-86",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个队列接口用−1表示出队失败，但队列允许保存任意int，存了−1时会有什么歧义？给出改进接口。",
+          "type": "short",
+          "model": "无法区分成功取到−1与失败。可返回状态码，元素通过int *out写回，失败不改out；或用含状态和值的返回结构。",
+          "rubric": [
+            "值域冲突",
+            "明确状态通道",
+            "失败时输出保护"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-86",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个队列接口用−1表示出队失败，但队列允许保存任意int，存了−1时会有什么歧义？给出改进接口。",
+          "type": "short",
+          "model": "无法区分成功取到-1与失败。可返回独立状态码，元素通过输出参数写回，调用者先检查状态再使用值；也可返回同时含状态和值的结构。关键是状态不再占用某个合法int元素值。",
+          "rubric": [
+            "指出成功得到-1与失败无法区分",
+            "给出独立状态通道并能表达任意int元素值"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-88",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "题干限定正整数，却要求答出0的域外边界。",
+        "newMechanism": "除基取余为什么需要逆序（仅范围一致性修正）。",
+        "nearbyDifference": "仍为正整数题，不借修评分点把题干改成非负数并新增任务。",
+        "independentCheck": "以正数13为例余数1,0,1,1，反转为1101；0不属于当前题干合法域。",
+        "studyEvidence": "学校chapter3-1/3-2对应定义、操作或案例；以下为自行编写候选，不含第三方题目载荷。",
+        "previous": {
+          "id": "P3-structures-3-88",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用栈实现十进制正整数转二进制，为什么将除2余数压栈后再弹出，而非直接按计算顺序输出？",
+          "type": "short",
+          "model": "除2先得到最低有效位，再逐渐得到高位；输出需要高位在前，栈的逆序弹出正好反转。0需单独表示为0。",
+          "rubric": [
+            "余数方向",
+            "逆序作用",
+            "0边界"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-88",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用栈实现十进制正整数转二进制，为什么将除2余数压栈后再弹出，而非直接按计算顺序输出？",
+          "type": "short",
+          "model": "连续除2先得到最低有效位，再逐渐得到高位；二进制通常从最高位向最低位书写，栈的逆序弹出正好把余数顺序反转。",
+          "rubric": [
+            "说明余数按低位到高位产生",
+            "说明二进制书写需高位在前，栈的LIFO可反转顺序"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      },
+      {
+        "id": "P3-structures-3-89",
+        "baseRevision": 1,
+        "baseKind": "原题revision1（非DSguide接口2/3）",
+        "targetRevision": 2,
+        "state": "candidate_not_integrated",
+        "reason": "与6同一普通FIFO不能尾删的操作集合定义，只换问法。",
+        "newMechanism": "输入受限双端队列的可达序列及中间项阻塞。",
+        "nearbyDifference": "6保留FIFO定义；22/71是单栈顶限制，本题允许两端出队，有不同的可达集合。",
+        "independentCheck": "枚举输入顺序固定、尾入/两端出的所有操作树，n=4共有22种输出；CADB在其中、DBAC不在。",
+        "studyEvidence": "学校chapter3-2随堂测试含受限双端队列；严C配套3.14比较输入/输出受限表示，仅参考机制。",
+        "previous": {
+          "id": "P3-structures-3-89",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "比较队列和双端队列，为什么不能把支持两端删除的实现结果拿来判断普通队列的出队合法性？",
+          "type": "short",
+          "model": "普通队列仅队头出，双端队列允许另一端操作，合法序列集合不同。应先固定抽象操作约定，再判断序列，不能用更强结构替代。",
+          "rubric": [
+            "操作集合不同",
+            "合法性依赖契约",
+            "先明确结构"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        },
+        "question": {
+          "id": "P3-structures-3-89",
+          "chapter": 3,
+          "section": "应用题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个双端队列初始为空，元素按A,B,C,D的顺序依次从队尾进入，允许入出交错；出队可任选队头或队尾。判断能否分别得到C,A,D,B和D,B,A,C。可行时给出操作，不可行时指出第一个无法取出的元素。",
+          "type": "short",
+          "model": "C,A,D,B可行：尾入A、B、C，尾出C，头出A，尾入D，尾出D，头出B。D,B,A,C不可行：要先出D须先将A,B,C,D全部入队并从尾出D，余A,B,C，此时B在中间，两端都取不到；矛盾在第二项B。",
+          "rubric": [
+            "可行序列的输入顺序和两端弹出操作合法",
+            "先出D后剩余队列为A,B,C",
+            "指出B在中间且无新输入，第二项无法从任一端取出"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5
+        }
+      }
+    ]
+  }
+}

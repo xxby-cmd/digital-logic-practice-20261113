@@ -32,12 +32,14 @@ test('完整卷备份支持每空给分、判题状态与旧版自评快照恢�
  submitExam(a,1002);for(const q of a.questions.filter(q=>q.type==='short'))setMark(a,q.id,q.points);settleExam(a);
  const restored=mergeBackup({version:2,attempts:[],practice:{}},room(a));assert.equal(restored.attempts[0].result.total,99);
  const coding=startExam('programming',fullExamPapers.programming[0],1000,'old-c');for(const q of coding.questions)delete q.judge;
+ delete coding.gradingVersion;delete coding.questionSnapshotVersion;
  const old=mergeBackup({version:2,attempts:[],practice:{}},room(coding));assert.ok(old.attempts[0].questions.every(q=>!q.judge));
  const modern=startExam('programming',fullExamPapers.programming[0],1000,'modern');const q=modern.questions.find(q=>q.judge);saveExamAnswer(modern,q.id,'code',1001);submitExam(modern,1002);
  assert.equal(pendingCodeQuestions(mergeBackup({version:2,attempts:[],practice:{}},room(modern)).attempts[0]).length,1);
 });
 test('旧章节答卷缺少新增编辑器和抽题元数据仍可恢复，题面被改则拒绝',()=>{
  const a=startChapterTest('network',composeChapterTest('network',1),1000,'old-chapter');
+ delete a.gradingVersion;delete a.questionSnapshotVersion;
  for(const q of a.questions){delete q.coding;delete q.practiceWeight;delete q.judge;}
  const input={version:2,attempts:[],practice:{},tests:[a]};
  const restored=mergeBackup({version:2,attempts:[],practice:{}},input);assert.equal(restored.tests[0].id,'old-chapter');

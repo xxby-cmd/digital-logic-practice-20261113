@@ -1,0 +1,216 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-pending-10-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-10-1794928861386-zqh6x0",
+      "title": "第10章 内部排序 · 章节练习",
+      "chapter": 10,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 9,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-10-D-001",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计稳定直接插入排序，无专用监视哨，数组0起始。须处理空数组和重复键。",
+          "type": "short",
+          "model": "for i=1..n-1，先保存完整记录x，j=i；while(j>0&&a[j-1].key>x.key)把a[j-1]移到a[j]并j--，最后a[j]=x。严格>保护等键次序，j>0在访问前。O(n+I)时间、O(1)额外记录，空/单项无循环。",
+          "rubric": [
+            "记录保存",
+            "严格比较",
+            "边界与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 12
+        },
+        {
+          "id": "P4-structures-10-D-006",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计给已有大根堆追加一个新键的上滤算法，容量已足。",
+          "type": "short",
+          "model": "末尾放x，下标i=n，长度增1；i>0时p=floor((i-1)/2)，若父≥x停，否则把父移到i并i=p，最后在i写x。O(log(n+1))时间，一个记录临时空间，空堆i=0直接写。",
+          "rubric": [
+            "父位置",
+            "移动留洞",
+            "空堆"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-10-D-002",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "折半插入要求稳定，设计在已排序前缀中确定插入位置的规则，并说明移动方向。",
+          "type": "short",
+          "model": "找首个key>x.key的upper_bound，把新来的x插在原有等键之后。得到pos后从i-1递减到pos右移，最后写x。定位比较O(log i)，整段移动仍O(i)，总最坏O(n²)，额外一个记录。",
+          "rubric": [
+            "上界位置",
+            "倒序右移",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-10-D-008",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计快速选择找第k小，1≤k≤n，允许重复键并原地重排。说明等于枢轴区间的作用。",
+          "type": "short",
+          "model": "取枢轴作<、=、>三路分区，若目标0起始秩k-1在左区递归左，在等区直接返回枢轴，否则右区并保持全局区间秩映射。每次至少排除等区，重复全等一趟结束。随机枢轴期望O(n)、最坏O(n²)，迭代可O(1)额外分区空间，不冒称最坏线性。",
+          "rubric": [
+            "秩定位",
+            "等段进度",
+            "概率成本"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-10-D-003",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计把两个有序记录数组稳定归并到独立缓冲，长度可能0，比较仅按key。",
+          "type": "short",
+          "model": "双指针，未耗尽时key左≤右就取左，否则右；任一耗尽复制另一剩余。缓冲不与尚未读取源冲突，记录整体复制。时间O(m+n)，输出m+n空间，相等优先左保持跨段稳定。",
+          "rubric": [
+            "双指针",
+            "等键先左",
+            "边界别名"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-10-D-007",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计稳定计数排序记录，整数key∈[v,w]，R=w-v+1可安全分配。",
+          "type": "short",
+          "model": "统计count[key-v]，做前缀累计得到各键末后边界；从原数组末尾向前，对记录x先--count[x.key-v]再放输出对应槽。逆向配合末边界使原同键先项落更前。O(n+R)时间O(n+R)辅助，验证R及偏移不溢出。",
+          "rubric": [
+            "计数前缀",
+            "逆扫描稳定",
+            "范围成本"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-10-D-004",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用数组自底向上二路归并排序，给段界计算与未配对末段处理，避免越界。",
+          "type": "short",
+          "model": "width=1逐倍增大；每对段以l起，mid=min(l+width,n)，r=min(l+2width,n)，归并[l,mid)及[mid,r)，无右段时原样复制。每趟交换源/目标缓冲或复制回，防width及端点计算溢出。O(n log(n+1))时间O(n)缓冲。",
+          "rubric": [
+            "半开段界",
+            "末段",
+            "缓冲与溢出"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-10-D-009",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "整数数组a需统计严格逆序对数，允许辅助数组，设计O(n log n)归并计数。",
+          "type": "short",
+          "model": "递归统计左右，再升序归并：左key≤右时取左不加；左>右时取右，并加左段尚余项数mid-i。相等不计严格逆序。总O(n log(n+1))时间O(n)缓冲，计数类型容纳n(n-1)/2。若不许改原数组则先复制并计额外空间。",
+          "rubric": [
+            "跨段计数",
+            "相等不计",
+            "宽计数类型"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        },
+        {
+          "id": "P4-structures-10-D-005",
+          "chapter": 10,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "原地检查0起始数组是否大根堆，不作排序，允许空数组。",
+          "type": "short",
+          "model": "遍历每个非叶i，左2i+1、右2i+2若存在则检查父key≥孩子key，失败即假，否则真。只访问范围内孩子，避免大下标乘加溢出，可遍历到floor(n/2)-1。O(n)时间O(1)辅助，空/单项均真。",
+          "rubric": [
+            "全部父子",
+            "范围",
+            "不要求全降序"
+          ],
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 11
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-10-D-001": "saved revision1 code P4-structures-10-D-001",
+        "P4-structures-10-D-006": "saved revision1 code P4-structures-10-D-006",
+        "P4-structures-10-D-002": "saved revision1 code P4-structures-10-D-002",
+        "P4-structures-10-D-008": "saved revision1 code P4-structures-10-D-008",
+        "P4-structures-10-D-003": "saved revision1 code P4-structures-10-D-003",
+        "P4-structures-10-D-007": "saved revision1 code P4-structures-10-D-007",
+        "P4-structures-10-D-004": "saved revision1 code P4-structures-10-D-004",
+        "P4-structures-10-D-009": "saved revision1 code P4-structures-10-D-009",
+        "P4-structures-10-D-005": "saved revision1 code P4-structures-10-D-005"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

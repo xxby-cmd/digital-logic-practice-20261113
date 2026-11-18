@@ -1,0 +1,136 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-intro-before-contract",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-1-1794927375161-ydzsj8",
+      "title": "第1章 绪论 · 章节练习",
+      "chapter": 1,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 5,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-1-D-001",
+          "chapter": 1,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "输入非负整数n，设计一个迭代算法计算1+2+…+n，同时写出基本加法次数；不得用递归。假设结果类型足够。",
+          "type": "short",
+          "model": "sum=0；对i从1到n执行sum+=i；返回sum。加法执行n次，n=0时0次，时间Θ(n)，辅助空间Θ(1)。也可另比较公式法的常数操作数模型，但本题指定迭代。",
+          "rubric": [
+            "正确边界",
+            "频度n",
+            "时间与空间分别给出"
+          ],
+          "coding": false,
+          "practiceWeight": 0.8,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-1-D-004",
+          "chapter": 1,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计一个接口检查数组长度与目标下标是否有效：n≥0时，合法下标0≤i<n；非法返回0，合法返回1。不访问数组内容。",
+          "type": "short",
+          "model": "return n>=0 && i>=0 && i<n;\n短路逻辑完成条件检查，无需读取a[i]；常数个比较，时间和额外空间均Θ(1)。",
+          "rubric": [
+            "完整合法域",
+            "验证前不访问",
+            "固定成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.8,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-1-D-002",
+          "chapter": 1,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "对非空整数序列找最大值与最小值，设计算法并分析最坏时间和辅助空间，禁止用固定数据哨兵假定值域。",
+          "type": "short",
+          "model": "以首元素同时初始化min/max，扫描余项分别更新。最坏Θ(n)时间、Θ(1)辅助空间；正常支持全负数。也可成对比较减少常数，不改变线性阶。",
+          "rubric": [
+            "数据初始化",
+            "覆盖全负数",
+            "线性和常数空间"
+          ],
+          "coding": false,
+          "practiceWeight": 0.8,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-1-D-005",
+          "chapter": 1,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给正整数n，设计通过不断整除2计算floor(log2 n)的算法，列n=1与n=10的结果并分析。",
+          "type": "short",
+          "model": "count=0；while(n>=2){n/=2;count++;}；返回count。1返回0，10经历10→5→2→1返回3。时间Θ(log n)（n增长时），空间Θ(1)。",
+          "rubric": [
+            "整除更新",
+            "两个边界例子",
+            "不是ceil及复杂度"
+          ],
+          "coding": false,
+          "practiceWeight": 0.8,
+          "points": 20
+        },
+        {
+          "id": "P4-structures-1-D-003",
+          "chapter": 1,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计函数对输入数组统计奇、偶数各多少，元素允许负数。用输出参数返回两个计数，说明空数组结果。",
+          "type": "short",
+          "model": "两个计数清0；依次判断a[i]%2==0则偶数计数加1，否则奇数加1；空数组都为0。时间Θ(n)，辅助Θ(1)。负奇数不应只用余数等于1判断。",
+          "rubric": [
+            "负数奇偶",
+            "清零与空输入",
+            "成本分析"
+          ],
+          "coding": false,
+          "practiceWeight": 0.8,
+          "points": 20
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-1-D-001": "revision1 saved reasoning: P4-structures-1-D-001",
+        "P4-structures-1-D-004": "revision1 saved reasoning: P4-structures-1-D-004",
+        "P4-structures-1-D-002": "revision1 saved reasoning: P4-structures-1-D-002",
+        "P4-structures-1-D-005": "revision1 saved reasoning: P4-structures-1-D-005",
+        "P4-structures-1-D-003": "revision1 saved reasoning: P4-structures-1-D-003"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

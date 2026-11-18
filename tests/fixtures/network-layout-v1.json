@@ -1,0 +1,1160 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {
+    "network": {
+      "seen": [
+        "P3-network-4-15"
+      ],
+      "current": "P3-network-4-15",
+      "records": {
+        "P3-network-4-15": {
+          "revision": 1,
+          "status": "correct",
+          "answer": 0
+        }
+      }
+    }
+  },
+  "tests": [
+    {
+      "id": "fixture-network-v1-final",
+      "kind": "chapter",
+      "subject": "network",
+      "paperId": "chapter-network-4-1",
+      "title": "第4章 网络层 · 章节测验",
+      "chapter": 4,
+      "questions": [
+        {
+          "id": "P3-network-4-1",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "路由与转发最准确的区别为：",
+          "type": "single",
+          "options": [
+            "路由负责应用编码，转发负责DNS",
+            "路由只在源主机，转发只在终点",
+            "二者都只修改MAC",
+            "路由决定路径，转发在节点按表选择出口"
+          ],
+          "answer": 3,
+          "explanation": "先由控制机制形成路径/表，再由数据平面逐包查表转发。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-34",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "路由器检查IP首部校验和失败通常：",
+          "type": "single",
+          "options": [
+            "自动猜出正确首部",
+            "丢弃错误数据报",
+            "假定数据必正确继续转发",
+            "改为ARP广播"
+          ],
+          "answer": 1,
+          "explanation": "差错检测不能保证唯一纠正。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-2",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "目的地址10.4.7.9同时匹配10.0.0.0/8和10.4.0.0/16，通常选择：",
+          "type": "single",
+          "options": [
+            "随机",
+            "总是默认路由",
+            "/8",
+            "/16"
+          ],
+          "answer": 3,
+          "explanation": "最长前缀匹配选择更具体的/16，不按表项书写顺序。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-26",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "traceroute常利用逐步变化的哪个量探测路径？",
+          "type": "single",
+          "options": [
+            "TTL或Hop Limit",
+            "应用密码长度",
+            "MAC地址位数",
+            "UDP校验和固定为0"
+          ],
+          "answer": 0,
+          "explanation": "逐次扩大可经过跳数，观察超时响应。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-3",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4地址的主机部分长度由什么决定？",
+          "type": "single",
+          "options": [
+            "由MAC长度",
+            "只由地址首字节",
+            "由网络前缀长度",
+            "固定16位"
+          ],
+          "answer": 2,
+          "explanation": "CIDR使用前缀长度划分网络位与主机位。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-22",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个路由器连接三个IP子网，其接口通常：",
+          "type": "single",
+          "options": [
+            "分别配置所属子网地址",
+            "所有接口必须同IP",
+            "只需一个任意MAC就替代IP",
+            "不得参与ARP"
+          ],
+          "answer": 0,
+          "explanation": "每个接口属于相应链路/子网，地址按该网络配置。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-4",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主机发现目标不在本地子网，存在可用默认路由时通常：",
+          "type": "single",
+          "options": [
+            "直接ARP远端服务器",
+            "把帧交给默认下一跳",
+            "把目的IP改成本机IP",
+            "删除IP首部"
+          ],
+          "answer": 1,
+          "explanation": "先选路由再解析下一跳链路地址；最终IP目的仍为远端。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-30",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "SDN控制器集中计算策略，是否意味着每个数据包必须先送控制器？",
+          "type": "single",
+          "options": [
+            "路由器变成纯存储器",
+            "一定如此",
+            "不一定，可由设备按已安装流表处理",
+            "设备不再转发数据"
+          ],
+          "answer": 2,
+          "explanation": "控制和数据分离不等于逐包都经过控制器。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-41",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4地址共有____bit，IPv6地址共有____bit。",
+          "type": "fill",
+          "answers": [
+            [
+              "32"
+            ],
+            [
+              "128"
+            ]
+          ],
+          "formats": [
+            "number",
+            "number"
+          ],
+          "explanation": "IPv4为4字节，IPv6为16字节。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-58",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "前缀/20的点分十进制掩码为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "255.255.240.0"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "前16位加第三字节高4位。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-42",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "10.20.30.77/28的网络地址为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "10.20.30.64"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "块长16，77在64至79。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-54",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "常规子网至少需60个可用主机地址，最小主机位数为____，相应前缀为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "6"
+            ],
+            [
+              "26"
+            ]
+          ],
+          "formats": [
+            "number",
+            "number"
+          ],
+          "explanation": "2^6−2=62足够，5位只有30。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-43",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "172.20.1.193/26的广播地址为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "172.20.1.255"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "该块192至255，主机位全1为255。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 2
+        },
+        {
+          "id": "P3-network-4-66",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "为什么同一路由表中可以同时保留一个聚合前缀和其内部的更具体前缀？",
+          "type": "short",
+          "model": "聚合提供一般可达方向，更具体项覆盖例外或更优路径；最长前缀匹配让例外生效，二者不必互斥。",
+          "rubric": [
+            "聚合用途",
+            "例外用途",
+            "最长匹配决定优先"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 10
+        },
+        {
+          "id": "P3-network-4-83",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "把IP分片看成应用主动切分消息，有什么关键区别？",
+          "type": "short",
+          "model": "IP分片针对网络MTU且按IP身份重组；应用消息分段有自己的语义和边界，可能形成多个独立传输/网络单元，重组层次与失败影响不同。",
+          "rubric": [
+            "触发原因",
+            "重组位置/身份",
+            "消息语义区别"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 10
+        },
+        {
+          "id": "P3-network-4-67",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给定目标与本机IP，为什么还必须知道掩码才能判断是否直接交付？",
+          "type": "short",
+          "model": "地址前几位相同多少才算同网络，由前缀长度规定。主机分别将目标和本机地址与掩码相与，再比较网络部分。",
+          "rubric": [
+            "前缀界定",
+            "按掩码比较",
+            "不能只看前三字节"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 10
+        },
+        {
+          "id": "P3-network-4-86",
+          "chapter": 4,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "192.168.40.0/24给部门X至少70台、Y至少30台、Z至少12台主机，从低地址先给大部门。写三个子网前缀和广播地址。",
+          "type": "short",
+          "model": "X为.0/25，广播.127；Y为.128/27，广播.159；Z为.160/28，广播.175。分别126、30、14个可用主机。",
+          "rubric": [
+            "按2^h−2选位宽",
+            "各块边界对齐",
+            "范围不重叠与广播"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 15
+        },
+        {
+          "id": "P3-network-4-95",
+          "chapter": 4,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "原载荷1600B，IPv4首部20B，MTU900B。求分片数及比不分片多发的IP首部字节数。",
+          "type": "short",
+          "model": "非末片最多880B，余720B，共2片；首部由20B增至40B，多20B。",
+          "rubric": [
+            "880对齐",
+            "两片载荷",
+            "只新增一份首部"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 15
+        },
+        {
+          "id": "P3-network-4-87",
+          "chapter": 4,
+          "section": "计算题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4原数据总长3020B、首部20B，出口MTU1020B，最大分片。求各片载荷、总长、片偏移及MF。",
+          "type": "short",
+          "model": "原载荷3000B，最大非末片1000B。三片载荷各1000，总长各1020；偏移0、125、250；MF为1、1、0。",
+          "rubric": [
+            "载荷和MTU分清",
+            "1000是8倍数",
+            "三片偏移与MF"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 14
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P3-network-4-1": 3
+      },
+      "marks": {
+        "P3-network-4-1": 2,
+        "P3-network-4-34": 0,
+        "P3-network-4-2": 0,
+        "P3-network-4-26": 0,
+        "P3-network-4-3": 0,
+        "P3-network-4-22": 0,
+        "P3-network-4-4": 0,
+        "P3-network-4-30": 0,
+        "P3-network-4-41": 0,
+        "P3-network-4-58": 0,
+        "P3-network-4-42": 0,
+        "P3-network-4-54": 0,
+        "P3-network-4-43": 0,
+        "P3-network-4-66": 0,
+        "P3-network-4-83": 0,
+        "P3-network-4-67": 0,
+        "P3-network-4-86": 0,
+        "P3-network-4-95": 0,
+        "P3-network-4-87": 0
+      },
+      "result": {
+        "total": 2,
+        "scores": {
+          "P3-network-4-1": 2,
+          "P3-network-4-34": 0,
+          "P3-network-4-2": 0,
+          "P3-network-4-26": 0,
+          "P3-network-4-3": 0,
+          "P3-network-4-22": 0,
+          "P3-network-4-4": 0,
+          "P3-network-4-30": 0,
+          "P3-network-4-41": 0,
+          "P3-network-4-58": 0,
+          "P3-network-4-42": 0,
+          "P3-network-4-54": 0,
+          "P3-network-4-43": 0,
+          "P3-network-4-66": 0,
+          "P3-network-4-83": 0,
+          "P3-network-4-67": 0,
+          "P3-network-4-86": 0,
+          "P3-network-4-95": 0,
+          "P3-network-4-87": 0
+        },
+        "settledAt": 1794913933494
+      },
+      "submittedAt": 3,
+      "expired": false
+    },
+    {
+      "id": "fixture-network-v1-active",
+      "kind": "chapter",
+      "subject": "network",
+      "paperId": "chapter-practice-network-4-1794913933495-srsk5f",
+      "title": "第4章 网络层 · 章节练习",
+      "chapter": 4,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 20,
+          "fill": 10,
+          "code": 0,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P3-network-4-1",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "路由与转发最准确的区别为：",
+          "type": "single",
+          "options": [
+            "路由负责应用编码，转发负责DNS",
+            "路由只在源主机，转发只在终点",
+            "二者都只修改MAC",
+            "路由决定路径，转发在节点按表选择出口"
+          ],
+          "answer": 3,
+          "explanation": "先由控制机制形成路径/表，再由数据平面逐包查表转发。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-34",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "路由器检查IP首部校验和失败通常：",
+          "type": "single",
+          "options": [
+            "自动猜出正确首部",
+            "丢弃错误数据报",
+            "假定数据必正确继续转发",
+            "改为ARP广播"
+          ],
+          "answer": 1,
+          "explanation": "差错检测不能保证唯一纠正。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-2",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "目的地址10.4.7.9同时匹配10.0.0.0/8和10.4.0.0/16，通常选择：",
+          "type": "single",
+          "options": [
+            "随机",
+            "总是默认路由",
+            "/8",
+            "/16"
+          ],
+          "answer": 3,
+          "explanation": "最长前缀匹配选择更具体的/16，不按表项书写顺序。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-26",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "traceroute常利用逐步变化的哪个量探测路径？",
+          "type": "single",
+          "options": [
+            "TTL或Hop Limit",
+            "应用密码长度",
+            "MAC地址位数",
+            "UDP校验和固定为0"
+          ],
+          "answer": 0,
+          "explanation": "逐次扩大可经过跳数，观察超时响应。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-3",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4地址的主机部分长度由什么决定？",
+          "type": "single",
+          "options": [
+            "由MAC长度",
+            "只由地址首字节",
+            "由网络前缀长度",
+            "固定16位"
+          ],
+          "answer": 2,
+          "explanation": "CIDR使用前缀长度划分网络位与主机位。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-22",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个路由器连接三个IP子网，其接口通常：",
+          "type": "single",
+          "options": [
+            "分别配置所属子网地址",
+            "所有接口必须同IP",
+            "只需一个任意MAC就替代IP",
+            "不得参与ARP"
+          ],
+          "answer": 0,
+          "explanation": "每个接口属于相应链路/子网，地址按该网络配置。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-4",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主机发现目标不在本地子网，存在可用默认路由时通常：",
+          "type": "single",
+          "options": [
+            "直接ARP远端服务器",
+            "把帧交给默认下一跳",
+            "把目的IP改成本机IP",
+            "删除IP首部"
+          ],
+          "answer": 1,
+          "explanation": "先选路由再解析下一跳链路地址；最终IP目的仍为远端。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-30",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "SDN控制器集中计算策略，是否意味着每个数据包必须先送控制器？",
+          "type": "single",
+          "options": [
+            "路由器变成纯存储器",
+            "一定如此",
+            "不一定，可由设备按已安装流表处理",
+            "设备不再转发数据"
+          ],
+          "answer": 2,
+          "explanation": "控制和数据分离不等于逐包都经过控制器。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-5",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4数据报TTL在路由器转发时主要用于：",
+          "type": "single",
+          "options": [
+            "确认每个字节",
+            "计算应用时延",
+            "替代链路FCS",
+            "防止数据报无限循环"
+          ],
+          "answer": 3,
+          "explanation": "逐跳递减，耗尽丢弃，限制循环生存期。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-38",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv6中的Hop Limit与IPv4哪项最接近？",
+          "type": "single",
+          "options": [
+            "总长度",
+            "TTL",
+            "IHL",
+            "片偏移"
+          ],
+          "answer": 1,
+          "explanation": "都限制逐跳转发次数。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 4
+        },
+        {
+          "id": "P3-network-4-6",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4 DF=1的数据报超过出口MTU且不能正常转发，典型处理为：",
+          "type": "single",
+          "options": [
+            "改写为UDP",
+            "无限排队等待包变小",
+            "任意切片发送",
+            "丢弃并按条件返回需分片的ICMP信息"
+          ],
+          "answer": 3,
+          "explanation": "DF禁止分片，不能自行违反；PMTUD可利用相应错误信息。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-24",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "传统NAPT中两个内网客户端可共享一个公网地址，关键在于：",
+          "type": "single",
+          "options": [
+            "取消所有目的地址",
+            "禁止同时连接",
+            "用不同外部端口及映射区分连接",
+            "把所有流量合并为一个应用"
+          ],
+          "answer": 2,
+          "explanation": "公网IP相同仍可由协议、端口及连接映射区分。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-7",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4片偏移字段的单位是：",
+          "type": "single",
+          "options": [
+            "首部长度",
+            "1bit",
+            "1字节",
+            "8字节"
+          ],
+          "answer": 3,
+          "explanation": "偏移按8字节计，因此非末片数据长度须对齐8字节。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-28",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "DHCP服务器可通过中继服务其他广播域，说明：",
+          "type": "single",
+          "options": [
+            "中继等于DNS",
+            "客户端必须先知道自己正式IP",
+            "客户端初始广播不必由普通路由器原样泛洪到全网",
+            "DHCP不能跨网段部署"
+          ],
+          "answer": 2,
+          "explanation": "中继是专门机制，不能把它误认为普通二层广播跨路由转发。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-8",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4中重组分片通常在何处进行？",
+          "type": "single",
+          "options": [
+            "每个路由器",
+            "最终目的主机",
+            "仅源主机",
+            "DNS缓存"
+          ],
+          "answer": 1,
+          "explanation": "路由器可继续分片，最终目的负责重组。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-32",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "分片会增加传输开销，直接原因之一是：",
+          "type": "single",
+          "options": [
+            "全部片都无需首部",
+            "原始载荷自动加倍",
+            "传播速度减半",
+            "各片需各自携带首部"
+          ],
+          "answer": 3,
+          "explanation": "数据总量不必增加，但多份首部占用额外字节。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-9",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "同一原始IPv4数据报的各分片，下列哪项应一致？",
+          "type": "single",
+          "options": [
+            "片偏移必相等",
+            "标识字段及源目的等重组键",
+            "MF必为0",
+            "总长度必相等"
+          ],
+          "answer": 1,
+          "explanation": "分片由共同身份关联，长度、偏移、MF可不同。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-36",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主机改了子网掩码后，同一个目标可能被判断为远程，原因是：",
+          "type": "single",
+          "options": [
+            "MAC位数改变",
+            "TTL总变0",
+            "TCP端口变长",
+            "网络前缀比较结果改变"
+          ],
+          "answer": 3,
+          "explanation": "本地/远程判断取决于目标和本机在掩码下的网络部分。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-10",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv6基本首部长度为：",
+          "type": "single",
+          "options": [
+            "40字节",
+            "60字节",
+            "随地址压缩写法变化",
+            "20字节"
+          ],
+          "answer": 0,
+          "explanation": "基本首部固定40字节，扩展首部另计；文本压缩不改变线上地址长度。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-40",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "互联网IP尽力而为服务意味着：",
+          "type": "single",
+          "options": [
+            "不保证时延、交付、顺序等",
+            "所有包必定丢失",
+            "从不选择路由",
+            "应用不能在其上构造可靠传输"
+          ],
+          "answer": 0,
+          "explanation": "不给保证不等于必失败；上层可提供额外机制。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-41",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4地址共有____bit，IPv6地址共有____bit。",
+          "type": "fill",
+          "answers": [
+            [
+              "32"
+            ],
+            [
+              "128"
+            ]
+          ],
+          "formats": [
+            "number",
+            "number"
+          ],
+          "explanation": "IPv4为4字节，IPv6为16字节。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-58",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "前缀/20的点分十进制掩码为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "255.255.240.0"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "前16位加第三字节高4位。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-42",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "10.20.30.77/28的网络地址为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "10.20.30.64"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "块长16，77在64至79。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-54",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "常规子网至少需60个可用主机地址，最小主机位数为____，相应前缀为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "6"
+            ],
+            [
+              "26"
+            ]
+          ],
+          "formats": [
+            "number",
+            "number"
+          ],
+          "explanation": "2^6−2=62足够，5位只有30。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-43",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "172.20.1.193/26的广播地址为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "172.20.1.255"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "该块192至255，主机位全1为255。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-62",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "把一个/22块等分成4个子网，每个子网前缀长度为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "24"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "4个子网需多2位前缀。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-44",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "常规/29广播子网可用主机地址为____个。",
+          "type": "fill",
+          "answers": [
+            [
+              "6"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "3位主机共8个，通常扣两个。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-56",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv6地址2001:db8::5中，双冒号替代了____组16bit的0。",
+          "type": "fill",
+          "answers": [
+            [
+              "5"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "已写3组，完整共8组。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-45",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "网络192.168.8.0/24等分为8个子网，新前缀长度为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "27"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "借3位子网号，24+3=27。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        },
+        {
+          "id": "P3-network-4-60",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "IPv4数据原载荷2080B，首部20B，MTU1060B且最大分片，第二片偏移字段为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "130"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "首片载荷1040B，偏移1040/8=130。",
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 3
+        }
+      ],
+      "startedAt": 4,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P3-network-4-1": 3
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

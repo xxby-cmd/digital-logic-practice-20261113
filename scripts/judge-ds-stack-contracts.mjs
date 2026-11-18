@@ -5,6 +5,7 @@ const lit = a => `{${a.length ? a.join(',') : 0}}`;
 const item = (body, out) => ({body, out});
 const leftGuard = 918273, rightGuard = -728193;
 const guard = (box, n) => `(${box}[0]==${leftGuard}&&${box}[${n + 1}]==${rightGuard})`;
+const sameValues = (box, values) => `(${values.map((v,i)=>`${box}[${i+1}]==${v}`).join('&&')||'1'})`;
 const specs = new Map();
 const add = (n, build, prelude = '') => specs.set(id(n), {build, prelude});
 const values = [[], [0], [-1], [2147483647], [-2147483648], [1, 3, 1],
@@ -122,10 +123,19 @@ function balanced(word) {
  while (reduced.includes('()')) reduced = reduced.replaceAll('()', '');
  return Number(reduced === '');
 }
-add(97, () => [...Array.from({length: 9}, (_, n) => bracketWords(n)).flat(),
- '('.repeat(257) + ')'.repeat(257), '()'.repeat(300), ')'.repeat(128) + '('.repeat(128),
- '('.repeat(513), '('.repeat(256) + ')'.repeat(255), '()'.repeat(257) + ')(']
- .map(word => item(`const char s[]=${JSON.stringify(word)};printf("%d\\n",match(s,${word.length}));`, [balanced(word)])));
+add(97, () => {
+ const complete=[...Array.from({length: 9}, (_, n) => bracketWords(n)).flat(),
+  '('.repeat(257) + ')'.repeat(257), '()'.repeat(300), ')'.repeat(128) + '('.repeat(128),
+  '('.repeat(513), '('.repeat(256) + ')'.repeat(255), '()'.repeat(257) + ')(']
+  .map(word => item(`const char s[]=${JSON.stringify(word)};printf("%d\\n",match(s,${word.length}));`, [balanced(word)]));
+ // n is the logical prefix length. Storage can continue after it and need not
+ // end in NUL; the first three cases reject strlen scans without invoking UB.
+ const prefixes=[{bytes:[40,41,40,0],n:2},{bytes:[40,41,0],n:1},{bytes:[40,0],n:0},
+  {bytes:[40,41],n:2},{bytes:[41],n:1}].map(({bytes,n})=>item(
+   `const char s[${bytes.length}]=${lit(bytes)};printf("%d\\n",match(s,${n}));`,
+   [balanced(String.fromCharCode(...bytes.slice(0,n)))]));
+ return [...complete,...prefixes];
+});
 
 add(98, () => values.map(a => item(
  `int box[${a.length + 2}]=${lit([leftGuard, ...a, rightGuard])};` +
@@ -171,7 +181,7 @@ add(100, () => {
   `int outBox[${input.length + 2}]=${lit([leftGuard, ...output, rightGuard])};` +
   `int scratch[${input.length + 2}]={0};scratch[0]=${leftGuard};scratch[${input.length + 1}]=${rightGuard};` +
   `int result=validPop(inBox+1,outBox+1,${input.length},scratch+1);` +
-  `printf("%d %d %d %d\\n",result,${guard('inBox', input.length)},${guard('outBox', input.length)},${guard('scratch', input.length)});`,
+  `printf("%d %d %d %d\\n",result,${guard('inBox', input.length)}&&${sameValues('inBox',input)},${guard('outBox', input.length)}&&${sameValues('outBox',output)},${guard('scratch', input.length)});`,
  [Number(accepted), 1, 1, 1]));
 });
 

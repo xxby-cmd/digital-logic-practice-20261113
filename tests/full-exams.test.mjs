@@ -33,5 +33,7 @@ test('代码题统一编辑区，考试作答阶段无运行和答案入口',()=
 });
 test('重点加权抽取且不重复，定向练习仍能抽尽',()=>{
  const qs=[{id:'core',practiceWeight:3},{id:'extra',practiceWeight:1}];assert.equal(drawPractice(qs,[],()=>0.7).id,'core');assert.equal(drawPractice(qs,[],()=>0.8).id,'extra');assert.equal(drawPractice(qs,['core'],()=>0).id,'extra');assert.equal(drawPractice(qs,['core','extra']),null);
- const q=getPracticeCourse('digital').questions.find(q=>q.id==='P4-digital-1-R-001');assert.equal(q.revision,2);assert.ok(q.stem.startsWith('将二进制数'));
+ // This assertion retains the historical language-normalization version;
+ // the typed-fill and number-representation suites lock its new default 3.
+ const q=getPracticeCourse('digital',{questionRevisions:{'P4-digital-1-R-001':2}}).questions.find(q=>q.id==='P4-digital-1-R-001');assert.equal(q.revision,2);assert.ok(q.stem.startsWith('将二进制数'));
 });

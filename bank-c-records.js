@@ -18,7 +18,7 @@ const domains={
  Line:'Line的code在[-1000000,1000000]，units在0至1000，unitCents在0至1000000，waived为0或1。',
  Person:'Person的id在[-1000000,1000000]，name为至多15个小写字母的空字符结尾串，可为空；birth为year在1至9999的有效公历日期。',
  Package:'Package的id在[-1000000,1000000]，count在0至1000000，expiry为year在1至9999的有效公历日期。',
- Node:'Node链表无头结点、有限无环且至多8个结点；id在[-1000000,1000000]，score在0至100。结点由调用者持有，不分配或释放结点。'
+ Node:'输入的Node链表无头结点、有限无环且每条至多8个结点；id在[-1000000,1000000]，score在0至100。结点由调用者持有，不分配或释放结点。'
 };
 const S=[],traceRows=new Set(),mechanisms=[];
 function add(stem,options,answer,why,mechanism){S.push([stem,options,answer,why]);mechanisms.push(mechanism);}
@@ -48,10 +48,10 @@ trace(cRecordsTypes.Student,'Student s={3,"li",60};\nint *p=&s.score;\n*p=85;\np
 trace(cRecordsTypes.Student,'Student s={4,"a",70};\nStudent *p=&s;\nprintf("%d %d",p->id,(*p).id);',['4 4','4 70','70 4','两种写法类型不同不能同时用'],0,'p->id等价于(*p).id。括号确保先解引用结构指针再访问成员；不是把*p.id作为同一种写法。','箭头与解引用后成员访问');
 trace(cRecordsTypes.Student,'Student a[2]={{1,"a",10},{2,"b",20}};\nStudent *p=a;\nint old=p->score++;\nprintf("%d %d %td",old,a[0].score,p-a);',['10 11 0','11 11 0','10 10 1','20 10 1'],0,'->先选出score成员，后缀++修改这个成员，提供旧值10。指针p没有自增，仍在第一条记录。','成员自增不移动结构指针');
 trace(cRecordsTypes.Student,'Student a[2]={{1,"a",10},{2,"b",20}};\nStudent *p=a;\nint x=(++p)->score;\nprintf("%d %d",x,p->id);',['20 2','10 1','11 1','20 1'],0,'括号中的++p先移到第二条完整记录，再访问其score。这里改变的是记录指针的位置，不是第一条成绩。','先移动记录指针再选成员');
-trace(cRecordsTypes.Student,'Student s={1,"a",60};\nchange(s);\nprintf("%d",s.score);',['60','90','0','结构体不能按值传参'],0,'形参接收整条结构的副本。函数只修改副本的标量成绩，调用者原对象仍为60。','按值传结构不写回标量成员','void change(Student s){s.score=90;}');
+trace(cRecordsTypes.Student,'Student s={1,"a",60};\nint r=change(s);\nprintf("%s %d %d",s.name,s.score,r);',['a 60 90','new 90 90','a 90 90','new 60 60'],0,'形参接收整条结构的副本，改副本的name和score不写回原对象；函数仍可通过返回值把90传给调用者。返回数据与修改调用者是不同通道。','按值结构修改与独立返回通道','int change(Student s){s.score=90;strcpy(s.name,"new");return s.score;}');
 trace('struct Box {int local;int *shared;};','int x=3;\nstruct Box b={2,&x};\nchange(b);\nprintf("%d %d",b.local,x);',['2 9','9 9','2 3','9 3'],0,'按值传递使local成为副本，但shared这个指针值仍指向x。改副本local不写回，改它所指的外部x仍可见。','按值结构中指针成员仍指向外部对象','void change(struct Box b){b.local=9;*b.shared=9;}');
-trace(cRecordsTypes.Student,'Student s={1,"a",60};\nchange(&s);\nprintf("%d",s.score);',['90','60','0','只改指针副本不能改其目标'],0,'指针形参本身是副本，但它指向调用者s。通过箭头赋值修改的是调用者的成绩成员。','结构指针参数修改调用者记录','void change(Student *s){s->score=90;}');
-trace(cRecordsTypes.Student,'Student a={1,"a",60};\nStudent b=raised(a);\nprintf("%d %d",a.score,b.score);',['60 65','65 65','60 60','65 60'],0,'raised修改其按值形参，再把整条结果返回。原a未变，返回对象b保存修改后的成绩，不能把返回结构与传指针写回混同。','返回结构体与原参数的独立性','Student raised(Student s){s.score+=5;return s;}');
+trace(cRecordsTypes.Student,'Student s={1,"a",60};\nStudent *p=&s;\nchange(p);\nprintf("%d %d",s.score,p==&s);',['90 1','60 1','90 0','60 0'],0,'先通过形参所指目标把成绩改90，随后仅把形参指针副本置空。调用者的p仍指向s，已完成的成员写入也不会被撤销。','结构指针写回与形参重绑定分开','void change(Student *s){s->score=90;s=NULL;}');
+trace(cRecordsTypes.Student,'Student a={1,"a",60};\nStudent b=raised(a);\nb.name[0]=\'b\';\nprintf("%s %s %d %d",a.name,b.name,a.score,b.score);',['a b 60 65','b b 65 65','a b 60 60','a a 60 65'],0,'raised返回整条按值副本，原a保持60。b有自己的name数组，随后改b的字符不会影响a；返回结构不让内嵌数组变为共享指针。','返回结构的内嵌数组独立性','Student raised(Student s){s.score+=5;return s;}');
 add('已有const Student *p，且指向有效对象。哪项符合C17的限制？',['可读取p->score，不能通过p给该成员赋值','p本身一定不能改指向','const只限制id，不限制score','可以无条件删除const并修改原本只读的对象'],0,'const Student *把经p访问的结构对象限定为只读视图；指针变量本身是否能重新绑定是另一个限定方向。不得据此任意写原本只读的对象。','const结构指针的成员限制');
 trace('struct Box {int *p;};','int x=3;\nconst struct Box b={&x};\n*b.p=9;\nprintf("%d",x);',['9','3','不能读取b.p','const总会递归限定指针指向的对象'],0,'const使b的成员本身不能重新赋值，但b.p的目标int并没有因此变成const。读取这个地址再修改x合法；不要把浅层限定误认为递归只读。','const结构不递归限定指针目标');
 trace(cRecordsTypes.Person,'Person p={1,"a",{2001,3,4}};\nint *m=&p.birth.month;\n*m=8;\nprintf("%d %d %d",p.birth.year,p.birth.month,p.birth.day);',['2001 8 4','8 3 4','2001 3 8','2001 3 4'],0,'成员路径先选择birth，再选择month。修改这个成员地址不会整体替换Date，也不会改year和day。','嵌套成员地址与局部更新');
@@ -103,8 +103,8 @@ task('B','Date','int compareDate(Date a,Date b)','按年月日先后比较，较
 
 task('P','Student','Student makeStudent(int id,const char *name,int score)','用三个参数构造并返回完整记录。id、score及name符合Student输入范围，name有效。','设置两数值字段并复制名称及终止符；不能返回局部Student指针。',null,'完整记录构造接口');
 task('P','Student','int replaceRecord(Student a[],int n,int id,const Student *replacement)','把前n条中首个id相等的记录整体换成*replacement并返回1；无匹配返回0。0≤n≤20，replacement有效，可指向a中的记录；编号允许重复。新记录的编号可以变化。','先保存替换记录的完整值，再按旧id查找首条命中。复制所有字段，不要只写查找关键字或成绩。',null,'按键替换整记录及输入别名');
-task('P','Student','int eraseFirstId(Student a[],int *n,int id)','删除首条id相等的记录，其右侧整记录左移并使*n减1，返回1；无则0且前*n条及*n不变。0≤*n≤20，n有效，编号可重复。不要求清理删除后尾部。','定位首条再移动整条Student，名称、编号、成绩一起移动。只删除一条，返回的新长度决定有效前缀。',null,'删除首条记录保持其余关联');
-task('P','Student','int insertStudent(Student a[],int *n,int cap,int k,Student value)','0≤*n≤cap≤20。若已满或k不在[0,*n]，返回0且*n与前cap条存储记录不变；否则在k之前插入完整value并增*n，返回1。n有效，a容量至少cap。','先检查所有失败条件，再从后往前移动整记录，写入value并增长度；无需保持成功后未使用尾区内容。',null,'有容量约束的整记录插入');
+task('P','Student','int eraseFirstId(Student a[],int *n,int id)','删除首条id相等的记录，其右侧整记录左移并使*n减1，返回1；无则0且前*n条及*n不变。0≤*n≤20，n指向有效的独立长度变量，不与a的存储重叠，编号可重复。不要求清理删除后尾部。','定位首条再移动整条Student，名称、编号、成绩一起移动。只删除一条，返回的新长度决定有效前缀。',null,'删除首条记录保持其余关联');
+task('P','Student','int insertStudent(Student a[],int *n,int cap,int k,Student value)','0≤*n≤cap≤20。若已满或k不在[0,*n]，返回0且*n与前cap条存储记录不变；否则在k之前插入完整value并增*n，返回1。n指向有效的独立长度变量，不与a的存储重叠，a容量至少cap。','先检查所有失败条件，再从后往前移动整记录，写入value并增长度；无需保持成功后未使用尾区内容。',null,'有容量约束的整记录插入');
 task('P','Student','int bestStudent(const Student a[],int n,Student *out)','在前n条中选成绩最高者；并列选id较小者，再并列保留首次出现者。成功复制整条到out并返回1；空集返回0且out不变。0≤n≤20，out有效且不与输入重叠，不改输入。','维护候选下标，只在关键字严格更优时替换。最后输出整条记录，才能保留候选对应姓名与成绩。',null,'多字段选优并保留首次并列');
 task('P','Student','int mergeStudentScores(Student a[],int n,const Student updates[],int m)','a前n条id互异。按updates前m条顺序处理，若id存在则只更新对应成绩，姓名不变；同id多次更新以后者为准。返回匹配成功的更新笔数。0≤n,m≤20，两数组不重叠，不改updates。','按键找到目标后只写score；更新姓名会混淆身份，每次命中都算一笔，重复id不是去重后才计。',null,'按键批量更新与记录身份保留');
 task('P','Student','int retainEligible(Student a[],int n,int minimum)','将前n条中score≥minimum且name非空的记录稳定保留在前部，返回新长度。0≤n≤20，0≤minimum≤100。不要求清理尾区。','两个成员条件均满足才复制整条记录；写位置不超过读位置，保留原相对顺序。',null,'记录资格由多个字段共同决定');
@@ -128,8 +128,8 @@ task('P','Node','int nodeCountPassing(const Node *head,int minimum)','统计scor
 task('P','Node','Node *appendDetached(Node *head,Node *item)','item为独立有效结点，next为NULL且不在原链。追加到链尾并返回新head；空链返回item，原非空head地址保持。数据字段不改。','空链和非空链分别处理，非空时找到尾结点再链接，不复制或释放结点。',null,'无头结点空链与尾追加');
 task('P','Node','Node *unlinkFirstId(Node *head,int id,Node **removed)','摘除首个id匹配结点并返回新head，把其地址写removed且把被摘结点next设NULL；无匹配时head不变且*removed=NULL。removed有效并不与结点字段重叠，不释放结点，编号可重复。','保存后继后改头或前驱链接，最后断开被摘结点。只处理第一次匹配，记录数据不变。',null,'按键摘除同时返回脱链记录');
 task('P','Node','void swapPayload(Node *a,Node *b)','交换两个结点的id和score，所有next链接保持不变。允许a==b，两个地址有效。','交换数据字段而非整条Node，避免把next一起交换而改变链的拓扑；自身交换应无变化。',null,'结点数据区与链接区分开修改');
-task('P','Node','int appendUniqueId(Node **head,Node *item)','item为独立结点，next=NULL且不在原链。若链中已有相同id返回0且链与item不变；否则把item接到尾部（空链成为首结点）并返回1。head有效。','先完成重复键检查，确认后才链接。比较的是id内容，而不是结点地址；不用申请或释放。',null,'唯一记录键检查后插入');
-task('P','Node','int moveFirstId(Node **from,Node **to,int id)','两链互不相交，from、to是不同有效头指针地址。把from链首个id匹配结点摘出并插到to链头，返回1；无匹配返回0且两链不变。不改结点id、score，不分配或释放。','先保存被选结点在源链的后继并修源头或前驱，再把结点next接到目标旧头并更新目标头，保留结点原身份。',null,'跨记录集合转移原结点');
+task('P','Node','int appendUniqueId(Node **head,Node *item)','item为独立结点，next=NULL且不在原链。若链中已有相同id返回0且链与item不变；否则把item接到尾部（空链成为首结点）并返回1。head是有效头指针变量地址，与所有结点字段（包括item）不重叠。','先完成重复键检查，确认后才链接。比较的是id内容，而不是结点地址；不用申请或释放。',null,'唯一记录键检查后插入');
+task('P','Node','int moveFirstId(Node **from,Node **to,int id)','两链互不相交，from、to是不同有效头指针变量地址，且不与任何结点字段重叠。把from链首个id匹配结点摘出并插到to链头，返回1；无匹配返回0且两链不变。不改结点id、score，不分配或释放。','先保存被选结点在源链的后继并修源头或前驱，再把结点next接到目标旧头并更新目标头，保留结点原身份。',null,'跨记录集合转移原结点');
 
 const choices=makeQuestions('programming',9,'选择题','C6R',S);
 choices.forEach((q,i)=>{q.mechanism=mechanisms[i];q.trace=traceRows.has(i+1);q.coding=false;});

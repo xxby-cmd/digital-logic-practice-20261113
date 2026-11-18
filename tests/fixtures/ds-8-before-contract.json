@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-pending-8-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-8-1794928861381-sulf8r",
+      "title": "第8章 动态存储管理 · 章节练习",
+      "chapter": 8,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 10,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-8-D-001",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "空闲区间按地址排序且互不重叠，设计首次适配分配总长q>0的算法，允许任意正余块，不计元数据。",
+          "type": "short",
+          "model": "从头查首个len≥q的区间[a,a+len)，给出[a,a+q)。若len=q删除该记录，否则令起址a+q、长度len-q。找不到返回失败且不改表。扫描O(f)，修改本身O(1)（已知前驱），检查地址运算安全。",
+          "rubric": [
+            "首个足够",
+            "正好与拆分",
+            "失败不变"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-010",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "移动式紧缩已有存活对象旧到新首址映射，所有根和指针字段可枚举，所有引用都是对象首址。设计更新引用与搬移流程，避免覆盖未读数据。",
+          "type": "short",
+          "model": "先算全部新址并记录映射；在安全的阶段枚举根与存活对象字段，把非空旧目标查映射改新目标；按不会覆盖未搬对象的移动顺序或用memmove/临时缓冲搬移，并处理映射读取位置与字段所在位置一致。最后重建空闲区。须明确元数据和移动方向，映射本身正确不等于搬移安全；成本取决于总字节与引用数。",
+          "rubric": [
+            "先规划映射",
+            "全部引用",
+            "重叠搬移安全"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-002",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "空闲区间表不按大小排序，设计最佳适配；大小相同取最低地址。不得找到一个足够块就立即返回。",
+          "type": "short",
+          "model": "遍历所有块，用候选保存满足len≥q且(len,address)字典序最小者。遍历后无候选失败，否则从该块低地址分配并更新/删除。O(f)时间O(1)辅助，修改时保存前驱。大小有序才可在相应约定下提前停。",
+          "rubric": [
+            "全表候选",
+            "并列规则",
+            "更新与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-008",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "固定大小对象池，已完成可达标记，设计清除并重建空闲链，不移动存活对象。",
+          "type": "short",
+          "model": "按池地址扫描每块，未分配块直接归空闲，已分配且未标记者先释放其规定资源再归空闲，已标记者保留并清mark以备下次。用头尾或头插构空闲链。O(N)扫描，不把清除垃圾时的引用计数级联与追踪式清除混用以免重复释放。",
+          "rubric": [
+            "分类清除",
+            "标志复位",
+            "无重复回收"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-003",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "已按地址升序存空闲半开区间，回收合法已占用区间[a,b)，立即合并相邻块。描述插入与检查流程。",
+          "type": "short",
+          "model": "找到插入前后邻记录，验证不与空闲区间重叠（合法释放前提仍建议核）；左终点=a则合左，右起点=b则合右，两者都接壤合三段，否则独立插入。统一写合并区间，空表可作首项。O(f)搜索O(1)额外，不能合并仅仅有空隙的两段。",
+          "rubric": [
+            "定位与重叠",
+            "四情形",
+            "空表与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-007",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "以对象图和根集合实现标记阶段，可能有环。设计迭代算法并说明何时标记。",
+          "type": "short",
+          "model": "清所有mark，逐根合法对象若未标记，置标并入栈；弹对象，扫描其引用目标，未标者先置标再压栈。每对象至多入栈一次，O(V+E+R)时间O(V)辅助（R根数）。只扫描已知引用字段，不能把任意整数当精确指针。",
+          "rubric": [
+            "先标入栈",
+            "全根与环",
+            "成本与字段"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-004",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计将请求有效量q、头部h、对齐单位a转成总块长的安全步骤。q>0,h≥0,a>0，整数上限MAX。",
+          "type": "short",
+          "model": "先检q≤MAX-h，取x=q+h；余r=x%a，增量delta=(r==0?0:a-r)；再检x≤MAX-delta，返回x+delta。避免先计算x+a-1溢出。若还含尾部依同样安全加法逐项计算；失败返回状态不修改池。",
+          "rubric": [
+            "安全加法",
+            "余数对齐",
+            "失败原子性"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-009",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "引用计数递减触发回收可能很深，设计工作队列式级联释放，假设无环对象图且只有此管理器修改强引用。",
+          "type": "short",
+          "model": "删除引用时计数减1，首次变0则入回收队列；反复出队，遍历对象全部出强引用逐一减目标计数，变0则入队，然后释放该对象。对象只在归零转变时入队，防重复。成本与本次实际释放对象及其出引用数成正比，队列替代深递归；无环前提不能省。",
+          "rubric": [
+            "归零事件",
+            "处理出引用",
+            "重复与环"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-005",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "伙伴池每阶空闲集合支持按地址O(1)期望查找与删除，设计分配大小q的步骤，整池2^M。",
+          "type": "short",
+          "model": "求最小k使2^k≥q（含开销后的q），检查q合法不超池；找到最小非空阶j≥k，取约定块，逐阶拆分，将另一半插入低一阶，保留选定半直到k。最后登记实际块阶和占用。最多O(M)阶搜索拆分，地址选择若要求最低地址需另用有序结构，不与普通哈希O(1)混称。",
+          "rubric": [
+            "取整与选阶",
+            "拆分登记",
+            "索引成本条件"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-8-D-006",
+          "chapter": 8,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给当前全部空闲区间与已分配区间，设计离线检查池是否被恰好划分的方法，允许O(N log N)时间。",
+          "type": "short",
+          "model": "核每区间长度正且池内，合并两类记录按起址排序；从池起点cursor开始，逐记录要求start==cursor，更新cursor=end，最后等于池终点。start<cursor重叠，>cursor漏段。若设计允许元数据区单列也须纳入分区。O(N log N)时间，排序空间依实现；不要只核长度总和。",
+          "rubric": [
+            "排序扫描",
+            "重叠与洞",
+            "端点覆盖"
+          ],
+          "coding": false,
+          "practiceWeight": 0.3,
+          "points": 10
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-8-D-001": "saved revision1 code P4-structures-8-D-001",
+        "P4-structures-8-D-010": "saved revision1 code P4-structures-8-D-010",
+        "P4-structures-8-D-002": "saved revision1 code P4-structures-8-D-002",
+        "P4-structures-8-D-008": "saved revision1 code P4-structures-8-D-008",
+        "P4-structures-8-D-003": "saved revision1 code P4-structures-8-D-003",
+        "P4-structures-8-D-007": "saved revision1 code P4-structures-8-D-007",
+        "P4-structures-8-D-004": "saved revision1 code P4-structures-8-D-004",
+        "P4-structures-8-D-009": "saved revision1 code P4-structures-8-D-009",
+        "P4-structures-8-D-005": "saved revision1 code P4-structures-8-D-005",
+        "P4-structures-8-D-006": "saved revision1 code P4-structures-8-D-006"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

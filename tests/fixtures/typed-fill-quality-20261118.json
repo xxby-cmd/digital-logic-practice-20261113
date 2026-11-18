@@ -1,0 +1,531 @@
+{
+  "authorityHtmlSha256": "e48ec0b993b242d2de1164c664fad17ad3586e161816b25f5a2df9f3388a3576",
+  "items": [
+    {
+      "subject": "structures",
+      "id": "P2-structures-2-9",
+      "baseRevision": 2,
+      "revision": 3,
+      "patch": {
+        "answers": [
+          [
+            "head->next==NULL",
+            "head->next==0",
+            "!head->next",
+            "(head->next==NULL)",
+            "(head->next)==NULL",
+            "NULL==head->next",
+            "0==head->next",
+            "!(head->next)"
+          ]
+        ],
+        "formats": [
+          "c-tokens"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 2,
+      "baseQuestionSha256": "601e3183f75e2135cb6db2d124ef96b46a233c70ba51e229a739255eaa851f1d",
+      "newQuestionSha256": "39a6fe796cd8b4e36f7f3599e84922ba082a0f7df7ff6a31e8655ded8c06bab6"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-005",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "c-tokens"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 2,
+      "baseQuestionSha256": "00e9952ef4a0a38dd312ef2ff8a99e7bdb4be6b6558898986e65e02a4c577194",
+      "newQuestionSha256": "05e2079a5ab3c5301e418e2c200f204282f811aca5872b3f11a0820ea2b7340a"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-002",
+      "baseRevision": 2,
+      "revision": 3,
+      "patch": {
+        "stem": "用不含重复值的线性表A=(4,1,7)、B=(1,2,4,9)表示两个集合。依次扫描B；只有当前值不在A中时才追加到A末尾，不排序。完成后A为____（逗号分隔）。",
+        "answers": [
+          [
+            "4,1,7,2,9"
+          ]
+        ],
+        "formats": [
+          "integer-sequence"
+        ],
+        "explanation": "1和4已在A中，不再追加；2和9按B中的顺序追加，A成为4,1,7,2,9。集合并去除重复，但不要求把原有次序变成升序。"
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 2,
+      "baseQuestionSha256": "612d83e4902f8a402803bf05a1d5d5f7870cfef88dffba631e839209c3de679c",
+      "newQuestionSha256": "d0e5ff6379ae8f39f47f22c43ac40d9bb9983f5549b2034e7f540af44590ac32"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-012",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 2,
+      "baseQuestionSha256": "20e75c80a9764b3667e794e7a103a0937e9ef4142e5ccc7d6929d70aedf19a77",
+      "newQuestionSha256": "198a468f97869ab0b70fcb8df77d8d5748b3567701513c0e53c4d39b8fbd345a"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-4-F-003",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-set"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 4,
+      "baseQuestionSha256": "6d4f88591454bf0f64ba8867163bc51532a73acb6dc73d805dd41926cf1eb38f",
+      "newQuestionSha256": "454225c1b6d9531327f5eb9c4c4c2a3b83a5a72ea916b12a513fe56c55eddab5"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-4-F-006",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ],
+        "answers": [
+          [
+            "0,0,1,2",
+            "0，0，1，2",
+            "0 0 1 2"
+          ]
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 4,
+      "baseQuestionSha256": "1b90f0496e255da85e302215af94ca9bc055cc3b2d74983676f7a7a2d6e35470",
+      "newQuestionSha256": "01b351a3ba056cb6deaddb47649dd3534ba1bd10f9baea7065a7c70268f2d42b"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-5-F-010",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ],
+        "answers": [
+          [
+            "(5,2,-4)",
+            "5,2,-4",
+            "（5，2，-4）",
+            "5 2 -4"
+          ]
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 5,
+      "baseQuestionSha256": "1b6219665a34278ce3fd4008f611cd93e57223aa7e4abb4e0763c2866dfcce8b",
+      "newQuestionSha256": "adfa14bcaa946dbe459018ef1b0e886a608de351841778f04ee456f3b2a82396"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-9-F-014",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 9,
+      "baseQuestionSha256": "ec99709fa336089a3cda49e39041c3003e68caeb59a79b2cf8347dd0f38bbbc3",
+      "newQuestionSha256": "1a8e05fe66fc60fd562fc50de79382f172d3429114b4e40bfabf611837177507"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-10-F-003",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 10,
+      "baseQuestionSha256": "998ca63fc235b916fdabe672a9b35183e1d5dffe37ceb90ce106828c8155d428",
+      "newQuestionSha256": "f42df1b1be70991a6cc0801fdceb4af9c87556d4fb048f76394780a38d7ab547"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-10-F-004",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ],
+        "answers": [
+          [
+            "1,2,4,5",
+            "1，2，4，5",
+            "1 2 4 5"
+          ]
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 10,
+      "baseQuestionSha256": "1ac26744adf9cba4ee007b09460017063091373f231fa46920046744dc862729",
+      "newQuestionSha256": "340a178e391950c94321f89be0fcded658118ba7e182a01685d22b5f63e3e66b"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-10-F-010",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ],
+        "answers": [
+          [
+            "21,12,13",
+            "21，12，13",
+            "21 12 13"
+          ]
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 10,
+      "baseQuestionSha256": "05e603a57422347c1bcc81ce116906d96a6ebb11c69c8e69323c415b95073a2b",
+      "newQuestionSha256": "bb0ad1cff68161251be9b2d0d7184d54d1173077dfc9d4df4c62cdbfd8746f4c"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-11-F-006",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ],
+        "answers": [
+          [
+            "2,7,3",
+            "2，7，3",
+            "2 7 3"
+          ]
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 11,
+      "baseQuestionSha256": "1453a9f3a4633dd746a7f127508f7142f8b7b2d2dcffdd2cf5baefc09df38589",
+      "newQuestionSha256": "7e29c21d9ac44141d645a9fd80f65529cdc7a5e473f7211d709e4b5b73760cc7"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-11-F-011",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 11,
+      "baseQuestionSha256": "a21bb4378213ec52ffedc542c8e7516ec320f53f04b91ea4b25212e1959ab36c",
+      "newQuestionSha256": "d0e335e17243c758e730af3f2c912e148b66cb449d0fe82069561c511688c6b9"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-12-F-001",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-set"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 12,
+      "baseQuestionSha256": "e58df07c477f090e195d4b17654743f67f6d1a7c6bfb890325df98b7a3a91066",
+      "newQuestionSha256": "96ec49a04df0002e80628c90a4c493ad536cc6c2caf8402043b844a5eb932760"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-12-F-002",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-set"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 12,
+      "baseQuestionSha256": "7d1fc237d377f4d0aa199f9b95a3ab2896db4bd8d5f75a6497ce82c2b11f75ff",
+      "newQuestionSha256": "e5a00013ff55bc05c89ef091cc51a1b72941ada52b540ceadfac13b9ad6ff511"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-12-F-003",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-set"
+        ],
+        "answers": [
+          [
+            "1,5",
+            "1，5",
+            "1 5"
+          ]
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 12,
+      "baseQuestionSha256": "7451653851bb519c5c0f98bdfc6ce85553397403ff9acccc64d1cd154da04322",
+      "newQuestionSha256": "959de06d3bfa47d0af4e5db6f2b94f56258bf68ed52a045374bbe529fd456260"
+    },
+    {
+      "subject": "network",
+      "id": "NC7-network-control-F-005",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ],
+        "answers": [
+          [
+            "65010 65020 65030",
+            "65010,65020,65030"
+          ]
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": "control",
+      "baseQuestionSha256": "7039996751e0cc759a89799f706b14dec5e21400647edb809d9e9f3751da4c31",
+      "newQuestionSha256": "0d51f34b6a50cffd833b7301a79b7985826e208856ed156e13dc9a240ec32262"
+    },
+    {
+      "subject": "network",
+      "id": "P6-network-7-F-010",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "formats": [
+          "integer-sequence"
+        ]
+      },
+      "kind": "structured-fill",
+      "type": "fill",
+      "chapter": 7,
+      "baseQuestionSha256": "75fbe0eda8eecdf6190288edbac6e21edcb842645555145bed0767695c11e47f",
+      "newQuestionSha256": "8fed035fab61541f4ff6365b8910dcbcfddde3189ec17c6a708d20864a965632"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-1-F-001",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "stem": "一个非零二进制数的小数点向右移动3位，且不截去任何数码，数值变为原来的____倍；一个非零八进制数的小数点向右移动1位，数值变为原来的____倍。",
+        "answers": [
+          [
+            "8"
+          ],
+          [
+            "8"
+          ]
+        ],
+        "formats": [
+          "number",
+          "number"
+        ],
+        "explanation": "数码相对小数点的位置每向高一位，其权增加一个基数倍。二进制右移小数点3位，数值乘2³=8；八进制右移小数点1位，数值乘8。移动的是小数点，且没有截断数码，不能和向整数左端补无意义0混为一谈。"
+      },
+      "kind": "numbers-quality",
+      "type": "fill",
+      "chapter": 1,
+      "baseQuestionSha256": "43b85e9324dce6c4da65bb54a45734add956d283bc1568a68df263294c74dc48",
+      "newQuestionSha256": "ba6a664548e6047cdc0a71aafc82d42091dd042077b6dacacd27d09b8127195a"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-1-F-002",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "stem": "非负小数x=0.3125用3位二进制小数表示，采用就近舍入；恰在两个可表示值的中点时，选小数末位为0的结果。舍入后的二进制小数点后三位为____（只填3位0、1）。",
+        "answers": [
+          [
+            "010"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "3位二进制小数的间隔为1/8。0.3125正好在0.010₂=0.25与0.011₂=0.375的中点，两边距离都是0.0625。按题定中点规则，选末位为0的010。不能只写“就近”后自行向上取011，也不能把这次中点当成一定更靠近某一边。",
+        "studyWeight": 1,
+        "studyEvidence": "补充1：题面已自足给出中点舍入规则，用于理解有限精度及规则约束。指定教材/PPT提供位权依据，尚无证据将末位偶数中点规则认定为本校期末重点，故不按重点抽题。"
+      },
+      "kind": "numbers-quality",
+      "type": "fill",
+      "chapter": 1,
+      "baseQuestionSha256": "13600eb8f018c774868409d662f30be92c8e198517ae26938434f158e224ca17",
+      "newQuestionSha256": "4167415617b0a90c6c88e5c3a907c9464ad464297d58f3a881ca146cf7ea8ed7"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-1-F-015",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "stem": "采用3位标准反射格雷码对位置0～7编码，码字001与101对应的位置编号分别为____、____。这两个码字只差一位，是否就能说明位置编号相邻？____（能/不能）。",
+        "answers": [
+          [
+            "1"
+          ],
+          [
+            "6"
+          ],
+          [
+            "不能"
+          ]
+        ],
+        "formats": [
+          "number",
+          "number",
+          "text"
+        ],
+        "explanation": "按累计异或还原，001对应二进制001，即位置1；101对应二进制110，即位置6。两个格雷码只差最高位，位置编号却相差5，因此不能据“码字只差一位”反推位置相邻。标准反射格雷码保证相邻位置的码字只变一位，这个性质的逆命题并不成立。"
+      },
+      "kind": "numbers-quality",
+      "type": "fill",
+      "chapter": 1,
+      "baseQuestionSha256": "79c60833401cbc0ca7bdb6d84edfc1a44ae003987db864844fe569a145e99d22",
+      "newQuestionSha256": "c98c7207b7c0005dcbe9510cd59e85a1f6550b93f7915f074e535ddf05208d14"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-1-F-017",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "stem": "两组四位数据分别配有偶校验位PA、PB。现只拼接两组原始数据，不包含原来的校验位，再添加一个总偶校验位P。用PA、PB表示，P=____。",
+        "answers": [
+          [
+            "PA⊕PB",
+            "PB⊕PA",
+            "PA^PB",
+            "PB^PA",
+            "PA XOR PB",
+            "PB XOR PA"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "PA等于第一组四位数据的异或，PB等于第二组四位数据的异或。八位原始数据拼接后的总异或就是PA⊕PB，所以总偶校验位P=PA⊕PB。比如PA=PB=1时，两组各含奇数个1，合起来是偶数个1，应取P=0，不能把两个校验位简单作逻辑或。若把原校验位也一同拼接，则是另一种问题；本题已明确不包含它们。"
+      },
+      "kind": "numbers-quality",
+      "type": "fill",
+      "chapter": 1,
+      "baseQuestionSha256": "1b560019fbeac67b6dab0986990518e142c0b0156bf163835e0dd01ef5b7c82d",
+      "newQuestionSha256": "3d7231029fa27a34cf1b300da1aaf1c4523fe53a8eed4a3172c485436d06085d"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-1-R-008",
+      "baseRevision": 2,
+      "revision": 3,
+      "patch": {
+        "stem": "4位补码加法中，把最高位进位C4直接作为有符号溢出标志是否正确？请分别给出C4=1但不溢出、C4=0却溢出的具体加法，并写出按加数和结果符号判断溢出的规则。",
+        "model": "不正确。例如1110+0011=1 0001，即−2+3=1，C4=1但结果可表示，没有有符号溢出；0110+0101=1011，即6+5=11超出4位补码范围−8..7，C4=0但有符号溢出，低4位被解释成−5。可使用其他满足条件的例子。判断规则是：两加数符号相同而结果符号不同才溢出；异号相加不溢出。C4记录无符号最高位进位，不能直接代替有符号溢出标志。",
+        "rubric": [
+          "给出并核对任意一组C4=1但无有符号溢出的有效例子",
+          "给出并核对任意一组C4=0却有有符号溢出的有效例子",
+          "正确写出同号加数、结果异号的溢出判据，并区分C4与有符号溢出"
+        ]
+      },
+      "kind": "numbers-quality",
+      "type": "short",
+      "chapter": 1,
+      "baseQuestionSha256": "d404a4b959251920c07fc913549cf02a96e0f1a057442270a1ed4c30d73108a5",
+      "newQuestionSha256": "c3b1609008d5455fd2d794e58e34a5c5d7b9f14a24f8697b7963cf4fee6a20fe"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-1-R-001",
+      "baseRevision": 2,
+      "revision": 3,
+      "patch": {
+        "model": "按位权展开：10.01₂=1×2¹+1×2⁻²=2+1/4=2.25。数码0的项可以省略；关键是整数位和小数位分别使用对应的正、负次幂。",
+        "rubric": [
+          "整数部分10₂按位权得到2",
+          "小数部分0.01₂按位权得到1/4，0系数项可以省略",
+          "两部分求和得到2.25，接受等价的位权展开"
+        ]
+      },
+      "kind": "numbers-quality",
+      "type": "short",
+      "chapter": 1,
+      "baseQuestionSha256": "1fa87d9d0d529163dcd9c5837a69a888bc7bfa34a24a2058af442d740f762955",
+      "newQuestionSha256": "801eca032103aeccd2352746bbc98a785baa06321880aa7c55a2e21cd62a72a4"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-1-C-014",
+      "baseRevision": 1,
+      "revision": 2,
+      "patch": {
+        "stem": "正逻辑接口中，A=1表示报警，对应高电平；负逻辑接口中，B=1表示报警，对应低电平。两根线的物理电压都为高电平，分别是否报警？为什么不能把物理高电平统一解释为报警有效？",
+        "model": "A采用正逻辑，高电平对应A=1，按题意报警；B采用负逻辑，高电平对应B=0，按题意不报警。两接口都把逻辑1定义为报警，但逻辑1对应的物理电平不同。因此应先按各接口的正/负逻辑把电平译成逻辑值，再按变量的业务含义判断。不能跨接口只看物理高电平就认作报警。",
+        "rubric": [
+          "A高电平→A=1，报警",
+          "B高电平→B=0，不报警",
+          "区分物理高低电平、正/负逻辑映射及题定的报警含义"
+        ]
+      },
+      "kind": "numbers-quality",
+      "type": "short",
+      "chapter": 1,
+      "baseQuestionSha256": "2cc9b7d8f88612c5ac952b9d00cd518fbe961dd56293afbb5fd6cb671ba53483",
+      "newQuestionSha256": "a7bbb5be44c4c111c7b09ccf418fc9118b2f679546a665254d81b471fe41ef9b"
+    }
+  ]
+}

@@ -20,6 +20,7 @@ if(buildMissing||args.has('--rebuild')||args.has('--local')){
 }
 const python=process.env.JUDGE_PYTHON||path.join(runtimeRoot,'Scripts/python.exe');
 const zig=process.env.JUDGE_ZIG||path.join(runtimeRoot,'Lib/site-packages/ziglang/zig.exe');
-const judgeReady=(await exists(python))&&((await exists(zig))||!!process.env.JUDGE_SDK);
-if(!judgeReady)console.log('网站可正常练习。需要编译代码时，请先准备本地判题环境。');
-process.exitCode=await run(['scripts/serve.mjs'],{...process.env,PORT:String(port),...(judgeReady?{JUDGE_PYTHON:python,...(await exists(zig)?{JUDGE_ZIG:zig}:{})}:{})});
+const pythonReady=await exists(python),zigReady=await exists(zig);
+if(!pythonReady)console.log('网站可正常练习。需要编译代码时，请先准备本地判题环境。');
+else if(!zigReady&&!process.env.JUDGE_SDK)console.log('C语言编译环境尚未配置，其他已配置语言可独立使用。');
+process.exitCode=await run(['scripts/serve.mjs'],{...process.env,PORT:String(port),...(pythonReady?{JUDGE_PYTHON:python}:{}),...(zigReady?{JUDGE_ZIG:zig}:{})});

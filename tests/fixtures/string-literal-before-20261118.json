@@ -1,0 +1,351 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "before-string-literal-tolerated-20261118",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-4-1794960921926-23s9ne",
+      "title": "第4章 串 · 章节练习",
+      "chapter": 4,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 4,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 4,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 4,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 4,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-4-F-013",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在串abcd的第3项之前插入XY，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "abXYcd"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "前段ab、插入XY、后段cd依次相接。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-4-F-012",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "以1起始位置2开始，从串abcdef中删除3个字符，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "aef"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "删除bcd，保留a与ef。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-4-F-014",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "将串abca逆置，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "acba"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "从末项开始读a、c、b、a。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-4-F-004",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串ababa的最长相等真前缀与后缀是____。",
+          "type": "fill",
+          "answers": [
+            [
+              "aba"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "aba既是前三项也是后三项；长度4前缀abab与后缀baba不同。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P4-structures-4-F-013": [
+          "ABXYCD"
+        ],
+        "P4-structures-4-F-012": [
+          "AEF"
+        ],
+        "P4-structures-4-F-014": [
+          "ACBA"
+        ],
+        "P4-structures-4-F-004": [
+          "ABA"
+        ]
+      },
+      "marks": {
+        "P4-structures-4-F-013": 25,
+        "P4-structures-4-F-012": 25,
+        "P4-structures-4-F-014": 25,
+        "P4-structures-4-F-004": 25
+      },
+      "result": {
+        "total": 100,
+        "scores": {
+          "P4-structures-4-F-013": 25,
+          "P4-structures-4-F-012": 25,
+          "P4-structures-4-F-014": 25,
+          "P4-structures-4-F-004": 25
+        },
+        "settledAt": 1794960921926
+      },
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-4-F-013": "c",
+        "P4-structures-4-F-012": "c",
+        "P4-structures-4-F-014": "c",
+        "P4-structures-4-F-004": "c"
+      },
+      "submittedAt": 2,
+      "expired": false
+    },
+    {
+      "id": "before-string-literal-zero-20261118",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-4-1794960921930-ikv9pc",
+      "title": "第4章 串 · 章节练习",
+      "chapter": 4,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 4,
+        "counts": {
+          "choice": 0,
+          "judgement": 0,
+          "fill": 4,
+          "code-fill": 0,
+          "analysis": 0,
+          "calculation": 0,
+          "design": 0,
+          "code": 0
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 4,
+          "counts": {
+            "choice": 0,
+            "judgement": 0,
+            "fill": 4,
+            "code-fill": 0,
+            "analysis": 0,
+            "calculation": 0,
+            "design": 0,
+            "code": 0
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-4-F-013",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在串abcd的第3项之前插入XY，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "abXYcd"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "前段ab、插入XY、后段cd依次相接。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-4-F-012",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "以1起始位置2开始，从串abcdef中删除3个字符，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "aef"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "删除bcd，保留a与ef。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-4-F-014",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "将串abca逆置，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "acba"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "从末项开始读a、c、b、a。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        },
+        {
+          "id": "P4-structures-4-F-004",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串ababa的最长相等真前缀与后缀是____。",
+          "type": "fill",
+          "answers": [
+            [
+              "aba"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "aba既是前三项也是后三项；长度4前缀abab与后缀baba不同。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 25
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "settled",
+      "answers": {
+        "P4-structures-4-F-013": [
+          "wrong"
+        ],
+        "P4-structures-4-F-012": [
+          "wrong"
+        ],
+        "P4-structures-4-F-014": [
+          "wrong"
+        ],
+        "P4-structures-4-F-004": [
+          "wrong"
+        ]
+      },
+      "marks": {
+        "P4-structures-4-F-013": 0,
+        "P4-structures-4-F-012": 0,
+        "P4-structures-4-F-014": 0,
+        "P4-structures-4-F-004": 0
+      },
+      "result": {
+        "total": 0,
+        "scores": {
+          "P4-structures-4-F-013": 0,
+          "P4-structures-4-F-012": 0,
+          "P4-structures-4-F-014": 0,
+          "P4-structures-4-F-004": 0
+        },
+        "settledAt": 1794960921930
+      },
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-4-F-013": "c",
+        "P4-structures-4-F-012": "c",
+        "P4-structures-4-F-014": "c",
+        "P4-structures-4-F-004": "c"
+      },
+      "submittedAt": 2,
+      "expired": false
+    }
+  ]
+}

@@ -142,7 +142,7 @@ test('双路待处理请求复位/请求优先和稳定授权互斥逐组合核�
 test('四相协议全部短单输入位路径按正向/反向规范判断错误并保持',()=>{
  const next=[[0,4,4,1],[4,4,2,1],[4,3,2,4],[0,3,4,4],[4,4,4,4]],column=new Map([[0,0],[1,1],[3,2],[2,3]]),phases=[0,2,3,1];
  function visit(state,input,error,depth){if(!depth)return;for(const changed of [input,input^1,input^2]){const expectedError=error||(changed!==input&&changed!==phases[(phases.indexOf(input)+1)%4]),n=next[state][column.get(changed)];assert.equal(n===4,expectedError);visit(n,changed,expectedError,depth-1);}}
- visit(0,0,false,8);for(let state=0;state<5;state++)assert.equal(0,0);
+ visit(0,0,false,8);assert.equal(next[4][column.get(0)],4);assert.equal(next[0][column.get(0)],0);
  assert.ok(q('C',13).model.includes('RESET在外输入00时强回P0'));
 });
 test('321到8421有效六态真值全核，不用无关输入冒充合法数据',()=>{

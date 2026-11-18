@@ -1,3 +1,27 @@
+import {dsLinearTaskGuides} from './ds-linear-task-guides.js';
+import {dsStringTaskGuides} from './ds-string-task-guides.js';
+import {dsArrayTaskGuides} from './ds-array-task-guides.js';
+import {dsIntroTaskGuides,dsIntroQualityTaskGuides} from './ds-intro-task-guides.js';
+import {dsGraphTaskGuides,dsGraphQualityTaskGuides} from './ds-graph-task-guides.js';
+import {dsAnalysisTaskGuides} from './ds-analysis-task-guides.js';
+import {dsStringQualityTaskGuides} from './ds-string-quality-task-guides.js';
+import {dsArrayQualityTaskGuides} from './ds-array-quality-task-guides.js';
+import {dsTreeTaskGuides,dsTreeQualityTaskGuides} from './ds-tree-task-guides.js';
+import {dsSortTaskGuides,dsSortQualityTaskGuides} from './ds-sort-task-guides.js';
+import {dsSearchTaskGuides,dsSearchQualityTaskGuides} from './ds-search-task-guides.js';
+// Versioned public interfaces select the exact task shown in a saved answer.
+const previousDsTaskGuides={...dsLinearTaskGuides,...dsStringTaskGuides,...dsArrayTaskGuides,...dsIntroTaskGuides,...dsGraphTaskGuides,...dsTreeTaskGuides,...dsSortTaskGuides,...dsSearchTaskGuides};
+export const revisionedDsTaskGuides={...previousDsTaskGuides,...dsAnalysisTaskGuides,...dsStringQualityTaskGuides,...dsArrayQualityTaskGuides,...dsTreeQualityTaskGuides,...dsGraphQualityTaskGuides,...dsSearchQualityTaskGuides,...dsSortQualityTaskGuides,...dsIntroQualityTaskGuides};
+const guideVersions=new Map();
+for(const group of [previousDsTaskGuides,dsAnalysisTaskGuides,dsStringQualityTaskGuides,dsArrayQualityTaskGuides,dsTreeQualityTaskGuides,dsGraphQualityTaskGuides,dsSearchQualityTaskGuides,dsSortQualityTaskGuides,dsIntroQualityTaskGuides]){
+ for(const [id,guide]of Object.entries(group)){
+  if(!guideVersions.has(id))guideVersions.set(id,new Map());
+  guideVersions.get(id).set(guide.revision,guide);
+ }
+}
+export function dsTaskGuide(id,revision=revisionedDsTaskGuides[id]?.revision){
+ return guideVersions.get(id)?.get(revision);
+}
 // Public interfaces only. The node type is supplied before student functions.
 export const dsCodingTaskGuides = {
  'P3-structures-3-91': {

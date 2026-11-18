@@ -1,0 +1,1286 @@
+{
+  "baseline": "f4cd9e12ce7679cdb273ab4bfa769004e1ba581bd8034e21c785d75e0d14b29d",
+  "items": [
+    {
+      "subject": "network",
+      "id": "P3-network-2-1",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "24662cc7a678082a57376595dfda5704e80f3fe84a1343e10e31d96a7e689ef1",
+      "patch": {
+        "options": [
+          "主动发起本次通信、请求对方服务的一方",
+          "提供所请求应用服务的进程或系统角色",
+          "必须使用公网IP且只能运行一个进程的设备",
+          "只要能转发以太网帧就一定是这种角色"
+        ],
+        "explanation": "客户和服务器是应用通信中的角色：客户发起服务请求，服务器提供相应服务。一台机器可以运行多个服务，服务器也可位于私有网络；这些角色不由硬件价格或是否转发帧决定。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-1.pdf第8、12页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "22f201f4f03739f9ca64735acbb06b70e275263c45677465bb587c05b88936de"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-2",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "26205cbd61e0a19f9e159bd36f4249447768ad392cfb3d1cbeda9185a73020dd",
+      "patch": {
+        "stem": "客户端先发送一个4B二进制长度，再发送正文；服务器却把收到的字节当作以换行结束的文本命令。TCP连接已建立且没有丢字节，两者仍可能不能正常协作，主要原因是（ ）。",
+        "options": [
+          "双方对应用消息格式和解析规则的约定不一致",
+          "TCP只能传输以换行结束的文本",
+          "同一条TCP连接不能承载多条应用消息",
+          "必须把TCP换成UDP才能传二进制数据"
+        ],
+        "explanation": "TCP负责可靠、有序地交付字节，不替应用决定这些字节表示什么。客户端的二进制长度不能自动变成服务器期待的文本命令；双方仍要采用一致的消息格式和解析规则。更换传输协议不会自动修正这种格式不匹配。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-1.pdf第25页；当届Ch2-2&3.pdf第56页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "d82529d22ddbd6ab7217676a5c8231860b531bc2c787ba7e32a74f316f0d3e2f"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-3",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "71a7344c0527abf01e46d6979bcab438de4b8601fdf93c8a2ca2fd9d499052b4",
+      "patch": {
+        "options": [
+          "应用进程与同机文件系统之间的接口",
+          "不同路由器交换路由信息的接口",
+          "网卡与传输介质之间的物理接口",
+          "应用进程使用操作系统传输服务的接口"
+        ],
+        "explanation": "应用通过套接字向传输服务交付或接收数据，可选择相应传输协议并指定端点。它不负责每跳介质，也不是显示设置或设备维护接口。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-1.pdf第14页；当届Ch2-2&3.pdf第55页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "74bc6f25a0f754dc1d8ab784696497b90165983d25cc214e10f47ade89f88735"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-12",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "6878735987ebe8cc794f56fc9abd4199f272abfac55c8ab14b47d3688ed8d28b",
+      "patch": {
+        "options": [
+          "把主机名映射为IPv4地址",
+          "把一个域名别名映射为规范名称",
+          "指出某个域的权威DNS服务器",
+          "指出接收该域邮件的邮件交换服务器"
+        ],
+        "explanation": "MX给出负责接收该域邮件的邮件服务器名称。主机名到IPv4地址属于A记录，别名关系属于CNAME，权威域名服务器信息属于NS。MX中的服务器名称还可继续解析为地址。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-2&3.pdf第25页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "af2719f61c5472790eda263637cba7a9275bda7a39d98aba86b8bd7445ea663a"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-21",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "68e608264a2f04ee65fb6dcc0911351995e535043eef2438cdfd922326119400",
+      "patch": {
+        "stem": "关于HTTP HEAD请求的正常响应，下列说法正确的是（ ）。",
+        "options": [
+          "只发送资源正文，不发送响应状态行和首部",
+          "必须与GET一样发送完整的资源正文",
+          "要求服务器删除所请求的资源",
+          "可返回资源相关的响应首部，但不发送响应正文"
+        ],
+        "explanation": "HEAD用于获取资源的元信息，响应不携带正文。例如只想查看对象大小或修改时间时，可读相关首部而不下载整个对象。它不会删除资源，也不是只省略首部。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-1.pdf第42页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "86ca68b45e2a298875e74351eb907457fa6cfba1c272457a005f24481ab26b2b"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-32",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "f43fbdb753f06c05eef48f064552d6e365cf7898dae977fbff2b87c8c3351483",
+      "patch": {
+        "stem": "关于HTTP GET与POST，下列说法错误的是（ ）。",
+        "options": [
+          "GET与POST具有不同的方法语义",
+          "POST方法会自动加密请求内容，无需其他安全机制",
+          "POST请求可以携带请求体",
+          "是否通过TLS保护由所用连接决定，不由方法名决定"
+        ],
+        "explanation": "POST规定请求的应用语义，不是加密算法。它可以携带请求体，但是否使用TLS取决于通信方式；把GET换成POST本身，不能使原来的明文连接自动变为加密连接。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-1.pdf第41、42页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "9adcb37038f8c8fc29a8e9633e28954287a147489276d0563fdec08db53b4c09"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-42",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "0c725620b4b39f74d99a61a8f2fecac3483bd2c09f27681cef9168bdab3135e4",
+      "patch": {
+        "stem": "本地DNS解析器已缓存example.edu的权威DNS服务器地址，但没有www.example.edu的A记录。该权威服务器能直接返回所需答案。不考虑别名和重试，本次还需向外部DNS服务器发送____次查询。",
+        "answers": [
+          [
+            "1"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "已经知道权威服务器地址，就可直接向它查询目标A记录，无需重新从根和顶级域开始。缓存的是下一步该问谁，不是最终主机答案，因此也不能当作零次外部查询。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-2&3.pdf第20、21、24、25页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "0678ebeacd2a217955dac08f9cb150e8be67c965503f4be543f9b060cb52f02a"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-43",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "3283825f7011f083f6a961f721c1138b20fa9f5f627868d2176eeabf94dd742c",
+      "patch": {
+        "stem": "在HTTP/1.1文本报文中，用一个____分隔首部区与可能存在的消息体（填常用格式术语）。",
+        "answers": [
+          [
+            "空行",
+            "空白行"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "最后一个首部字段结束后，再发送一个不含字段内容的空行，表示首部区结束。该空行由行结束符构成，不能把正文第一行误当作首部字段。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-1.pdf第39、40页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "dfc72577ee4efb97d7e3c328a8b783dd78f0a8c85441a20038610560bd6663e4"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-44",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "adf7dabc855e2fae034eba6a099181990fc9912d1799df5155733a9b1cfcfb83",
+      "patch": {
+        "stem": "浏览器直接访问URL http://lab.example.edu:8080/a/index.html ，未使用代理。按该URL建立TCP连接时，服务器端口应为____。",
+        "answers": [
+          [
+            "8080"
+          ]
+        ],
+        "explanation": "URL在主机名后显式给出端口8080，应连接此端口。HTTP的默认端口80只用于没有显式端口的情况；路径/a/index.html用于应用资源定位，不是端口号。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-1.pdf第13、28页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "a86e5771287e064cb070dd00d71e14e63ee44dd37d2daa34eb7d2deb41ecd77f"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-45",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "49ae182830a2218025eac7f3b1163bd811f99a091f3243a77f6f17bbaef9a9f6",
+      "patch": {
+        "stem": "HTTP常用状态码中，OK对应的三位数字代码为____。",
+        "explanation": "200 OK表示请求成功。201 Created表示已创建资源，204 No Content表示成功且无响应正文；它们都属于2xx成功类。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-1.pdf第44页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "1844f26040eed17c7245fd61b60159738d99f8f32115069ab9f19bcbcde8bf70"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-54",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "0c0e46178fa0890eb808c3c17ffb5b4063648a61b897652121db7978159d06c9",
+      "patch": {
+        "stem": "某BitTorrent节点尚缺A、B、C三个片段，它的邻居中持有这三个片段的节点数分别为3、1、2。按最稀缺优先策略，它应先请求片段____。",
+        "answers": [
+          [
+            "B",
+            "b"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "最稀缺优先看的是邻居中可提供该片段的数量。A有3个持有者，B只有1个，C有2个，因此先取B，有助于使稀缺片段获得更多副本。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-2&3.pdf第38页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "9f5fd5645c65b7211b61e5922ce324f0d53c187e0e5d05abca402ed32be1c255"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-56",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "94677d68c7f36e4976f6f14e2dc5d8dd9e895359f8ae42d82b3043ebee93cc6f",
+      "patch": {
+        "stem": "某服务每秒收到100次请求，每个对象平均50KB（1KB=1000B）。若80%的内容字节由本地缓存提供，其余从源站取得，不计首部等开销，源站平均内容负载为____Mb/s。",
+        "explanation": "全部对象的内容速率为100×50000×8=40Mb/s。只有20%的字节需要回源，所以源站平均内容负载为40×0.2=8Mb/s。题目按字节命中统计，不能擅自改用请求次数命中率。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-1.pdf第54、56页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "24001d0cd7bd2efdc568d28f0177444470469c238871d6f050c34c6534af5e4a"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-57",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "3397efd2b8e6d73315ef8d0b034038fac77f88fb4966c2a6ba841f280e68e4e2",
+      "patch": {
+        "stem": "某邮件附件采用Base64编码：每3个原始字节编码为4个ASCII字符，末组不足3字节时仍输出4个字符，包含必要的填充符。一个5B附件编码后占____B（ASCII字符每个1B，不计换行和MIME首部）。",
+        "answers": [
+          [
+            "8"
+          ]
+        ],
+        "explanation": "前3B构成一组，输出4B；剩下2B仍需输出完整的4字符末组，其中包含填充符。因此共有2组，编码长度为2×4=8B，不能只算5×4/3再截断。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-2&3.pdf第11页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "85e29d1702b75a89460b5b1115e3c7589637a428b17f46970f9f36511cec5724"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-59",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "c5cece99846e766a4c63cc70b2a9250bda9ebe39b86ba6bcccd19535fad4b27e",
+      "patch": {
+        "stem": "某应用约定每条消息先发送1B长度L，再发送L字节的正文，长度字节不计入正文。接收端先后两次读取到[3,A,B]和[C,2,D,E]（数字是长度字节，A至E各占1B）。把两次收到的字节按顺序合并后，可解析出____条完整消息。",
+        "answers": [
+          [
+            "2"
+          ]
+        ],
+        "explanation": "合并后是[3,A,B,C,2,D,E]。长度3后面的A、B、C组成第一条正文；再读到长度2，后面的D、E组成第二条。第一次读取并没有收全第一条消息，读取调用的边界不等于应用消息边界。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-1.pdf第25页；当届Ch2-2&3.pdf第56页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "3d398e510934b536d5b26c025ddddd017dc88e4e1dcb9353370a94f1305e673e"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-60",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "deede585220e0c87ca09810d95e2c39d5706142a2d8957887665ee986b18debb",
+      "patch": {
+        "stem": "一条TCP连接已经建立，使用允许流水线的HTTP/1.1持久连接。客户端立即连续发出5个小对象请求，服务器无处理等待并按序立即响应。各次往返RTT相同，忽略所有报文发送时间。5个响应全部到达共需____RTT。",
+        "answers": [
+          [
+            "1"
+          ]
+        ],
+        "explanation": "流水线允许客户端不等待前一个响应，就发出后续请求。题设把发送和处理时间都忽略，因此5个请求可在同一次向前传播中到达，响应在同一次返回传播中到齐，共1RTT。若必须等前一个响应后才发出下一个请求，则需5RTT。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-1.pdf第31、35页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "25329cfe477c28ba21c442dc101e11b9245397e8a2572c452d4ca0dceca04689"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-61",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "926a499227ac87438a8ae2a2953b03e035aaecfdcdcee004de5ec94f5f2043b6",
+      "patch": {
+        "stem": "UDP服务器在本机端口12000接收请求，刚收到的请求来自客户端192.0.2.8的源端口40000。服务器要把答复直接发回该客户端，本次答复的目的端口应为____。",
+        "answers": [
+          [
+            "40000"
+          ]
+        ],
+        "explanation": "答复要发给请求的发送端点，所以目的IP与端口取自刚收到请求的源IP与源端口，即192.0.2.8:40000。12000是服务器自己的接收端口，不是客户端接收这条答复的端口。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-1.pdf第13页；当届Ch2-2&3.pdf第58、60页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "1f9c9049d4590c8866ac42d5e97a9573ca5c999037383db479d36b48d6253651"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-64",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "8e0e8e0dd1e7081c78aa2ebd411a8bed60ac3896e1007a4428c68cf81fae3f64",
+      "patch": {
+        "stem": "发送方邮件服务器要向user@example.edu投递邮件。DNS记录中只有一个MX：example.edu MX mail.example.net；另有mail.example.net A 192.0.2.25。按这些记录选择IPv4目的地址时，应向____建立SMTP连接。",
+        "answers": [
+          [
+            "192.0.2.25"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "先由收件域example.edu的MX找到邮件服务器名称mail.example.net，再由该名称的A记录取得192.0.2.25。收件地址中的域名用于找邮件交换服务器，并不是直接把user或整个邮件地址当成IP地址。",
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-2&3.pdf第5、25页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "4668a9d0a781fa181f32bd86f14733bd7d5016946a28f670bd2488090b01ab0e"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-65",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "69577d555a8fca57d3bf426becf1432e6eb2d4e78a2e8a9ffce171a1f9833334",
+      "patch": {
+        "stem": "某文件由A、B、C三个片段组成，在线邻居分别持有{A}、{B}、{A,B}，源站已经离线。即使带宽足够，新节点仍无法从这些在线来源下载到片段____，因而暂时不能补齐文件。",
+        "answers": [
+          [
+            "C",
+            "c"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "把所有在线来源的片段合起来，只有A和B，没有C。提高已有来源的上传速率也不会凭空生成缺少的C，必须等持有C的来源上线或取得其他来源。",
+        "studyLevel": "basic",
+        "studyWeight": 2,
+        "studyEvidence": "当届Ch2-2&3.pdf第37、38页。按概念/基础应用编为基础，不因新题自动升级为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "883ab127af5a3d9874e7c4f2e87a0c739a42fff18f3c5885d2b5efe678febb6c"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-84",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "394a73580725b69c94a2207713ca54217c36dd635c5ca1ad495501a1a1d2bcc7",
+      "patch": {
+        "stem": "某TCP服务器保留一个监听套接字，先后接受了两个客户的连接。每次accept都返回一个已连接套接字，此时两个客户连接均未关闭。说明监听套接字与已连接套接字各自的用途，并求此时服务器持有的这两类套接字总数。",
+        "model": "监听套接字用于等待新的连接，不是与某个客户交换业务字节的唯一通道。两次accept分别返回一个连接套接字，用于与各自客户收发数据；关闭其中一个客户连接不必关闭监听套接字。此时有1个监听、2个已连接套接字，共3个。",
+        "rubric": [
+          "监听套接字接收新连接",
+          "两个已连接套接字分别服务各客户",
+          "1个监听加2个已连接，共3个"
+        ],
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-2&3.pdf第61、62、64页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "205bb42087b7ce9086192b6af5dadcf12acec9126e3ccb21d925f87c10747db1"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-85",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "dcffc2b8370b3eec2c761ab211624359202c21cf343fd77a9a0435efa31a964a",
+      "patch": {
+        "stem": "从建立控制连接并登录开始，一个FTP会话随后连续下载两个文件，控制连接一直保持。每次文件传输都新建并关闭一条数据连接。说明控制连接和数据连接分别传送什么，并求这一整个过程中建立的TCP连接总数（不计其他操作）。",
+        "model": "控制连接传送登录、文件操作命令及其响应，在会话中保持；数据连接传送文件内容。题设每个文件各用一条数据连接，因此有1条控制连接和2条数据连接，共建立3条TCP连接。控制信息与文件数据分走不同连接，不能因控制连接保持就认定所有文件共用它传送。",
+        "rubric": [
+          "控制连接承载命令/响应",
+          "数据连接承载文件内容，每文件单独建立",
+          "总数1+2=3，按题设计数"
+        ],
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-1.pdf第62、63、64页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "4947936d2006132c17666b87d8b7cd3fa098429d5725b56ee8289a13f46a8c5f"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-88",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "cb20be01429b8ec3a59d28486ed382670094ca4b05d27cca217e24acc1abe4a4",
+      "patch": {
+        "stem": "缓存统计共100次请求：90次各请求10KB的小对象，全部命中；10次各请求1MB的大对象，全部未命中。按十进制计量，求请求命中率和字节命中率（均用百分数，后者保留两位小数），并说明仅用请求命中率估计回源字节量会产生什么偏差。",
+        "model": "请求命中率90/100=90%。命中字节90×10000=900000B，未命中字节10×1000000=10000000B，因此字节命中率900000/10900000≈8.26%。约91.74%的字节仍需回源；若把10%的请求未命中率直接当成字节未命中率，会明显低估回源量，因为未命中的对象更大。",
+        "rubric": [
+          "请求命中率按次数为90%",
+          "按字节加权得字节命中率约8.26%",
+          "指出回源字节占约91.74%，不能由次数比例直接替代"
+        ],
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-1.pdf第54、56页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "78cb455630e400dfff7634a624d7f6003eafdc53d82ab98188b6b045ce9975f2"
+    },
+    {
+      "subject": "network",
+      "id": "P3-network-2-93",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "01c0c98dae59e2a4151c990f1930ecf1c3c829206e9faa868fe848c9bb8e022d",
+      "patch": {
+        "model": "源上传项40/8=5s；因最慢下载速率dmin≥10Mb/s，下载项40/dmin≤4s，不必恰好为4s。总上传项4×40/(8+4×2)=10s。因此三项中的最大值确定为10s，这是给定理想模型的分发时间下界，不保证实际实现恰好用10s。",
+        "rubric": [
+          "源上传项5s和总上传项10s",
+          "下载至少10的条件使下载项不超过4s，不成为最大项",
+          "最大下界10s，区别于实际完成时间"
+        ],
+        "studyLevel": "core",
+        "studyWeight": 3,
+        "studyEvidence": "当届Ch2-2&3.pdf第33、34页。按本章协议、消息/时序与资源计算主线编为重点。该层级为练习编排判断，不代表本校必考。"
+      },
+      "newQuestionSha256": "2dbe245431f4fe77b59f985554210e3c16638f02108155ccd6bab6d9a325abd9"
+    },
+    {
+      "subject": "structures",
+      "id": "P-S-01",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "7cdc5d8ace192b813498cd715b8a57a8aca71ebf744efa7d2e7dca9ee0f3b67c",
+      "patch": {
+        "options": [
+          "仅待删p的prev与next",
+          "前驱的next及后继的prev",
+          "仅前驱的next",
+          "仅后继的prev"
+        ]
+      },
+      "newQuestionSha256": "d7eafcba91aefdec13db36371109437d95c1e3ab6d9ade1c4689356404578f1c"
+    },
+    {
+      "subject": "structures",
+      "id": "P2-structures-2-9",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "03602d28f9550f32e5fe1969b39ba0f2438126cb438e29a99ac7e33dcd215d5a",
+      "patch": {
+        "answers": [
+          [
+            "head->next==NULL",
+            "head->next==0",
+            "!head->next",
+            "(head->next==NULL)",
+            "(head->next)==NULL",
+            "NULL==head->next",
+            "0==head->next",
+            "!(head->next)"
+          ]
+        ]
+      },
+      "newQuestionSha256": "601e3183f75e2135cb6db2d124ef96b46a233c70ba51e229a739255eaa851f1d"
+    },
+    {
+      "subject": "structures",
+      "id": "P2-structures-2-8",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "fc109aec57fe77fef422402d111e00dac0f6eeb351fabaf30cbc0b4d2bcc70e5",
+      "patch": {
+        "stem": "在初始为空的单链表头部依次插入A、B、C，最终数据结点次序为："
+      },
+      "newQuestionSha256": "47c8de17e9f9d992ed3c229bf971f1e1aa4cf4b0687e9e47f189d4a921599823"
+    },
+    {
+      "subject": "structures",
+      "id": "P2-structures-2-10",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "351f8738c427991a464548eb093e0fe0e290d8091ad5e3559c8f50a96e2d088d",
+      "patch": {
+        "stem": "顺序表的数据依次为10、20、30。从第一项开始顺序查找，查到相等项立即停止，只统计数据值比较。每次都查找成功，查10、20、30的概率分别为1/2、1/4、1/4，平均比较____次。",
+        "answers": [
+          [
+            "1.75",
+            "7/4"
+          ]
+        ],
+        "explanation": "三项分别需要1、2、3次比较，期望为1×1/2+2×1/4+3×1/4=7/4=1.75。不能在非等概率条件下直接用(3+1)/2。"
+      },
+      "newQuestionSha256": "41fced4530587f5003c2d2ec0ed95b8caceb567759ce709eb5c93e3c5460a38c"
+    },
+    {
+      "subject": "structures",
+      "id": "P2-structures-2-14",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "17d7b189367e59f9fbbffe9bdae96fdb9fc7b31a427a4de6d04246efe7c7411f",
+      "patch": {
+        "stem": "A、B是两个头结点不同、数据结点互不共享的带头非递减链表。通过重接现有数据结点归并，不新建数据结点。把A中各元素视为原先排在B中各元素之前，要求归并稳定。说明循环不变量、值相等时的选择和一表结束后的处理。",
+        "model": "结果尾指针以前是非递减的已归并前缀，恰含两个输入已消费的元素。值相等时先取A中当前项，各表内部按原次序取，可保持题定的整体稳定性。一表结束后将另一表余链直接接到结果尾，不必逐项复制。",
+        "rubric": [
+          "已排序前缀与已消费元素的不变量",
+          "相等先A并保持各输入内部次序",
+          "直接接余链，不新建数据结点"
+        ]
+      },
+      "newQuestionSha256": "a1cb5059ad0015f8dea18e76d0f0e2815f98c84cac2fe98c1825aa9d8c8f6641"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-J-007",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "1a992d27235fa988395537a13b17d10d5fd524ff500f2d9780e1000bda0ff03b",
+      "patch": {
+        "stem": "在合法双向链表中，p指向有效结点且p->next非NULL，则p->next->prev必定等于p。",
+        "explanation": "双向链接的相邻关系应互相对应：p的后继的前驱就是p。只更新next而不更新对应prev，会破坏这个不变量。"
+      },
+      "newQuestionSha256": "3699378aea2933eac4db1cce7c6893e9d0f9b087f6664b121b6b0b99e13158cc"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-J-011",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "c504f87dc712dee582c14264a9ff720378be445b31b4eb80b3c4b552fcd82dd5",
+      "patch": {
+        "stem": "在非递减单链表中查找x，从首数据结点依次比较。若尚未命中便遇到一个data>x的结点，可以立即判定表中不存在x。",
+        "answer": 0,
+        "explanation": "后面的值都不小于当前data，而当前值已大于x，余下不可能再出现x。这个提前停止依赖有序性，不能照搬到无序链表。"
+      },
+      "newQuestionSha256": "b8868e5a6826d4730fd2d48fc15bc4200ace6b063f8c1a88e8b167e4022044b8"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-J-014",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "f8a8b305150c737fad297a8d71a568ede9c90894eefe01eb7028ee05775ac4c5",
+      "patch": {
+        "stem": "线性表的一个元素可以是由多个数据项组成的记录；是否为线性结构取决于元素之间的先后关系，而不是每个元素只有一个字段。",
+        "explanation": "例如多项式的一项可用(系数,指数)两个字段表示，它仍是表中的一个元素。字段数不是元素之间前驱、后继关系的数量。"
+      },
+      "newQuestionSha256": "d54ceb633d7778eaa9533ade3138d11a6669f33a3e83e26fa98bf62550842ada"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-S-006",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "711197329807760ac7c9148fb0505501b4943e5b7e50cdab81ee97249a97ca7d",
+      "patch": {
+        "stem": "双向链表中q与p相邻，q->next=p且p->prev=q。新结点s独立于原表，要把s插在q与p之间并保持双向链接，哪组操作正确？",
+        "options": [
+          "s->prev=q; s->next=p; q->next=s; p->prev=s;",
+          "q->next=s; p->prev=s;",
+          "s->prev=p; s->next=q; q->next=s; p->prev=s;",
+          "q->next=s; s->next=q->next; p->prev=s; s->prev=q;"
+        ],
+        "answer": 0,
+        "explanation": "要同时建立q↔s和s↔p四个方向的链接。只改两个旧结点会留下s的未定链接；把两邻居接反或从已改的q->next取后继也会出错。"
+      },
+      "newQuestionSha256": "504e9bd0aaeaae9d6f628a39e657a371ee3c5942b15b87ec16fa245f36757cd7"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-S-010",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "2d6eead44e87876f09479f721ed5b00948afb3112b8378a9c7f8bb381eac678e",
+      "patch": {
+        "options": [
+          "不带索引的循环单链表",
+          "使用游标链接且不另设位置索引的静态链表",
+          "顺序存储",
+          "仅有头指针的单链表"
+        ]
+      },
+      "newQuestionSha256": "7316295c45d9dba68a0436a4e9519612fcf02cb616b16c5a0e9e56c051e76d69"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-S-012",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "12701ff3181c4d155d2ad73e236a983fdfada65b87bda98812e69953a0af7139",
+      "patch": {
+        "stem": "一个带头结点h的双向循环链表有100个数据结点，位序从1起。从h出发，每跟随一次next或prev算一次链接访问，允许选择较短方向。到第98个数据结点最少访问几次链接？",
+        "options": [
+          "3",
+          "2",
+          "98",
+          "97"
+        ],
+        "explanation": "从h沿prev到第100项需1次，再到第99、第98项各1次，共3次；沿next需98次。不能把已到尾结点当作免费起点。"
+      },
+      "newQuestionSha256": "6e1f3c53eccf1ec2993b2e809e9825503ec50b18e113e50a30a1f635711aaf5b"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-S-013",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "8d73eada97941bf634c62d2c2e580e71f65299646f2a7a8ce81ba902bc13ec84",
+      "patch": {
+        "options": [
+          "当前逻辑位序，插删后所有链接都须重编号",
+          "整个数组的首地址",
+          "当前表长",
+          "数组下标或游标"
+        ]
+      },
+      "newQuestionSha256": "8ec0704f1e6b099ec08c21ccdebcc8d988c5c347747c2c272f22085ba12af7d3"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-S-016",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "30ec2f8319bb74f55cfba3cd9a7f7d77893f211cae4cce1639d4e4db7d65d150",
+      "patch": {
+        "options": [
+          "链接字段的存储开销",
+          "为保持逻辑次序而必需的连续空闲槽",
+          "为直接按位序访问而必须建立的下标索引表",
+          "每次插入都必须另存当前全部数据的连续副本"
+        ]
+      },
+      "newQuestionSha256": "dafaa98397da56efb26225aa293f9396c30ae8e22efe1ec5cb977887a89cfd6c"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-S-017",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "bd5d74077d18eb5e4577c98eec3d8b6728b73559c5f0d5f730e7bb4443413d74",
+      "patch": {
+        "options": [
+          "所有曾重复的值一项也不保留",
+          "只需处理第一个值的重复段，后面不必检查",
+          "不同值可以任意重排，不需要保持有序",
+          "每个原有不同值保留一次且仍有序"
+        ]
+      },
+      "newQuestionSha256": "e37e742f62378e274ae773f6af4b7567d2effdc17c6402535157cd80141f9b34"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-S-018",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "single",
+      "baseQuestionSha256": "60c437ea4209aa7f313ea2cb88feef080d153d97276e84f0673a16102fca2900",
+      "patch": {
+        "stem": "两个非空有序表分别有m、n项。归并时每轮比较两表当前项的大小记1次，取出较小项；一表耗尽后直接接上另一表余项，不再比较两表元素。最坏需要多少次这样的比较？",
+        "options": [
+          "m+n-1",
+          "m+n",
+          "mn",
+          "min(m,n)"
+        ],
+        "answer": 0,
+        "explanation": "每次比较至少取走一项，最后一次比较后至少还有另一表的一项无需再比较，因此至多m+n-1次。把两表元素交错安排、到倒数第二项才耗尽一表时可以达到。"
+      },
+      "newQuestionSha256": "b7fc6e68e6e7b898530f2772f2c9c1c9f9ea15071a2628faf71ed2f5f2892fea"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-002",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "b8e0f215a3b172ac592a25d30f4a9c00647bf67fcc99754accdbb3f25bdfab3a",
+      "patch": {
+        "stem": "用不含重复值的线性表A=(4,1,7)、B=(1,2,4,9)表示两个集合。依次扫描B；只有当前值不在A中时才追加到A末尾，不排序。完成后A为____（逗号分隔）。",
+        "answers": [
+          [
+            "4,1,7,2,9"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "1和4已在A中，不再追加；2和9按B中的顺序追加，A成为4,1,7,2,9。集合并去除重复，但不要求把原有次序变成升序。"
+      },
+      "newQuestionSha256": "612d83e4902f8a402803bf05a1d5d5f7870cfef88dffba631e839209c3de679c"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-003",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "b6b8a5be2ba2c4fcceff528e09136234947081bd4ff4f35a276c8fd62c314848",
+      "patch": {
+        "answers": [
+          [
+            "n/2",
+            "0.5n",
+            "n÷2",
+            "0.5*n",
+            "n*0.5",
+            "n/2.0",
+            "(n)/2",
+            "(n/2)"
+          ]
+        ]
+      },
+      "newQuestionSha256": "78c958ea715ec9ecad5e51fbce902e7520c248cf05083f5cfbd236bd94d640c5"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-004",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "c4bff1bfc7390f97540ec487275fec0c55da2798490640d58103e3765fa15058",
+      "patch": {
+        "answers": [
+          [
+            "NULL",
+            "nullptr",
+            "空指针",
+            "0"
+          ]
+        ]
+      },
+      "newQuestionSha256": "f948244181b77c8723048a17a4a7a450630925150f9b8732795068f29205bbb4"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-006",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "9ec28d948940bd219565e6229b2ed6c7ffcea0252b6887ae52ed56b49ab3e33d",
+      "patch": {
+        "answers": [
+          [
+            "NULL",
+            "nullptr",
+            "空指针",
+            "0"
+          ]
+        ]
+      },
+      "newQuestionSha256": "514ef1cc180c84d47cca88a25bd864bf6e089923a1cfa0836d41dbbcddc9a319"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-013",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "bfc89d058e7663d5840a83f54d853606455bf26f8c2db61e37c91b4de5669c7d",
+      "patch": {
+        "stem": "两个多项式分别用(系数,指数)项序列[(2,1),(1,0)]和[(1,1),(-1,0)]表示。将它们相乘，合并同指数项并删除零系数项后，结果共有____个非零项。",
+        "answers": [
+          [
+            "3"
+          ]
+        ],
+        "explanation": "(2x+1)(x-1)=2x²-2x+x-1=2x²-x-1，三个指数2、1、0的系数都非零。乘法需取两表所有项对，不能只像加法那样把同指数两两相加。"
+      },
+      "newQuestionSha256": "f4ad9f48d4741b428ff4cab4aefe44d54520998bd1c64c81cc8fab257ea88dbe"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-F-015",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "fill",
+      "baseQuestionSha256": "77850ef25b66ee916bc4abb1c00efad5ed44ea01a9f015d57bf3b9b343476a30",
+      "patch": {
+        "stem": "p、q是两个独立指针变量，q原先指向有效结点。执行p=q后，再令q=q->next，p仍指向____（原q结点/新q结点）。"
+      },
+      "newQuestionSha256": "640c4f77722b45c7c15f571fb283a3227abb23a6e99da3a827b566da33f77f40"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-A-001",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "f766ca9b805920807879f59a82f3bac622c825e2cb90f9f846be0b29f60ab2ec",
+      "patch": {
+        "stem": "A=(2,2,4,5,7)、B=(2,4)、C=(2,7)。从A中删去值同时在B和C出现的所有项，其余项保持原次序。写出结果，并解释为什么不能把“同时在B和C出现”误作“在B或C出现”。",
+        "model": "B、C共同的值只有2，因此删除A中的两个2，结果为(4,5,7)。4只在B，7只在C，都应保留；若误用“或”，还会删掉4和7，只剩5。一次命中条件必须是两个成员判断都成立。",
+        "rubric": [
+          "结果4,5,7且两个2都删",
+          "用4或7指出只在一表出现应保留",
+          "区分交集条件与并集条件"
+        ]
+      },
+      "newQuestionSha256": "7e7b9be7ed98273c978387d1ca3a828a5cdf9bf603afa94bf3a33440b8ecf85e"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-A-003",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "7ed9b7f40cc18fadb7050c4f213b99c45ecd81a922edc934b357c1585893a023",
+      "patch": {
+        "stem": "一个未排序的链表数据依次为2,1,2,2。某方法只检查相邻结点：相等就删除后一个，不等就前进，直到表尾。写出处理后的序列，说明是否已经让每个值只保留一次，并给出一种保留每个值首次出现结点的改进思路。",
+        "model": "结果是2,1,2，非相邻的两个2仍在，因此未完成全表去重。相邻删除只有在相同值必连续时才足够。可记录已见值，首次保留、再次遇到时删除；也可依次保留一个值并扫描其后删除所有同值结点。两种方案都可保留首次出现结点，不要求本题唯一实现。",
+        "rubric": [
+          "相邻策略处理后2,1,2",
+          "指出无序时相同值未必连续",
+          "给出能识别非相邻重复且保留首次出现的可行办法"
+        ]
+      },
+      "newQuestionSha256": "273b6729a444f4d991783369379b72ec55a720e9e8e203a920185b68cf5bdcd9"
+    },
+    {
+      "subject": "structures",
+      "id": "P4-structures-2-A-007",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 2,
+      "type": "short",
+      "baseQuestionSha256": "92392b0f855555d65911df7ed76d8e8db26001b6cebe30beb7945c923dc35135",
+      "patch": {
+        "stem": "顺序表数组容量至少为5，当前内容为(10,20,30,40)，要在第2项前插入99。错误代码从j=1到3执行a[j+1]=a[j]。列出搬移后候选区前5项，并说明正确搬移方向。",
+        "rubric": [
+          "追踪覆盖得10,20,20,20,20",
+          "指出后向搬移避免读源被覆盖"
+        ]
+      },
+      "newQuestionSha256": "ae5d460ea2f900facdbad2f68492b8e35756d88b94e95ec4dfa6f55dcce9f442"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-F-002",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "fill",
+      "baseQuestionSha256": "a0a0e5330890894a641da3e3669ebea13effddc238115fe4f154f8325a537e4e",
+      "patch": {
+        "stem": "一位全减器计算A−B−Bin，现将A和B同时接到输入X。差输出D=____，向高位的借位Bout=____（两空用X、X′、Bin、Bin′、0或1表示）。",
+        "answers": [
+          [
+            "Bin"
+          ],
+          [
+            "Bin"
+          ]
+        ],
+        "explanation": "A、B始终相同，实际计算X−X−Bin=−Bin。Bin=0时差为0、借位为0；Bin=1时结果为−1，用差1并向高位借1表示，因为1−2×1=−1。所以D与Bout都等于Bin，不能把A、B相消后就误认为永远不需要借位。"
+      },
+      "newQuestionSha256": "56a77659dc964f04d97934c0bc31d2f485c980695db1b792d77a6037da217bf9"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-F-005",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "fill",
+      "baseQuestionSha256": "99182384776015c3d30ecabeeecdf90c764810e14725d2fafac209d41d8476a2",
+      "patch": {
+        "stem": "用一片8选1数据选择器轮询6路故障开关，开关正常时输出1，故障时输出0。控制器依次读取全部8个地址，读到0就报警。为避免空通道误报，两路未使用的数据输入端应固定接____（0或1）。",
+        "answers": [
+          [
+            "1"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "控制器也会轮询到两路未使用的输入，且把0解释为故障。因此空通道应和“正常”电平一致，固定接1；若接0，即使6路实际开关全部正常，扫描空通道时仍会误报。这里决定接法的是故障有效极性与轮询范围。"
+      },
+      "newQuestionSha256": "3cb4e3240ae2661327fade993c98674ed7aaf371d0adbd7fdbfc66ad4d69ed71"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-F-007",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "fill",
+      "baseQuestionSha256": "7379fc4af5de40c7b8836922da18021ca88fd7b4ae9358fd3c145354ea5995ab",
+      "patch": {
+        "stem": "两片低有效3—8译码器共用地址ABC，第一片仅在E=0时使能，第二片仅在E=1时使能，禁能片的全部输出为1。要在ABC=011时得到低电平、其余地址得到高电平，且结果不受E取值影响，应把两片的Y3接____门（与/或）。",
+        "answers": [
+          [
+            "与",
+            "AND"
+          ]
+        ],
+        "explanation": "两片恰有一片工作，另一片的Y3恒为1。ABC=011时，工作片Y3=0，两路相与为0；其余地址两路Y3均为1，相与为1。与门中的1是中性值，因此合并后不受E影响。若接或门，禁能片提供的1会使输出始终为1。"
+      },
+      "newQuestionSha256": "75c0253d9f73ebf41dad33f6de1c62667442a5f286710a9186bb28dc950b8fba"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-F-010",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "fill",
+      "baseQuestionSha256": "a6ef448f7aa138d018fa5c77cfc204f58bdd6e939e58ec7b612b5b3676e8e9a9",
+      "patch": {
+        "stem": "四位串行进位加法器的A、B保持不变，要求输入进位Cin从0变为1时，其变化能沿进位链传到Cout，且两种稳态下均有Cout=Cin。若B=0101，则A应为____（4位二进制）。",
+        "answers": [
+          [
+            "1010"
+          ]
+        ],
+        "formats": [
+          "text"
+        ],
+        "explanation": "要把Cin的两种取值一直传到Cout，每一位都应传递进位，既不能产生固定进位，也不能截断进位。因此每位Ai、Bi必须互补，B=0101时A=1010。核算：Cin=0时1010+0101=01111，Cout=0；Cin=1时和为10000，四级进位依次都由0变1，Cout=1。只核某一个Cin状态不能保证整个进位链可传递。"
+      },
+      "newQuestionSha256": "ea314886f5d6ba29d63868d36de4c9dcb7dbfa1370a3b8cdaea2a9b87b6e1216"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-F-011",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "fill",
+      "baseQuestionSha256": "c975f6bcd900990e2efec1b0b5782c47203456f7522b7fd154d1de969725a145",
+      "patch": {
+        "stem": "某数值比较器提供高有效输出G=(A>B)、E=(A=B)。要得到H=(A≥B)，可将G、E接____门；再将H接____门得到L=(A<B)（两空从与、或、非三种基本门中选填）。",
+        "answers": [
+          [
+            "或",
+            "OR"
+          ],
+          [
+            "非",
+            "NOT",
+            "反相器"
+          ]
+        ],
+        "formats": [
+          "text",
+          "text"
+        ],
+        "explanation": "A≥B包含“大于”或“等于”两种情况，因此H=G+E，用或门。大于、等于、小于互斥且完备，A<B正是A≥B的反面，所以L=H′，再接非门。题目限定了三种基本门；若不作这一限制，在G、E不同时为1的有效条件下，异或也可代替第一个或门。"
+      },
+      "newQuestionSha256": "be7ed48a7c59483960d06c8a996aad4b816979c5b23603927f290081c241f1be"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-F-012",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "fill",
+      "baseQuestionSha256": "b5500ac1fccb1820ff478afdf40707a5e9067ea9c1bbecae07bdfa6c7d53bfdc",
+      "patch": {
+        "stem": "已有四位无符号比较器的输出U=(A>B)。现把A、B均按四位补码解释，符号位为A3、B3。令T=A3⊕B3控制二选一选择器，T=0选D0，T=1选D1，输出要表示补码的A>B。D0应接____，D1应接____（用U、U′、A3、A3′表示）。",
+        "answers": [
+          [
+            "U"
+          ],
+          [
+            "A3′",
+            "A3'",
+            "!A3",
+            "¬A3"
+          ]
+        ],
+        "formats": [
+          "text",
+          "text"
+        ],
+        "explanation": "T=0说明两个符号位相同：同为非负数时顺序与无符号相同，同为负数时只是两数都减16，大小顺序也不变，所以D0=U。T=1说明异号，A为非负数时才大于负数B，故结果为A3′，D1=A3′。补码比较不能不分符号直接沿用无符号比较结果。"
+      },
+      "newQuestionSha256": "402d0c364e875a1726d51ebb5a8f5b94f9b7832dede4b7952c03e764524ed64f"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-F-020",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "fill",
+      "baseQuestionSha256": "1bf9bbd608d9a8186dd8b1d5cf79dd54b9ab72a7cfef9993748ec12fa8e2e026",
+      "patch": {
+        "stem": "一只高有效2—4译码器的使能端E高有效，禁能时四路输出全为0。E和两位地址均可任意变化。将它的四路输出接到下一级组合电路的四个输入端，下一级实际可能收到____种不同的输入组合。",
+        "answers": [
+          [
+            "5"
+          ]
+        ],
+        "formats": [
+          "number"
+        ],
+        "explanation": "译码器使能时，四路输出恰有一条为1，只可能是1000、0100、0010、0001这4种；禁能时是0000。合起来只有5种。虽然下一级有4个输入端，但它们来自同一个译码器，彼此受独热关系约束，不能独立取遍2⁴种组合。"
+      },
+      "newQuestionSha256": "3351573cc23e3f8b20afa5cc4fd45bbdde1d3161fdef029a407c08ccf47e76f8"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-S-012",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "single",
+      "baseQuestionSha256": "bfc7dc23b9182516caab37f8d941809f22dc0ac2d52c9c7c7837b3627bb82b41",
+      "patch": {
+        "options": [
+          "分配器把一路数据送到选定输出，选择器从多路输入选一路",
+          "分配器从多路输入选一路，选择器把一路数据送到选定输出",
+          "分配器把独热输入编码成地址，选择器把地址译成独热输出",
+          "两者都把数据同时送到全部通道，选择码只控制整体使能"
+        ],
+        "explanation": "MUX从多路数据输入中选一路送到输出；DEMUX把一路数据送到地址指定的输出。选择码决定选中通道，不等于广播，也不等于编码器/译码器的输入输出数据含义。"
+      },
+      "newQuestionSha256": "f41b141ea31ada368dd166869571fca586ba284581d8cbb1cfb90e3472109723"
+    },
+    {
+      "subject": "digital",
+      "id": "P4-digital-4-S-020",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 4,
+      "type": "single",
+      "baseQuestionSha256": "6f494a00318023714da46499ae4287aab00a9f2436d8f306be3dd578fab1c782",
+      "patch": {
+        "options": [
+          "共享后每条输出的逻辑级数必然减少",
+          "共享节点的扇出与传播负载",
+          "共享后所有输入变化都不会再产生毛刺",
+          "同一积项只算一次，因此不必核对共享门的驱动能力"
+        ],
+        "explanation": "共享积项可以减少重复逻辑，但同一节点现在要驱动多个后级，其扇出和传播负载仍须核对。共享不保证每条路径更短，也不自动消除所有毛刺；逻辑计数中少算一个重复项，不等于电气上可以忽略驱动能力。"
+      },
+      "newQuestionSha256": "9f64e0b357505ec8b5d9bf662bf96d2da174fcbe1b5bd44c60efee3ae9a4c786"
+    },
+    {
+      "subject": "programming",
+      "id": "C6E-programming-3-S-006",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "96b787e547b627dd21f567ec77b551b1b58789940b20c628dceec88bce50d253",
+      "patch": {
+        "stem": "执行int a=20; a/=2+3;后，a的值是：",
+        "options": [
+          "2",
+          "4",
+          "13",
+          "10"
+        ],
+        "answer": 1,
+        "explanation": "复合赋值先把右侧2+3作为整体计算，再用原a除以5，得到4。它相当于a=a/(2+3)，不能展开为a=a/2+3。"
+      },
+      "newQuestionSha256": "a4e0b48e8e9764e9b8fb58d9b7d75e421d004348ae10fe262108f212ba1c9606"
+    },
+    {
+      "subject": "programming",
+      "id": "C6E-programming-3-S-009",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "bc2d8445678832a56e8e02781106c6633d683445fc2085f69cf1009e121870a9",
+      "patch": {
+        "stem": "已知unsigned char为8位。表达式(unsigned char)~3U与!3U的值依次是：",
+        "options": [
+          "252、0",
+          "252、1",
+          "0、0",
+          "0、1"
+        ],
+        "explanation": "3U的低8位是00000011，按位取反后为11111100，转为8位unsigned char得到252。逻辑非只判断是否为0，!3U为0；两种“非”处理的对象不同。",
+        "studyLevel": "supplement",
+        "studyWeight": 1,
+        "studyEvidence": "CYY3-23.pptx运算符总览及优先级；位运算辨析作为补充，课件3.1—3.7常用表达式仍优先。不据此认定本校必考。"
+      },
+      "newQuestionSha256": "86a047c38d7cb6c44a6b9a623147547314774851b2db476c9562755cd97c4675"
+    },
+    {
+      "subject": "programming",
+      "id": "C6E-programming-3-S-027",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "205f859320c6a3e5a8a42949f97aa1af93602ad433931a1a2ebc7d7fab4fca94",
+      "patch": {
+        "stem": "有int a=2,b=3,c=4;，表达式a==b<c的值是：",
+        "explanation": "<的优先级高于==，先算b<c，即3<4为1，再算2==1，得到0。如果误写成(a==b)<c，会算成0<4，错误地得到1。"
+      },
+      "newQuestionSha256": "d17631123e83eb4a73e3910daf18ba762b6ab32c0f59c751ee859cb3cbb0337b"
+    },
+    {
+      "subject": "programming",
+      "id": "C6E-programming-3-S-028",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "4d973f23ba07d9f1e1e897011c80efa6d7283af2c1594f1222759646a42e7019",
+      "patch": {
+        "stem": "表达式2+3>4==0的值是：",
+        "answer": 0,
+        "explanation": "先相加得5，再算5>4得1，最后1==0为0。若把相等比较错误地放在关系比较前，会得到5>(4==0)，结果为1。"
+      },
+      "newQuestionSha256": "c72ef18cafda4b29ede0917ec5276a9075c3afc4a76f4fa6e09b8b1bc9b506b7"
+    },
+    {
+      "subject": "programming",
+      "id": "C6E-programming-3-S-046",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "02943c439a0f8ddf9297b900e09ecaf3c203576cd28468916a34cc93b320101a",
+      "patch": {
+        "stem": "执行unsigned int flags=2U; int r=flags & 1U == 0U;后，r的值是：",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "表达式不合法"
+        ],
+        "answer": 0,
+        "explanation": "相等比较的优先级高于按位与，实际分组为flags & (1U==0U)，即2U & 0U，结果0。若要判断最低位是否为0，应写(flags & 1U)==0U；该正确判断本次会得到1。",
+        "studyLevel": "supplement",
+        "studyWeight": 1,
+        "studyEvidence": "CYY3-23.pptx运算符总览及优先级；位运算辨析作为补充，课件3.1—3.7常用表达式仍优先。不据此认定本校必考。"
+      },
+      "newQuestionSha256": "15b45a8eafa8eb54ae96351ac8a9ad5225f2a8a8a51d77a5ba082b50b2c24551"
+    },
+    {
+      "subject": "programming",
+      "id": "C6E-programming-3-S-051",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "2777d26f1a4a4f917e68f986c125c1f212fb90f39a8980c7c899999237d29eda",
+      "patch": {
+        "stem": "a、b可为任意32位int。下列哪个表达式能准确判断a大于b，且不会发生有符号算术溢出？",
+        "options": [
+          "a-b>0",
+          "a>b",
+          "(a+b)>2*b",
+          "a!=b"
+        ],
+        "answer": 1,
+        "explanation": "a>b直接比较大小，无需计算差或和。a=2147483647、b=-1时，a-b会超出int范围；比较本身不会因此溢出。a!=b还会把a小于b的情况误判为真。"
+      },
+      "newQuestionSha256": "59c95d190e2e4567cb7774b39bf757c775c774c310255ec452b29c793fc53fff"
+    },
+    {
+      "subject": "programming",
+      "id": "C6E-programming-3-S-055",
+      "baseRevision": 1,
+      "revision": 2,
+      "chapter": 3,
+      "type": "single",
+      "baseQuestionSha256": "97d20dc2bd0210b33a9c6745c7ae4b06e6b778a7eb4b379e1bb6b254a5a7a6e3",
+      "patch": {
+        "stem": "a、b为任意int。下列哪个表达式与!(a && b)的真假结果总是相同？",
+        "options": [
+          "!a || !b",
+          "!a && !b",
+          "a || b",
+          "a && b"
+        ],
+        "answer": 0,
+        "explanation": "!(a&&b)表示“两者都非0”不成立，也就是至少有一个为0，因此等价于!a||!b。例如a=0、b=2时结果为1，!a&&!b却为0。这里按0与非0判断真假，不要求参数只能取0或1。"
+      },
+      "newQuestionSha256": "65cd760544831460e9a200c02730ef1409eb47df8c13ae077af36e1ddcc7966d"
+    }
+  ]
+}

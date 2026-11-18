@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-pending-11-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-11-1794928861389-yntxt2",
+      "title": "第11章 外部排序 · 章节练习",
+      "chapter": 11,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 10,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-11-D-001",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计固定容量M记录生成初始有序段的算法，输入按顺序读，末批不足M仍需输出。",
+          "type": "short",
+          "model": "反复读最多M条，若0条且确认EOF则结束；按指定比较器稳定排序（若需全局稳定），把本批写独立段，登记有效记录数和边界，写入成功后标完成。读/写错误不冒充EOF或完整段。每记录读写一次，内存O(M)，排序成本按各批累加。",
+          "rubric": [
+            "末批",
+            "状态与提交",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-010",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给外部排序输出及可重新扫描的原输入，设计一个小规模验收方案，要求能确定性发现记录替换与重复丢失，不把仅有序当成功。",
+          "type": "short",
+          "model": "先按比较器核输出相邻非降与总数；小规模时给每条输入记录唯一ID，用映射统计原输入ID及完整内容，扫描输出逐条核存在、内容相同并计次，最后所有次数恰1。若输入允许同内容重复，ID区分出现。需O(N)验收内存；大规模应改外存比对而不能冒称仍小内存精确验收。",
+          "rubric": [
+            "有序与数量",
+            "身份内容",
+            "空间边界"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-002",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计k路有序流归并，使用最小堆，输入可为空，重复记录全部保留。",
+          "type": "short",
+          "model": "每路读首条，非空则以(key,必要的稳定次级键,source)入堆。循环弹最小记录输出，仅从source读下一条并入堆；耗尽路不再入。堆空结束。N条输出时O(N log(k+1)+k) CPU上界，候选O(k)，块缓冲另计。",
+          "rubric": [
+            "来源推进",
+            "空路重复",
+            "空间分项"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-008",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计计算独立段文件的块读成本，段长度用记录数，每块容量B条，不跨段打包，B>0。",
+          "type": "short",
+          "model": "遍历各段n_i≥0，块数q_i=floor(n_i/B)+(n_i%B!=0)，累加。零段贡献0。不能先加所有长度再统一取整；累加与记录总量用足够宽类型并查溢出。O(r)时间O(1)辅助；若每段有额外文件头块另按格式计。",
+          "rubric": [
+            "逐段取整",
+            "零段",
+            "格式成本"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-003",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计输入段补读函数，状态区分“缓冲暂空、段已结束、读取错误”，不得把错误当EOF。",
+          "type": "short",
+          "model": "若缓冲仍有有效记录直接返回；否则尝试读下一块，成功有记录则设置有效数及下标0；确认正常EOF返回段结束；错误返回失败并停止本次合并/保留恢复信息。填充完成前不让消费者读未初始化槽。具体短读可继续补齐须按接口契约。",
+          "rubric": [
+            "有效长度",
+            "三状态",
+            "生命周期"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-007",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在加性段长成本、最多k路任意调度下构造最优归并树，r≥2，k≥2，包含零虚段策略。",
+          "type": "short",
+          "model": "d=((k-1)-((r-1)%(k-1)))%(k-1)，补d个0；最小堆每次取k个最小权合并，累加其和并推回，直到1根。最少读写量为2倍合并权重和，初段成本另算。时间O((r+d) log(r+d))的逐元素堆操作上界，树空间O(r+d)；k巨大时可先限制k≤r避免不必要虚叶。",
+          "rubric": [
+            "补齐",
+            "最短合并",
+            "加性与复杂度"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-004",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计标准置换选择成段，不使用合法键值充当无穷；容量w>0。",
+          "type": "short",
+          "model": "先读最多w条为活跃集合，用最小堆；每输出最小x后若有新记录y，y.key≥x.key进活跃，否则进冻结集合。活跃空则关闭当前段，冻结全部解冻为新活跃，直至输入与两个集合均空。任意时总暂存≤w，记录保留身份，O(N log(w+1))CPU上界。",
+          "rubric": [
+            "冻结比较",
+            "切段排空",
+            "容量守恒"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-009",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计稳定多路归并的比较键，初段可能不是原文件连续区间，但每条记录保存唯一原始序号。",
+          "type": "short",
+          "model": "按(primaryKey,originalIndex)字典序比较候选，主键相同取较早原序号。初段也按同一复合键有序，所有中间归并保持此顺序。这样任意调度的输出仍主键非降且同键原序不变；原序号不能在每段重新从0编号。",
+          "rubric": [
+            "全局序号",
+            "各阶段一致",
+            "任意调度"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-005",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "已有初段r个，最多k路，k≥2。设计整数递推求平衡归并趟数，避免浮点log在幂边界误差。",
+          "type": "short",
+          "model": "p=0；while(r>1){r=floor(r/k)+(r%k!=0);p++;} 返回p；r=0或1按无归并约定返回0。用除法余数避免r+k-1溢出，段数每轮下降。时间O(log_k(r+1))、空间O(1)，不含成段。",
+          "rubric": [
+            "整数上取整",
+            "0与1",
+            "安全计算"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-11-D-006",
+          "chapter": 11,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "求固定趟数p内合并r≥2段的最小路数k≥2，p≥1，设计不计算可能溢出的k^p的算法。",
+          "type": "short",
+          "model": "二分k∈[2,r]。可行性从remaining=r迭代p次上取整除k，看是否≤1；单调性保证路数越大不增加剩段。每次上取整用商和余数。O(p log r)时间O(1)空间，可在remaining=1提前停；p=0不满足另拒绝。",
+          "rubric": [
+            "可行性",
+            "单调二分",
+            "不溢出"
+          ],
+          "coding": false,
+          "practiceWeight": 0.4,
+          "points": 10
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-11-D-001": "saved revision1 code P4-structures-11-D-001",
+        "P4-structures-11-D-010": "saved revision1 code P4-structures-11-D-010",
+        "P4-structures-11-D-002": "saved revision1 code P4-structures-11-D-002",
+        "P4-structures-11-D-008": "saved revision1 code P4-structures-11-D-008",
+        "P4-structures-11-D-003": "saved revision1 code P4-structures-11-D-003",
+        "P4-structures-11-D-007": "saved revision1 code P4-structures-11-D-007",
+        "P4-structures-11-D-004": "saved revision1 code P4-structures-11-D-004",
+        "P4-structures-11-D-009": "saved revision1 code P4-structures-11-D-009",
+        "P4-structures-11-D-005": "saved revision1 code P4-structures-11-D-005",
+        "P4-structures-11-D-006": "saved revision1 code P4-structures-11-D-006"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

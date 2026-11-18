@@ -1,0 +1,196 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-tree-before-contract",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-6-1794927124799-225854",
+      "title": "第6章 树和二叉树 · 章节练习",
+      "chapter": 6,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 8,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-6-D-001",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计算法一次后序遍历判断二叉树是否每个结点左右高度差至多1，同时避免重复求高。",
+          "type": "short",
+          "model": "helper(NULL)=0；左右递归若返回失败哨兵则失败；若abs(hl-hr)>1则失败，否则返回1+max(hl,hr)。约定失败值-1与非负高度区分，根返回非负即平衡。每点一次O(n)，栈O(h)。",
+          "rubric": [
+            "返回高度复用",
+            "局部与全局",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 13
+        },
+        {
+          "id": "P4-structures-6-D-006",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "孩子—兄弟表示存一棵有序树，设计算法求原树高度，右兄弟不能使层号加1。",
+          "type": "short",
+          "model": "height(NULL)=0；对结点x，用循环沿x.firstChild及其nextSibling遍历所有孩子，取各孩子height最大值，返回1+max，叶子为1。仅从指定根调用，不把根的兄弟算入本树。每点一次O(n)，递归栈按原树高O(h)。",
+          "rubric": [
+            "兄弟同层",
+            "子树边界",
+            "高度成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 13
+        },
+        {
+          "id": "P4-structures-6-D-002",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "普通二叉树结点标识互异，给出合法先序与中序数组，设计O(n)时间重建算法，可使用索引表。",
+          "type": "short",
+          "model": "预建标识到中序位置表；递归用中序区间及先序游标，空区间返回空，否则取下一个先序项为根，其位置分左右区间，先建左再右。合法输入保证位置属于当前区间；若需校验则检测越界、重复、缺项、多余项。O(n)时间（字典均摊假设）O(n)索引加O(h)栈。",
+          "rubric": [
+            "区间切分",
+            "游标顺序",
+            "模型与校验"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 13
+        },
+        {
+          "id": "P4-structures-6-D-008",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计验证一组二叉树孩子编号表是否构成恰一棵非空树：编号1..n，每结点有L/R，0为空。必须拒绝环与断开的环分量。",
+          "type": "short",
+          "model": "先查孩子编号合法，统计入度，出现>1即失败；要求恰一入度0根。再从根DFS/BFS并标visited，重复访问拒绝，最后访问数须n。不仅检查唯一根，否则可能另有独立环。时间O(n)，空间O(n)。左右指向同一非空孩子也会入度2拒绝。",
+          "rubric": [
+            "局部入度",
+            "根与遍历",
+            "覆盖及环"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 13
+        },
+        {
+          "id": "P4-structures-6-D-003",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计求二叉树最大层宽的算法，空树宽0。不得在同一层循环中把刚入队的下一层也计作本层。",
+          "type": "short",
+          "model": "层序队列根非空才入。每轮开始固定size=队列长度，更新maxWidth，然后恰好弹size次并入真实孩子。新孩子留待下一轮。O(n)时间O(w)队列；空输入无轮次返回0。",
+          "rubric": [
+            "固定本层数",
+            "不混层",
+            "边界成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 12
+        },
+        {
+          "id": "P4-structures-6-D-007",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计输出二叉树所有根到叶路径，保持左至右次序；分析成本应包含输出量。",
+          "type": "short",
+          "model": "DFS入结点把它追加当前路径，若叶输出当前路径，否则先左后右递归，返回时移除末项。空树无路径。访问O(n)，输出另加各叶路径长度之和L，总O(n+L)，额外O(h)当前路径与栈（不含输出）。不能一律忽略重复输出祖先的成本。",
+          "rubric": [
+            "叶触发",
+            "回溯",
+            "输出敏感成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 12
+        },
+        {
+          "id": "P4-structures-6-D-004",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计求二叉树最长根到叶路径，多个并列时取左侧最先的一条；允许O(n)额外空间。",
+          "type": "short",
+          "model": "DFS维护当前路径，先左后右；到叶子仅当当前长度严格大于best时复制路径替换best，相等不更新。返回前弹出当前结点。空树返回空路径。遍历O(n)，但直接每次改进复制路径可使总复制成本超过O(n)，保守O(nh)；可改存最深叶及父映射后一次回溯实现O(n)。",
+          "rubric": [
+            "左优先并列",
+            "回溯路径",
+            "复制成本诚实"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 12
+        },
+        {
+          "id": "P4-structures-6-D-005",
+          "chapter": 6,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给合法双亲数组parent[1..n]，0表示唯一根。设计求p、q最近公共祖先，允许O(n)标记空间，不要求数值有序。",
+          "type": "short",
+          "model": "先验p、q范围。沿p到根把所有祖先（含p）标记；沿q向根，遇第一个标记即LCA。标记数组初始化O(n)，路径O(h)，总O(n+h)，辅助O(n)。父数组合法无环前提必要；不按编号取较大或较小。",
+          "rubric": [
+            "含自身",
+            "首个公共",
+            "初始化成本"
+          ],
+          "coding": false,
+          "practiceWeight": 3,
+          "points": 12
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-6-D-001": "revision1 saved reasoning: P4-structures-6-D-001",
+        "P4-structures-6-D-006": "revision1 saved reasoning: P4-structures-6-D-006",
+        "P4-structures-6-D-002": "revision1 saved reasoning: P4-structures-6-D-002",
+        "P4-structures-6-D-008": "revision1 saved reasoning: P4-structures-6-D-008",
+        "P4-structures-6-D-003": "revision1 saved reasoning: P4-structures-6-D-003",
+        "P4-structures-6-D-007": "revision1 saved reasoning: P4-structures-6-D-007",
+        "P4-structures-6-D-004": "revision1 saved reasoning: P4-structures-6-D-004",
+        "P4-structures-6-D-005": "revision1 saved reasoning: P4-structures-6-D-005"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

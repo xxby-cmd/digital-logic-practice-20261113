@@ -1,0 +1,247 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-analysis-ch3-before",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-3-1794928556217-4ljajz",
+      "title": "第3章 栈和队列 · 章节练习",
+      "chapter": 3,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 10,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P3-structures-3-91",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数组栈容量cap，top指下一可写位置。编写int push(int a[],int cap,int *top,int x)，满返回0且不改状态，否则入栈返回1。已知参数有效且0≤*top≤cap。",
+          "type": "short",
+          "model": "int push(int a[],int cap,int *top,int x){if(*top==cap)return 0;a[*top]=x;(*top)++;return 1;}\n先检查边界，成功后才改变top。",
+          "rubric": [
+            "按约定检查满",
+            "写入旧top位置",
+            "成功推进且失败不变"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-100",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用数组栈检查一个候选pop序列是否可由互异整数入栈序列in得到。两数组长n≥0，辅助栈s容量n，返回1或0。编写int validPop(const int in[],const int out[],int n,int s[])。",
+          "type": "short",
+          "model": "int validPop(const int in[],const int out[],int n,int s[]){int top=0,j=0;for(int i=0;i<n;i++){s[top++]=in[i];while(top>0&&j<n&&s[top-1]==out[j]){top--;j++;}}return j==n;}\n每项进出至多一次，O(n)时间；n=0时返回1。",
+          "rubric": [
+            "按输入序压入",
+            "匹配栈顶才弹",
+            "边界顺序安全",
+            "结束j==n及线性复杂度"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-92",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数组栈用top记录当前元素个数，也指向下一可写位置。编写int pop(int a[],int *top,int *out)：栈空时返回0且不改变*out；否则弹出栈顶元素，写入*out，更新*top并返回1。参数均有效。",
+          "type": "short",
+          "model": "int pop(int a[],int *top,int *out){if(*top==0)return 0;(*top)--;*out=a[*top];return 1;}",
+          "rubric": [
+            "先查空",
+            "先减再读",
+            "失败输出不变"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-98",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "整数数组a长n≥0，给一个容量至少n的辅助数组s。用栈逆置a，编写void reverseByStack(int a[],int n,int s[])。说明额外空间和是否优于原地双指针空间。",
+          "type": "short",
+          "model": "void reverseByStack(int a[],int n,int s[]){int top=0;for(int i=0;i<n;i++)s[top++]=a[i];for(int i=0;i<n;i++)a[i]=s[--top];}\n时间O(n)、辅助O(n)，双指针可用O(1)空间，本题练LIFO而非宣称最省空间。",
+          "rubric": [
+            "压入再逆序弹出",
+            "空数组",
+            "空间比较"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-93",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "结点typedef struct Node{int v;struct Node *next;}Node;。编写int pushL(Node **top,int x)，申请失败返回0且原栈不变，成功返回1。参数top有效。",
+          "type": "short",
+          "model": "int pushL(Node **top,int x){Node *s=malloc(sizeof *s);if(!s)return 0;s->v=x;s->next=*top;*top=s;return 1;}\n需包含<stdlib.h>；先分配成功再改头链接。",
+          "rubric": [
+            "malloc检查",
+            "保存旧顶",
+            "二级指针写回"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-97",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "输入字符串只含(和)，长度n≥0。编写int match(const char s[],int n)，括号完整匹配返回1，否则0。可用计数器，不要求显式栈；说明为何单类型可简化。",
+          "type": "short",
+          "model": "int match(const char s[],int n){int d=0;for(int i=0;i<n;i++){if(s[i]=='(')d++;else if(--d<0)return 0;}return d==0;}\n单类型只需记录未闭合数，任一前缀不能为负，结束必须0；多类型还需栈保存类型顺序。",
+          "rubric": [
+            "前缀非负",
+            "结束为0",
+            "说明单/多类型区别"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-94",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "链栈结点定义为typedef struct Node{int v;struct Node *next;}Node;，*top指向栈顶，空栈时为NULL。编写int popL(Node **top,int *out)：栈空时返回0；否则把栈顶值写入*out，更新栈顶指针并释放被弹出的结点，返回1。top和out均为有效指针。",
+          "type": "short",
+          "model": "int popL(Node **top,int *out){if(!*top)return 0;Node *s=*top;*out=s->v;*top=s->next;free(s);return 1;}\n需包含<stdlib.h>，释放前保存后继，避免读已释放结点。",
+          "rubric": [
+            "空栈",
+            "写回新顶和输出",
+            "free前取后继"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-99",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "编写int queueLen(int m,int front,int rear)，按牺牲一单元约定返回循环队列长度。m≥2且下标均在[0,m)，要求即使rear<front也正确。",
+          "type": "short",
+          "model": "int queueLen(int m,int front,int rear){return rear>=front?rear-front:m-(front-rear);}\nrear≥front时直接相减；发生回绕时，用数组长度减去front到rear的反向距离。也可写return (int)(((long long)rear-front+m)%m);，先转为long long再相加。不能直接用int计算rear-front+m：m很大时，中间结果可能溢出，即使最终队列长度仍能用int表示。",
+          "rubric": [
+            "两段情况",
+            "空长度0",
+            "回绕非负"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-95",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "容量m的数组循环队列牺牲一格，front首元素、rear下一可写，m≥2。编写入队int enq(int a[],int m,int front,int *rear,int x)。满返回0，否则1。所有下标合法。",
+          "type": "short",
+          "model": "int enq(int a[],int m,int front,int *rear,int x){int nr=(*rear+1)%m;if(nr==front)return 0;a[*rear]=x;*rear=nr;return 1;}",
+          "rubric": [
+            "预先计算回绕尾",
+            "满时不改",
+            "写旧rear再更新"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        },
+        {
+          "id": "P3-structures-3-96",
+          "chapter": 3,
+          "section": "编程题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数组循环队列容量为m，牺牲一个单元区分空、满，front指向队首元素，rear指向下一可写位置。编写int deq(int a[],int m,int *front,int rear,int *out)：空队列返回0且不改变*out；否则输出队首值、更新*front并返回1。m≥2，指针有效，下标均在[0,m)内。",
+          "type": "short",
+          "model": "int deq(int a[],int m,int *front,int rear,int *out){if(*front==rear)return 0;*out=a[*front];*front=(*front+1)%m;return 1;}",
+          "rubric": [
+            "空条件",
+            "读当前头",
+            "回绕推进"
+          ],
+          "judge": true,
+          "coding": false,
+          "practiceWeight": 2.5,
+          "points": 10
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P3-structures-3-91": "saved prior code P3-structures-3-91",
+        "P3-structures-3-100": "saved prior code P3-structures-3-100",
+        "P3-structures-3-92": "saved prior code P3-structures-3-92",
+        "P3-structures-3-98": "saved prior code P3-structures-3-98",
+        "P3-structures-3-93": "saved prior code P3-structures-3-93",
+        "P3-structures-3-97": "saved prior code P3-structures-3-97",
+        "P3-structures-3-94": "saved prior code P3-structures-3-94",
+        "P3-structures-3-99": "saved prior code P3-structures-3-99",
+        "P3-structures-3-95": "saved prior code P3-structures-3-95",
+        "P3-structures-3-96": "saved prior code P3-structures-3-96"
+      },
+      "marks": {},
+      "result": null
+    }
+  ]
+}

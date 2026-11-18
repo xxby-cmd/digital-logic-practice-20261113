@@ -1,0 +1,225 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-string-before-contract",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-4-1794917827143-iszx6r",
+      "title": "第4章 串 · 章节练习",
+      "chapter": 4,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 10,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-4-D-001",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计对显式长度字节串检查回文的O(n)时间、O(1)额外空间算法，不修改输入。",
+          "type": "short",
+          "model": "左右下标l=0、r=n-1，while(l<r)比较s[l]和s[r]，不等立即返回假，相等则l++、r--；结束为真。应安全处理n=0以免无符号n-1下溢。空串和单字节串均为真。",
+          "rubric": [
+            "双端比较",
+            "空输入下标",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-010",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串采用显式长度。设计删除所有属于给定字节集合D的字符的稳定原地算法。",
+          "type": "short",
+          "model": "先用256项布尔表标记D，读r写w从0开始，若!drop[a[r]]则a[w++]=a[r]，结束把长度设w。保留原相对次序，全部被删得到空串，零字节也按集合规则处理。时间O(n+|D|+256)，额外O(256)。",
+          "rubric": [
+            "集合表",
+            "稳定压缩",
+            "显式长度边界"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-002",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计求两个字节串最长公共前缀长度的算法，不调用子串分配操作。",
+          "type": "short",
+          "model": "i=0；当i<min(m,n)且两串第i字节相等时i++；返回i。到首个差异或短串结束为止，最坏O(min(m,n)+1)，空间O(1)，无需创建子串。",
+          "rubric": [
+            "双界限",
+            "返回长度",
+            "空串与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-008",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个等长字节串是否互为循环移位？给出借助一次模式匹配的算法并证明。",
+          "type": "short",
+          "model": "长度不等返回假；两个空串约定为真。非空时令U=S+S，查找T的完整出现，其起点限制为0..n-1。循环移位的每个长度n窗口都位于该区域，反之任一这样的窗口正是某个循环移位。KMP总O(n)时间，U及失配表O(n)空间；先检查2n长度溢出。",
+          "rubric": [
+            "等长空串",
+            "窗口等价",
+            "时间空间"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-003",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计算法判断T是否为S的子序列，注意不是子串；允许空T。",
+          "type": "short",
+          "model": "i=j=0，扫描S，若S[i]==T[j]则j++，无论如何i++，但j==m时即可成功。结束返回j==m。空T直接成功。时间O(n+m)上界，辅助O(1)；无需连续相邻匹配。",
+          "rubric": [
+            "贪心匹配",
+            "空T",
+            "与子串区分"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-007",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串中寻找第一个只出现一次的字符，返回其0起始下标，无则-1。设计线性算法。",
+          "type": "short",
+          "model": "第一遍用256项频次数组计数；第二遍按原顺序找freq[s[i]]==1的首项，返回i；没有返回-1。索引用unsigned char，计数类型足够。O(n+256)时间、O(256)空间。单次找到当前频次1就返回会忽略后续重复。",
+          "rubric": [
+            "两遍必要性",
+            "首个位置",
+            "字节边界"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-004",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给含小写英文字母的串，设计O(n+26)算法判断是否能重新排列成回文，不必实际排列。",
+          "type": "short",
+          "model": "统计26项频次，数奇数频次项个数。至多1项为奇数时可行，否则不可行：回文除中间一项外成对出现，反之各对分列两侧即可构造。空串可行。",
+          "rubric": [
+            "奇偶判据",
+            "必要充分性",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-009",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计将长度n的字符数组向左循环移动k项的O(n)时间O(1)空间算法，k为非负整数。",
+          "type": "short",
+          "model": "n=0直接返回；k%=n。先逆置前k项，再逆置剩余n-k项，再逆置整体，AB经A逆B逆再整体逆得到BA。k=0时两次整段逆置仍正确，可直接返回。O(n)时间，O(1)辅助空间。",
+          "rubric": [
+            "三段逆置",
+            "取模与空表",
+            "正确性"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-005",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计把串内每段连续空格压缩为一个空格的原地算法，首尾空格若存在也各保留一个；用显式长度。",
+          "type": "short",
+          "model": "读r、写w从0开始；每项若不是空格，或w==0，或输出前一项不是空格，则写a[w++]=a[r]；结束n=w。写下标不超过读下标，覆盖安全。仅普通空格参与，不擅自处理制表符。O(n)时间、O(1)空间。",
+          "rubric": [
+            "连续判定",
+            "首尾规则",
+            "覆盖安全"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-4-D-006",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "求主串中非空模式出现次数，允许重叠。给出朴素算法，说明边界和复杂度。",
+          "type": "short",
+          "model": "若m>n返回0；否则对i从0到n-m逐字符比较m项，全部匹配计数加1；无论是否命中下一候选均i+1，故保留重叠。最坏O((n-m+1)m)，辅助O(1)。空模式按接口拒绝，避免混用n+1的另一约定。",
+          "rubric": [
+            "所有起点",
+            "重叠",
+            "边界与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {},
+      "marks": {},
+      "result": null
+    }
+  ]
+}

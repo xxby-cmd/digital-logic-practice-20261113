@@ -8,15 +8,17 @@ import {startChapterTest,saveExamAnswer,submitExam,setMark,settleExam,totalPoint
 import {mergeBackup} from '../room-progress.js';
 
 test('C章节组练把程序填空纳入填空份额，保留代码判题并可恢复备份',()=>{
- for(const chapter of [3,4,5]){
-  assert.equal(chapterPracticeStock('programming',chapter).fill,15);
+ for(const chapter of [2,3,4,5,7,8,9]){
+  assert.ok(chapterPracticeStock('programming',chapter).fill>=15);
+  const codeFills=getPracticeCourse('programming').questions.filter(q=>q.chapter===chapter&&q.section==='程序填空');
+  assert.equal(codeFills.length,15);assert.ok(codeFills.every(q=>q.type==='short'&&q.coding&&q.judge));
   const paper=composeChapterPractice('programming',chapter,{preset:'code'});
   const fills=paper.questions.filter(q=>q.section==='填空题');
   assert.equal(fills.length,5);assert.equal(paper.questions.length,30);
-  assert.ok(fills.every(q=>q.type==='short'&&q.coding&&q.judge));
+  assert.ok(fills.every(q=>q.type==='fill'||(q.type==='short'&&q.coding&&q.judge)));
   const a=startChapterTest('programming',paper,1,`c-fill-${chapter}`);
   const restored=mergeBackup({version:2,attempts:[],practice:{}},{version:2,attempts:[],practice:{},tests:[a]});
-  assert.equal(restored.tests[0].questions.filter(q=>q.section==='填空题'&&q.judge).length,5);
+  assert.equal(restored.tests[0].questions.filter(q=>q.section==='填空题'&&q.judge).length,fills.filter(q=>q.judge).length);
  }
 });
 

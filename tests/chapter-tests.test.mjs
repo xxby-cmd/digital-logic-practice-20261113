@@ -24,6 +24,7 @@ test('章节整组严格按本科半卷题型、不跨章、100分；生成下�
   assert.ok(paper.questions.every(q=>String(q.chapter)===String(chapter)));
   for(const g of examBlueprints[subject].groups)assert.equal(paper.questions.filter(q=>q.section===g.name).length,g.count);
  }
+ for(const chapter of [7,8]){const paper=composeChapterTest('digital',chapter);assert.equal(paper.questions.reduce((s,q)=>s+q.points,0),100);assert.equal(paper.questions.length,13);}
  const first=composeChapterTest('network','physical'),a=startChapterTest('network',first);
  const next=composeChapterTest('network','physical',[a]);assert.ok(!next.questions.some(q=>a.questions.some(p=>p.id===q.id)));
  assert.throws(()=>assertChapterStock([{name:'选择题',count:8,available:7}]),/暂不能/);

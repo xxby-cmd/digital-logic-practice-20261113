@@ -1,4 +1,4 @@
-import {getPracticeCourse} from './practice-library.js';
+import {getPracticeCourse,PRACTICE_LAYOUT_VERSION} from './practice-library.js';
 import {examBlueprints} from './exam-bank.js';
 
 export function chapterCategory(subject,q){
@@ -29,5 +29,5 @@ export function composeChapterTest(subject,chapter,previous=[],random=Math.rando
  const repeated=groups.filter(g=>pool.filter(q=>chapterCategory(subject,q)===g.name&&!prior.has(q.id)).length<g.count);
  if(repeated.length)throw Error('本章未用题不足以组成下一批；可回看已有测验，待补入新题后再生成。');
  const selected=groups.flatMap(g=>shuffle(pool.filter(q=>chapterCategory(subject,q)===g.name&&!prior.has(q.id)),random).slice(0,g.count).map((q,i)=>({...q,section:g.name,points:Math.floor(g.points/g.count)+(i<g.points%g.count?1:0)})));
- return {id:`chapter-${subject}-${chapter}-${previous.length+1}`,chapter:c.id,title:`${c.name} · 章节测验`,questions:selected};
+ return {id:`chapter-${subject}-${chapter}-${previous.length+1}`,chapter:c.id,chapterLayout:PRACTICE_LAYOUT_VERSION,title:`${c.name} · 章节测验`,questions:selected};
 }

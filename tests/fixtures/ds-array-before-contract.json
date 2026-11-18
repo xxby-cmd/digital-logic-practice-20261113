@@ -1,0 +1,225 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "ds-array-before-contract",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-5-1794919527026-6dwquv",
+      "title": "第5章 数组和广义表 · 章节练习",
+      "chapter": 5,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 1,
+        "counts": {
+          "choice": 0,
+          "fill": 0,
+          "code": 10,
+          "judgement": 0
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-5-D-001",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "矩阵用规则m×n数组保存，设计不另开同规模矩阵的方阵原地转置；说明为何不直接把任意长方阵套用同样交换循环。",
+          "type": "short",
+          "model": "n阶时对i=0..n-1、j=i+1..n-1交换a[i][j]与a[j][i]，每对一次，O(n²)时间O(1)辅助。非方阵交换坐标可能超界，且转置后维数改变，线性排列是另一置换问题，不能照搬该二维下标循环。",
+          "rubric": [
+            "只换一侧",
+            "方阵前提",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-010",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计输出广义表的规范文本，原子是单个英文字母，输入有限无环且无共享要求；不输出多余逗号。",
+          "type": "short",
+          "model": "原子直接输出字母；表先输出(，按序处理各元素，除第一项外先输出逗号，再递归输出元素，最后输出)。空表直接()。用输出流或可增长缓冲避免每层重复联接造成额外复制；时间O(输出长度)，递归栈O(D)。",
+          "rubric": [
+            "类型与括号",
+            "分隔符",
+            "输出成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-002",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计快速转置规范三元组矩阵的方法，输入m×n有t项，按行优先。输出也须行优先，允许O(n)额外空间。",
+          "type": "short",
+          "model": "统计每个原列项数num[j]，前缀和求各列起点start[j]；按原表顺序把(i,j,v)放到输出start[j]并写(j,i,v)，随后start[j]++。同原列按原行递增到达，因此输出新行内列有序。时间O(n+t)，辅助O(n)不含输出；维数换为n×m。",
+          "rubric": [
+            "计数定位",
+            "稳定分配",
+            "顺序与成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-008",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有限无环嵌套表中原子都是整数。设计计算原子总和的递归算法，并说明空表和负数。",
+          "type": "short",
+          "model": "sum(atom)=原子值；sum(list)=各元素sum之和，空表取加法单位元0。直接递归或逐层循环均可，负数正常相加，不用0当“未找到”哨兵。访问每个出现一次，树表示O(N)，算术须无溢出。",
+          "rubric": [
+            "递归分类",
+            "空表单位元",
+            "负数及成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-003",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计把行优先且坐标唯一的三元组表转为CSR的算法；矩阵可能有多条连续空行。",
+          "type": "short",
+          "model": "row全置0，扫描各项统计row[i+1]++，对row做前缀和；按原表顺序把列与值写入col/value即可。row[i]与row[i+1]界定第i行，连续空行偏移相同。O(m+t)时间，输出row长m+1，数据长t。必须先核下标有效与排序条件。",
+          "rubric": [
+            "偏移构造",
+            "空行",
+            "成本与前提"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-007",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计对有限无环广义表展开所有原子到独立线性表的算法，保持从左到右顺序；原子允许相同。",
+          "type": "short",
+          "model": "遍历每层元素，原子追加输出尾部，子表递归展开；不输出括号或空表。重复值按出现次数保留。若有共享子表，按引用位置展开。无共享树结构O(N)时间，输出A个原子，栈O(D)；共享结构成本应按展开访问次数计算。",
+          "rubric": [
+            "次序",
+            "重复保留",
+            "共享成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-004",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给CSR矩阵，设计一次线性扫描求每行非零元素之和，不把缺失的零元素展开。",
+          "type": "short",
+          "model": "每行从row[i]到row[i+1]-1累加value，输出行和，空行初值0。O(m+t)时间，除结果外O(1)辅助；负值抵消为0仍正常，行和为0不意味着该行原本无非零项。结果类型须足够。",
+          "rubric": [
+            "行范围",
+            "空行与抵消",
+            "成本"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-009",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "设计验证单字母原子广义表文本的解析思路，语法G:=字母 | ( [G {,G}] )，忽略词间空格；拒绝多余尾字符。",
+          "type": "short",
+          "model": "维护输入位置递归parse：读字母得原子；读左括号后若下一项为右括号得空表，否则解析一个G，再循环逗号后解析G，最后要求右括号。顶层成功后跳空格并检查输入结束。缺项、尾逗号、缺右括号、非法字符均失败。每字节有限访问O(n)，栈O(D)，深度需防资源耗尽。",
+          "rubric": [
+            "完整语法",
+            "错误分支",
+            "消费全部输入"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-005",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "给按行优先有序、坐标唯一但允许零记录的稀疏矩阵表，删除所有值为0的记录，保留其他项次序，用原数组操作。",
+          "type": "short",
+          "model": "读下标r、写下标w遍历记录，值非0则赋给a[w++]；结束把项数设w。读取顺序不变，所以原坐标有序性保留。O(t)时间O(1)空间；该算法不合并重复坐标，不能宣称完成所有规范化任务。",
+          "rubric": [
+            "稳定压缩",
+            "更新项数",
+            "职责边界"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        },
+        {
+          "id": "P4-structures-5-D-006",
+          "chapter": 5,
+          "section": "编程题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有限无环广义表中，统计不同层级的原子个数：外层原子为第1层。设计递归算法，不把空表算原子。",
+          "type": "short",
+          "model": "函数visit(L,level)遍历该表各元素；原子则count[level]++，子表则visit(child,level+1)。初始visit(root,1)。空表无元素自然贡献0。O(N)访问时间，计数空间O(D)，递归栈O(D)（逐层循环版本）；计数类型须足够。",
+          "rubric": [
+            "层号传递",
+            "空表",
+            "栈模型"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 10
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {},
+      "marks": {},
+      "result": null
+    }
+  ]
+}

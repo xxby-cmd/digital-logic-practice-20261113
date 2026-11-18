@@ -1,0 +1,1895 @@
+{
+  "version": 2,
+  "attempts": [],
+  "practice": {},
+  "tests": [
+    {
+      "id": "before-string-original-20261118",
+      "kind": "chapter",
+      "subject": "structures",
+      "paperId": "chapter-practice-structures-4-1794960921870-5dx0oq",
+      "title": "第4章 串 · 章节练习",
+      "chapter": 4,
+      "gradingVersion": 2,
+      "questionSnapshotVersion": 2,
+      "chapterLayout": 2,
+      "practicePlan": {
+        "version": 2,
+        "mode": "fixed",
+        "total": 80,
+        "counts": {
+          "choice": 20,
+          "judgement": 20,
+          "fill": 20,
+          "code-fill": 0,
+          "analysis": 10,
+          "calculation": 0,
+          "design": 0,
+          "code": 10
+        },
+        "configuration": {
+          "mode": "fixed",
+          "total": 80,
+          "counts": {
+            "choice": 20,
+            "judgement": 20,
+            "fill": 20,
+            "code-fill": 0,
+            "analysis": 10,
+            "calculation": 0,
+            "design": 0,
+            "code": 10
+          }
+        }
+      },
+      "questions": [
+        {
+          "id": "P4-structures-4-S-011",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "显式长度的定长串数据区有8个字符位置，长度字段在区外，最多保存多少个字符？",
+          "type": "single",
+          "options": [
+            "7",
+            "9",
+            "只能0",
+            "8"
+          ],
+          "answer": 3,
+          "explanation": "该表示不要求在数据区为结束符留位置。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-010",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在char buf[8]中保存正常以零字符结束的C字符串，最多可保存多少个非结束字符？",
+          "type": "single",
+          "options": [
+            "7",
+            "8",
+            "9",
+            "由第一个字符决定"
+          ],
+          "answer": 0,
+          "explanation": "必须为结尾的零字符留1个位置。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-012",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "某块链串每结点4字节指针、12字节字符区，不计其他字段及对齐，字符区全满时存储密度为？",
+          "type": "single",
+          "options": [
+            "1/3",
+            "4/3",
+            "3/4",
+            "1/4"
+          ],
+          "answer": 2,
+          "explanation": "密度=有效字符字节/总字节=12/(12+4)=3/4。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-009",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "模式aaaa的前缀函数π为？",
+          "type": "single",
+          "options": [
+            "0,1,2,3",
+            "0,0,0,0",
+            "1,2,3,4",
+            "0,1,1,1"
+          ],
+          "answer": 0,
+          "explanation": "长度i+1的全a前缀最长真边界长度为i。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-013",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "KMP失配时利用的是已匹配片段的什么关系？",
+          "type": "single",
+          "options": [
+            "模式字符必须全部不同",
+            "相等真前缀与后缀",
+            "字符地址相邻",
+            "主串总长度为偶数"
+          ],
+          "answer": 1,
+          "explanation": "将相等边界对齐，保留已能确定匹配的字符。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-008",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "模式abcd的前缀函数π（0起始，π[i]为前i+1项的最长相等真前后缀长度）为？",
+          "type": "single",
+          "options": [
+            "1,1,1,1",
+            "0,0,0,0",
+            "0,1,2,3",
+            "-1,0,0,0"
+          ],
+          "answer": 1,
+          "explanation": "每个非空前缀都没有非空相等真前后缀。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-014",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "按原串从左向右作非重叠替换：aaaa中aa换成b，结果为？",
+          "type": "single",
+          "options": [
+            "bb",
+            "ba",
+            "abb",
+            "b"
+          ],
+          "answer": 0,
+          "explanation": "消费原串的第1—2项和3—4项，两次匹配都替换。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-007",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "KMP预处理模式长度m，主串长n，标准实现的总时间阶是？",
+          "type": "single",
+          "options": [
+            "O(log n)",
+            "O(m²+n²)",
+            "O(n+m)",
+            "O(nm)"
+          ],
+          "answer": 2,
+          "explanation": "预处理线性，匹配扫描及累计失配跳转也线性；输出全部位置另计输出成本。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-015",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "若接口允许在串末尾之后插入，长度n的串共有多少个插入位置？",
+          "type": "single",
+          "options": [
+            "n",
+            "n-1",
+            "2n",
+            "n+1"
+          ],
+          "answer": 3,
+          "explanation": "包括首项之前、相邻项之间和末项之后；空串也有一个位置。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-006",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "朴素匹配在主串a^n中查找模式a^(m-1)b，n≥m≥2，最坏比较次数是多少？",
+          "type": "single",
+          "options": [
+            "n+m",
+            "m",
+            "n-m+1",
+            "(n-m+1)m"
+          ],
+          "answer": 3,
+          "explanation": "每个可行起点都在模式末项失败，共n-m+1个起点，每次m次。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-016",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "下面哪种策略能避免替换V含T时反复处理新内容而死循环？",
+          "type": "single",
+          "options": [
+            "要求V一定更短却不检查",
+            "发现一次便再次搜整个结果",
+            "只扫描原输入，把结果写入独立输出",
+            "每次都从替换位置重新开始搜"
+          ],
+          "answer": 2,
+          "explanation": "是否重扫新内容是契约问题；只消费原串会单调向终点前进。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-005",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字母按通常英文字母升序比较，下列哪个串最小？",
+          "type": "single",
+          "options": [
+            "'ab'",
+            "'aba'",
+            "'ac'",
+            "'b'"
+          ],
+          "answer": 0,
+          "explanation": "ab是aba的真前缀，且在第2项小于ac，在首项小于b。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-017",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "求最长公共子串的DP中，当前两字符不等时，以这两字符结束的公共后缀长度应为？",
+          "type": "single",
+          "options": [
+            "主串长度",
+            "0",
+            "左格与上格较大值",
+            "左上格加1"
+          ],
+          "answer": 1,
+          "explanation": "子串连续，失配必须中断；取左右最大值是公共子序列的另一种递推。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-004",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串abcde的1起始位置2开始、长度3的子串为？",
+          "type": "single",
+          "options": [
+            "abcd",
+            "bcd",
+            "bc",
+            "cde"
+          ],
+          "answer": 1,
+          "explanation": "取第2、3、4项，共3个字符。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-018",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个非空串的最长真前缀长度为？",
+          "type": "single",
+          "options": [
+            "n-1",
+            "n",
+            "n+1",
+            "必为0"
+          ],
+          "answer": 0,
+          "explanation": "真前缀不能是整个串，删除最后一项得到最长真前缀；n=1时为0。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-003",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串abc中查找abcd，无匹配返回0，结果是？",
+          "type": "single",
+          "options": [
+            "3",
+            "4",
+            "0",
+            "1"
+          ],
+          "answer": 2,
+          "explanation": "模式比主串长，不存在完整出现。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-019",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "对单向块链串依次读取所有有效字符，哪种方式能保证线性遍历？",
+          "type": "single",
+          "options": [
+            "每读一字符都从头找所在块",
+            "按字符值大小跳转但没有索引",
+            "反复复制剩余后缀",
+            "维护当前块及块内位置，块满再前进"
+          ],
+          "answer": 3,
+          "explanation": "不重复寻找已走过的块，各字符和链接只访问常数次。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-002",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串ababa中模式aba的全部1起始匹配位置为？",
+          "type": "single",
+          "options": [
+            "1",
+            "2、4",
+            "3、5",
+            "1、3"
+          ],
+          "answer": 3,
+          "explanation": "两次匹配共享第3个字符，题目要求全部位置，不能排除重叠。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-020",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "处理UTF-8文本时，直接把每个字节倒序，通常会发生什么？",
+          "type": "single",
+          "options": [
+            "一定正确实现字符逆序",
+            "字节数必然增加",
+            "所有字符都变成空格",
+            "可能破坏多字节字符编码"
+          ],
+          "answer": 3,
+          "explanation": "字符可能由多个字节构成，按字符操作必须先界定编码单位。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-S-001",
+          "chapter": 4,
+          "section": "选择题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "下列哪一对串相等？字符大小写与空格均区分。",
+          "type": "single",
+          "options": [
+            "'a b'与'a b'",
+            "'ab'与'a b'",
+            "'Ab'与'ab'",
+            "''与' '"
+          ],
+          "answer": 0,
+          "explanation": "串相等要求长度一致且每个对应字符相同。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 2
+        },
+        {
+          "id": "P4-structures-4-J-011",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "若已经找到主串中的一次匹配，搜索全部重叠匹配时可以无条件跳过整个模式长度。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "这样可能漏掉重叠出现，例如aaaa中的aa。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-010",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "KMP的next数组无论采用0起始还是1起始、何种哨兵，其数值一定完全相同。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "数组含义与哨兵约定不同，数值可不同，应先明确定义。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-012",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字典序比较两个串时，串长较大的那个总是较大。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "先看首次不同字符；只有一个是另一个前缀时才由长度决定。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-009",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "KMP模式预处理不依赖具体主串，可供同一模式搜索多个主串复用。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "前后缀信息只由模式串本身决定。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-013",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "块链式串的最后一个块中，未使用的存储位置不应算入串长。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "逻辑长度只统计有效字符，不能把容量当长度。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-008",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "KMP在主串上扫描时不回退主串下标，但模式串下标可能多次回退。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "失配链接跳转的是模式位置，以已经匹配部分的边界重用信息。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-014",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "把字符逐个追加到新串，如果每次都重新复制当前全部内容，总时间一定是线性的。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "累计复制量1+2+…+n，可达Θ(n²)。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-007",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "朴素模式匹配每次失败后都必须让主串从最开头重新扫描。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "一般从上一个候选起点之后一位重新尝试，不是每次从整个主串开头开始。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-015",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "模式串长大于主串长时，不存在完整匹配，即使二者开头字符相等。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "连续匹配需要足够字符容纳全部模式。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-006",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "抽象串的存储实现可以用显式长度字段，因此不一定需要结束标记字符。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "串值与具体编码表示分开，显式长度可界定有效数据。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-016",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串的子序列与子串都要求所选字符在原串中连续。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "子串必须连续，子序列只要求保持先后顺序。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-005",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "空串与任意串联接，结果仍为原来的那个串值。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "联接不增加任何字符。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-017",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个串各含一个零字节，就必然是同一个空串。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "显式长度串可把零字节作为普通数据；C结束符约定不能推广到所有表示。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-004",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "任意两个长度相同的串必然互为子串。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "等长串若互为子串必须相等；例如ab与ac不满足。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-018",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "只检查模式首末字符相等，不能保证中间字符也匹配。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "例如aba与aca首末相同，中间不同。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-003",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "若串A是串B的前缀且两者等长，则A与B相等。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "前缀对应位置全相等，且不存在剩余后缀，故两串相同。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-019",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "固定容量串发生截断后，返回的串仍可以是有效串，但接口应说明是否完整保存了输入。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "有效性不等于完整性，需用状态区分成功与截断。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-002",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串中出现空格，串长计算就应在第一个空格处停止。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "空格是普通字符，不能当作通用结束标记。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-020",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在长度为n的串中，按起止位置区分的非空子串共有n²个。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 1,
+          "explanation": "共有n+(n-1)+…+1=n(n+1)/2个；相同内容的不同位置仍分别计数。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-J-001",
+          "chapter": 4,
+          "section": "判断题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串的逻辑结构是字符组成的有限序列，字符的先后次序属于串值的一部分。",
+          "type": "single",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": 0,
+          "explanation": "字符相同但排列不同，通常就是不同的串。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-011",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "数据区容量16、区外独立记录长度且不存结束符的字节串，最多容纳____个数据字节。",
+          "type": "fill",
+          "answers": [
+            [
+              "16"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "结束边界由长度给出，数据区全可利用。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-010",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字符缓冲区大小为16，保存以零字符结尾的C字符串，最多容纳____个数据字符。",
+          "type": "fill",
+          "answers": [
+            [
+              "15"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "结尾标记占用一个字节。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-012",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "以1起始位置2开始，从串abcdef中删除3个字符，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "aef"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "删除bcd，保留a与ef。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-009",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串aaaaa中aa按从左至右互不重叠匹配，共取____次。",
+          "type": "fill",
+          "answers": [
+            [
+              "2"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "选第1—2项及3—4项，第5项不足。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-013",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在串abcd的第3项之前插入XY，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "abXYcd"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "前段ab、插入XY、后段cd依次相接。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-008",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串aaaaa中aa共有____次匹配（允许重叠）。",
+          "type": "fill",
+          "answers": [
+            [
+              "4"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "起点1、2、3、4均可匹配。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-014",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "将串abca逆置，结果为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "acba"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "从末项开始读a、c、b、a。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-007",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "对模式abcab使用1起始next[1]=0，j>1取前j-1项最长边界长度加1，其next[5]为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "2"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "前4项abca的最长边界为a，长度1，因此next[5]=2。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-015",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "按原串非重叠替换，将abcabc中的abc换成空串，结果长度为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "两个相邻匹配全部删除。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-006",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "前缀函数π定义为每个前缀最长边界长度。模式abab的π依次为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "0,0,1,2",
+              "0，0，1，2",
+              "0 0 1 2"
+            ]
+          ],
+          "formats": [
+            "integer-sequence"
+          ],
+          "explanation": "a无非空边界，ab无，aba边界a，abab边界ab。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-016",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个串长度分别为7和4，最长公共子串的长度最多为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "4"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "公共连续片段不可能长于任一输入。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-005",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串abcab的最长边界长度为____（边界指相等真前后缀）。",
+          "type": "fill",
+          "answers": [
+            [
+              "2"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "ab是前缀和后缀，更长的候选不相等。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-017",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "每字符1字节、每结点额外指针8字节、每结点只存1字符，不计对齐，满结点存储密度为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "1/9",
+              "1÷9"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "有效1字节，总9字节。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-004",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串ababa的最长相等真前缀与后缀是____。",
+          "type": "fill",
+          "answers": [
+            [
+              "aba"
+            ]
+          ],
+          "formats": [
+            "text"
+          ],
+          "explanation": "aba既是前三项也是后三项；长度4前缀abab与后缀baba不同。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-018",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "朴素匹配主串abcde、模式xy，在每个候选起点都首字符失配，需比较____次。",
+          "type": "fill",
+          "answers": [
+            [
+              "4"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "可行起点为1到4，每次只比较1项。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-003",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 2,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串banana中ana的全部1起始出现位置为____（逗号分隔，含重叠）。",
+          "type": "fill",
+          "answers": [
+            [
+              "2,4",
+              "2，4"
+            ]
+          ],
+          "formats": [
+            "integer-set"
+          ],
+          "explanation": "第2至4项、第4至6项分别组成ana。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-019",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "用直接双指针原地逆置长度为9的字符数组，需要交换____对字符。",
+          "type": "fill",
+          "answers": [
+            [
+              "4"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "首尾向中间，中央第5项不动。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-002",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "长度为0的串与长度为5的串联接，结果长度为____。",
+          "type": "fill",
+          "answers": [
+            [
+              "5"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "联接长度相加，0+5=5。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-020",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "若模式非空且每次命中消费整个模式，未命中消费1项，则原串读下标每步至少前进____。",
+          "type": "fill",
+          "answers": [
+            [
+              "1"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "单调前进保证有限长度输入下终止，与替换结果内容无关。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-F-001",
+          "chapter": 4,
+          "section": "填空题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串ABCD的非空子串按位置计共有____个。",
+          "type": "fill",
+          "answers": [
+            [
+              "10"
+            ]
+          ],
+          "formats": [
+            "number"
+          ],
+          "explanation": "4+3+2+1=10，相同内容不同位置也分别计。",
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-006",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "一个块链串含25个字符，每块字符区10字节、链接4字节，每块均完整分配，不计其他开销。求块数、总存储字节、有效字符密度，解释末块的影响。",
+          "type": "short",
+          "model": "需ceil(25/10)=3块，总3×14=42字节，密度25/42。最后一块只用5个字符位置，另外5字节闲置；不能直接用满块密度10/14替代整个串密度。",
+          "rubric": [
+            "向上取整",
+            "分配总量",
+            "闲置影响"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-005",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串与模式均来自动态输入。有人声称“模式很短，所以朴素匹配时间总是O(n)”。这个结论需要什么前提？",
+          "type": "short",
+          "model": "若模式长度m是与输入规模无关的固定常数，O(nm)可写O(n)。若m也是输入的一部分且可随n增长，最坏应保留O(nm)。实际短模式可有小常数，但不能把数据样例短当成固定规模假设。",
+          "rubric": [
+            "固定与变量",
+            "最坏阶",
+            "样例不证明"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-007",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "最长公共子串算法输出长度3。为什么不能仅凭两个串都含3个相同字符判定正确？请举反例。",
+          "type": "short",
+          "model": "公共子串要求连续，例如s='abc'、t='axbyc'，共同子序列abc长3，但最长公共子串仅长1。必须检查输出在两串中都有连续片段，且不存在更长公共连续片段。",
+          "rubric": [
+            "连续条件",
+            "反例",
+            "最优性"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-004",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个同学分别给模式aaaa写出数组[0,1,2,3]与[0,0,0,0]，便断言其中必有人算错。为什么证据不足？",
+          "type": "short",
+          "model": "前者可为各前缀的π，也可对应本例某种next；后者可能是优化nextval。应先对齐下标起点、每项所指位置、哨兵值和是否跳过相等字符，再检查递推与失配行为，不能仅比数字。",
+          "rubric": [
+            "约定区别",
+            "具体可解释性",
+            "验证行为"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-008",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "某插入接口先realloc旧串再读取待插入T，T可能指向旧串内部。指出风险，并给出一种保护方案。",
+          "type": "short",
+          "model": "realloc可能搬迁并释放旧区，T随之悬空，后续复制读失效地址。可先记录并保护源片段，或分配独立结果区，在旧数据仍有效时完成三段复制，最后替换旧串。只更新S指针不能自动修复T。",
+          "rubric": [
+            "别名风险",
+            "旧区生命周期",
+            "可行方案"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-003",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "KMP匹配模式abab，在已匹配整个模式后若继续找重叠出现，为什么不能简单把已匹配长度清0？用主串ababab说明。",
+          "type": "short",
+          "model": "完整abab有长度2的边界ab，完成起点1的匹配后保留长度2可继续匹配起点3。若清0且从随后字符继续，会漏掉起点3，因为其前两个字符在已扫部分。应回退到完整模式的最长边界。",
+          "rubric": [
+            "边界长度",
+            "具体漏解",
+            "正确继续状态"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-009",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "模式为空串时，查找、替换和计数接口是否必须采用同一个规则？设计时至少需要说清什么？",
+          "type": "short",
+          "model": "不必。查找可约定返回起始位置，替换可拒绝空模式，计数可定义边界个数n+1。必须写明合法输入、返回语义、是否前进和终止条件；不能把空模式长度0用于命中后i+=m而造成不前进。",
+          "rubric": [
+            "不同契约",
+            "边界定义",
+            "终止风险"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-002",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "同一模式要在100个不同文本中查找。说明KMP哪些工作可复用，哪些必须针对每个文本重新执行。",
+          "type": "short",
+          "model": "模式及定义不变时，前缀函数/失配表可预处理一次并复用。各文本扫描状态、当前位置和匹配结果需独立初始化；文本若非连续流，不能把上个文本尾部的部分匹配带入下个文本。",
+          "rubric": [
+            "复用预处理",
+            "状态隔离",
+            "文本边界"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-010",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "在UTF-8中文文本上报告“第5个字符”，内部搜索返回字节偏移。为什么两者不能直接等同？如何给用户可靠的位置？",
+          "type": "short",
+          "model": "多字节编码中一个字符可能占多个字节，字节偏移不等于字符序号；还需区分码点和用户感知字符。先明确位置单位，按该单位解析编码并建立偏移映射，或明确只报告字节位置，不能默默宣称字符位置。",
+          "rubric": [
+            "字节与字符",
+            "位置单位",
+            "映射或明确标记"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-A-001",
+          "chapter": 4,
+          "section": "分析题",
+          "revision": 1,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "有人将包含空格的串先删除所有空格，再判断与另一个串是否相等。这实现的是标准串相等吗？请给反例，并说明什么条件下可采用这种处理。",
+          "type": "short",
+          "model": "不是标准相等。'a b'与'ab'原值不同，预处理后相同。只有业务明确要求忽略空格时才能使用，应称规范化后的相等，不能默默改变原串语义。",
+          "rubric": [
+            "反例",
+            "标准语义",
+            "适用条件"
+          ],
+          "coding": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-006",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "主串s逻辑长度n为0至1024，非空模式t逻辑长度m为1至1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int countPattern(const unsigned char s[], int n, const unsigned char t[], int m)，返回t在s中的出现次数，允许不同出现位置重叠。模式长于主串时为0。给出朴素匹配算法，并说明候选起点、边界与最坏复杂度；不得把空模式另行约定混入本题。",
+          "type": "short",
+          "model": "若m>n返回0；否则对i从0到n-m逐字符比较m项，全部匹配计数加1；无论是否命中下一候选均i+1，故保留重叠。最坏O((n-m+1)m)，辅助O(1)。空模式按接口拒绝，避免混用n+1的另一约定。\n\n参考实现：\n```c\nint countPattern(const unsigned char s[],int n,const unsigned char t[],int m){int count=0;for(int i=0;i<=n-m;i++){int j=0;while(j<m&&s[i+j]==t[j])j++;if(j==m)count++;}return count;}\n```",
+          "rubric": [
+            "所有起点",
+            "重叠",
+            "边界与成本"
+          ],
+          "coding": true,
+          "manualReview": true,
+          "judge": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-005",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "可写字节串s的逻辑长度为n，0≤n≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int compressSpaces(unsigned char s[], int n)，原地把每段连续普通空格（字节32）压缩为一个，返回新长度；原来存在的首、尾空格段也各保留一个。其他字节按原次序保留，制表符不当作空格。新长度至原逻辑长度n之间的尾部不作要求，n之后的存储不得改写，不必添加终止零字节。要求O(n)时间、O(1)辅助空间。",
+          "type": "short",
+          "model": "读r、写w从0开始；每项若不是空格，或w==0，或输出前一项不是空格，则写a[w++]=a[r]；结束n=w。写下标不超过读下标，覆盖安全。仅普通空格参与，不擅自处理制表符。O(n)时间、O(1)空间。\n\n参考实现：\n```c\nint compressSpaces(unsigned char s[],int n){int w=0;for(int r=0;r<n;r++)if(s[r]!=32||w==0||s[w-1]!=32)s[w++]=s[r];return w;}\n```",
+          "rubric": [
+            "连续判定",
+            "首尾规则",
+            "覆盖安全"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-007",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串s的逻辑长度n为0至1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int firstUnique(const unsigned char s[], int n)，返回第一个只出现一次的字节的0起始下标，没有则返回-1；不修改输入。要求O(n+256)时间、O(256)辅助空间。",
+          "type": "short",
+          "model": "第一遍用256项频次数组计数；第二遍按原顺序找freq[s[i]]==1的首项，返回i；没有返回-1。索引用unsigned char，计数类型足够。O(n+256)时间、O(256)空间。单次找到当前频次1就返回会忽略后续重复。\n\n参考实现：\n```c\nint firstUnique(const unsigned char s[],int n){int count[256]={0};for(int i=0;i<n;i++)count[s[i]]++;for(int i=0;i<n;i++)if(count[s[i]]==1)return i;return -1;}\n```",
+          "rubric": [
+            "两遍必要性",
+            "首个位置",
+            "字节边界"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-004",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "串s的前n项仅含小写英文字母a至z，0≤n≤1024，按显式长度给出，不要求终止零字节。实现 int canRearrangePalindrome(const unsigned char s[], int n)，判断其字母能否重新排列成回文，能则返回1，否则0。空串可行，不修改输入，也不要求生成排列。要求O(n+26)时间、O(26)辅助空间。",
+          "type": "short",
+          "model": "统计26项频次，数奇数频次项个数。至多1项为奇数时可行，否则不可行：回文除中间一项外成对出现，反之各对分列两侧即可构造。空串可行。\n\n参考实现：\n```c\nint canRearrangePalindrome(const unsigned char s[],int n){int count[26]={0},odd=0;for(int i=0;i<n;i++)count[s[i]-'a']++;for(int i=0;i<26;i++)odd+=count[i]%2;return odd<=1;}\n```",
+          "rubric": [
+            "奇偶判据",
+            "必要充分性",
+            "成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-008",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "两个等长字节串s、t各有n项，0≤n≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int isRotation(const unsigned char s[], const unsigned char t[], int n, unsigned char work[], int next[])，互为循环移位返回1，否则0，两个空串返回1。系统另提供与两个输入及彼此均不重叠的工作区：work至少2n字节，next至少n+1个int；返回后的工作区内容不评分。可用next、nextval或前缀函数等表示，不固定某一种表值/编号约定。设计借助一次模式匹配的算法并证明，要求O(n)时间、O(n)辅助空间。",
+          "type": "short",
+          "model": "长度不等返回假；两个空串约定为真。非空时令U=S+S，查找T的完整出现，其起点限制为0..n-1。循环移位的每个长度n窗口都位于该区域，反之任一这样的窗口正是某个循环移位。KMP总O(n)时间，U及失配表O(n)空间；先检查2n长度溢出。\n\n参考实现：\n```c\nint isRotation(const unsigned char s[],const unsigned char t[],int n,unsigned char work[],int next[]){if(!n)return 1;for(int i=0;i<2*n;i++)work[i]=s[i%n];next[0]=0;for(int i=1,j=0;i<n;i++){while(j&&t[i]!=t[j])j=next[j-1];if(t[i]==t[j])j++;next[i]=j;}for(int i=0,j=0;i<2*n-1;i++){while(j&&work[i]!=t[j])j=next[j-1];if(work[i]==t[j])j++;if(j==n)return 1;}return 0;}\n```",
+          "rubric": [
+            "等长空串",
+            "窗口等价",
+            "时间空间"
+          ],
+          "coding": true,
+          "manualReview": true,
+          "judge": false,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-003",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串s、t的逻辑长度分别为n、m，0≤n,m≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int isSubsequence(const unsigned char s[], int n, const unsigned char t[], int m)，当t是s的子序列时返回1，否则0；不要求所取位置连续，空t总为子序列。要求O(n+m)时间、O(1)辅助空间。",
+          "type": "short",
+          "model": "i=j=0，扫描S，若S[i]==T[j]则j++，无论如何i++，但j==m时即可成功。结束返回j==m。空T直接成功。时间O(n+m)上界，辅助O(1)；无需连续相邻匹配。\n\n参考实现：\n```c\nint isSubsequence(const unsigned char s[],int n,const unsigned char t[],int m){int j=0;for(int i=0;i<n&&j<m;i++)if(s[i]==t[j])j++;return j==m;}\n```",
+          "rubric": [
+            "贪心匹配",
+            "空T",
+            "与子串区分"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-009",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "可写字节串s的逻辑长度n为0至1024，k为任意unsigned int值。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 void rotateLeft(unsigned char s[], int n, unsigned int k)，原地向左循环移动k项，n=0时不作任何操作。只改变前n项，不添加终止字节。要求O(n)时间、O(1)辅助空间；不限定必须采用三次逆置。",
+          "type": "short",
+          "model": "n=0直接返回；k%=n。先逆置前k项，再逆置剩余n-k项，再逆置整体，AB经A逆B逆再整体逆得到BA。k=0时两次整段逆置仍正确，可直接返回。O(n)时间，O(1)辅助空间。\n\n参考实现：\n```c\nstatic void reversePart(unsigned char s[],int l,int r){while(l<r){unsigned char x=s[l];s[l++]=s[r];s[r--]=x;}}\nvoid rotateLeft(unsigned char s[],int n,unsigned int k){if(!n)return;k%=(unsigned)n;int p=(int)k;reversePart(s,0,p-1);reversePart(s,p,n-1);reversePart(s,0,n-1);}\n```",
+          "rubric": [
+            "三段逆置",
+            "取模与空表",
+            "正确性"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-002",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "字节串a、b的逻辑长度分别为n、m，0≤n,m≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。两个只读输入可以同址或引用重叠片段，不得修改输入。实现 int commonPrefix(const unsigned char a[], int n, const unsigned char b[], int m)，返回最长公共前缀的字节数。不得分配子串。要求O(min(n,m)+1)时间、O(1)辅助空间。",
+          "type": "short",
+          "model": "i=0；当i<min(m,n)且两串第i字节相等时i++；返回i。到首个差异或短串结束为止，最坏O(min(m,n)+1)，空间O(1)，无需创建子串。\n\n参考实现：\n```c\nint commonPrefix(const unsigned char a[],int n,const unsigned char b[],int m){int i=0;while(i<n&&i<m&&a[i]==b[i])i++;return i;}\n```",
+          "rubric": [
+            "双界限",
+            "返回长度",
+            "空串与成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-010",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "可写字节串s逻辑长度为n，字节集合由d的前m项给出，0≤n,m≤1024；d中允许重复。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int removeBytes(unsigned char s[], int n, const unsigned char d[], int m)，稳定删除s中所有属于调用前集合d的字节，返回新长度。d可引用s中的重叠片段，仍按调用前的集合解释；除此种重叠随s写回变化外，不修改d。新长度至原逻辑长度n之间的尾部不作要求，n之后的存储不得改写，不必补终止字节。要求O(n+m+256)时间、O(256)辅助空间。",
+          "type": "short",
+          "model": "先用256项布尔表标记D，读r写w从0开始，若!drop[a[r]]则a[w++]=a[r]，结束把长度设w。保留原相对次序，全部被删得到空串，零字节也按集合规则处理。时间O(n+|D|+256)，额外O(256)。\n\n参考实现：\n```c\nint removeBytes(unsigned char s[],int n,const unsigned char d[],int m){unsigned char drop[256]={0};for(int i=0;i<m;i++)drop[d[i]]=1;int w=0;for(int i=0;i<n;i++)if(!drop[s[i]])s[w++]=s[i];return w;}\n```",
+          "rubric": [
+            "集合表",
+            "稳定压缩",
+            "显式长度边界"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        },
+        {
+          "id": "P4-structures-4-D-001",
+          "chapter": 4,
+          "section": "编程题",
+          "revision": 3,
+          "pool": "practice",
+          "origin": "原创",
+          "stem": "显式长度字节串s有n项，0≤n≤1024。一个字节用0至255的unsigned char值表示。数组均有效，只处理所给逻辑长度，不以零字节作为结束标志；零字节可以是普通数据。实现 int isPalindrome(const unsigned char s[], int n)，是回文返回1，否则0，不修改输入。空串与单字节串均为回文。要求O(n)时间、O(1)辅助空间。",
+          "type": "short",
+          "model": "左右下标l=0、r=n-1，while(l<r)比较s[l]和s[r]，不等立即返回假，相等则l++、r--；结束为真。应安全处理n=0以免无符号n-1下溢。空串和单字节串均为真。\n\n参考实现：\n```c\nint isPalindrome(const unsigned char s[],int n){for(int l=0,r=n-1;l<r;l++,r--)if(s[l]!=s[r])return 0;return 1;}\n```",
+          "rubric": [
+            "双端比较",
+            "空输入下标",
+            "成本"
+          ],
+          "coding": true,
+          "judge": true,
+          "practiceWeight": 1,
+          "points": 1
+        }
+      ],
+      "startedAt": 1,
+      "deadline": null,
+      "status": "active",
+      "answers": {
+        "P4-structures-4-S-011": 3,
+        "P4-structures-4-S-010": 0,
+        "P4-structures-4-S-012": 2,
+        "P4-structures-4-S-009": 0,
+        "P4-structures-4-S-013": 1,
+        "P4-structures-4-S-008": 1,
+        "P4-structures-4-S-014": 0,
+        "P4-structures-4-S-007": 2,
+        "P4-structures-4-S-015": 3,
+        "P4-structures-4-S-006": 3,
+        "P4-structures-4-S-016": 2,
+        "P4-structures-4-S-005": 0,
+        "P4-structures-4-S-017": 1,
+        "P4-structures-4-S-004": 1,
+        "P4-structures-4-S-018": 0,
+        "P4-structures-4-S-003": 2,
+        "P4-structures-4-S-019": 3,
+        "P4-structures-4-S-002": 3,
+        "P4-structures-4-S-020": 3,
+        "P4-structures-4-S-001": 0,
+        "P4-structures-4-J-011": 1,
+        "P4-structures-4-J-010": 1,
+        "P4-structures-4-J-012": 1,
+        "P4-structures-4-J-009": 0,
+        "P4-structures-4-J-013": 0,
+        "P4-structures-4-J-008": 0,
+        "P4-structures-4-J-014": 1,
+        "P4-structures-4-J-007": 1,
+        "P4-structures-4-J-015": 0,
+        "P4-structures-4-J-006": 0,
+        "P4-structures-4-J-016": 1,
+        "P4-structures-4-J-005": 0,
+        "P4-structures-4-J-017": 1,
+        "P4-structures-4-J-004": 1,
+        "P4-structures-4-J-018": 0,
+        "P4-structures-4-J-003": 0,
+        "P4-structures-4-J-019": 0,
+        "P4-structures-4-J-002": 1,
+        "P4-structures-4-J-020": 1,
+        "P4-structures-4-J-001": 0,
+        "P4-structures-4-F-011": [
+          "16"
+        ],
+        "P4-structures-4-F-010": [
+          "15"
+        ],
+        "P4-structures-4-F-012": [
+          "aef"
+        ],
+        "P4-structures-4-F-009": [
+          "2"
+        ],
+        "P4-structures-4-F-013": [
+          "abXYcd"
+        ],
+        "P4-structures-4-F-008": [
+          "4"
+        ],
+        "P4-structures-4-F-014": [
+          "acba"
+        ],
+        "P4-structures-4-F-007": [
+          "2"
+        ],
+        "P4-structures-4-F-015": [
+          "0"
+        ],
+        "P4-structures-4-F-006": [
+          "0,0,1,2"
+        ],
+        "P4-structures-4-F-016": [
+          "4"
+        ],
+        "P4-structures-4-F-005": [
+          "2"
+        ],
+        "P4-structures-4-F-017": [
+          "1/9"
+        ],
+        "P4-structures-4-F-004": [
+          "aba"
+        ],
+        "P4-structures-4-F-018": [
+          "4"
+        ],
+        "P4-structures-4-F-003": [
+          "2,4"
+        ],
+        "P4-structures-4-F-019": [
+          "4"
+        ],
+        "P4-structures-4-F-002": [
+          "5"
+        ],
+        "P4-structures-4-F-020": [
+          "1"
+        ],
+        "P4-structures-4-F-001": [
+          "10"
+        ],
+        "P4-structures-4-A-006": "需ceil(25/10)=3块，总3×14=42字节，密度25/42。最后一块只用5个字符位置，另外5字节闲置；不能直接用满块密度10/14替代整个串密度。",
+        "P4-structures-4-A-005": "若模式长度m是与输入规模无关的固定常数，O(nm)可写O(n)。若m也是输入的一部分且可随n增长，最坏应保留O(nm)。实际短模式可有小常数，但不能把数据样例短当成固定规模假设。",
+        "P4-structures-4-A-007": "公共子串要求连续，例如s='abc'、t='axbyc'，共同子序列abc长3，但最长公共子串仅长1。必须检查输出在两串中都有连续片段，且不存在更长公共连续片段。",
+        "P4-structures-4-A-004": "前者可为各前缀的π，也可对应本例某种next；后者可能是优化nextval。应先对齐下标起点、每项所指位置、哨兵值和是否跳过相等字符，再检查递推与失配行为，不能仅比数字。",
+        "P4-structures-4-A-008": "realloc可能搬迁并释放旧区，T随之悬空，后续复制读失效地址。可先记录并保护源片段，或分配独立结果区，在旧数据仍有效时完成三段复制，最后替换旧串。只更新S指针不能自动修复T。",
+        "P4-structures-4-A-003": "完整abab有长度2的边界ab，完成起点1的匹配后保留长度2可继续匹配起点3。若清0且从随后字符继续，会漏掉起点3，因为其前两个字符在已扫部分。应回退到完整模式的最长边界。",
+        "P4-structures-4-A-009": "不必。查找可约定返回起始位置，替换可拒绝空模式，计数可定义边界个数n+1。必须写明合法输入、返回语义、是否前进和终止条件；不能把空模式长度0用于命中后i+=m而造成不前进。",
+        "P4-structures-4-A-002": "模式及定义不变时，前缀函数/失配表可预处理一次并复用。各文本扫描状态、当前位置和匹配结果需独立初始化；文本若非连续流，不能把上个文本尾部的部分匹配带入下个文本。",
+        "P4-structures-4-A-010": "多字节编码中一个字符可能占多个字节，字节偏移不等于字符序号；还需区分码点和用户感知字符。先明确位置单位，按该单位解析编码并建立偏移映射，或明确只报告字节位置，不能默默宣称字符位置。",
+        "P4-structures-4-A-001": "不是标准相等。'a b'与'ab'原值不同，预处理后相同。只有业务明确要求忽略空格时才能使用，应称规范化后的相等，不能默默改变原串语义。",
+        "P4-structures-4-D-006": "int countPattern(const unsigned char s[],int n,const unsigned char t[],int m){int count=0;for(int i=0;i<=n-m;i++){int j=0;while(j<m&&s[i+j]==t[j])j++;if(j==m)count++;}return count;}",
+        "P4-structures-4-D-005": "int compressSpaces(unsigned char s[],int n){int w=0;for(int r=0;r<n;r++)if(s[r]!=32||w==0||s[w-1]!=32)s[w++]=s[r];return w;}",
+        "P4-structures-4-D-007": "int firstUnique(const unsigned char s[],int n){int count[256]={0};for(int i=0;i<n;i++)count[s[i]]++;for(int i=0;i<n;i++)if(count[s[i]]==1)return i;return -1;}",
+        "P4-structures-4-D-004": "int canRearrangePalindrome(const unsigned char s[],int n){int count[26]={0},odd=0;for(int i=0;i<n;i++)count[s[i]-'a']++;for(int i=0;i<26;i++)odd+=count[i]%2;return odd<=1;}",
+        "P4-structures-4-D-008": "int isRotation(const unsigned char s[],const unsigned char t[],int n,unsigned char work[],int next[]){if(!n)return 1;for(int i=0;i<2*n;i++)work[i]=s[i%n];next[0]=0;for(int i=1,j=0;i<n;i++){while(j&&t[i]!=t[j])j=next[j-1];if(t[i]==t[j])j++;next[i]=j;}for(int i=0,j=0;i<2*n-1;i++){while(j&&work[i]!=t[j])j=next[j-1];if(work[i]==t[j])j++;if(j==n)return 1;}return 0;}",
+        "P4-structures-4-D-003": "int isSubsequence(const unsigned char s[],int n,const unsigned char t[],int m){int j=0;for(int i=0;i<n&&j<m;i++)if(s[i]==t[j])j++;return j==m;}",
+        "P4-structures-4-D-009": "static void reversePart(unsigned char s[],int l,int r){while(l<r){unsigned char x=s[l];s[l++]=s[r];s[r--]=x;}}\nvoid rotateLeft(unsigned char s[],int n,unsigned int k){if(!n)return;k%=(unsigned)n;int p=(int)k;reversePart(s,0,p-1);reversePart(s,p,n-1);reversePart(s,0,n-1);}",
+        "P4-structures-4-D-002": "int commonPrefix(const unsigned char a[],int n,const unsigned char b[],int m){int i=0;while(i<n&&i<m&&a[i]==b[i])i++;return i;}",
+        "P4-structures-4-D-010": "int removeBytes(unsigned char s[],int n,const unsigned char d[],int m){unsigned char drop[256]={0};for(int i=0;i<m;i++)drop[d[i]]=1;int w=0;for(int i=0;i<n;i++)if(!drop[s[i]])s[w++]=s[i];return w;}",
+        "P4-structures-4-D-001": "int isPalindrome(const unsigned char s[],int n){for(int l=0,r=n-1;l<r;l++,r--)if(s[l]!=s[r])return 0;return 1;}"
+      },
+      "marks": {},
+      "result": null,
+      "subjectiveGradingVersion": 1,
+      "answerLanguages": {
+        "P4-structures-4-S-011": "c",
+        "P4-structures-4-S-010": "c",
+        "P4-structures-4-S-012": "c",
+        "P4-structures-4-S-009": "c",
+        "P4-structures-4-S-013": "c",
+        "P4-structures-4-S-008": "c",
+        "P4-structures-4-S-014": "c",
+        "P4-structures-4-S-007": "c",
+        "P4-structures-4-S-015": "c",
+        "P4-structures-4-S-006": "c",
+        "P4-structures-4-S-016": "c",
+        "P4-structures-4-S-005": "c",
+        "P4-structures-4-S-017": "c",
+        "P4-structures-4-S-004": "c",
+        "P4-structures-4-S-018": "c",
+        "P4-structures-4-S-003": "c",
+        "P4-structures-4-S-019": "c",
+        "P4-structures-4-S-002": "c",
+        "P4-structures-4-S-020": "c",
+        "P4-structures-4-S-001": "c",
+        "P4-structures-4-J-011": "c",
+        "P4-structures-4-J-010": "c",
+        "P4-structures-4-J-012": "c",
+        "P4-structures-4-J-009": "c",
+        "P4-structures-4-J-013": "c",
+        "P4-structures-4-J-008": "c",
+        "P4-structures-4-J-014": "c",
+        "P4-structures-4-J-007": "c",
+        "P4-structures-4-J-015": "c",
+        "P4-structures-4-J-006": "c",
+        "P4-structures-4-J-016": "c",
+        "P4-structures-4-J-005": "c",
+        "P4-structures-4-J-017": "c",
+        "P4-structures-4-J-004": "c",
+        "P4-structures-4-J-018": "c",
+        "P4-structures-4-J-003": "c",
+        "P4-structures-4-J-019": "c",
+        "P4-structures-4-J-002": "c",
+        "P4-structures-4-J-020": "c",
+        "P4-structures-4-J-001": "c",
+        "P4-structures-4-F-011": "c",
+        "P4-structures-4-F-010": "c",
+        "P4-structures-4-F-012": "c",
+        "P4-structures-4-F-009": "c",
+        "P4-structures-4-F-013": "c",
+        "P4-structures-4-F-008": "c",
+        "P4-structures-4-F-014": "c",
+        "P4-structures-4-F-007": "c",
+        "P4-structures-4-F-015": "c",
+        "P4-structures-4-F-006": "c",
+        "P4-structures-4-F-016": "c",
+        "P4-structures-4-F-005": "c",
+        "P4-structures-4-F-017": "c",
+        "P4-structures-4-F-004": "c",
+        "P4-structures-4-F-018": "c",
+        "P4-structures-4-F-003": "c",
+        "P4-structures-4-F-019": "c",
+        "P4-structures-4-F-002": "c",
+        "P4-structures-4-F-020": "c",
+        "P4-structures-4-F-001": "c",
+        "P4-structures-4-A-006": "c",
+        "P4-structures-4-A-005": "c",
+        "P4-structures-4-A-007": "c",
+        "P4-structures-4-A-004": "c",
+        "P4-structures-4-A-008": "c",
+        "P4-structures-4-A-003": "c",
+        "P4-structures-4-A-009": "c",
+        "P4-structures-4-A-002": "c",
+        "P4-structures-4-A-010": "c",
+        "P4-structures-4-A-001": "c",
+        "P4-structures-4-D-006": "c",
+        "P4-structures-4-D-005": "c",
+        "P4-structures-4-D-007": "c",
+        "P4-structures-4-D-004": "c",
+        "P4-structures-4-D-008": "c",
+        "P4-structures-4-D-003": "c",
+        "P4-structures-4-D-009": "c",
+        "P4-structures-4-D-002": "c",
+        "P4-structures-4-D-010": "c",
+        "P4-structures-4-D-001": "c"
+      }
+    }
+  ]
+}

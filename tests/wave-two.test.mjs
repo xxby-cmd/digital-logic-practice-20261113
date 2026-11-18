@@ -5,9 +5,12 @@ import {getPracticeCourse} from '../practice-library.js';
 import {composeChapterTest} from '../chapter-tests.js';
 import {startChapterTest} from '../sessions.js';
 
-test('第二轮新增578题，计网全部单元、栈队列和C数组达百题且可连续组多批',()=>{
+test('第二轮578题保留，原六单元库存完整，当前达标单元可连续组多批',()=>{
  assert.equal(waveTwoPractice.network.length,397);assert.equal(waveTwoPractice.structures.length,100);assert.equal(waveTwoPractice.programming.length,81);
- const units=[...getPracticeCourse('network').chapters.map(c=>['network',c.id]),['structures',3],['programming',6]];
+ const legacy=getPracticeCourse('network',{layout:1});assert.equal(legacy.chapters.length,6);assert.ok(legacy.chapters.every(c=>c.count>=100));
+ // 数据/控制平面已分开计缺；这里验证既有已达标库存的多批能力，
+ // 完整新章目录及82/18的未达标状态由network-layout专测和目标检查器核实。
+ const units=[...getPracticeCourse('network').chapters.filter(c=>c.count>=100).map(c=>['network',c.id]),['structures',3],['programming',6]];
  for(const [subject,chapter] of units){
   const qs=getPracticeCourse(subject).questions.filter(q=>String(q.chapter)===String(chapter));assert.ok(qs.length>=100);
   const attempts=[],ids=new Set();
