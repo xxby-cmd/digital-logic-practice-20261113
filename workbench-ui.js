@@ -18,6 +18,18 @@ export function codingStatement(q,render,guide){
  const description=match?q.stem.replace(match[0],` ${match[1]} 函数`):q.stem;
  return `<div class="problem-body">${render(description)}</div>${match?`<h3>函数接口</h3><pre class="problem-code"><code>${uiEscape(match[0])};</code></pre>`:''}`;
 }
+export function codingExamples(samples){
+ if(!samples.length)return '';
+ const block=(label,value)=>`<div class="sample-value"><h4>${uiEscape(label)}</h4><pre class="problem-code"><code>${value===''?'（空）':uiEscape(value)}</code></pre></div>`;
+ return samples.map((sample,index)=>{
+  const i=index+1;
+  const input=block((sample.kind==='call'?'调用样例 ':'输入样例 ')+i,sample.input);
+  const output=block('输出样例 '+i,sample.output);
+  const files=(sample.inputFiles||[]).map(file=>block('初始文件 · '+file.name,file.content))
+   .concat((sample.outputFiles||[]).map(file=>block('预期文件 · '+file.name,file.content)));
+  return `<div class="problem-sample" data-problem-sample="${i}">${input}${output}${files.join('')}</div>`;
+ }).join('');
+}
 export function editorControls(){return `<div class="editor-settings"><label>字号<select data-code-font aria-label="代码字号"><option value="13">13 px</option><option value="14" selected>14 px</option><option value="16">16 px</option><option value="18">18 px</option></select></label><button class="btn small" type="button" data-editor-expand aria-pressed="false">展开编辑区</button></div>`;}
 export function highlightC(code,language='c'){
  const tokens=String(code).match(/\/\*[\s\S]*?(?:\*\/|$)|\/\/[^\n]*|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\b(?:0x[\da-fA-F]+|\d+(?:\.\d+)?)\b|\b[A-Za-z_]\w*\b|[^]/g)||[];

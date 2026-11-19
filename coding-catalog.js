@@ -8,7 +8,8 @@ import {cBasicsGuides} from './c-basics-guides.js';
 import {revisionedDsTaskGuides,dsTaskGuide,dsCodingTaskGuides} from './ds-coding-task-guides.js';
 import {cFileCodingIds} from './c-file-availability.js';
 import {hasJavaJudgeContract} from './java-coding-catalog.js';
-const ready=new Set(['6-02','P-C-03','P-C-04',...Object.keys(cExpressionsGuides),...Object.keys(cControlGuides),...Object.keys(cFunctionsGuides)]);
+import {legacyCodingAliases,legacyOnlyCodeId} from './legacy-coding.js';
+const ready=new Set(['6-02','P-C-03','P-C-04',legacyOnlyCodeId,...Object.keys(legacyCodingAliases),...Object.keys(cExpressionsGuides),...Object.keys(cControlGuides),...Object.keys(cFunctionsGuides)]);
 for(const id of Object.keys(cPointersGuides))ready.add(id);
 for(const id of Object.keys(cRecordsGuides))ready.add(id);
 for(const id of Object.keys(cPreprocessorGuides))ready.add(id);
@@ -21,3 +22,6 @@ for(let i=21;i<=35;i++)ready.add(`FULL-programming-v1-${i}`);
 ready.add('FULL-structures-v1-31');ready.add('FULL-structures-v1-32');
 for(let i=91;i<=100;i++)ready.add(`P3-structures-3-${i}`);
 export function hasJudgeContract(id,revision,language='c'){if(language==='java')return hasJavaJudgeContract(id,revision);if(language!=='c')return false;const guide=revisionedDsTaskGuides[id];return ready.has(id)&&(!guide||revision===undefined||!!dsTaskGuide(id,revision)||(revision===1&&Object.hasOwn(dsCodingTaskGuides,id)));}
+export function isCodingTask(q){
+ return !!q&&(q.coding===true||hasJudgeContract(q.id,q.revision)||(q.coding!==false&&['编程题','程序填空','程序填空题'].includes(q.section)));
+}

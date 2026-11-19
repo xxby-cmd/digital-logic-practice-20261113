@@ -40,7 +40,6 @@ export async function resolveReviewQuestion(subject,item){
   const guide=javaTaskGuide(q.id,item.revision);if(!guide?.publicStatement||!guide?.solution)throw Error('本题暂不支持Java作答，原作答已保存。');
   q={...q,stem:guide.publicStatement,model:guide.solution};
  }
- if(hasJudgeContract(q.id,item.revision,item.language)&&!q.manualReview)throw Error('本题使用编译测试判分，请提交代码判题。');
  return q;
 }
 export function reviewPrompt(tasks){

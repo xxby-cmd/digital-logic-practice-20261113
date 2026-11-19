@@ -4,13 +4,17 @@ import {readFile} from 'node:fs/promises';
 import {EventEmitter} from 'node:events';
 import {Readable} from 'node:stream';
 
+const runApiSource=(await readFile(new URL('../scripts/run-api.mjs',import.meta.url),'utf8'))
+
+ .replace("'./public-code-cases.mjs'",JSON.stringify(new URL('../scripts/public-code-cases.mjs',import.meta.url).href));
+
 test('并发请求只启动一个程序，输入按UTF8恢复且自测不能注入受信驱动',async()=>{
  const children=[];
  globalThis.__practiceTestSpawn=()=>{
   const c=new EventEmitter();c.stdout=new EventEmitter();c.stderr={resume(){}};c.stdin=new EventEmitter();c.stdin.end=body=>{c.body=JSON.parse(body);};c.kill=()=>{};children.push(c);return c;
  };
  process.env.JUDGE_PYTHON='test-python';process.env.JUDGE_ZIG='test-zig';
- const source=(await readFile(new URL('../scripts/run-api.mjs',import.meta.url),'utf8'))
+ const source=runApiSource
   .replace("import {spawn} from 'node:child_process';",'const spawn=globalThis.__practiceTestSpawn;')
   .replace("'./judge-contracts.mjs'",JSON.stringify(new URL('../scripts/judge-contracts.mjs',import.meta.url).href));
  const {handleRun}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
@@ -39,7 +43,7 @@ test('可信文件配置可取回受限完整结果，隐藏文件及计量字�
  };
  process.env.JUDGE_PYTHON='test-python';process.env.JUDGE_ZIG='test-zig';
  const evaluator=JSON.stringify(new URL('../scripts/judge-contracts.mjs',import.meta.url).href);
- const source=(await readFile(new URL('../scripts/run-api.mjs',import.meta.url),'utf8'))
+ const source=runApiSource
   .replace("import {spawn} from 'node:child_process';",'const spawn=globalThis.__practiceFileTestSpawn;')
   .replace("import {judgeContract,evaluateContract} from './judge-contracts.mjs';",`import {evaluateContract} from ${evaluator};\nconst judgeContract=id=>id==='file-fixture'?${JSON.stringify({variants})}:null;`);
  const {handleRun}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
@@ -63,7 +67,7 @@ test('判题的多配置只取服务器契约，客户端不能替换配置或�
  globalThis.__practiceTestSpawn=()=>{const c=new EventEmitter();c.stdout=new EventEmitter();c.stderr={resume(){}};c.stdin=new EventEmitter();c.stdin.end=body=>{c.body=JSON.parse(body);};c.kill=()=>{};children.push(c);return c;};
  process.env.JUDGE_PYTHON='test-python';process.env.JUDGE_ZIG='test-zig';
  const evaluator=JSON.stringify(new URL('../scripts/judge-contracts.mjs',import.meta.url).href);
- const source=(await readFile(new URL('../scripts/run-api.mjs',import.meta.url),'utf8'))
+ const source=runApiSource
   .replace("import {spawn} from 'node:child_process';",'const spawn=globalThis.__practiceTestSpawn;')
   .replace("import {judgeContract,evaluateContract} from './judge-contracts.mjs';",`import {evaluateContract} from ${evaluator};\nconst judgeContract=id=>id==='fixture'?${JSON.stringify({variants})}:null;`);
  const {handleRun}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
@@ -77,12 +81,51 @@ test('判题的多配置只取服务器契约，客户端不能替换配置或�
  assert.equal(res.status,200);const result=JSON.parse(res.body);assert.equal(result.status,'accepted');assert.equal(result.passed,2);
 });
 
+test('公开样例仅执行两组，正式判题隐藏完整测试数据和程序输出',async()=>{
+ const children=[];
+ globalThis.__practiceSampleSpawn=()=>{
+  const child=new EventEmitter();
+  child.stdout=new EventEmitter();child.stderr={resume(){}};child.stdin=new EventEmitter();
+  child.stdin.end=body=>{child.body=JSON.parse(body);};
+  children.push(child);
+  return child;
+ };
+ const source=runApiSource
+  .replace("import {spawn} from 'node:child_process';",'const spawn=globalThis.__practiceSampleSpawn;')
+  .replace("'./judge-contracts.mjs'",JSON.stringify(new URL('../scripts/judge-contracts.mjs',import.meta.url).href));
+ const {handleRun}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+ const questionId='P2-programming-6-12';
+ async function submit(url,out){
+  const request=Readable.from([Buffer.from(JSON.stringify({questionId,source:'int firstPeak(const int a[],int n){return 0;}',stdin:'untrusted',harness:'untrusted'}))]);
+  Object.assign(request,{method:'POST',url,headers:{'content-type':'application/json'}});
+  const response={writeHead(status){this.status=status;},end(body){this.body=body;}};
+  await handleRun(request,response,4174);
+  const child=children.at(-1);
+  child.stdout.emit('data',Buffer.from(JSON.stringify(out)));
+  child.emit('close',0,null);
+  assert.equal(response.status,200);
+  return {request:child.body,result:JSON.parse(response.body)};
+ }
+ try{
+  const samples=await submit('/api/test',{status:'variants',results:[{status:'ran',stdout:'-1\n'},{status:'ran',stdout:'1\n'}]});
+  assert.equal(samples.request.variants.length,2);
+  assert.ok(samples.request.variants.every(c=>c.stdin===''&&!c.harness.includes('untrusted')));
+  assert.deepEqual(samples.result.samples.map(s=>[s.sample,s.status,s.stdout]),[[1,'accepted','-1\n'],[2,'accepted','1\n']]);
+  const official=await submit('/api/judge',{status:'ran',stdout:'0\n'.repeat(9),stderr:'hidden output'});
+  assert.ok(official.request.harness.length>samples.request.variants[0].harness.length);
+  assert.equal(official.result.status,'wrong_answer');
+  assert.ok(official.result.total>samples.result.total);
+  assert.equal(official.result.stdout,undefined);
+  assert.equal(official.result.stderr,undefined);
+ }finally{delete globalThis.__practiceSampleSpawn;}
+});
+
 test('运行器异常退出或收到结束信号时，残留有效JSON也不能变成学生成绩',async()=>{
  const children=[];globalThis.__practiceExitTestSpawn=()=>{const c=new EventEmitter();c.stdout=new EventEmitter();c.stderr={resume(){}};c.stdin=new EventEmitter();c.stdin.end=()=>{};c.kill=()=>{};children.push(c);return c;};
  process.env.JUDGE_PYTHON='test-python';process.env.JUDGE_ZIG='test-zig';
  const contract={exactOutput:'',file_policy:{names:['out.bin'],writable:['out.bin'],capture:['out.bin']},fileChecks:[{name:'out.bin',mode:'bytes',expected:'41'}]};
  const evaluator=JSON.stringify(new URL('../scripts/judge-contracts.mjs',import.meta.url).href);
- const source=(await readFile(new URL('../scripts/run-api.mjs',import.meta.url),'utf8'))
+ const source=runApiSource
   .replace("import {spawn} from 'node:child_process';",'const spawn=globalThis.__practiceExitTestSpawn;')
   .replace("import {judgeContract,evaluateContract} from './judge-contracts.mjs';",`import {evaluateContract} from ${evaluator};\nconst judgeContract=id=>id==='exit-fixture'?${JSON.stringify(contract)}:null;`);
  const {handleRun}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));

@@ -3,16 +3,23 @@ import {auditReadingTerms} from './audit-reading-terms.mjs';
 import {practiceQuestionRevisions} from '../bank-revisions.js';
 import {reviseQuestionLanguage} from '../question-language.js';
 import {getPracticeCourse} from '../practice-library.js';
+import {subjects} from '../subjects.js';
 import {readLocalReferenceRevisions} from './local-reference-revisions.mjs';
+import {fullExamPapers} from '../full-exams.js';
+import {examPapers} from '../exam-bank.js';
+import {isProgrammingQuestion,codeTaskGuide} from '../code-editor.js';
+import {hasJudgeContract} from '../coding-catalog.js';
+import {judgeContract} from './judge-contracts.mjs';
+import {publicCodeCases} from './public-code-cases.mjs';
 await mkdir('dist',{recursive:true});
-const modules=["bank-revisions.js","bank.js","course-banks.js","fill-answer-formats.js","grading.js","study-progress.js","ai-grading.js","progress.js","diagrams.js","sessions.js","exam-bank.js","question-factory.js","bank-c-expressions.js","c-expressions-guides.js","bank-c-control.js","c-control-guides.js","bank-c-functions.js","c-functions-guides.js","bank-c-pointers.js","c-pointers-guides.js","bank-c-records.js","c-records-guides.js","bank-c-preprocessor.js","c-preprocessor-guides.js","bank-c-introduction.js","bank-c-basics.js","c-basics-guides.js","bank-c-files.js","c-file-availability.js","c-files-guides.js","ds-linear-task-guides.js","ds-string-task-guides.js","ds-array-task-guides.js","ds-intro-task-guides.js","ds-graph-task-guides.js","ds-tree-task-guides.js","ds-sort-task-guides.js","ds-search-task-guides.js","ds-analysis-task-guides.js","ds-string-quality-task-guides.js","ds-array-quality-task-guides.js","ds-coding-task-guides.js","java-algorithm-task-guides.js","java-task-guides.js","java-reading.js","java-coding-catalog.js","coding-catalog.js","full-exams.js","practice-extra.js","expanded-practice.js","reference-bank.js","bank-wave-02.js","bank-wave-03.js","bank-wave-04.js","bank-wave-05.js","bank-wave-06.js","bank-wave-07.js","bank-wave-08.js","bank-network-control.js","bank-network-wireless.js","bank-network-dataplane.js","bank-network-security.js","bank-network-multimedia.js","study-priorities.js","question-language.js","practice-library.js","subjects.js","chapter-tests.js","practice-types.js","chapter-practice.js","room-progress.js","coding-task-guides.js","code-editor.js","workbench-ui.js","selection-explainer.js","term-notes.js","term-glossary.js","term-candidates.js","term-planner.js","term-help.js","app.js"];
+const modules=["bank-revisions.js","bank.js","course-banks.js","fill-answer-formats.js","grading.js","study-progress.js","ai-grading.js","progress.js","diagrams.js","sessions.js","exam-bank.js","question-factory.js","bank-c-expressions.js","c-expressions-guides.js","bank-c-control.js","c-control-guides.js","bank-c-functions.js","c-functions-guides.js","bank-c-pointers.js","c-pointers-guides.js","bank-c-records.js","c-records-guides.js","bank-c-preprocessor.js","c-preprocessor-guides.js","bank-c-introduction.js","bank-c-basics.js","c-basics-guides.js","bank-c-files.js","c-file-availability.js","c-files-guides.js","ds-linear-task-guides.js","ds-string-task-guides.js","ds-array-task-guides.js","ds-intro-task-guides.js","ds-graph-task-guides.js","ds-tree-task-guides.js","ds-sort-task-guides.js","ds-search-task-guides.js","ds-analysis-task-guides.js","ds-string-quality-task-guides.js","ds-array-quality-task-guides.js","ds-coding-task-guides.js","java-algorithm-task-guides.js","java-task-guides.js","java-reading.js","java-coding-catalog.js","legacy-coding.js","coding-catalog.js","full-exams.js","practice-extra.js","expanded-practice.js","reference-bank.js","bank-wave-02.js","bank-wave-03.js","bank-wave-04.js","bank-wave-05.js","bank-wave-06.js","bank-wave-07.js","bank-wave-08.js","bank-network-control.js","bank-network-wireless.js","bank-network-dataplane.js","bank-network-security.js","bank-network-multimedia.js","study-priorities.js","question-language.js","practice-library.js","subjects.js","chapter-tests.js","practice-types.js","chapter-practice.js","room-progress.js","coding-task-guides.js","code-editor.js","workbench-ui.js","selection-explainer.js","term-notes.js","term-glossary.js","term-candidates.js","term-planner.js","term-help.js","app.js"];
 const overrides={};
 let localReferences={};
 let localReferenceRevisions={};
 if(process.argv.includes('--local')){
  const input=JSON.parse(await readFile('../学习资料/外校题库参考/已接入题目.json','utf8'));
  const revisions=await readLocalReferenceRevisions(),raw=new Map(Object.values(input).flat().map(q=>[q.id,q]));
- const originals=new Set(['network','structures','digital','programming'].flatMap(subject=>getPracticeCourse(subject).questions.map(q=>q.id)));
+ const originals=new Set(subjects.filter(s=>s.ready).flatMap(({id})=>getPracticeCourse(id).questions.map(q=>q.id)));
  if(raw.size!==Object.values(input).flat().length||[...raw.keys()].some(id=>originals.has(id)))throw Error('本地参考题题号重复或与原创题冲突。');
  for(const [id,versions]of Object.entries(revisions)){
   if(!raw.has(id)||Object.hasOwn(practiceQuestionRevisions,id))throw Error('本地参考题修订题号无效或与原创题冲突。');
@@ -28,6 +35,28 @@ if(process.argv.includes('--local')){
  }
 }
 auditReadingTerms(localReferences,{referenceRevisions:localReferenceRevisions});
+modules.splice(modules.indexOf('code-editor.js'),0,'coding-samples.js');
+const samples={};
+for(const {id} of subjects.filter(s=>s.ready)){
+ const papers=[...(fullExamPapers[id]||[]),...(examPapers[id]||[])];
+ const questions=[...getPracticeCourse(id).questions,...(localReferences[id]||[]),...papers.flatMap(paper=>paper.questions)];
+ for(const question of questions.filter(q=>isProgrammingQuestion(q)||['编程题','程序填空','程序填空题'].includes(q.section))){
+  const languages=codeTaskGuide(question,'java')?['c','java']:['c'];
+  for(const language of languages){
+   const contract=judgeContract(question.id,language);
+   if(!contract||!hasJudgeContract(question.id,question.revision,language))
+    throw Error('编程题缺少可用判题配置：'+question.id+' ('+language+')');
+   const tests=(contract.variants||[contract]).reduce((count,test)=>count+(test.groups?.length||1),0);
+   if(tests<3)throw Error('编程题缺少隐藏测试：'+question.id+' ('+language+')');
+   const cases=publicCodeCases(question.id,language);
+   if(cases.length!==2)throw Error('公开样例不足：'+question.id+' ('+language+')');
+   if(JSON.stringify([cases[0].input,cases[0].inputFiles])===JSON.stringify([cases[1].input,cases[1].inputFiles]))
+    throw Error('公开样例输入重复：'+question.id+' ('+language+')');
+   samples[language+':'+question.id]=cases.map(({kind,input,output,inputFiles,outputFiles})=>({kind,input,output,inputFiles,outputFiles}));
+  }
+ }
+}
+overrides['coding-samples.js']='export const codingSamples='+JSON.stringify(samples).replaceAll('<','\\u003c')+';\n';
 for(const file of ['index.html','styles.css','reading-ui.css','favicon.svg',...modules]) await copyFile(file,`dist/${file}`);
 for(const [file,source]of Object.entries(overrides))await writeFile(`dist/${file}`,source);
 // 同一份实现打包为独立HTML，网络受限时也可双击打开，无需服务器。

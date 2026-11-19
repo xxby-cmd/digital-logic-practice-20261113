@@ -33,10 +33,10 @@ const specs={
  'P3-programming-6-67':{fn:'nondecreasing',result:a=>Number(a.every((x,i)=>!i||a[i-1]<=x))},
  'P3-programming-6-57':{fn:'lastMin',result:a=>a.length?a.lastIndexOf(Math.min(...a)):-1}
 };
-export function judgeContract(id,language='c'){
+export function judgeContract(id,language='c',forSamples=false){
  if(language==='java')return javaContract(id);
  if(language!=='c')return null;
- const s=Object.hasOwn(specs,id)?specs[id]:null;if(!s)return arrayContract(id)||examContract(id)||extraCContract(id)||dsStackContract(id)||dsLinearContract(id)||dsStringContract(id)||dsArrayContract(id)||dsIntroContract(id)||dsGraphContract(id)||dsTreeContract(id)||dsSortContract(id)||dsSearchContract(id)||cExpressionsContract(id)||cControlContract(id)||cFunctionsContract(id)||cPointersContract(id)||cRecordsContract(id)||cPreprocessorContract(id)||cBasicsContract(id)||(releasedFileCodes.has(id)?cFilesContract(id):null);
+ const s=Object.hasOwn(specs,id)?specs[id]:null;if(!s)return arrayContract(id)||examContract(id)||extraCContract(id)||dsStackContract(id)||dsLinearContract(id)||dsStringContract(id)||dsArrayContract(id)||dsIntroContract(id)||dsGraphContract(id)||dsTreeContract(id,forSamples)||dsSortContract(id)||dsSearchContract(id)||cExpressionsContract(id)||cControlContract(id)||cFunctionsContract(id,forSamples)||cPointersContract(id)||cRecordsContract(id)||cPreprocessorContract(id,forSamples)||cBasicsContract(id)||(releasedFileCodes.has(id)?cFilesContract(id):null);
  const tests=arrays.map(a=>({call:`${s.fn}(${ints(a)},${a.length})`,expected:String(s.result(a))}));
  return {harness:`\n#include <stdio.h>\nint main(void){\n${tests.map(t=>`printf("%d\\n",${t.call});`).join('\n')}\nreturn 0;}`,expected:tests.map(t=>t.expected),groups:tests.map(t=>[t.expected])};
 }

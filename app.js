@@ -1,9 +1,10 @@
-import {uiIcon,questionTitle,codingStatement,editorControls,bindWorkbenchUI} from './workbench-ui.js';
+import {uiIcon,questionTitle,codingStatement,codingExamples,editorControls,bindWorkbenchUI} from './workbench-ui.js';
 import {AI_GRADING_VERSION,enableAIGrading,usesAIGrading,isAIQuestion,isCodingReview,pendingAIQuestions,applyAIReview,validAIReview,requestAIReviews} from './ai-grading.js';
 import {bindSelectionExplainer} from './selection-explainer.js';
 import {bindTermHelp} from './term-help.js';
 import {visibleReadingQuestion} from './java-reading.js';
-import {isProgrammingQuestion,codeEditor,bindCodeEditors,requestCodeJudge,codeTaskGuide,preferredCodeLanguage} from './code-editor.js';
+import {isProgrammingQuestion,codeEditor,bindCodeEditors,requestCodeJudge,codeTaskGuide,preferredCodeLanguage,codeSamplesFor} from './code-editor.js';
+import {hasJudgeContract} from './coding-catalog.js';
 import {getCourse,progressKey} from './course-banks.js';
 import {subjects,resolveRoute} from './subjects.js';
 import {sanitizeProgress,emptyProgress} from './progress.js';
@@ -89,7 +90,12 @@ function solution(q){const language=isProgrammingQuestion(q)?answerLanguage(q):n
 function answerFields(q,answer,prefix,disabled=false){
  if(prefix.startsWith('retry')){const draft=retryCodeDrafts.get(q.id);answer=isProgrammingQuestion(q)?draft?.source??answer:draft?.answer??answer;}
  const dis=disabled?'disabled':'';
- if(isProgrammingQuestion(q)){const attempt=currentAttempt(),allowRun=(state.mode==='practice'||attempt?.status==='settled')&&!disabled||(attempt?.status==='marking'&&q.manualReview===true),retry=prefix.startsWith('retry')?retryCodeDrafts.get(q.id):undefined;return editorControls()+codeEditor(q,answer,prefix,disabled,allowRun,retry?.language||answerLanguage(q,answer));}
+ if(isProgrammingQuestion(q)){
+  const attempt=currentAttempt(),retry=prefix.startsWith('retry')?retryCodeDrafts.get(q.id):undefined;
+  const allowJudge=((state.mode==='practice'||attempt?.status==='settled')&&!disabled)||(attempt?.status==='marking'&&(q.manualReview===true||(!q.judge&&isProgrammingQuestion(q))));
+  const allowRun=allowJudge||(!disabled&&attempt?.status==='active');
+  return editorControls()+codeEditor(q,answer,prefix,disabled,allowRun,retry?.language||answerLanguage(q,answer),allowJudge);
+ }
  if(q.type==='single')return `<fieldset class="options answer-fieldset"><legend class="visually-hidden">第${esc(prefix)}题，选择一个答案</legend>${q.options.map((v,i)=>`<label class="option"><input ${dis} type="radio" name="${esc(prefix)}" data-answer="${q.id}" data-option="${i}" value="${i}" ${answer===i?'checked':''}>${q.section==='判断题'?'':`<b>${String.fromCharCode(65+i)}.</b>`}<span>${esc(v)}</span></label>`).join('')}</fieldset>`;
  // HTML discards a textarea's first LF; the extra LF below preserves the saved answer verbatim.
  if(q.type==='fill')return q.answers.map((_,i)=>{const value=esc(Array.isArray(answer)?answer[i]:''),attributes=`${dis} id="${prefix}-${i}" data-answer="${q.id}" data-blank="${i}" autocomplete="off"`;return `<div class="fill-row"><label for="${prefix}-${i}">第${i+1}空</label>${['c-tokens','integer-sequence','integer-set','literal-string'].includes(q.formats?.[i])?`<textarea ${attributes} class="structured-fill" rows="${Math.min(4,Math.max(1,String(Array.isArray(answer)?answer[i]??'':'').split(/\r\n?|\n/).length))}" spellcheck="false" autocapitalize="off">
@@ -99,11 +105,11 @@ ${value}</textarea>`:`<input ${attributes} value="${value}">`}</div>`;}).join(''
 function reviewFeedback(receipt){return `<section class="feedback ai-review" aria-label="AI评阅结果"><h3>评阅得分：${receipt.score} / ${receipt.points}</h3><p>${esc(receipt.feedback)}</p>${receipt.method==='code-reading'?`<p class="muted-note">${receipt.execution?receipt.execution.status==='accepted'?'代码测试通过，得分同时包含分析部分。':'代码测试未全部通过，已结合分析评阅。':'代码由AI评阅，本次没有执行测试。'}</p>`:''}<details><summary>逐点评阅</summary><ul>${receipt.criteria.map((point,i)=>`<li><strong>评分点${i+1} · ${point.verdict==='met'?'已满足':point.verdict==='partial'?'部分满足':'未满足'}：</strong>${esc(point.comment)}</li>`).join('')}</ul></details></section>`;}
 function retryArea(q,i){
  const language=retryCodeDrafts.get(q.id)?.language||answerLanguage(q),changed=isProgrammingQuestion(q)&&language!==answerLanguage(q),guide=changed?codeTaskGuide(q,language):undefined,visible=changed?visibleReadingQuestion(q,language,guide):q;
- return `<section class="retry-area"><h3>重新作答${isProgrammingQuestion(q)?` · ${language==='java'?'Java':'C17'}`:''}</h3>${changed?`<section class="retry-language-question"><h4>本次重做题面</h4><div class="retry-public-statement">${codingStatement(visible,text,guide)}${diagram(q.diagram)}</div></section>`:''}<div class="answer-area">${answerFields(q,undefined,`retry${i}`)}</div><button class="btn small primary" data-retry-check="${q.id}">核对本次作答</button><div id="retry-feedback" role="status"></div></section>`;
+ return `<section class="retry-area"><h3>重新作答${isProgrammingQuestion(q)?` · ${language==='java'?'Java':'C17'}`:''}</h3>${changed?`<section class="retry-language-question"><h4>本次重做题面</h4><div class="retry-public-statement">${codingStatement(visible,text,guide)}${codingExamples(codeSamplesFor(q,language))}${diagram(q.diagram)}</div></section>`:''}<div class="answer-area">${answerFields(q,undefined,`retry${i}`)}</div><button class="btn small primary" data-retry-check="${q.id}">核对本次作答</button><div id="retry-feedback" role="status"></div></section>`;
 }
 function questionCard(q,i,answer,extra='',disabled=false,label=q.section||types[q.type]){
  const coding=isProgrammingQuestion(q),language=answerLanguage(q,answer),guide=coding?codeTaskGuide(q,language):undefined,displayQ=visibleReadingQuestion(q,language,guide);
- return `<article class="card exam-question" data-code-problem="${coding}" id="question-${i}">${coding?'<div class="problem-caption">题目描述</div>':''}<div class="section-bar"><strong>第 ${i} 题${coding?` · ${esc(questionTitle(q))}`:''}</strong><span>${esc(label)}${q.points?` · ${q.points}分`:''}</span></div><div class="problem-content"><div class="problem-layout"><div class="problem-statement">${coding?codingStatement(displayQ,text,guide):`<div class="problem-body">${text(q.stem)}</div>`}${diagram(q.diagram)}${coding?`<dl class="submission-limits"><div><dt>语言</dt><dd>${language==='java'?'Java':'C17'}</dd></div><div><dt>代码长度限制</dt><dd>32 KB</dd></div><div><dt>${language==='java'?'堆内存限制':'内存限制'}</dt><dd>64 MB</dd></div></dl>`:''}</div><div class="answer-area">${answerFields(q,answer,`q${i}`,disabled)}</div></div>${extra}</div></article>`;
+ return `<article class="card exam-question" data-code-problem="${coding}" id="question-${i}">${coding?'<div class="problem-caption">题目描述</div>':''}<div class="section-bar"><strong>第 ${i} 题${coding?` · ${esc(questionTitle(q))}`:''}</strong><span>${esc(label)}${q.points?` · ${q.points}分`:''}</span></div><div class="problem-content"><div class="problem-layout"><div class="problem-statement">${coding?codingStatement(displayQ,text,guide)+codingExamples(codeSamplesFor(q,language)):`<div class="problem-body">${text(q.stem)}</div>`}${diagram(q.diagram)}${coding?`<dl class="submission-limits"><div><dt>语言</dt><dd>${language==='java'?'Java':'C17'}</dd></div><div><dt>代码长度限制</dt><dd>32 KB</dd></div><div><dt>${language==='java'?'堆内存限制':'内存限制'}</dt><dd>64 MB</dd></div></dl>`:''}</div><div class="answer-area">${answerFields(q,answer,`q${i}`,disabled)}</div></div>${extra}</div></article>`;
 }
 function header(){const s=subjects.find(s=>s.id===state.subject);return `<header class="topbar"><a href="#/subjects" class="brand">${uiIcon('back')}<span>${s?.name||'课程练习室'}</span></a><span class="site-location">${s?'课程练习室':''}</span><nav class="top-right"><span class="points-pill">累计积分 ${totalPoints(room.attempts)}</span><a class="btn small" href="${state.subject?`#/subjects/${state.subject}/settings`:'#/settings'}">设置</a><button class="btn small" data-export>备份记录</button><a class="btn small" href="#/subjects">切换科目</a></nav></header>`;}
 function siteSidebar(){
@@ -311,7 +317,7 @@ function bind(){
   if(q.type!=='short'){output.textContent=grade(q,answer).correct?'本次回答正确，原成绩保持不变。':'本次回答仍有误，请对照解析。';return;}
   button.disabled=true;output.textContent='正在核对本次作答，首次成绩和积分保持不变…';
   try{
-   if(q.judge){const result=await requestCodeJudge(q.id,answer,language);if(!['accepted','wrong_answer','compile_error','runtime_error','time_limit','output_limit','invalid'].includes(result.status))throw Error('判题尚未完成，请重试。');output.textContent=result.status==='accepted'?'本次代码测试通过，首次成绩和积分保持不变。':'本次代码尚未通过全部测试，首次成绩和积分保持不变。';}
+   if(q.judge||(q.pool==='exam'&&!q.manualReview&&hasJudgeContract(q.id,q.revision,language))){const result=await requestCodeJudge(q.id,answer,language);if(!['accepted','wrong_answer','compile_error','runtime_error','time_limit','output_limit','invalid'].includes(result.status))throw Error('判题尚未完成，请重试。');output.textContent=result.status==='accepted'?'本次代码测试通过，首次成绩和积分保持不变。':'本次代码尚未通过全部测试，首次成绩和积分保持不变。';}
    else{const [receipt]=await requestAIReviews(a.subject,[q],{[q.id]:answer},{languages:{[q.id]:language}});output.innerHTML=reviewFeedback(receipt)+'<p>本次重做不改变首次成绩和积分。</p>';}
   }catch(error){output.textContent=error.message||'核对尚未完成，请重试。';}finally{button.disabled=false;}
  });

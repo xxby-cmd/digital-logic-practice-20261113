@@ -65,8 +65,8 @@ add('P',29,'int scoreUndo(int op,int value){static int total=0,last=0,valid=0;if
 
 export const cFunctionsContractIds=[...registry.keys()];
 export const cFunctionsReferenceSources=Object.fromEntries([...registry].map(([key,value])=>[key,value.source]));
-export function cFunctionsContract(questionId){
+export function cFunctionsContract(questionId,forSamples=false){
  const spec=registry.get(questionId);if(!spec)return null;
  const tests=spec.build(),groups=tests.flatMap(t=>t.lines||[t.out.map(String)]);
- return {prelude:'#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n'+spec.prelude+'\n',harness:'\n'+spec.helpers+'\nint main(void){\n'+tests.map(t=>'{'+t.body+'}').join('\n')+'\nreturn 0;}\n',groups,expected:groups.flat()};
+ return {prelude:'#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n'+spec.prelude+'\n',harness:'\n'+spec.helpers+'\nint main(void){\n'+tests.map(t=>'{'+t.body+'}').join('\n')+'\nreturn 0;}\n',groups,expected:groups.flat(),...(forSamples?{sampleGroups:tests.map(t=>t.lines||[t.out.map(String)])}:{})};
 }

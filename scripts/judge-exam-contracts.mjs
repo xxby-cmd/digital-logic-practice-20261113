@@ -1,4 +1,5 @@
 // Server-side final-paper contracts. No test inputs/answers enter the frontend bundle.
+import {legacyCodingAliases,legacyOnlyCodeId} from '../legacy-coding.js';
 const lit=a=>`{${a.length?a.join(','):0}}`;
 const str=s=>JSON.stringify(s);
 const arrays=[[],[0],[-1],[3,3],[5,5,2,-1],[1,2,3,4],[4,3,2,1],[2,1,2,3,0,1],[-8,-2,-5],[-2147483648,2147483647,0],Array.from({length:33},(_,i)=>i%7-3)];
@@ -26,4 +27,9 @@ const nodeDef='#include <stdlib.h>\ntypedef struct Node{int data;struct Node *ne
 specs.set('FULL-structures-v1-31',{prelude:nodeDef,tests:[...arrays.flatMap(a=>[0,3,-1].map(x=>{const i=a.lastIndexOf(x),out=a.filter((_,j)=>i!==j);return {body:`int a[]=${lit(a)};Node head={0,0},*tail=&head;for(int i=0;i<${a.length};i++){tail->next=malloc(sizeof(Node));tail=tail->next;tail->data=a[i];tail->next=0;}int ok=removeLast(&head,${x});printf("%d ",ok);int count=0;for(Node*p=head.next;p&&count<64;p=p->next,count++)printf("%d ",p->data);puts("");while(head.next){Node*p=head.next;head.next=p->next;free(p);}`,out:[Number(i>=0),...out]};})),{body:'printf("%d\\n",removeLast(0,3));',out:[0]}]});
 specs.set('FULL-structures-v1-32',{prelude:'typedef struct TNode{int data;struct TNode *left,*right;} TNode;\n',tests:[...[-1,0,1,2,3,4,5,6].flatMap(k=>[0,1,2].map(shape=>{const links=shape===0?[]:shape===1?[[1,2],[3,4],[-1,5],[-1,-1],[-1,-1],[-1,-1]]:[[1,-1],[2,-1],[3,-1],[-1,-1]];let level=links.length?[0]:[];for(let i=1;i<k;i++)level=level.flatMap(j=>links[j].filter(x=>x>=0));const count=k>0?level.length:0;return {body:`TNode a[6]={{0}};${links.map(([l,r],i)=>`a[${i}].left=${l<0?'0':`&a[${l}]`};a[${i}].right=${r<0?'0':`&a[${r}]`};`).join('')}printf("%d\\n",atDepth(${links.length?'a':'0'},${k}));`,out:[count]};}))]});
 export const examContractIds=[...specs.keys()];
-export function examContract(id){const s=specs.get(id);if(!s)return null;return {prelude:s.prelude||'',harness:`\n#include <stdio.h>\nint main(void){\n${s.tests.map(t=>`{${t.body}}`).join('\n')}\nreturn 0;}`,groups:s.tests.map(t=>t.out.map(String)),expected:s.tests.flatMap(t=>t.out.map(String))};}
+const firstCharacterTests=[['','a'],['banana','a'],['banana','b'],['banana','z'],['AAAa','a'],
+ [' a a',' '],['abc','c'],['aa','a'],['one\ttwo','\t'],['A0B','0']].map(([s,c])=>({
+ body:`printf("%d\\n",first(${str(s)},${c.charCodeAt(0)}));`,out:[s.indexOf(c)]
+}));
+specs.set(legacyOnlyCodeId,{tests:firstCharacterTests});
+export function examContract(id){const s=specs.get(Object.hasOwn(legacyCodingAliases,id)?legacyCodingAliases[id]:id);if(!s)return null;return {prelude:s.prelude||'',harness:`\n#include <stdio.h>\nint main(void){\n${s.tests.map(t=>`{${t.body}}`).join('\n')}\nreturn 0;}`,groups:s.tests.map(t=>t.out.map(String)),expected:s.tests.flatMap(t=>t.out.map(String))};}

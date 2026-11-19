@@ -109,10 +109,11 @@ test('真实应用新整组由Codex自动结算，故障时锁答待评且不出
  const pending=view.room().tests[0];assert.equal(pending.status,'marking');assert.equal(pending.result,null);assert.equal(pending.marks[q.id],undefined);assert.match(view.markup(),/data-judge-retry/);assert.ok(!view.markup().includes('data-mark='));
 });
 
-test('整组提交前无测试解析，交卷后只能测试锁定代码并自评',async()=>{
+test('整组提交前只开放公开样例，交卷后测试锁定代码并自评',async()=>{
  const paper=composeChapterPractice('structures',1,{preset:'custom',custom:{choice:0,fill:0,code:5,judgement:0}},[],()=>.5),a=startChapterTest('structures',paper,1,'manual-ui');
  const q=a.questions.find(q=>q.manualReview);for(const v of a.questions)a.answers[v.id]='submitted code';
  let view=await render('#/subjects/structures/test/manual-ui',{...empty(),tests:[a]},q);
+ assert.ok(view.markup().includes('data-code-test'));
  assert.ok(!view.markup().includes('data-code-judge'));assert.ok(!view.markup().includes('参考答案与解析'));
  submitExam(a,2);for(const v of a.questions.filter(q=>q.judge))applyCodeResult(a,v.id,a.answers[v.id],{status:'accepted'});
  view=await render('#/subjects/structures/test/manual-ui',{...empty(),tests:[a]},q);

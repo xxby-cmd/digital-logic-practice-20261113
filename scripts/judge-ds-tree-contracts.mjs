@@ -163,7 +163,7 @@ static void treeJudge_table(const int*l,const int*r,int physical,int n){int a[26
 
 for(const spec of specs.values())spec.rows=[...new Map(spec.rows.map(r=>[r.body+'\n'+r.expected.join(' '),r])).values()];
 export const dsTreeContractIds=Array.from({length:8},(_,i)=>id(i+1));
-export function dsTreeContract(questionId){const spec=specs.get(questionId);if(!spec)return null;const groups=spec.rows.map(r=>r.expected);return {prelude:'#include <stddef.h>\n#include <stdint.h>\n'+spec.types+'\n'+spec.signature+'\n',harness:'\n#include <stdio.h>\n'+spec.helpers+'\n'+(spec.main??(spec.rows.map((r,i)=>`static void treeJudge_case_${i}(void){${r.body}}`).join('\n')+'\nint main(void){\n'+spec.rows.map((_,i)=>`treeJudge_case_${i}();`).join('\n')+'\nreturn 0;}\n')),groups,expected:groups.flat()};}
+export function dsTreeContract(questionId,forSamples=false){const spec=specs.get(questionId);if(!spec)return null;const groups=spec.rows.map(r=>r.expected);return {prelude:'#include <stddef.h>\n#include <stdint.h>\n'+spec.types+'\n'+spec.signature+'\n',harness:'\n#include <stdio.h>\n'+spec.helpers+'\n'+((forSamples?null:spec.main)??(spec.rows.map((r,i)=>`static void treeJudge_case_${i}(void){${r.body}}`).join('\n')+'\nint main(void){\n'+spec.rows.map((_,i)=>`treeJudge_case_${i}();`).join('\n')+'\nreturn 0;}\n')),groups,expected:groups.flat()};}
 export const dsTreeReferenceSources=Object.fromEntries(dsTreeContractIds.map(key=>[key,dsTreeTaskGuides[key].solution]));
 export const dsTreeOracles={allPaths,height,balanced,width,longest,traversals,parentLca,validTable,orderedHeight};
 export const dsTreeCaseSets={binary:binaryCases,reconstruction,parents:parentCases,ordered:orderedCases,paths:pathCases,tables:tableCases};

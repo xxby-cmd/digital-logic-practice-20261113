@@ -10,7 +10,10 @@ async function fixture(){
  const children=[],timers=[];globalThis.__routingSpawn=(binary,args)=>{const child=new EventEmitter();child.stdout=new EventEmitter();child.stderr={resume(){}};child.stdin=new EventEmitter();child.stdin.end=body=>{child.payload=JSON.parse(body);};child.kill=()=>{child.killed=true;};Object.assign(child,{binary,args});children.push(child);return child;};
  globalThis.__routingTimer=(callback,ms)=>{timers.push({callback,ms});return 0;};
  const previous={python:process.env.JUDGE_PYTHON,zig:process.env.JUDGE_ZIG,sdk:process.env.JUDGE_SDK};process.env.JUDGE_PYTHON='test-python';delete process.env.JUDGE_ZIG;delete process.env.JUDGE_SDK;
- const source=(await readFile(new URL('../scripts/run-api.mjs',import.meta.url),'utf8')).replace("import {spawn} from 'node:child_process';",'const spawn=globalThis.__routingSpawn;').replace("'./judge-contracts.mjs'",JSON.stringify(new URL('../scripts/judge-contracts.mjs',import.meta.url).href)).replace('const timer=setTimeout(','const timer=globalThis.__routingTimer(');
+ const source=(await readFile(new URL('../scripts/run-api.mjs',import.meta.url),'utf8'))
+  .replace("import {spawn} from 'node:child_process';",'const spawn=globalThis.__routingSpawn;')
+  .replace(/from '(\.\/[^']+)'/g,(_,module)=>`from ${JSON.stringify(new URL(module,new URL('../scripts/run-api.mjs',import.meta.url)).href)}`)
+  .replace('const timer=setTimeout(','const timer=globalThis.__routingTimer(');
  const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\n// fixture '+Math.random()).toString('base64'));
  return {...api,children,timers,close(){for(const key of ['JUDGE_PYTHON','JUDGE_ZIG','JUDGE_SDK']){const value=previous[{JUDGE_PYTHON:'python',JUDGE_ZIG:'zig',JUDGE_SDK:'sdk'}[key]];if(value===undefined)delete process.env[key];else process.env[key]=value;}delete globalThis.__routingSpawn;delete globalThis.__routingTimer;}};
 }

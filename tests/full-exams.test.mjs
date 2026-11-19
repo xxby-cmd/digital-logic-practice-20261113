@@ -27,9 +27,15 @@ test('数电完整卷的状态方程、译码、序列检测与占空比独立�
  const cycle=[4,5,6,7,8,9];assert.equal(cycle.filter(x=>x&8).length/cycle.length,1/3);
  for(let x=0;x<10;x++){const abc=x>>1,d=x&1,inputs=[0,d,0,1-d,d,0,0,0];assert.equal(inputs[abc],Number([3,6,9].includes(x)));}
 });
-test('代码题统一编辑区，考试作答阶段无运行和答案入口',()=>{
- for(const section of ['编程题','程序填空','算法设计'])assert.ok(isProgrammingQuestion({section}));
- const q={id:'safe',section:'编程题'};const exam=codeEditor(q,'<script>','x',false,false);assert.ok(exam.includes('data-code-source'));assert.ok(exam.includes('&lt;script&gt;'));assert.ok(!exam.includes('data-code-run'));assert.ok(codeEditor(q,'','x',false,true).includes('data-code-run'));
+test('明确提交代码的算法题使用代码编辑器，算法说明题允许文字作答',()=>{
+ for(const section of ['编程题','程序填空'])assert.ok(isProgrammingQuestion({section}));
+ assert.ok(isProgrammingQuestion({id:'structures-E2-17',section:'算法设计'}));
+ assert.equal(isProgrammingQuestion({section:'算法设计',coding:false}),false);
+ const q={id:'safe',section:'编程题'};
+ const exam=codeEditor(q,'<script>','x',false,true,'c',false);
+ assert.match(exam,/data-code-source/);assert.match(exam,/&lt;script&gt;/);
+ assert.doesNotMatch(exam,/data-code-run|data-code-judge/);
+ assert.match(codeEditor(q,'','x',false,true),/data-code-run/);
 });
 test('重点加权抽取且不重复，定向练习仍能抽尽',()=>{
  const qs=[{id:'core',practiceWeight:3},{id:'extra',practiceWeight:1}];assert.equal(drawPractice(qs,[],()=>0.7).id,'core');assert.equal(drawPractice(qs,[],()=>0.8).id,'extra');assert.equal(drawPractice(qs,['core'],()=>0).id,'extra');assert.equal(drawPractice(qs,['core','extra']),null);

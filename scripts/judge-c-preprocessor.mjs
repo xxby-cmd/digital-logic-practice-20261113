@@ -46,4 +46,18 @@ const value=(x,p)=>typeof x==='function'?x(p):x||'';
 function make(spec,p){const cases=spec.build(p),groups=cases.map(row=>row.out.map(String));return {prelude:'#include <stdio.h>\n#include <string.h>\n'+value(spec.prelude,p)+'\n',harness:'\n'+guarded(spec.names||[])+value(spec.checks,p)+'\n'+value(spec.helpers,p)+'\nint main(void){\n'+cases.map(row=>'{\n'+row.body+'\n}').join('\n')+'\nreturn 0;}\n',groups,expected:groups.flat()};}
 export const cPreprocessorContractIds=[...specs.keys()];
 export const cPreprocessorReferenceSources=Object.fromEntries([...specs].map(([key,spec])=>[key,spec.source]));
-export function cPreprocessorContract(questionId){const spec=specs.get(questionId);if(!spec)return null;const variants=(spec.profiles||[{}]).map(p=>make(spec,p));return variants.length===1?variants[0]:{...variants[0],variants};}
+const sampleBuilders={
+ [id('P',12)]:()=>[8,-4].map(n=>t('MacroBox a={'+n+'};printf("%d\\n",a.number);',[n])),
+ [id('P',16)]:p=>[t('Numeric value=(Numeric)1.5;printf("%.1f\\n",(double)value);',[p.real?'1.5':'1.0'])],
+ [id('P',20)]:()=>[
+  t('CONST_DECLARE(long long,x,9*8);printf("%lld\\n",x);',[72]),
+  t('CONST_DECLARE(unsigned,x,6*7);printf("%u\\n",x);',[42])
+ ]
+};
+export function cPreprocessorContract(questionId,forSamples=false){
+ const spec=specs.get(questionId);if(!spec)return null;
+ const samples=sampleBuilders[questionId];
+ const testSpec=samples?{...spec,build:forSamples?samples:p=>[...spec.build(p),...samples(p)]}:spec;
+ const variants=(spec.profiles||[{}]).map(p=>make(testSpec,p));
+ return variants.length===1?variants[0]:{...variants[0],variants};
+}

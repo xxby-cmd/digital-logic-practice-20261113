@@ -11,7 +11,7 @@ export function createPracticeServer(directory=path.resolve(process.cwd(),'dist'
  return http.createServer(async(req,res)=>{
   try{
    const url=new URL(req.url,'http://localhost');
-   if(['/api/run','/api/judge'].includes(url.pathname))return await handleRun(req,res,res.socket.localPort);
+   if(['/api/run','/api/test','/api/judge'].includes(url.pathname))return await handleRun(req,res,res.socket.localPort);
    if(url.pathname==='/api/explain')return await handleExplain(req,res,res.socket.localPort);
    if(url.pathname==='/api/review')return await handleReview(req,res,res.socket.localPort);
    if(!['GET','HEAD'].includes(req.method)){res.writeHead(405);res.end();return;}
