@@ -1,6 +1,6 @@
 import {examPapers} from './exam-bank.js';
 import {fullExamPapers} from './full-exams.js';
-import {getCourse} from './course-banks.js';
+import {courseBanks,getCourse} from './course-banks.js';
 import {sanitizeImportedProgress,mergeProgress,emptyProgress} from './progress.js';
 import {grade,validAnswer,GRADING_VERSION} from './grading.js';
 import {AI_GRADING_VERSION,usesAIGrading,isAIQuestion,pendingAIQuestions,automaticAIScore} from './ai-grading.js';
@@ -8,6 +8,7 @@ import {EXAM_DURATION,refreshObjectiveMarks,pendingCodeQuestions,automaticCodeSc
 import {getPracticeCourse} from './practice-library.js';
 import {chapterCategory} from './chapter-tests.js';
 import {validateChapterPracticeSnapshot,normalizeChapterDefault} from './chapter-practice.js';
+import {mergePracticeStudy} from './study-progress.js';
 function snapshotVersion(attempt){return attempt.questionSnapshotVersion??(attempt.gradingVersion===GRADING_VERSION?2:1);}
 function validateReviewMode(attempt){
  if(attempt.subjectiveGradingVersion!==undefined&&attempt.subjectiveGradingVersion!==AI_GRADING_VERSION)throw Error('AI评分版本暂不支持，请保留原备份。');
@@ -91,10 +92,19 @@ export function mergeBackup(current,input,subject){
   }
   if(!room.tests.some(old=>old.id===a.id)){const copy=JSON.parse(JSON.stringify(a));if(copy.status==='marking'){refreshObjectiveMarks(copy);pendingCodeQuestions(copy);pendingAIQuestions(copy);}room.tests.push(copy);}
  }
- for(const id of Object.keys(examPapers)){
+ for(const id of Object.keys(courseBanks)){
   const incoming=input.practice[id];if(!incoming||!incoming.records)continue;
   const p=room.practice[id]||(room.practice[id]={seen:[],current:null,records:{}});
-  for(const [key,value]of Object.entries(incoming.records))if(value&&typeof value==='object'&&!p.records[key])p.records[key]=value;
+  const bank=new Map(getPracticeCourse(id).questions.map(q=>[q.id,q]));
+  for(const [key,value]of Object.entries(incoming.records)){
+   if(!value||typeof value!=='object')continue;
+   const old=p.records[key],q=bank.get(key);
+   if(!old){p.records[key]=value;continue;}
+   if(q&&(old.study||value.study)&&(old.revision??1)===(q.revision??1)){
+    const study=mergePracticeStudy(q,old,value);
+    if(study)p.records[key]={...old,study};
+   }
+  }
   for(const [key,value]of Object.entries(incoming.archived||{}))if(value&&typeof value==='object'&&!p.archived?.[key])(p.archived||(p.archived={}))[key]=value;
   // Fresh v2 rooms formerly emitted an unversioned nested legacy object.
   // Its containing v2 format supplies the missing v1 default; explicit future
@@ -104,7 +114,7 @@ export function mergeBackup(current,input,subject){
  if(input.chapterPracticeDefaults!==undefined){
   if(!input.chapterPracticeDefaults||Array.isArray(input.chapterPracticeDefaults)||typeof input.chapterPracticeDefaults!=='object')throw Error('默认练习配置格式不正确');
   for(const [scope,value]of Object.entries(input.chapterPracticeDefaults)){
-   if(scope!=='all'&&!Object.hasOwn(examPapers,scope))throw Error('默认练习配置的科目不存在');
+   if(scope!=='all'&&!Object.hasOwn(courseBanks,scope))throw Error('默认练习配置的科目不存在');
    const plan=normalizeChapterDefault(value);if(!room.chapterPracticeDefaults?.[scope])(room.chapterPracticeDefaults||(room.chapterPracticeDefaults={}))[scope]=plan;
   }
  }

@@ -1,4 +1,23 @@
 /* Reading layout: a quiet page, clear groups, comfortable line lengths. */
+.study-meter{min-inline-size:11rem;max-inline-size:24rem}
+.study-meter>strong{display:block;font-size:14px;color:#27364b;font-variant-numeric:tabular-nums}
+.study-meter progress,.chapter-draft-meter{appearance:none;display:block;inline-size:100%;block-size:8px;margin:7px 0;border:0;border-radius:999px;overflow:hidden;background:#e5edf7;accent-color:#176bc6}
+.study-meter progress::-webkit-progress-bar,.chapter-draft-meter::-webkit-progress-bar{background:#e5edf7}
+.study-meter progress::-webkit-progress-value,.chapter-draft-meter::-webkit-progress-value{background:#176bc6;border-radius:999px}
+.study-meter progress::-moz-progress-bar,.chapter-draft-meter::-moz-progress-bar{background:#176bc6;border-radius:999px}
+.study-metrics{display:flex;flex-wrap:wrap;gap:3px 14px;align-items:baseline;font-size:13px;color:#52627a;font-variant-numeric:tabular-nums;line-height:1.55}
+.study-metrics a{color:#155dab;text-decoration:underline;text-underline-offset:3px}
+.practice-study{display:flex;align-items:center;gap:14px 24px;flex-wrap:wrap;margin:0 0 14px;padding:11px 16px}
+.practice-study>.study-meter{flex:1;max-inline-size:34rem}
+.chapter-draft-meter{max-inline-size:19rem}
+@media(max-width:650px){
+ .chapter-panel table{min-width:0}
+ .chapter-panel thead{position:absolute;inline-size:1px;block-size:1px;clip-path:inset(50%);overflow:hidden}
+ .chapter-panel tbody,.chapter-panel tr,.chapter-panel td{display:block;min-width:0}
+ .chapter-panel tr{padding:12px 15px;border-top:1px solid #e2e8f0}
+ .chapter-panel td{padding:4px 0;border:0;white-space:normal}
+ .chapter-panel .table-actions{display:flex;flex-wrap:wrap;gap:6px}
+}
 body{background:#f5f7fb;color:#253044;font-size:15px}
 .site-content{background:#f7f9fc}.topbar{box-shadow:0 1px 8px #26354d05}.brand{font-weight:600}.site-location{color:#66748a}
 .subject-main,.room-main{max-width:1440px;margin:0 auto;padding:28px 32px 44px}.page-heading{margin-bottom:24px}.page-heading h1,.heading-row h1{letter-spacing:.02em;font-weight:650}
